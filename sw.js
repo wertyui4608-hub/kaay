@@ -1,8 +1,12 @@
-const CACHE_NAME = 'kaay-64-v4';
+const CACHE_NAME = 'kaay-64-v5';
 const LOCAL_ASSETS_TO_CACHE = [
   './',
   './index.html',
   './auth.js',
+  './apple-touch-icon.png',
+  './icon-192.png',
+  './icon-512.png',
+  './favicon.png',
   './kaay_symbol.png',
   './kaay_emblem.png',
   './kaay_notice.jpg',
