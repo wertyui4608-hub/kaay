@@ -1,0 +1,3761 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>육군3사관학교 64기 – KAAY</title>
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#161616">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="KAAY 64기">
+  <link rel="apple-touch-icon" href="./kaay_symbol.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      border-radius: 0px !important;
+      font-family: 'IBM Plex Sans KR', 'IBM Plex Sans', -apple-system, sans-serif;
+      box-shadow: none !important;
+    }
+    body {
+      background-color: #f4f4f4;
+      color: #161616;
+      letter-spacing: 0.16px;
+      line-height: 1.5;
+    }
+    .carbon-border {
+      border: 1px solid #e0e0e0;
+    }
+    .carbon-border-b {
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .carbon-border-t {
+      border-top: 1px solid #e0e0e0;
+    }
+    .carbon-blue-btn {
+      background-color: #0f62fe;
+      color: #ffffff;
+      transition: background-color 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
+    }
+    .carbon-blue-btn:hover {
+      background-color: #0353e9;
+    }
+    .carbon-blue-btn:active {
+      background-color: #002d9c;
+    }
+    .carbon-input {
+      background-color: #f4f4f4;
+      border: 1px solid #e0e0e0;
+      border-bottom: 2px solid #8c8c8c;
+      transition: border-color 70ms;
+    }
+    .carbon-input:focus {
+      outline: none;
+      border-bottom: 2px solid #0f62fe;
+      background-color: #ffffff;
+    }
+    .tab-active {
+      border-bottom: 2px solid #0f62fe;
+      color: #161616;
+      font-weight: 600;
+      background-color: #ffffff;
+    }
+    .tab-inactive {
+      border-bottom: 1px solid #e0e0e0;
+      color: #525252;
+      background-color: #f4f4f4;
+    }
+    .app-viewport {
+      max-width: 440px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-left: 1px solid #e0e0e0;
+      border-right: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+  </style>
+</head>
+<body class="bg-neutral-100 flex justify-center">
+
+  <div class="app-viewport flex flex-col justify-between">
+    
+    <!-- Top Navigation (최상단 메인바) -->
+    <nav class="h-14 bg-white px-4 flex items-center justify-between carbon-border-b sticky top-0 z-30">
+      <div class="flex items-center gap-2.5">
+        <img src="kaay_symbol.png" alt="육군3사관학교 마크" class="w-8 h-8 object-contain flex-shrink-0">
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-semibold tracking-wider text-[#161616]">KAAY</span>
+            <span class="text-[10px] bg-[#edf5ff] text-[#0f62fe] px-1.5 py-0.2 font-medium border border-[#d0e2ff]">64기</span>
+          </div>
+          <span class="text-[9px] text-[#525252] leading-none">조국 · 명예 · 충용</span>
+        </div>
+      </div>
+      <div class="bg-[#161616] text-white text-[11px] font-mono px-2 py-1 flex items-center gap-1.5">
+        <span class="inline-block w-1.5 h-1.5 bg-[#f1c21b] animate-pulse"></span>
+        <span>가입교 D-88</span>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 pb-20 overflow-y-auto">
+      
+      <!-- ================= 1. HOME SCREEN ================= -->
+      <section id="screen-home" class="screen-view p-4 space-y-4">
+        
+        <!-- Hero CTA Banner -->
+        <div class="bg-[#161616] text-white p-5 carbon-border">
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-[11px] text-[#f1c21b] font-medium tracking-wider">★ 64기 입교 준비</span>
+            <span class="text-[10px] text-[#8c8c8c] font-mono">2027. 01. 11 가입교</span>
+          </div>
+          <h1 class="text-2xl font-light tracking-tight mb-1 text-white">가입교 D-88 카운트다운</h1>
+          <p class="text-xs text-[#c6c6c6] font-light leading-relaxed mb-4">
+            “국가에 충성을, 국민에 헌신을, 가슴에 큰 꿈을”<br>
+            64기 사관생도 합격을 축하합니다. 체력 특급과 토익으로 완벽히 대비하십시오.
+          </p>
+
+          <!-- Urgent Official Milestone Banner -->
+          <div class="bg-[#262626] border-l-2 border-[#0f62fe] p-2.5 text-xs text-[#f4f4f4] space-y-1">
+            <div class="flex justify-between items-center">
+              <span class="font-semibold text-[#6ea8fe] flex items-center gap-1">
+                <span class="w-1.5 h-1.5 bg-[#0f62fe] inline-block"></span>
+                다음 공식 일정 (D-1 내일 시작!)
+              </span>
+              <span class="text-[10px] font-mono text-[#f1c21b]">10.16 ~ 11.08</span>
+            </div>
+            <p class="text-[11px] text-[#c6c6c6]">
+              합격자 오리엔테이션 참석 인원 가입교 중대별 파악 진행
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 pt-3 mt-3 border-t border-[#393939] text-xs">
+            <div>
+              <span class="text-[#8c8c8c] block text-[10px]">내 체력 상태</span>
+              <span id="home-best-status" class="text-[#24a148] font-semibold text-sm">기록 입력 대기</span>
+            </div>
+            <div>
+              <span class="text-[#8c8c8c] block text-[10px]">토익 진도율</span>
+              <span id="home-voca-status" class="text-[#0f62fe] font-semibold text-sm">노랭이 Day 01</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 64기 주요 일정 로드맵 -->
+        <div class="bg-white p-4 carbon-border space-y-2.5">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-semibold text-[#161616] flex items-center gap-1.5">
+              <img src="kaay_symbol.png" class="w-3.5 h-3.5 inline-block">
+              64기 주요 향후 일정 로드맵
+            </span>
+            <button onclick="switchTab('calendar')" class="text-[11px] text-[#0f62fe] font-medium hover:underline">
+              전체 일정표 보기 →
+            </button>
+          </div>
+          
+          <div class="space-y-1.5 text-xs">
+            <div class="flex items-center justify-between p-2 bg-[#f4f4f4] border-l-2 border-[#24a148]">
+              <div>
+                <span class="font-medium text-[#161616]">1차 오리엔테이션 (가족 초청)</span>
+                <span class="block text-[10px] text-[#525252]">* 생도제복 치수재기 병행</span>
+              </div>
+              <span class="font-mono text-[11px] text-[#161616] font-semibold">'26. 11. 28</span>
+            </div>
+            <div class="flex items-center justify-between p-2 bg-[#f4f4f4] border-l-2 border-[#8c8c8c]">
+              <div>
+                <span class="font-medium text-[#161616]">2차 오리엔테이션 (가족 초청)</span>
+                <span class="block text-[10px] text-[#525252]">* 생도제복 치수재기 병행</span>
+              </div>
+              <span class="font-mono text-[11px] text-[#525252]">'26. 12. 19</span>
+            </div>
+            <div class="flex items-center justify-between p-2 bg-[#161616] text-white">
+              <div>
+                <span class="font-semibold text-[#f1c21b]">충성대 가입교 (가족 초청)</span>
+                <span class="block text-[10px] text-[#8c8c8c]">5주 충성기초훈련 돌입</span>
+              </div>
+              <span class="font-mono text-xs text-[#f1c21b] font-bold">'27. 01. 11</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Today's Focus Action Cards -->
+        <div class="space-y-3">
+          <div class="text-xs font-semibold text-[#525252] uppercase tracking-wider">Today's Focus</div>
+          
+          <div class="bg-white p-4 carbon-border hover:bg-[#f4f4f4] transition cursor-pointer" onclick="switchTab('fitness')">
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-[11px] font-mono text-[#0f62fe] bg-[#edf5ff] px-2 py-0.5 border border-[#d0e2ff]">육군 체력검정</span>
+              <span class="text-xs text-[#525252]">직접 기록하기</span>
+            </div>
+            <h3 class="text-base font-medium text-[#161616] mb-1">3km · 팔굽 · 윗몸 기록 입력</h3>
+            <p class="text-xs text-[#525252] mb-3">내 실제 측정 기록을 기입하고 실시간 등급 및 변화 그래프 확인</p>
+            <div class="flex items-center justify-between pt-2 border-t border-[#e0e0e0]">
+              <span class="text-[11px] text-[#525252]">특급 목표 프로젝트</span>
+              <button class="carbon-blue-btn text-xs px-3 py-1.5 flex items-center gap-1 font-medium">
+                기록 관리 <span class="text-[10px]">→</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 carbon-border hover:bg-[#f4f4f4] transition cursor-pointer" onclick="switchTab('toeic')">
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-[11px] font-mono text-[#161616] bg-[#f4f4f4] px-2 py-0.5 border border-[#e0e0e0]">toeic-daily 연동</span>
+              <span class="text-xs text-[#24a148] font-medium">학습 및 자료실</span>
+            </div>
+            <h3 class="text-base font-medium text-[#161616] mb-1">노랭이 단어장 & LC 음원·학습지 자료실</h3>
+            <p class="text-xs text-[#525252] mb-3">Day별 단어 선택 암기 및 모의고사 음원·학습지 다운로드</p>
+            <div class="flex items-center justify-between pt-2 border-t border-[#e0e0e0]">
+              <span class="text-[11px] text-[#525252]">자료실 파일 제공</span>
+              <button class="bg-[#161616] text-white text-xs px-3 py-1.5 flex items-center gap-1 font-medium hover:bg-[#393939]">
+                토익 열기 <span class="text-[10px]">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ================= 2. FITNESS SCREEN ================= -->
+      <section id="screen-fitness" class="screen-view p-4 space-y-4 hidden">
+        <div>
+          <h2 class="text-xl font-light text-[#161616]">체력 관리실</h2>
+          <p class="text-xs text-[#525252]">육군 3종목 실제 기록 입력 (과거 측정 기록 기입 가능)</p>
+        </div>
+
+        <!-- 3-Tab Component -->
+        <div class="grid grid-cols-3 carbon-border-b text-center text-xs">
+          <button id="f-tab-run" class="py-2.5 tab-active" onclick="selectFitnessTab('run')">3km 달리기</button>
+          <button id="f-tab-pushup" class="py-2.5 tab-inactive" onclick="selectFitnessTab('pushup')">팔굽혀펴기 (2분)</button>
+          <button id="f-tab-situp" class="py-2.5 tab-inactive" onclick="selectFitnessTab('situp')">윗몸일으키기 (2분)</button>
+        </div>
+
+        <!-- Actual Record Entry Form -->
+        <div class="bg-white p-4 carbon-border space-y-3">
+          <div class="flex justify-between items-center pb-2 border-b border-[#e0e0e0]">
+            <span class="text-xs font-semibold text-[#161616]">측정 기록 입력 (과거 날짜 선택 가능)</span>
+            <span id="criteria-hint" class="text-[11px] text-[#0f62fe] font-medium">특급: 12분 30초 이하</span>
+          </div>
+
+          <!-- 측정 날짜 선택 -->
+          <div>
+            <label class="block text-[11px] font-medium text-[#525252] mb-1">측정 일자</label>
+            <input type="date" id="fitness-input-date" class="carbon-input w-full p-2 text-xs font-mono">
+          </div>
+
+          <!-- 기록 입력 -->
+          <div id="run-input-group">
+            <label class="block text-[11px] font-medium text-[#525252] mb-1">3km 달리기 시간</label>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="flex items-center gap-1">
+                <input type="number" id="run-min" min="8" max="30" placeholder="12" class="carbon-input w-full p-2 text-sm text-center font-mono">
+                <span class="text-xs text-[#525252]">분</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <input type="number" id="run-sec" min="0" max="59" placeholder="45" class="carbon-input w-full p-2 text-sm text-center font-mono">
+                <span class="text-xs text-[#525252]">초</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="count-input-group" class="hidden">
+            <label id="count-input-label" class="block text-[11px] font-medium text-[#525252] mb-1">2분 측정 횟수 (회)</label>
+            <div class="flex items-center gap-2">
+              <input type="number" id="reps-val" min="0" max="150" placeholder="70" class="carbon-input w-full p-2 text-sm font-mono">
+              <span class="text-xs text-[#525252]">회</span>
+            </div>
+          </div>
+
+          <button onclick="saveActualFitnessRecord()" class="carbon-blue-btn w-full py-2.5 text-xs font-medium">
+            + 내 실제 기록 저장하기
+          </button>
+        </div>
+
+        <!-- Real-time Assessment Result Box -->
+        <div id="fitness-result-card" class="bg-[#f4f4f4] p-4 carbon-border space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-[#525252] font-mono">LATEST ASSESSMENT</span>
+            <span id="grade-badge" class="px-2.5 py-0.5 text-xs font-semibold bg-[#8c8c8c] text-white">기록 없음</span>
+          </div>
+          <div class="text-lg font-light text-[#161616]">
+            최근 기록: <span id="display-record" class="font-mono font-medium">-</span>
+          </div>
+          <p id="grade-feedback" class="text-xs text-[#525252]">
+            위 입력창에 실제 측정하신 기록을 입력해 보세요.
+          </p>
+        </div>
+
+        <!-- Customized Training Plan -->
+        <div class="bg-white p-4 carbon-border space-y-2">
+          <div class="text-xs font-semibold text-[#161616] flex items-center justify-between">
+            <span>추천 맞춤 훈련 루틴</span>
+            <span class="text-[10px] text-[#0f62fe] font-mono">TRAINING GUIDE</span>
+          </div>
+          <div id="routine-box" class="text-xs text-[#525252] space-y-1.5 leading-relaxed bg-[#f4f4f4] p-3 carbon-border">
+            <div class="font-medium text-[#161616]">기초 인터벌 트레이닝</div>
+            <p>• 400m 트랙 90초 질주 $\rightarrow$ 60초 조깅 회복 (총 5세트 반복)</p>
+          </div>
+        </div>
+
+        <!-- Hairline Chart (Actual User Data Canvas) -->
+        <div class="bg-white p-4 carbon-border space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-semibold text-[#161616]">내 기록 변화 추이 그래프</span>
+            <span class="text-[10px] font-mono text-[#24a148]">— 특급 기준선</span>
+          </div>
+          <div class="relative h-44 bg-[#ffffff] carbon-border flex items-center justify-center">
+            <canvas id="fitnessChart" width="360" height="170" class="w-full h-full"></canvas>
+          </div>
+          <div id="chart-hint-text" class="text-[11px] text-[#8c8c8c] text-center">
+            실제 입력된 기록을 바탕으로 날짜순 꺾은선 그래프가 자동 렌더링됩니다.
+          </div>
+        </div>
+
+        <!-- Recorded History Table -->
+        <div class="bg-white carbon-border overflow-hidden">
+          <div class="bg-[#161616] text-white p-3 flex justify-between items-center text-xs">
+            <span class="font-medium">기록 히스토리 목록</span>
+            <span id="history-count" class="text-[10px] text-[#f1c21b] font-mono">0건</span>
+          </div>
+          <div id="history-list" class="divide-y divide-[#e0e0e0] text-xs max-h-48 overflow-y-auto">
+            <div class="p-4 text-center text-[#8c8c8c]">등록된 실제 기록이 없습니다.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 3. TOEIC SCREEN ================= -->
+      <section id="screen-toeic" class="screen-view p-4 space-y-4 hidden">
+        <div>
+          <h2 class="text-xl font-light text-[#161616]">TOEIC 트레이닝</h2>
+          <p class="text-xs text-[#525252]">노랭이 보카 · Part 5 실전 · LC 및 학습지 자료실</p>
+        </div>
+
+        <!-- Sub Module Selector (3개 탭: 보카, Part 5, 자료실) -->
+        <div class="grid grid-cols-3 carbon-border text-xs text-center">
+          <button id="t-mod-voca" class="py-2.5 tab-active" onclick="switchToeicModule('voca')">노랭이 보카</button>
+          <button id="t-mod-rc" class="py-2.5 tab-inactive" onclick="switchToeicModule('rc')">Part 5 실전</button>
+          <button id="t-mod-archive" class="py-2.5 tab-inactive" onclick="switchToeicModule('archive')">학습 자료실 📂</button>
+        </div>
+
+        <!-- 1) Voca Flashcard Module (Day 선택 기능 탑재) -->
+        <div id="toeic-voca-container" class="space-y-3">
+          
+          <!-- Day 선택 드롭다운 바 -->
+          <div class="bg-white p-3 carbon-border flex items-center justify-between">
+            <span class="text-xs font-semibold text-[#161616]">학습 Day 선택</span>
+            <select id="voca-day-select" onchange="changeVocaDay(this.value)" class="carbon-input text-xs py-1 px-2.5 font-medium text-[#0f62fe]">
+              <option value="1">Day 01 (명사)</option>
+              <option value="2">Day 02 (대명사)</option>
+              <option value="3">Day 03 (형용사)</option>
+              <option value="4">Day 04 (부사)</option>
+              <option value="5">Day 05 (동사 자리와 수일치)</option>
+              <option value="6">Day 06 (시제)</option>
+              <option value="7">Day 07 (능동태 vs 수동태)</option>
+              <option value="8">Day 08 (to부정사)</option>
+              <option value="9">Day 09 (동명사 (+ to부정사 vs 동명사 비교))</option>
+              <option value="10">Day 10 (분사 (현재분사 vs 과거분사, 감정분사))</option>
+              <option value="11">Day 11 (분사구문)</option>
+              <option value="12">Day 12 (전치사 1 — 시간·장소)</option>
+              <option value="13">Day 13 (전치사 2 — 이유·양보·기타)</option>
+              <option value="14">Day 14 (등위·상관접속사)</option>
+              <option value="15">Day 15 (부사절 접속사 vs 전치사)</option>
+              <option value="16">Day 16 (명사절 접속사 (that/whether/what))</option>
+              <option value="17">Day 17 (관계대명사)</option>
+              <option value="18">Day 18 (관계부사·복합관계사)</option>
+              <option value="19">Day 19 (비교구문 (much 비교급 강조 등))</option>
+              <option value="20">Day 20 (가정법·도치 (Not only 도치, If had p.p.))</option>
+              <option value="21">Day 21 (동사 어휘 (빈출 짝꿍))</option>
+              <option value="22">Day 22 (품사 자리 종합 복습)</option>
+              <option value="23">Day 23 (실전 1회 — 2023-06-11 Part 5 전체)</option>
+              <option value="24">Day 24 (실전 2회 — 2025-01-12 Part 5·6·7)</option>
+              <option value="25">Day 25 (실전 3회 — 2025-01-26 Part 5·6·7)</option>
+              <option value="26">Day 26 (실전 4회 — 2025-02-09 Part 5·6·7)</option>
+              <option value="27">Day 27 (실전 5회 — 2025-03-09 Part 5·6·7)</option>
+              <option value="28">Day 28 (실전 6회 — 2025-03-30 Part 5·6·7)</option>
+              <option value="29">Day 29 (실전 7회 — 2025-04-27 Part 5)</option>
+              <option value="30">Day 30 (최종 진단평가 (Day 1 진단과 비교))</option>
+            </select>
+          </div>
+
+          <div class="bg-white p-6 carbon-border text-center space-y-3 cursor-pointer select-none hover:bg-[#fafafa] transition" onclick="flipCard()">
+            <div class="flex justify-between items-center text-[11px] text-[#525252] border-b border-[#f4f4f4] pb-2">
+              <span id="voca-counter">단어 1 / 8</span>
+              <span class="text-[#0f62fe] font-medium">[카드를 누르면 뜻이 열립니다]</span>
+            </div>
+
+            <div id="voca-word" class="text-3xl font-semibold text-[#161616] tracking-wide py-4">previous job</div>
+            
+            <div id="voca-meaning-box" class="pt-3 border-t border-[#e0e0e0] hidden">
+              <div id="voca-meaning" class="text-base font-semibold text-[#0f62fe] mb-1.5">이전 직업</div>
+              <p id="voca-example" class="text-xs text-[#525252] leading-relaxed">
+                “He gained valuable experience from his previous job.”
+              </p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="nextWord(false)" class="bg-[#f4f4f4] text-[#161616] py-3 text-xs font-medium carbon-border hover:bg-[#e0e0e0]">
+              ✕ 다시 보기
+            </button>
+            <button onclick="nextWord(true)" class="carbon-blue-btn py-3 text-xs font-medium">
+              ✓ 외웠어요 (다음 단어)
+            </button>
+          </div>
+        </div>
+
+        <!-- 2) Part 5 Timed Quiz Module -->
+        <div id="toeic-rc-container" class="space-y-3 hidden">
+          <div class="bg-white p-4 carbon-border space-y-3">
+            <div class="flex justify-between items-center pb-2 border-b border-[#e0e0e0]">
+              <span id="rc-question-num" class="text-xs font-medium text-[#161616]">QUESTION 101 / Part 5</span>
+              <span id="rc-timer-badge" class="text-xs font-mono text-[#0f62fe] font-semibold bg-[#edf5ff] px-2 py-0.5 border border-[#d0e2ff]">
+                ⏱ 00:30 남음
+              </span>
+            </div>
+
+            <p id="rc-question-stem" class="text-sm text-[#161616] leading-relaxed font-normal">
+              Westlee washing machines _______ clothes using less water than other brands do.
+            </p>
+
+            <div id="rc-options-container" class="space-y-1.5 pt-1">
+              <!-- Choices rendered by JS -->
+            </div>
+
+            <!-- Explanation Box -->
+            <div id="rc-explanation" class="hidden p-3 bg-[#edf5ff] border border-[#0f62fe] text-xs space-y-1">
+              <div id="rc-ans-label" class="font-semibold text-[#0f62fe]">정답: (A) clean</div>
+              <p id="rc-ans-reason" class="text-[#161616] leading-relaxed">
+                주어가 복수 명사이므로 현재 시제 복수 동사 clean이 정답입니다.
+              </p>
+            </div>
+
+            <!-- Next Question Action Button -->
+            <button id="rc-next-btn" onclick="nextPart5Question()" class="hidden carbon-blue-btn w-full py-2.5 text-xs font-medium">
+              다음 문제 풀기 (Next Question) →
+            </button>
+          </div>
+        </div>
+
+        <!-- 3) TOEIC Archive & Downloads Module (전체 Day 연동 자료실) -->
+        <div id="toeic-archive-container" class="space-y-3 hidden">
+          
+          <!-- LC 모의고사 전체 음원 플레이어 & 다운로드 -->
+          <div class="bg-white p-4 carbon-border space-y-2.5">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-semibold text-[#161616] flex items-center gap-1.5">
+                <span class="w-2 h-2 bg-[#0f62fe] inline-block"></span>
+                TOEIC LC 실전 모의고사 음원
+              </span>
+              <span class="text-[10px] font-mono text-[#525252]">14 MB 풀세트</span>
+            </div>
+            <p class="text-xs text-[#525252]">실전 LC 모의고사 전체 풀세트 오디오</p>
+            
+            <audio controls class="w-full h-8 mt-1">
+              <source src="toeic_files/TOEIC_LC_모의고사_전체.m4a" type="audio/mp4">
+              브라우저가 오디오 재생을 지원하지 않습니다.
+            </audio>
+
+            <div class="grid grid-cols-2 gap-2 pt-2 border-t border-[#e0e0e0]">
+              <a href="toeic_files/TOEIC_LC_모의고사_문제지.pdf" download class="bg-[#f4f4f4] text-[#161616] carbon-border p-2 text-center text-xs font-medium hover:bg-[#e0e0e0] block">
+                📄 문제지 PDF
+              </a>
+              <a href="toeic_files/TOEIC_LC_모의고사_정답_스크립트.pdf" download class="bg-[#f4f4f4] text-[#161616] carbon-border p-2 text-center text-xs font-medium hover:bg-[#e0e0e0] block">
+                📝 스크립트 PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- 파트별 분할 음원 다운로드 -->
+          <div class="bg-white p-4 carbon-border space-y-2">
+            <span class="text-xs font-semibold text-[#161616] block">LC 파트별 분할 음원</span>
+            <div class="grid grid-cols-2 gap-1.5 text-xs">
+              <a href="toeic_files/Part1.m4a" download class="p-2 bg-[#fafafa] carbon-border flex justify-between items-center hover:bg-[#f4f4f4]">
+                <span>Part 1 (사진)</span>
+                <span class="text-[10px] text-[#0f62fe] font-mono">1.1M ⬇</span>
+              </a>
+              <a href="toeic_files/Part2.m4a" download class="p-2 bg-[#fafafa] carbon-border flex justify-between items-center hover:bg-[#f4f4f4]">
+                <span>Part 2 (질의)</span>
+                <span class="text-[10px] text-[#0f62fe] font-mono">2.5M ⬇</span>
+              </a>
+              <a href="toeic_files/Part3.m4a" download class="p-2 bg-[#fafafa] carbon-border flex justify-between items-center hover:bg-[#f4f4f4]">
+                <span>Part 3 (대화)</span>
+                <span class="text-[10px] text-[#0f62fe] font-mono">5.9M ⬇</span>
+              </a>
+              <a href="toeic_files/Part4.m4a" download class="p-2 bg-[#fafafa] carbon-border flex justify-between items-center hover:bg-[#f4f4f4]">
+                <span>Part 4 (담화)</span>
+                <span class="text-[10px] text-[#0f62fe] font-mono">4.4M ⬇</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 데일리 맞춤 학습지 및 기출문제집 다운로드 (Day 선택기 동적 연동) -->
+          <div class="bg-white p-4 carbon-border space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-[#e0e0e0]">
+              <span class="text-xs font-semibold text-[#161616]">데일리 맞춤 학습지 & 기출</span>
+              <!-- Day 선택 드롭다운 -->
+              <select id="archive-day-select" onchange="renderArchiveFiles(this.value)" class="carbon-input text-xs py-1 px-2 font-medium text-[#0f62fe]">
+                <option value="day01">Day 01 (명사) (12개 자료)</option>
+                <option value="day02">Day 02 (대명사) (7개 자료)</option>
+                <option value="day03">Day 03 (형용사) (7개 자료)</option>
+                <option value="day04">Day 04 (부사) (7개 자료)</option>
+                <option value="day05">Day 05 (동사 자리와 수일치) (7개 자료)</option>
+                <option value="day06">Day 06 (시제) (7개 자료)</option>
+                <option value="day07">Day 07 (능동태 vs 수동태) (7개 자료)</option>
+                <option value="day08">Day 08 (to부정사) (7개 자료)</option>
+                <option value="day09">Day 09 (동명사 (+ to부정사 vs 동명사 비교)) (7개 자료)</option>
+                <option value="day10">Day 10 (분사 (현재분사 vs 과거분사, 감정분사)) (7개 자료)</option>
+                <option value="day11">Day 11 (분사구문) (7개 자료)</option>
+                <option value="day12">Day 12 (전치사 1 — 시간·장소) (7개 자료)</option>
+                <option value="day13">Day 13 (전치사 2 — 이유·양보·기타) (7개 자료)</option>
+                <option value="day14">Day 14 (등위·상관접속사) (7개 자료)</option>
+                <option value="day15">Day 15 (부사절 접속사 vs 전치사) (7개 자료)</option>
+                <option value="day16">Day 16 (명사절 접속사 (that/whether/what)) (7개 자료)</option>
+                <option value="day17">Day 17 (관계대명사) (7개 자료)</option>
+                <option value="day18">Day 18 (관계부사·복합관계사) (7개 자료)</option>
+                <option value="day19">Day 19 (비교구문 (much 비교급 강조 등)) (7개 자료)</option>
+                <option value="day20">Day 20 (가정법·도치 (Not only 도치, If had p.p.)) (예정)</option>
+                <option value="day21">Day 21 (동사 어휘 (빈출 짝꿍)) (예정)</option>
+                <option value="day22">Day 22 (품사 자리 종합 복습) (예정)</option>
+                <option value="day23">Day 23 (실전 1회 — 2023-06-11 Part 5 전체) (예정)</option>
+                <option value="day24">Day 24 (실전 2회 — 2025-01-12 Part 5·6·7) (예정)</option>
+                <option value="day25">Day 25 (실전 3회 — 2025-01-26 Part 5·6·7) (예정)</option>
+                <option value="day26">Day 26 (실전 4회 — 2025-02-09 Part 5·6·7) (예정)</option>
+                <option value="day27">Day 27 (실전 5회 — 2025-03-09 Part 5·6·7) (예정)</option>
+                <option value="day28">Day 28 (실전 6회 — 2025-03-30 Part 5·6·7) (예정)</option>
+                <option value="day29">Day 29 (실전 7회 — 2025-04-27 Part 5) (예정)</option>
+                <option value="day30">Day 30 (최종 진단평가 (Day 1 진단과 비교)) (예정)</option>
+              </select>
+            </div>
+
+            <!-- 동적으로 주입되는 해당 Day의 7개 파일 리스트 -->
+            <div id="archive-files-list" class="divide-y divide-[#e0e0e0] text-xs">
+              <!-- JS will render file rows here -->
+            </div>
+          </div>
+
+          <!-- GitHub Repo Direct Link -->
+          <div class="p-3 bg-[#edf5ff] border border-[#d0e2ff] text-xs space-y-1">
+            <span class="font-semibold text-[#0f62fe] block">깃허브 레포지토리 연동 안내</span>
+            <p class="text-[#525252] text-[11px] leading-relaxed">
+              본 자료실은 귀하의 <code>toeic-daily</code> 레포지토리(Day 01 ~ Day 04 및 LC 실전 모의고사)와 1:1로 직접 연동되어 언제든 다운로드 및 학습이 가능합니다.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================= 4. CALENDAR SCREEN ================= -->
+      <section id="screen-calendar" class="screen-view p-4 space-y-4 hidden">
+        <div>
+          <div class="flex justify-between items-baseline">
+            <h2 class="text-xl font-light text-[#161616]">일정 & 캘린더</h2>
+            <button onclick="toggleNoticeModal(true)" class="text-xs text-[#0f62fe] font-medium underline">
+              공식 공지문 원본 보기
+            </button>
+          </div>
+          <p class="text-xs text-[#525252]">64기 공식 학사일정 및 내 체력 측정 기록 달력</p>
+        </div>
+
+        <!-- 캘린더 뷰 모드 토글 (월간 달력 vs 공식 일정 목록) -->
+        <div class="grid grid-cols-2 carbon-border text-xs text-center">
+          <button id="cal-mode-grid" class="py-2.5 tab-active" onclick="switchCalendarView('grid')">월간 달력 (Calendar)</button>
+          <button id="cal-mode-list" class="py-2.5 tab-inactive" onclick="switchCalendarView('list')">64기 공식 일정표</button>
+        </div>
+
+        <!-- 1) Dynamic Interactive Calendar Grid View -->
+        <div id="cal-grid-view" class="space-y-3">
+          
+          <!-- Month Navigation Bar -->
+          <div class="bg-white p-3 carbon-border flex items-center justify-between">
+            <button onclick="changeCalMonth(-1)" class="carbon-border px-3 py-1 text-xs hover:bg-[#f4f4f4] font-mono">
+              &lt; 이전 달
+            </button>
+            <div id="cal-month-title" class="text-sm font-semibold text-[#161616] font-mono">
+              2026년 10월
+            </div>
+            <button onclick="changeCalMonth(1)" class="carbon-border px-3 py-1 text-xs hover:bg-[#f4f4f4] font-mono">
+              다음 달 &gt;
+            </button>
+          </div>
+
+          <!-- 7-Column Calendar Grid Frame -->
+          <div class="bg-white carbon-border overflow-hidden">
+            <!-- Weekday Headers -->
+            <div class="grid grid-cols-7 border-b border-[#e0e0e0] text-center text-[11px] font-medium bg-[#f4f4f4]">
+              <div class="py-2 text-[#da1e28]">일</div>
+              <div class="py-2 text-[#525252]">월</div>
+              <div class="py-2 text-[#525252]">화</div>
+              <div class="py-2 text-[#525252]">수</div>
+              <div class="py-2 text-[#525252]">목</div>
+              <div class="py-2 text-[#525252]">금</div>
+              <div class="py-2 text-[#0f62fe]">토</div>
+            </div>
+
+            <!-- Dynamic Date Cells Injection Container -->
+            <div id="cal-cells-container" class="grid grid-cols-7 divide-x divide-y divide-[#e0e0e0] text-center text-xs">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Selected Date Details Panel -->
+          <div id="cal-selected-detail" class="bg-white p-4 carbon-border space-y-2">
+            <div class="flex justify-between items-center pb-2 border-b border-[#e0e0e0]">
+              <span id="detail-date-title" class="text-xs font-semibold text-[#161616]">2026. 10. 15 (오늘)</span>
+              <span id="detail-date-badge" class="text-[10px] bg-[#f4f4f4] text-[#525252] px-1.5 py-0.5 border border-[#e0e0e0]">선택됨</span>
+            </div>
+            
+            <div id="detail-events-content" class="text-xs text-[#525252] space-y-2">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 2) 64기 공식 일정 전체 타임라인 리스트 View -->
+        <div id="cal-list-view" class="space-y-3 hidden">
+          <div class="bg-white carbon-border overflow-hidden">
+            <div class="bg-[#161616] text-white p-3 flex justify-between items-center text-xs">
+              <span class="font-semibold flex items-center gap-1.5">
+                <img src="kaay_symbol.png" class="w-4 h-4 inline-block">
+                64기 합격자 향후 공식 일정
+              </span>
+              <span class="text-[10px] text-[#f1c21b] font-mono">공식 공정표</span>
+            </div>
+
+            <div class="divide-y divide-[#e0e0e0] text-xs">
+              <div class="p-3 flex items-start justify-between bg-[#fafafa]">
+                <div class="space-y-0.5">
+                  <span class="text-[10px] text-[#24a148] font-mono font-semibold">[완료]</span>
+                  <div class="font-medium text-[#525252]">가입교 중대 편성 / 공지</div>
+                </div>
+                <span class="font-mono text-[11px] text-[#8c8c8c] whitespace-nowrap">'26. 9. 28 ~ 10. 8</span>
+              </div>
+
+              <div class="p-3 flex items-start justify-between bg-[#edf5ff] border-l-4 border-[#0f62fe]">
+                <div class="space-y-0.5">
+                  <span class="text-[10px] bg-[#0f62fe] text-white px-1.5 py-0.5 font-mono font-semibold">진행 예정 (D-1)</span>
+                  <div class="font-semibold text-[#161616]">합격자 오리엔테이션 참석인원 파악</div>
+                  <div class="text-[11px] text-[#525252]">가입교 중대별 참석 인원 조사</div>
+                </div>
+                <span class="font-mono text-[11px] font-bold text-[#0f62fe] whitespace-nowrap">'26. 10. 16 ~ 11. 8</span>
+              </div>
+
+              <div class="p-3 flex items-start justify-between hover:bg-[#f4f4f4]">
+                <div class="space-y-0.5">
+                  <span class="text-[10px] bg-[#161616] text-white px-1.5 py-0.2 font-mono">가족 초청</span>
+                  <div class="font-medium text-[#161616]">1차 오리엔테이션 예정</div>
+                  <div class="text-[10px] text-[#0f62fe]">* 생도제복 치수재기 병행</div>
+                </div>
+                <span class="font-mono text-[11px] font-semibold text-[#161616] whitespace-nowrap">'26. 11. 28</span>
+              </div>
+
+              <div class="p-3 flex items-start justify-between hover:bg-[#f4f4f4]">
+                <div class="space-y-0.5">
+                  <span class="text-[10px] bg-[#161616] text-white px-1.5 py-0.2 font-mono">가족 초청</span>
+                  <div class="font-medium text-[#161616]">2차 오리엔테이션 예정</div>
+                  <div class="text-[10px] text-[#0f62fe]">* 생도제복 치수재기 병행</div>
+                </div>
+                <span class="font-mono text-[11px] font-semibold text-[#161616] whitespace-nowrap">'26. 12. 19</span>
+              </div>
+
+              <div class="p-3.5 flex items-start justify-between bg-[#161616] text-white">
+                <div class="space-y-0.5">
+                  <span class="text-[10px] bg-[#f1c21b] text-black font-semibold px-1.5 py-0.5 font-mono">KEY D-DAY</span>
+                  <div class="font-bold text-sm text-[#f1c21b]">가입교 (가족 초청)</div>
+                  <div class="text-[11px] text-[#c6c6c6]">경북 영천 충성대 입교 집결</div>
+                </div>
+                <span class="font-mono text-sm font-bold text-[#f1c21b] whitespace-nowrap">'27. 01. 11</span>
+              </div>
+
+              <div class="p-3 flex items-start justify-between bg-[#f4f4f4]">
+                <div class="space-y-0.5">
+                  <span class="text-[10px] text-[#da1e28] font-mono font-semibold">[5주 훈련]</span>
+                  <div class="font-semibold text-[#161616]">충성기초훈련</div>
+                  <div class="text-[11px] text-[#525252]">군사기초훈련, 행군, 사격, 각개전투</div>
+                </div>
+                <span class="font-mono text-[11px] font-semibold text-[#161616] whitespace-nowrap">'27. 1. 12 ~ 2. 12</span>
+              </div>
+
+              <div class="p-3 flex items-start justify-between bg-[#ffffff]">
+                <div class="space-y-0.5">
+                  <span class="text-[10px] bg-[#24a148] text-white px-1.5 py-0.2 font-mono">정식 생도 임명</span>
+                  <div class="font-bold text-[#161616]">입학식 (가족 초청)</div>
+                  <div class="text-[11px] text-[#525252]">64기 정식 사관생도 탄생</div>
+                </div>
+                <span class="font-mono text-[11px] font-bold text-[#24a148] whitespace-nowrap">'27. 02. 19</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ================= 5. MYPAGE SCREEN ================= -->
+      <section id="screen-mypage" class="screen-view p-4 space-y-4 hidden">
+        
+        <div class="bg-[#161616] text-white p-5 carbon-border text-center space-y-3">
+          <div class="flex justify-center">
+            <img src="kaay_emblem.png" alt="육군3사관학교 정모 엠블럼" class="w-20 h-20 object-contain drop-shadow">
+          </div>
+          <div>
+            <div class="text-xs text-[#f1c21b] font-medium tracking-wide">KOREA ARMY ACADEMY AT YEONG-CHEON</div>
+            <h2 class="text-xl font-light mt-0.5">충성대 64기 사관생도</h2>
+            <div class="text-xs text-[#8c8c8c] mt-0.5">2027년 1월 11일 가입교 예정</div>
+          </div>
+          <div class="text-xs text-[#f1c21b] font-light border-t border-[#393939] pt-2 leading-relaxed">
+            “국가에 충성을, 국민에 헌신을, 가슴에 큰 꿈을”<br>
+            <span class="text-white text-[10px]">교훈: 조국(祖國) · 명예(名譽) · 충용(忠勇)</span>
+          </div>
+        </div>
+
+        <!-- Real Best Records Matrix -->
+        <div class="bg-white p-4 carbon-border space-y-3">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-semibold text-[#161616]">내 실제 최고 기록 매트릭스</span>
+            <span class="text-[10px] text-[#525252]">자동 계산</span>
+          </div>
+          <div class="grid grid-cols-3 gap-2 text-center">
+            <div class="bg-[#f4f4f4] p-2.5 carbon-border">
+              <span class="block text-[10px] text-[#525252]">3km 달리기</span>
+              <span id="my-best-run" class="text-sm font-mono font-bold text-[#161616]">-</span>
+              <span id="my-best-run-badge" class="block text-[10px] text-[#8c8c8c] mt-0.5">미등록</span>
+            </div>
+            <div class="bg-[#f4f4f4] p-2.5 carbon-border">
+              <span class="block text-[10px] text-[#525252]">팔굽혀펴기</span>
+              <span id="my-best-pushup" class="text-sm font-mono font-bold text-[#161616]">-</span>
+              <span id="my-best-pushup-badge" class="block text-[10px] text-[#8c8c8c] mt-0.5">미등록</span>
+            </div>
+            <div class="bg-[#f4f4f4] p-2.5 carbon-border">
+              <span class="block text-[10px] text-[#525252]">윗몸일으키기</span>
+              <span id="my-best-situp" class="text-sm font-mono font-bold text-[#161616]">-</span>
+              <span id="my-best-situp-badge" class="block text-[10px] text-[#8c8c8c] mt-0.5">미등록</span>
+            </div>
+          </div>
+        </div>
+
+                <!-- Settings & Data Persistence List -->
+        <div class="bg-white carbon-border divide-y divide-[#e0e0e0] text-xs">
+          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer" onclick="toggleNoticeModal(true)">
+            <span>입학관리실 정정 공지문 원본 확인</span>
+            <span class="text-[#0f62fe] font-medium">보기 →</span>
+          </div>
+          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer" onclick="exportBackupData()">
+            <div>
+              <span class="font-medium text-[#161616]">내 기록 백업 다운로드 (.json)</span>
+              <span class="block text-[10px] text-[#525252]">체력 기록 및 학습 데이터를 파일로 안전 보관</span>
+            </div>
+            <span class="text-[#0f62fe] font-mono">내보내기 ⬇</span>
+          </div>
+          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer" onclick="document.getElementById('backup-file-input').click()">
+            <div>
+              <span class="font-medium text-[#161616]">백업 파일로 기록 복원하기</span>
+              <span class="block text-[10px] text-[#525252]">이전에 저장한 JSON 파일에서 즉시 복구</span>
+            </div>
+            <span class="text-[#24a148] font-mono">가져오기 ⬆</span>
+            <input type="file" id="backup-file-input" accept=".json" class="hidden" onchange="importBackupData(event)">
+          </div>
+          <div class="p-3.5 flex justify-between items-center bg-[#fafafa]">
+            <div>
+              <span class="text-[#161616] font-medium">스토리지 영구 보존 엔진</span>
+              <span class="block text-[10px] text-[#24a148]">IndexedDB + LocalStorage 듀얼 백업 활성</span>
+            </div>
+            <span class="px-2 py-0.5 text-[10px] bg-[#24a148] text-white font-semibold">보존 중</span>
+          </div>
+          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer" onclick="clearMyData()">
+            <span class="text-[#da1e28]">내 체력 입력 기록 전체 초기화</span>
+            <span class="text-[#da1e28]">초기화</span>
+          </div>
+        </div>
+          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer" onclick="clearMyData()">
+            <span class="text-[#da1e28]">내 체력 입력 기록 초기화</span>
+            <span class="text-[#da1e28]">초기화</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="h-14 bg-white carbon-border-t fixed bottom-0 left-0 right-0 max-w-[440px] mx-auto grid grid-cols-5 z-40 text-[10px] text-[#525252]">
+      <button onclick="switchTab('home')" id="nav-home" class="flex flex-col items-center justify-center gap-1 text-[#0f62fe] font-medium border-t-2 border-[#0f62fe] bg-white">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M3 12l9-9 9 9M4 10v10h16V10"/></svg>
+        <span>홈</span>
+      </button>
+      <button onclick="switchTab('fitness')" id="nav-fitness" class="flex flex-col items-center justify-center gap-1 border-t-2 border-transparent hover:text-[#161616]">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <span>체력</span>
+      </button>
+      <button onclick="switchTab('toeic')" id="nav-toeic" class="flex flex-col items-center justify-center gap-1 border-t-2 border-transparent hover:text-[#161616]">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span>토익</span>
+      </button>
+      <button onclick="switchTab('calendar')" id="nav-calendar" class="flex flex-col items-center justify-center gap-1 border-t-2 border-transparent hover:text-[#161616]">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span>일정/캘린더</span>
+      </button>
+      <button onclick="switchTab('mypage')" id="nav-mypage" class="flex flex-col items-center justify-center gap-1 border-t-2 border-transparent hover:text-[#161616]">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        <span>마이</span>
+      </button>
+    </nav>
+
+    <!-- Modal for Official Notice Image -->
+    <div id="notice-modal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden" onclick="toggleNoticeModal(false)">
+      <div class="bg-white max-w-sm w-full max-h-[90vh] overflow-y-auto carbon-border flex flex-col" onclick="event.stopPropagation()">
+        <div class="h-10 px-4 bg-[#161616] text-white flex items-center justify-between">
+          <span class="text-xs font-semibold">입학관리실 정정 공지문</span>
+          <button onclick="toggleNoticeModal(false)" class="text-sm font-bold text-[#c6c6c6] hover:text-white">✕</button>
+        </div>
+        <div class="p-2 bg-neutral-900">
+          <img src="kaay_notice.jpg" alt="64기 합격자 정정 안내 공지문" class="w-full h-auto object-contain">
+        </div>
+        <div class="p-3 bg-white border-t border-[#e0e0e0] flex justify-end">
+          <button onclick="toggleNoticeModal(false)" class="carbon-blue-btn text-xs px-4 py-2 font-medium">
+            닫기
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleNoticeModal(show) {
+      const modal = document.getElementById('notice-modal');
+      if (show) modal.classList.remove('hidden');
+      else modal.classList.add('hidden');
+    }
+
+    // Tab switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.screen-view').forEach(el => el.classList.add('hidden'));
+      document.getElementById('screen-' + tabId).classList.remove('hidden');
+
+      const tabs = ['home', 'fitness', 'toeic', 'calendar', 'mypage'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('nav-' + t);
+        if (t === tabId) {
+          btn.className = "flex flex-col items-center justify-center gap-1 text-[#0f62fe] font-medium border-t-2 border-[#0f62fe] bg-white";
+        } else {
+          btn.className = "flex flex-col items-center justify-center gap-1 border-t-2 border-transparent text-[#525252] hover:text-[#161616]";
+        }
+      });
+      if (tabId === 'fitness') renderFitnessUI();
+    }
+
+    /* ========================================================
+       FITNESS ACTUAL RECORD MANAGEMENT (localStorage CRUD)
+       ======================================================== */
+    let currentFitnessMode = 'run';
+    const STORAGE_KEY = 'KAAY_64_FITNESS_RECORDS';
+
+    function getSavedRecords() {
+      try {
+        const data = localStorage.getItem(STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveRecords(records) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+      syncToIndexedDB(records);
+      updateMyPageMatrix();
+      renderFitnessUI();
+    }
+
+    function selectFitnessTab(mode) {
+      currentFitnessMode = mode;
+      ['run', 'pushup', 'situp'].forEach(m => {
+        const btn = document.getElementById('f-tab-' + m);
+        btn.className = (m === mode) ? "py-2.5 tab-active" : "py-2.5 tab-inactive";
+      });
+
+      const runGroup = document.getElementById('run-input-group');
+      const countGroup = document.getElementById('count-input-group');
+      const label = document.getElementById('count-input-label');
+      const hint = document.getElementById('criteria-hint');
+
+      if (mode === 'run') {
+        runGroup.classList.remove('hidden');
+        countGroup.classList.add('hidden');
+        hint.innerText = "특급: 12분 30초 이하";
+      } else if (mode === 'pushup') {
+        runGroup.classList.add('hidden');
+        countGroup.classList.remove('hidden');
+        label.innerText = "2분 팔굽혀펴기 횟수 (회)";
+        hint.innerText = "특급: 72회 이상";
+      } else {
+        runGroup.classList.add('hidden');
+        countGroup.classList.remove('hidden');
+        label.innerText = "2분 윗몸일으키기 횟수 (회)";
+        hint.innerText = "특급: 86회 이상";
+      }
+      renderFitnessUI();
+    }
+
+    function saveActualFitnessRecord() {
+      const dateVal = document.getElementById('fitness-input-date').value || new Date().toISOString().split('T')[0];
+      let valDisplay = "";
+      let numericVal = 0;
+      let grade = "3급 이하";
+      let badgeClass = "bg-[#da1e28]";
+
+      if (currentFitnessMode === 'run') {
+        const min = parseInt(document.getElementById('run-min').value, 10);
+        const sec = parseInt(document.getElementById('run-sec').value, 10) || 0;
+        if (isNaN(min) || min <= 0) {
+          alert("3km 달리기 '분'을 입력해 주세요. (예: 12분 40초)");
+          return;
+        }
+        numericVal = min * 60 + sec;
+        valDisplay = `${min}분 ${sec < 10 ? '0' + sec : sec}초`;
+
+        if (numericVal <= 12 * 60 + 30) {
+          grade = "특급"; badgeClass = "bg-[#24a148]";
+        } else if (numericVal <= 13 * 60 + 30) {
+          grade = "1급"; badgeClass = "bg-[#0f62fe]";
+        } else if (numericVal <= 14 * 60 + 30) {
+          grade = "2급"; badgeClass = "bg-[#f1c21b] text-black";
+        } else {
+          grade = "3급 이하"; badgeClass = "bg-[#da1e28]";
+        }
+      } else {
+        const reps = parseInt(document.getElementById('reps-val').value, 10);
+        if (isNaN(reps) || reps < 0) {
+          alert("측정 횟수를 입력해 주세요.");
+          return;
+        }
+        numericVal = reps;
+        valDisplay = `${reps}회`;
+
+        if (currentFitnessMode === 'pushup') {
+          if (reps >= 72) { grade = "특급"; badgeClass = "bg-[#24a148]"; }
+          else if (reps >= 64) { grade = "1급"; badgeClass = "bg-[#0f62fe]"; }
+          else if (reps >= 56) { grade = "2급"; badgeClass = "bg-[#f1c21b] text-black"; }
+          else { grade = "3급 이하"; badgeClass = "bg-[#da1e28]"; }
+        } else {
+          if (reps >= 86) { grade = "특급"; badgeClass = "bg-[#24a148]"; }
+          else if (reps >= 78) { grade = "1급"; badgeClass = "bg-[#0f62fe]"; }
+          else if (reps >= 70) { grade = "2급"; badgeClass = "bg-[#f1c21b] text-black"; }
+          else { grade = "3급 이하"; badgeClass = "bg-[#da1e28]"; }
+        }
+      }
+
+      const records = getSavedRecords();
+      const newEntry = {
+        id: Date.now(),
+        mode: currentFitnessMode,
+        date: dateVal,
+        valDisplay: valDisplay,
+        numericVal: numericVal,
+        grade: grade,
+        badgeClass: badgeClass
+      };
+      records.push(newEntry);
+      saveRecords(records);
+      alert(`[${dateVal}] ${valDisplay} (${grade}) 기록이 정상 저장되었습니다!`);
+    }
+
+    function deleteRecord(id) {
+      if (!confirm("이 기록을 삭제하시겠습니까?")) return;
+      const records = getSavedRecords().filter(r => r.id !== id);
+      saveRecords(records);
+    }
+
+    function clearMyData() {
+      if (confirm("정말로 모든 체력 기록을 초기화하시겠습니까?")) {
+        localStorage.removeItem(STORAGE_KEY);
+        updateMyPageMatrix();
+        renderFitnessUI();
+      }
+    }
+
+    function renderFitnessUI() {
+      const allRecords = getSavedRecords();
+      const modeRecords = allRecords.filter(r => r.mode === currentFitnessMode);
+      modeRecords.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+      const badge = document.getElementById('grade-badge');
+      const disp = document.getElementById('display-record');
+      const feedback = document.getElementById('grade-feedback');
+      const routine = document.getElementById('routine-box');
+      const histList = document.getElementById('history-list');
+      const histCount = document.getElementById('history-count');
+
+      histCount.innerText = `${modeRecords.length}건`;
+
+      if (modeRecords.length === 0) {
+        badge.innerText = "미등록";
+        badge.className = "px-2.5 py-0.5 text-xs font-semibold bg-[#8c8c8c] text-white";
+        disp.innerText = "-";
+        feedback.innerText = "아직 입력된 기록이 없습니다. 상단에서 첫 측정 기록을 입력해 보세요!";
+        routine.innerHTML = "<div class='font-medium text-[#161616]'>맞춤 훈련 안내</div><p>실제 측정 기록을 입력하시면 현재 등급과 부족한 수치에 맞춘 훈련법이 자동 제안됩니다.</p>";
+        histList.innerHTML = `<div class="p-4 text-center text-[#8c8c8c]">등록된 실제 기록이 없습니다.</div>`;
+      } else {
+        const latest = modeRecords[modeRecords.length - 1];
+        badge.innerText = `${latest.grade} 판정`;
+        badge.className = `px-2.5 py-0.5 text-xs font-semibold ${latest.badgeClass}`;
+        disp.innerText = `${latest.valDisplay} (${latest.date})`;
+
+        if (latest.grade === '특급') {
+          feedback.innerHTML = `<strong class="text-[#24a148]">특급 기준 달성!</strong> 현 페이스를 유지하며 부상 관리에 집중하세요.`;
+          routine.innerHTML = "<div class='font-medium text-[#161616]'>특급 유지 프로그램</div><p>• 주 1회 실전 페이스 점검 및 근지구력 유지 루틴</p>";
+        } else if (latest.grade === '1급') {
+          feedback.innerHTML = `현재 1급입니다. <strong class="text-[#0f62fe]">특급까지 한 단계</strong> 남았습니다!`;
+          routine.innerHTML = "<div class='font-medium text-[#161616]'>특급 돌파 집중 훈련</div><p>• 인터벌 트레이닝 세트수를 늘려 심폐 및 근력 한계치를 확장하세요.</p>";
+        } else {
+          feedback.innerHTML = `가입교 전 특급 완성을 위해 점진적으로 운동량을 늘려야 합니다.`;
+          routine.innerHTML = "<div class='font-medium text-[#161616]'>기초 지구력 보강 루틴</div><p>• 매일 규칙적인 세트 훈련 및 충분한 휴식을 병행하세요.</p>";
+        }
+
+        let html = "";
+        [...modeRecords].reverse().forEach(r => {
+          html += `
+            <div class="p-2.5 flex items-center justify-between hover:bg-[#f4f4f4]">
+              <div>
+                <span class="font-mono text-xs text-[#525252]">${r.date}</span>
+                <span class="font-semibold text-xs text-[#161616] ml-2">${r.valDisplay}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-1.5 py-0.2 text-[10px] font-semibold text-white ${r.badgeClass}">${r.grade}</span>
+                <button onclick="deleteRecord(${r.id})" class="text-[#8c8c8c] hover:text-[#da1e28] text-xs">✕</button>
+              </div>
+            </div>
+          `;
+        });
+        histList.innerHTML = html;
+      }
+
+      drawActualFitnessChart(modeRecords);
+    }
+
+    function drawActualFitnessChart(records) {
+      const canvas = document.getElementById('fitnessChart');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.strokeStyle = '#e0e0e0';
+      ctx.lineWidth = 1;
+      for (let y = 20; y < h; y += 35) {
+        ctx.beginPath();
+        ctx.moveTo(20, y);
+        ctx.lineTo(w - 20, y);
+        ctx.stroke();
+      }
+
+      if (records.length === 0) {
+        ctx.fillStyle = '#8c8c8c';
+        ctx.font = "12px 'IBM Plex Sans KR'";
+        ctx.textAlign = "center";
+        ctx.fillText("기록을 입력하면 그래프가 여기에 그려집니다", w / 2, h / 2);
+        document.getElementById('chart-hint-text').innerText = "등록된 기록이 없습니다.";
+        return;
+      }
+
+      document.getElementById('chart-hint-text').innerText = `${records.length}회의 측정 기록 변화 추이입니다.`;
+
+      ctx.strokeStyle = '#24a148';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(20, 45);
+      ctx.lineTo(w - 20, 45);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      const paddingX = 40;
+      const plotWidth = w - paddingX * 2;
+      const values = records.map(r => r.numericVal);
+      const minVal = Math.min(...values);
+      const maxVal = Math.max(...values);
+
+      const points = records.map((r, i) => {
+        const x = records.length === 1 ? w / 2 : paddingX + (plotWidth / (records.length - 1)) * i;
+        let y;
+        if (currentFitnessMode === 'run') {
+          const range = Math.max(maxVal - minVal, 60);
+          y = 35 + ((r.numericVal - minVal) / range) * 90;
+        } else {
+          const range = Math.max(maxVal - minVal, 15);
+          y = 125 - ((r.numericVal - minVal) / range) * 80;
+        }
+        return { x, y: Math.max(30, Math.min(130, y)), rec: r };
+      });
+
+      if (points.length > 1) {
+        ctx.strokeStyle = '#0f62fe';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        points.forEach((pt, idx) => {
+          if (idx === 0) ctx.moveTo(pt.x, pt.y);
+          else ctx.lineTo(pt.x, pt.y);
+        });
+        ctx.stroke();
+      }
+
+      points.forEach(pt => {
+        ctx.fillStyle = '#0f62fe';
+        ctx.fillRect(pt.x - 3.5, pt.y - 3.5, 7, 7);
+
+        ctx.fillStyle = '#161616';
+        ctx.font = "10px monospace";
+        ctx.textAlign = "center";
+        ctx.fillText(pt.rec.valDisplay, pt.x, pt.y - 8);
+      });
+    }
+
+    function updateMyPageMatrix() {
+      const records = getSavedRecords();
+      const runs = records.filter(r => r.mode === 'run');
+      const pushups = records.filter(r => r.mode === 'pushup');
+      const situps = records.filter(r => r.mode === 'situp');
+
+      if (runs.length > 0) {
+        runs.sort((a, b) => a.numericVal - b.numericVal);
+        const best = runs[0];
+        document.getElementById('my-best-run').innerText = best.valDisplay;
+        document.getElementById('my-best-run-badge').innerText = best.grade;
+        document.getElementById('my-best-run-badge').className = "block text-[10px] text-[#24a148] font-semibold mt-0.5";
+      } else {
+        document.getElementById('my-best-run').innerText = "-";
+        document.getElementById('my-best-run-badge').innerText = "미등록";
+        document.getElementById('my-best-run-badge').className = "block text-[10px] text-[#8c8c8c] mt-0.5";
+      }
+
+      if (pushups.length > 0) {
+        pushups.sort((a, b) => b.numericVal - a.numericVal);
+        const best = pushups[0];
+        document.getElementById('my-best-pushup').innerText = best.valDisplay;
+        document.getElementById('my-best-pushup-badge').innerText = best.grade;
+        document.getElementById('my-best-pushup-badge').className = "block text-[10px] text-[#24a148] font-semibold mt-0.5";
+      } else {
+        document.getElementById('my-best-pushup').innerText = "-";
+        document.getElementById('my-best-pushup-badge').innerText = "미등록";
+        document.getElementById('my-best-pushup-badge').className = "block text-[10px] text-[#8c8c8c] mt-0.5";
+      }
+
+      if (situps.length > 0) {
+        situps.sort((a, b) => b.numericVal - a.numericVal);
+        const best = situps[0];
+        document.getElementById('my-best-situp').innerText = best.valDisplay;
+        document.getElementById('my-best-situp-badge').innerText = best.grade;
+        document.getElementById('my-best-situp-badge').className = "block text-[10px] text-[#24a148] font-semibold mt-0.5";
+      } else {
+        document.getElementById('my-best-situp').innerText = "-";
+        document.getElementById('my-best-situp-badge').innerText = "미등록";
+        document.getElementById('my-best-situp-badge').className = "block text-[10px] text-[#8c8c8c] mt-0.5";
+      }
+
+      const homeStatus = document.getElementById('home-best-status');
+      if (homeStatus) {
+        if (runs.length > 0 || pushups.length > 0 || situps.length > 0) {
+          homeStatus.innerText = "기록 관리 중";
+          homeStatus.className = "text-[#0f62fe] font-semibold text-sm";
+        } else {
+          homeStatus.innerText = "기록 입력 대기";
+          homeStatus.className = "text-[#8c8c8c] font-semibold text-sm";
+        }
+      }
+    }
+
+    /* ========================================================
+       TOEIC VOCABULARY BY DAY (norangi.json 실제 데이터 연동)
+       ======================================================== */
+    const vocaData = {
+  "1": [
+    {
+      "word": "previous job",
+      "mean": "이전 직업",
+      "ex": "Example for previous job."
+    },
+    {
+      "word": "secretary",
+      "mean": "비서",
+      "ex": "Example for secretary."
+    },
+    {
+      "word": "send in",
+      "mean": "~을 제출하다",
+      "ex": "Example for send in."
+    },
+    {
+      "word": "tidy",
+      "mean": "단정한, 깔끔한",
+      "ex": "Example for tidy."
+    },
+    {
+      "word": "trainee",
+      "mean": "훈련받는 사람",
+      "ex": "Example for trainee."
+    },
+    {
+      "word": "apply for",
+      "mean": "~에 지원하다",
+      "ex": "Example for apply for."
+    },
+    {
+      "word": "aptitude",
+      "mean": "재능, 소질",
+      "ex": "Example for aptitude."
+    },
+    {
+      "word": "be admitted to",
+      "mean": "~에 입장이 허용되다",
+      "ex": "Example for be admitted to."
+    },
+    {
+      "word": "be advised to do",
+      "mean": "~할 것을 권유받다",
+      "ex": "Example for be advised to do."
+    },
+    {
+      "word": "criteria",
+      "mean": "기준",
+      "ex": "Example for criteria."
+    }
+  ],
+  "2": [
+    {
+      "word": "item",
+      "mean": "항목",
+      "ex": "Example for item."
+    },
+    {
+      "word": "legal",
+      "mean": "법률의, 합법적인",
+      "ex": "Example for legal."
+    },
+    {
+      "word": "let go",
+      "mean": "놓아주다",
+      "ex": "Example for let go."
+    },
+    {
+      "word": "ruler",
+      "mean": "자제하다, 삼가다",
+      "ex": "Example for ruler."
+    },
+    {
+      "word": "stop",
+      "mean": "멈추다",
+      "ex": "Example for stop."
+    },
+    {
+      "word": "busy",
+      "mean": "바쁜",
+      "ex": "Example for busy."
+    },
+    {
+      "word": "curriculum",
+      "mean": "교과과정",
+      "ex": "Example for curriculum."
+    },
+    {
+      "word": "dress",
+      "mean": "의복, 옷을 차려입다",
+      "ex": "Example for dress."
+    },
+    {
+      "word": "enough",
+      "mean": "충분한, 필요한 만큼의 수",
+      "ex": "Example for enough."
+    },
+    {
+      "word": "finish",
+      "mean": "끝내다, 완료하다",
+      "ex": "Example for finish."
+    }
+  ],
+  "3": [
+    {
+      "word": "in order to do",
+      "mean": "~하기 위해서",
+      "ex": "Example for in order to do."
+    },
+    {
+      "word": "laptop",
+      "mean": "휴대용 컴퓨터",
+      "ex": "Example for laptop."
+    },
+    {
+      "word": "name tag",
+      "mean": "명찰, 명패",
+      "ex": "Example for name tag."
+    },
+    {
+      "word": "on vacation",
+      "mean": "휴가 중인",
+      "ex": "Example for on vacation."
+    },
+    {
+      "word": "paper jam",
+      "mean": "종이 걸림",
+      "ex": "Example for paper jam."
+    },
+    {
+      "word": "paperwork",
+      "mean": "문서작업",
+      "ex": "Example for paperwork."
+    },
+    {
+      "word": "partition",
+      "mean": "칸막이, 분할",
+      "ex": "Example for partition."
+    },
+    {
+      "word": "rush hour",
+      "mean": "교통 혼잡 시간",
+      "ex": "Example for rush hour."
+    },
+    {
+      "word": "section",
+      "mean": "부분, 구역",
+      "ex": "Example for section."
+    },
+    {
+      "word": "sheet",
+      "mean": "시트, 종이",
+      "ex": "Example for sheet."
+    }
+  ],
+  "4": [
+    {
+      "word": "be widely advertised",
+      "mean": "널리 광고되다",
+      "ex": "Example for be widely advertised."
+    },
+    {
+      "word": "widely admired",
+      "mean": "널리 존경받는",
+      "ex": "Example for widely admired."
+    },
+    {
+      "word": "a wide range of",
+      "mean": "폭넓은, 광범위한",
+      "ex": "Example for a wide range of."
+    },
+    {
+      "word": "externally",
+      "mean": "외부에서, 외부적으로",
+      "ex": "Example for externally."
+    },
+    {
+      "word": "external",
+      "mean": "외부의",
+      "ex": "Example for external."
+    },
+    {
+      "word": "internally",
+      "mean": "내부에, 내면적으로",
+      "ex": "Example for internally."
+    },
+    {
+      "word": "bookcase",
+      "mean": "책장, 책꽂이",
+      "ex": "Example for bookcase."
+    },
+    {
+      "word": "bookshelf",
+      "mean": "책꽂이",
+      "ex": "Example for bookshelf."
+    },
+    {
+      "word": "case",
+      "mean": "경우",
+      "ex": "Example for case."
+    },
+    {
+      "word": "central office",
+      "mean": "중앙 사무실",
+      "ex": "Example for central office."
+    }
+  ],
+  "5": [
+    {
+      "word": "headache",
+      "mean": "두통",
+      "ex": "Example for headache."
+    },
+    {
+      "word": "intership",
+      "mean": "인턴 신분, 인턴 기간",
+      "ex": "Example for intership."
+    },
+    {
+      "word": "redo",
+      "mean": "다시하다",
+      "ex": "Example for redo."
+    },
+    {
+      "word": "routine",
+      "mean": "판에 박힌 일, 정기적인",
+      "ex": "Example for routine."
+    },
+    {
+      "word": "table lamp",
+      "mean": "탁상 전기스탠드",
+      "ex": "Example for table lamp."
+    },
+    {
+      "word": "thanks to",
+      "mean": "~덕택에",
+      "ex": "Example for thanks to."
+    },
+    {
+      "word": "timetable",
+      "mean": "시간표",
+      "ex": "Example for timetable."
+    },
+    {
+      "word": "window display",
+      "mean": "쇼윈도의 상품 진열",
+      "ex": "Example for window display."
+    },
+    {
+      "word": "chief",
+      "mean": "주된, 최고위자인, 최고위자",
+      "ex": "Example for chief."
+    },
+    {
+      "word": "conceal",
+      "mean": "감추다",
+      "ex": "Example for conceal."
+    }
+  ],
+  "6": [
+    {
+      "word": "film festival",
+      "mean": "영화제",
+      "ex": "Example for film festival."
+    },
+    {
+      "word": "fishing",
+      "mean": "낚시",
+      "ex": "Example for fishing."
+    },
+    {
+      "word": "gallery",
+      "mean": "화랑, 미술관",
+      "ex": "Example for gallery."
+    },
+    {
+      "word": "invitation",
+      "mean": "초대",
+      "ex": "Example for invitation."
+    },
+    {
+      "word": "lawn",
+      "mean": "잔디, 잔디밭",
+      "ex": "Example for lawn."
+    },
+    {
+      "word": "paint",
+      "mean": "물감, 그림을 그리다",
+      "ex": "Example for paint."
+    },
+    {
+      "word": "painting",
+      "mean": "그림, 회화",
+      "ex": "Example for painting."
+    },
+    {
+      "word": "play cards",
+      "mean": "카드놀이를 하다",
+      "ex": "Example for play cards."
+    },
+    {
+      "word": "public library",
+      "mean": "공공 도서관",
+      "ex": "Example for public library."
+    },
+    {
+      "word": "race",
+      "mean": "경주, 경주하다",
+      "ex": "Example for race."
+    }
+  ],
+  "7": [
+    {
+      "word": "on display",
+      "mean": "전시된, 진열된",
+      "ex": "Example for on display."
+    },
+    {
+      "word": "shadow",
+      "mean": "그림자, 그늘",
+      "ex": "Example for shadow."
+    },
+    {
+      "word": "around the world",
+      "mean": "전 세계에",
+      "ex": "Example for around the world."
+    },
+    {
+      "word": "array",
+      "mean": "진열, 배열",
+      "ex": "Example for array."
+    },
+    {
+      "word": "attempt",
+      "mean": "시도하다, 시도",
+      "ex": "Example for attempt."
+    },
+    {
+      "word": "audiovisual",
+      "mean": "시청각의",
+      "ex": "Example for audiovisual."
+    },
+    {
+      "word": "avoid",
+      "mean": "방지하다",
+      "ex": "Example for avoid."
+    },
+    {
+      "word": "based",
+      "mean": "~에 기반을 둔",
+      "ex": "Example for based."
+    },
+    {
+      "word": "cinema",
+      "mean": "영화관, 극장",
+      "ex": "Example for cinema."
+    },
+    {
+      "word": "competitive",
+      "mean": "경쟁을 하는, 경쟁력 있는",
+      "ex": "Example for competitive."
+    }
+  ],
+  "8": [
+    {
+      "word": "get together",
+      "mean": "한데 모이다, 조직하다",
+      "ex": "Example for get together."
+    },
+    {
+      "word": "hole",
+      "mean": "구멍, 틈",
+      "ex": "Example for hole."
+    },
+    {
+      "word": "in total",
+      "mean": "모두 합해, 총",
+      "ex": "Example for in total."
+    },
+    {
+      "word": "in use",
+      "mean": "사용되는",
+      "ex": "Example for in use."
+    },
+    {
+      "word": "practical",
+      "mean": "실용적인",
+      "ex": "Example for practical."
+    },
+    {
+      "word": "shovel",
+      "mean": "치우다, 삽질하다, 삽",
+      "ex": "Example for shovel."
+    },
+    {
+      "word": "show",
+      "mean": "보여주다, 전시회",
+      "ex": "Example for show."
+    },
+    {
+      "word": "space",
+      "mean": "공간, 장소, ~의 공간을 정하다",
+      "ex": "Example for space."
+    },
+    {
+      "word": "advertise",
+      "mean": "광고하다",
+      "ex": "Example for advertise."
+    },
+    {
+      "word": "belief",
+      "mean": "신념, 믿음",
+      "ex": "Example for belief."
+    }
+  ],
+  "9": [
+    {
+      "word": "formally",
+      "mean": "정식으로, 공식적으로",
+      "ex": "Example for formally."
+    },
+    {
+      "word": "industrial",
+      "mean": "산업의",
+      "ex": "Example for industrial."
+    },
+    {
+      "word": "lightly",
+      "mean": "가볍게, 부드럽게",
+      "ex": "Example for lightly."
+    },
+    {
+      "word": "optimistic",
+      "mean": "낙관적인",
+      "ex": "Example for optimistic."
+    },
+    {
+      "word": "overall",
+      "mean": "전반적인, 총체적인",
+      "ex": "Example for overall."
+    },
+    {
+      "word": "possibility",
+      "mean": "가능성",
+      "ex": "Example for possibility."
+    },
+    {
+      "word": "private",
+      "mean": "개인적인",
+      "ex": "Example for private."
+    },
+    {
+      "word": "rise",
+      "mean": "오르다, 일어서다",
+      "ex": "Example for rise."
+    },
+    {
+      "word": "situation",
+      "mean": "상황",
+      "ex": "Example for situation."
+    },
+    {
+      "word": "strengthen",
+      "mean": "강화하다, 강력해지다",
+      "ex": "Example for strengthen."
+    }
+  ],
+  "10": [
+    {
+      "word": "cashier",
+      "mean": "출납원",
+      "ex": "Example for cashier."
+    },
+    {
+      "word": "clothing",
+      "mean": "의류",
+      "ex": "Example for clothing."
+    },
+    {
+      "word": "corner",
+      "mean": "모퉁이, 구석",
+      "ex": "Example for corner."
+    },
+    {
+      "word": "costume",
+      "mean": "복장, 의상",
+      "ex": "Example for costume."
+    },
+    {
+      "word": "free",
+      "mean": "자유로이 ~할 수 있는, 마음대로의",
+      "ex": "Example for free."
+    },
+    {
+      "word": "label",
+      "mean": "라벨, 꼬리표, ~에 라벨을 붙이다",
+      "ex": "Example for label."
+    },
+    {
+      "word": "necklace",
+      "mean": "목걸이",
+      "ex": "Example for necklace."
+    },
+    {
+      "word": "photography equipment",
+      "mean": "사진 장비",
+      "ex": "Example for photography equipment."
+    },
+    {
+      "word": "shelf",
+      "mean": "선반",
+      "ex": "Example for shelf."
+    },
+    {
+      "word": "shop",
+      "mean": "상점, 물건을 사다",
+      "ex": "Example for shop."
+    }
+  ],
+  "11": [
+    {
+      "word": "corrode",
+      "mean": "부식하다",
+      "ex": "Example for corrode."
+    },
+    {
+      "word": "erosion",
+      "mean": "침식",
+      "ex": "Example for erosion."
+    },
+    {
+      "word": "remotely",
+      "mean": "원격으로, 멀리서",
+      "ex": "Example for remotely."
+    },
+    {
+      "word": "remote",
+      "mean": "원격의, 외진, 외딴",
+      "ex": "Example for remote."
+    },
+    {
+      "word": "brand new",
+      "mean": "최신의",
+      "ex": "Example for brand new."
+    },
+    {
+      "word": "break down",
+      "mean": "고장나다",
+      "ex": "Example for break down."
+    },
+    {
+      "word": "developer",
+      "mean": "개발자",
+      "ex": "Example for developer."
+    },
+    {
+      "word": "handmade",
+      "mean": "수공의",
+      "ex": "Example for handmade."
+    },
+    {
+      "word": "in a row",
+      "mean": "한 줄로, 연이어",
+      "ex": "Example for in a row."
+    },
+    {
+      "word": "late",
+      "mean": "늦은, 늦게",
+      "ex": "Example for late."
+    }
+  ],
+  "12": [
+    {
+      "word": "chemist",
+      "mean": "화학자",
+      "ex": "Example for chemist."
+    },
+    {
+      "word": "chemistry",
+      "mean": "화학",
+      "ex": "Example for chemistry."
+    },
+    {
+      "word": "minimize",
+      "mean": "최소화하다, 축소하다",
+      "ex": "Example for minimize."
+    },
+    {
+      "word": "maximize",
+      "mean": "극대화하다",
+      "ex": "Example for maximize."
+    },
+    {
+      "word": "clothing line",
+      "mean": "의류 상품",
+      "ex": "Example for clothing line."
+    },
+    {
+      "word": "craft",
+      "mean": "기술",
+      "ex": "Example for craft."
+    },
+    {
+      "word": "crop",
+      "mean": "농작물, 산출량",
+      "ex": "Example for crop."
+    },
+    {
+      "word": "curved",
+      "mean": "구부러진, 곡선 모양의",
+      "ex": "Example for curved."
+    },
+    {
+      "word": "cyclist",
+      "mean": "자전거 타는 사람",
+      "ex": "Example for cyclist."
+    },
+    {
+      "word": "firewood",
+      "mean": "장작",
+      "ex": "Example for firewood."
+    }
+  ],
+  "13": [
+    {
+      "word": "seriously",
+      "mean": "진지하게",
+      "ex": "Example for seriously."
+    },
+    {
+      "word": "serious",
+      "mean": "진지한",
+      "ex": "Example for serious."
+    },
+    {
+      "word": "a couple of",
+      "mean": "두개의, 몇개의",
+      "ex": "Example for a couple of."
+    },
+    {
+      "word": "athlete",
+      "mean": "운동선수",
+      "ex": "Example for athlete."
+    },
+    {
+      "word": "call for",
+      "mean": "~을 요구하다, ~을 가지러 들르다",
+      "ex": "Example for call for."
+    },
+    {
+      "word": "cart",
+      "mean": "쇼핑 카트",
+      "ex": "Example for cart."
+    },
+    {
+      "word": "customer service representative",
+      "mean": "고객 서비스 담당 직원",
+      "ex": "Example for customer service representative."
+    },
+    {
+      "word": "get a phone call",
+      "mean": "전화를 받다",
+      "ex": "Example for get a phone call."
+    },
+    {
+      "word": "give a call",
+      "mean": "전화를 하다",
+      "ex": "Example for give a call."
+    },
+    {
+      "word": "have one's hair cut",
+      "mean": "머리카락을 자르다",
+      "ex": "Example for have one's hair cut."
+    }
+  ],
+  "14": [
+    {
+      "word": "nonstop flight",
+      "mean": "직항",
+      "ex": "Example for nonstop flight."
+    },
+    {
+      "word": "pack",
+      "mean": "짐, 짐을 꾸리다",
+      "ex": "Example for pack."
+    },
+    {
+      "word": "passport",
+      "mean": "여권",
+      "ex": "Example for passport."
+    },
+    {
+      "word": "pilot",
+      "mean": "비행기 조종사",
+      "ex": "Example for pilot."
+    },
+    {
+      "word": "salon",
+      "mean": "가게",
+      "ex": "Example for salon."
+    },
+    {
+      "word": "span",
+      "mean": "걸리다, 놓이다",
+      "ex": "Example for span."
+    },
+    {
+      "word": "trip",
+      "mean": "여행",
+      "ex": "Example for trip."
+    },
+    {
+      "word": "border",
+      "mean": "국경",
+      "ex": "Example for border."
+    },
+    {
+      "word": "central",
+      "mean": "중심이 되는, 가장 중요한",
+      "ex": "Example for central."
+    },
+    {
+      "word": "safe",
+      "mean": "안전한",
+      "ex": "Example for safe."
+    }
+  ],
+  "15": [
+    {
+      "word": "borrow",
+      "mean": "빌리다",
+      "ex": "Example for borrow."
+    },
+    {
+      "word": "bother",
+      "mean": "괴롭히다",
+      "ex": "Example for bother."
+    },
+    {
+      "word": "empty",
+      "mean": "텅 빈",
+      "ex": "Example for empty."
+    },
+    {
+      "word": "exit",
+      "mean": "출구",
+      "ex": "Example for exit."
+    },
+    {
+      "word": "fashion photographer",
+      "mean": "패션 사진작가",
+      "ex": "Example for fashion photographer."
+    },
+    {
+      "word": "look after",
+      "mean": "~를 보살피다",
+      "ex": "Example for look after."
+    },
+    {
+      "word": "pair",
+      "mean": "한 쌍이 되다, 한 쌍",
+      "ex": "Example for pair."
+    },
+    {
+      "word": "per day",
+      "mean": "하루에",
+      "ex": "Example for per day."
+    },
+    {
+      "word": "professor",
+      "mean": "교수",
+      "ex": "Example for professor."
+    },
+    {
+      "word": "proof",
+      "mean": "증거",
+      "ex": "Example for proof."
+    }
+  ],
+  "16": [
+    {
+      "word": "newsstand",
+      "mean": "신문 가판대",
+      "ex": "Example for newsstand."
+    },
+    {
+      "word": "parade",
+      "mean": "퍼레이드, 행렬",
+      "ex": "Example for parade."
+    },
+    {
+      "word": "publisher",
+      "mean": "출판사, 발행자",
+      "ex": "Example for publisher."
+    },
+    {
+      "word": "reader",
+      "mean": "독자",
+      "ex": "Example for reader."
+    },
+    {
+      "word": "reporter",
+      "mean": "보도기자, 리포터",
+      "ex": "Example for reporter."
+    },
+    {
+      "word": "sales trend",
+      "mean": "판매 추세",
+      "ex": "Example for sales trend."
+    },
+    {
+      "word": "comforting",
+      "mean": "위로가 되는",
+      "ex": "Example for comforting."
+    },
+    {
+      "word": "excellently",
+      "mean": "뛰어나게",
+      "ex": "Example for excellently."
+    },
+    {
+      "word": "export",
+      "mean": "수출하다, 수출",
+      "ex": "Example for export."
+    },
+    {
+      "word": "former",
+      "mean": "예전의",
+      "ex": "Example for former."
+    }
+  ],
+  "17": [
+    {
+      "word": "mail",
+      "mean": "우편물, 우편으로 보내다",
+      "ex": "Example for mail."
+    },
+    {
+      "word": "museum",
+      "mean": "박물관",
+      "ex": "Example for museum."
+    },
+    {
+      "word": "parcel",
+      "mean": "소포",
+      "ex": "Example for parcel."
+    },
+    {
+      "word": "pick up packages",
+      "mean": "소포를 찾아가다",
+      "ex": "Example for pick up packages."
+    },
+    {
+      "word": "pottery",
+      "mean": "도자기",
+      "ex": "Example for pottery."
+    },
+    {
+      "word": "public park",
+      "mean": "공원",
+      "ex": "Example for public park."
+    },
+    {
+      "word": "stamp",
+      "mean": "~에 도장을 찍다, 우표",
+      "ex": "Example for stamp."
+    },
+    {
+      "word": "van",
+      "mean": "대형 벤",
+      "ex": "Example for van."
+    },
+    {
+      "word": "venue",
+      "mean": "장소",
+      "ex": "Example for venue."
+    },
+    {
+      "word": "weight",
+      "mean": "무게, 중량",
+      "ex": "Example for weight."
+    }
+  ],
+  "18": [
+    {
+      "word": "spill",
+      "mean": "엎지르다",
+      "ex": "Example for spill."
+    },
+    {
+      "word": "tasty",
+      "mean": "맛있는",
+      "ex": "Example for tasty."
+    },
+    {
+      "word": "whipped cream",
+      "mean": "휘핑크림",
+      "ex": "Example for whipped cream."
+    },
+    {
+      "word": "blend",
+      "mean": "섞다, 혼합하다",
+      "ex": "Example for blend."
+    },
+    {
+      "word": "clean",
+      "mean": "깨끗한, 청소하다, 깨끗하게 하다",
+      "ex": "Example for clean."
+    },
+    {
+      "word": "fresh",
+      "mean": "신선한",
+      "ex": "Example for fresh."
+    },
+    {
+      "word": "recipe",
+      "mean": "요리법, 조리법",
+      "ex": "Example for recipe."
+    },
+    {
+      "word": "spice",
+      "mean": "양념, 향신료",
+      "ex": "Example for spice."
+    },
+    {
+      "word": "taste",
+      "mean": "~의 맛을 보다, 시식하다",
+      "ex": "Example for taste."
+    },
+    {
+      "word": "a glass of",
+      "mean": "~ 한 잔",
+      "ex": "Example for a glass of."
+    }
+  ],
+  "19": [
+    {
+      "word": "income",
+      "mean": "소득",
+      "ex": "Example for income."
+    },
+    {
+      "word": "liquid",
+      "mean": "액체, 액체의",
+      "ex": "Example for liquid."
+    },
+    {
+      "word": "loss",
+      "mean": "손실",
+      "ex": "Example for loss."
+    },
+    {
+      "word": "model",
+      "mean": "원형, 모범, ~의 모형을 만들다",
+      "ex": "Example for model."
+    },
+    {
+      "word": "pace",
+      "mean": "속도, 페이스",
+      "ex": "Example for pace."
+    },
+    {
+      "word": "range",
+      "mean": "범위, 구역, 늘어놓다, 배치하다",
+      "ex": "Example for range."
+    },
+    {
+      "word": "refrigerator",
+      "mean": "냉장고",
+      "ex": "Example for refrigerator."
+    },
+    {
+      "word": "rely on",
+      "mean": "~에 의존하다",
+      "ex": "Example for rely on."
+    },
+    {
+      "word": "send",
+      "mean": "보내다",
+      "ex": "Example for send."
+    },
+    {
+      "word": "be shaded",
+      "mean": "그늘져 있다, 가려져 있다",
+      "ex": "Example for be shaded."
+    }
+  ],
+  "20": [
+    {
+      "word": "shore",
+      "mean": "물가, 강기슭",
+      "ex": "Example for shore."
+    },
+    {
+      "word": "tie",
+      "mean": "묶다, 매다",
+      "ex": "Example for tie."
+    },
+    {
+      "word": "addition",
+      "mean": "추가, 추가물",
+      "ex": "Example for addition."
+    },
+    {
+      "word": "advisor",
+      "mean": "조언자, 고문",
+      "ex": "Example for advisor."
+    },
+    {
+      "word": "attack",
+      "mean": "공격하다",
+      "ex": "Example for attack."
+    },
+    {
+      "word": "expressive",
+      "mean": "나타내는",
+      "ex": "Example for expressive."
+    },
+    {
+      "word": "fund",
+      "mean": "자금",
+      "ex": "Example for fund."
+    },
+    {
+      "word": "funding",
+      "mean": "자금 제공",
+      "ex": "Example for funding."
+    },
+    {
+      "word": "generate",
+      "mean": "창출하다, 야기하다",
+      "ex": "Example for generate."
+    },
+    {
+      "word": "however",
+      "mean": "하지만, 그러나",
+      "ex": "Example for however."
+    }
+  ]
+};
+
+    let selectedDay = 1;
+    let currentVocaIdx = 0;
+    let isFlipped = false;
+
+    function changeVocaDay(dayVal) {
+      selectedDay = parseInt(dayVal, 10);
+      currentVocaIdx = 0;
+      renderVocaCard();
+      const homeStatus = document.getElementById('home-voca-status');
+      if (homeStatus) homeStatus.innerText = `노랭이 Day ${selectedDay < 10 ? '0' + selectedDay : selectedDay}`;
+    }
+
+    function renderVocaCard() {
+      const list = vocaData[selectedDay] || vocaData[1];
+      const item = list[currentVocaIdx];
+      document.getElementById('voca-word').innerText = item.word;
+      document.getElementById('voca-meaning').innerText = item.mean;
+      document.getElementById('voca-example').innerText = `“${item.ex}”`;
+      document.getElementById('voca-counter').innerText = `단어 ${currentVocaIdx + 1} / ${list.length}`;
+      isFlipped = false;
+      document.getElementById('voca-meaning-box').classList.add('hidden');
+    }
+
+    function flipCard() {
+      const box = document.getElementById('voca-meaning-box');
+      isFlipped = !isFlipped;
+      if (isFlipped) box.classList.remove('hidden');
+      else box.classList.add('hidden');
+    }
+
+    function nextWord() {
+      const list = vocaData[selectedDay] || vocaData[1];
+      currentVocaIdx = (currentVocaIdx + 1) % list.length;
+      renderVocaCard();
+    }
+
+    /* ========================================================
+       TOEIC PART 5 (30s Timer Countdown & Next Question)
+       ======================================================== */
+    const part5Questions = [
+      {
+        num: 101,
+        stem: "Westlee washing machines _______ clothes using less water than other brands do.",
+        choices: { A: "clean", B: "cleaning", C: "cleans", D: "to clean" },
+        ans: "A",
+        reason: "주어가 복수 명사이므로 현재 시제 복수 동사 clean이 정답입니다."
+      },
+      {
+        num: 102,
+        stem: "Join Lake Diners social media group and receive a coupon for a _______ dessert.",
+        choices: { A: "calm", B: "sure", C: "best", D: "free" },
+        ans: "D",
+        reason: "문맥상 쿠폰으로 받을 수 있는 '무료 디저트(free dessert)'가 가장 자연스럽습니다."
+      },
+      {
+        num: 103,
+        stem: "Orders for barbecue-grill replacement parts increase _______ in May and June.",
+        choices: { A: "greatly", B: "greater", C: "great", D: "greatness" },
+        ans: "A",
+        reason: "동사 increase를 수식할 수 있는 부사 greatly(크게, 상당히)가 정답입니다."
+      },
+      {
+        num: 104,
+        stem: "Mr. Henderson asked all department heads to submit their reports _______ Friday afternoon.",
+        choices: { A: "between", B: "by", C: "until", D: "from" },
+        ans: "B",
+        reason: "마감 시점을 나타내며 1회성 완료 행위(submit)와 결합하는 전치사는 by(~까지)입니다."
+      },
+      {
+        num: 105,
+        stem: "Tolo Advertising uses customer data to customize _______ product recommendations.",
+        choices: { A: "its", B: "itself", C: "ours", D: "ourselves" },
+        ans: "A",
+        reason: "명사구 product recommendations를 수식하는 소유격 대명사 its가 정답입니다."
+      }
+    ];
+
+    let currentQIdx = 0;
+    let part5TimerInterval = null;
+    let timeLeft = 30;
+
+    function renderPart5Question() {
+      const q = part5Questions[currentQIdx];
+      document.getElementById('rc-question-num').innerText = `QUESTION ${q.num} / Part 5`;
+      document.getElementById('rc-question-stem').innerText = q.stem;
+      document.getElementById('rc-ans-label').innerText = `정답: (${q.ans}) ${q.choices[q.ans]}`;
+      document.getElementById('rc-ans-reason').innerText = q.reason;
+
+      const optContainer = document.getElementById('rc-options-container');
+      optContainer.innerHTML = `
+        <button onclick="handleOptionSelect(this, 'A')" class="rc-opt w-full text-left p-2.5 text-xs bg-[#f4f4f4] carbon-border hover:bg-[#e0e0e0] flex items-center justify-between">
+          <span>(A) ${q.choices.A}</span>
+        </button>
+        <button onclick="handleOptionSelect(this, 'B')" class="rc-opt w-full text-left p-2.5 text-xs bg-[#f4f4f4] carbon-border hover:bg-[#e0e0e0] flex items-center justify-between">
+          <span>(B) ${q.choices.B}</span>
+        </button>
+        <button onclick="handleOptionSelect(this, 'C')" class="rc-opt w-full text-left p-2.5 text-xs bg-[#f4f4f4] carbon-border hover:bg-[#e0e0e0] flex items-center justify-between">
+          <span>(C) ${q.choices.C}</span>
+        </button>
+        <button onclick="handleOptionSelect(this, 'D')" class="rc-opt w-full text-left p-2.5 text-xs bg-[#f4f4f4] carbon-border hover:bg-[#e0e0e0] flex items-center justify-between">
+          <span>(D) ${q.choices.D}</span>
+        </button>
+      `;
+
+      document.getElementById('rc-explanation').classList.add('hidden');
+      document.getElementById('rc-next-btn').classList.add('hidden');
+      startPart5Timer();
+    }
+
+    function startPart5Timer() {
+      clearInterval(part5TimerInterval);
+      timeLeft = 30;
+      updateTimerBadge();
+
+      part5TimerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerBadge();
+        if (timeLeft <= 0) {
+          clearInterval(part5TimerInterval);
+          handleTimeOut();
+        }
+      }, 1000);
+    }
+
+    function updateTimerBadge() {
+      const badge = document.getElementById('rc-timer-badge');
+      const secStr = timeLeft < 10 ? '0' + timeLeft : timeLeft;
+      badge.innerText = `⏱ 00:${secStr} 남음`;
+
+      if (timeLeft <= 5) {
+        badge.className = "text-xs font-mono text-[#da1e28] font-bold bg-[#fff1f1] px-2 py-0.5 border border-[#da1e28]";
+      } else {
+        badge.className = "text-xs font-mono text-[#0f62fe] font-semibold bg-[#edf5ff] px-2 py-0.5 border border-[#d0e2ff]";
+      }
+    }
+
+    function handleTimeOut() {
+      document.querySelectorAll('.rc-opt').forEach(btn => btn.disabled = true);
+      document.getElementById('rc-explanation').classList.remove('hidden');
+      document.getElementById('rc-next-btn').classList.remove('hidden');
+      const badge = document.getElementById('rc-timer-badge');
+      badge.innerText = `⏱ 시간 초과!`;
+    }
+
+    function handleOptionSelect(btn, chosenKey) {
+      clearInterval(part5TimerInterval);
+      const q = part5Questions[currentQIdx];
+      const isCorrect = (chosenKey === q.ans);
+
+      document.querySelectorAll('.rc-opt').forEach(b => {
+        b.className = "rc-opt w-full text-left p-2.5 text-xs bg-[#f4f4f4] carbon-border flex items-center justify-between";
+        b.disabled = true;
+      });
+
+      if (isCorrect) {
+        btn.className = "rc-opt w-full text-left p-2.5 text-xs bg-[#edf5ff] border-2 border-[#0f62fe] text-[#0f62fe] font-semibold flex items-center justify-between";
+      } else {
+        btn.className = "rc-opt w-full text-left p-2.5 text-xs bg-[#fff1f1] border-2 border-[#da1e28] text-[#da1e28] font-semibold flex items-center justify-between";
+      }
+
+      document.getElementById('rc-explanation').classList.remove('hidden');
+      document.getElementById('rc-next-btn').classList.remove('hidden');
+    }
+
+    function nextPart5Question() {
+      currentQIdx = (currentQIdx + 1) % part5Questions.length;
+      renderPart5Question();
+    }
+
+    /* ========================================================
+       TOEIC SUB-MODULE SWITCH (보카 / Part 5 / 자료실)
+       ======================================================== */
+    /* ========================================================
+       TOEIC ARCHIVE DYNAMIC DAY LINKING
+       ======================================================== */
+    const archiveData = {
+  "day01": {
+    "day": 1,
+    "label": "Day 01 (명사)",
+    "rc": "명사",
+    "lc": "LC 구조 + Part 2 Who/Where",
+    "files": [
+      {
+        "name": "1 RC문법학습지 명사",
+        "file": "day01/Day01_1_RC문법학습지_명사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "1 RC문법학습지 명사 (Noun)",
+        "file": "day01/Day01_1_RC문법학습지_명사_(Noun).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day01/Day01_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 명사",
+        "file": "day01/Day01_2_RC기출문제집_명사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 LC 구조 + Part 2 Who   Where 의문문",
+        "file": "day01/Day01_3_LC학습지_LC_구조_+_Part_2_Who___Where_의문문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Who Where",
+        "file": "day01/Day01_3_LC학습지_Who_Where.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 2 Who   Where",
+        "file": "day01/Day01_4_LC기출문제집_Part_2_Who___Where.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Who Where",
+        "file": "day01/Day01_4_LC기출문제집_Who_Where.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK0001-0031",
+        "file": "day01/Day01_5_단어시험_RANK0001-0031.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0001 ~ 0031",
+        "file": "day01/Day01_5_단어시험_RANK_0001_~_0031.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK0001-0031",
+        "file": "day01/Day01_5_단어장_RANK0001-0031.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0001 ~ 0031",
+        "file": "day01/Day01_5_단어장_RANK_0001_~_0031.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day02": {
+    "day": 2,
+    "label": "Day 02 (대명사)",
+    "rc": "대명사",
+    "lc": "Part 2 When / What / Which",
+    "files": [
+      {
+        "name": "1 RC문법학습지 대명사 (Pronoun)",
+        "file": "day02/Day02_1_RC문법학습지_대명사_(Pronoun).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day02/Day02_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 대명사",
+        "file": "day02/Day02_2_RC기출문제집_대명사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 2 When·What·Which 의문문",
+        "file": "day02/Day02_3_LC학습지_Part_2_When·What·Which_의문문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 2 When·What·Which 의문문",
+        "file": "day02/Day02_4_LC기출문제집_Part_2_When·What·Which_의문문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0032 ~ 0062",
+        "file": "day02/Day02_5_단어시험_RANK_0032_~_0062.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0032 ~ 0062",
+        "file": "day02/Day02_5_단어장_RANK_0032_~_0062.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day03": {
+    "day": 3,
+    "label": "Day 03 (형용사)",
+    "rc": "형용사",
+    "lc": "Part 2 How / Why",
+    "files": [
+      {
+        "name": "1 RC문법학습지 형용사 (Adjective)",
+        "file": "day03/Day03_1_RC문법학습지_형용사_(Adjective).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day03/Day03_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 형용사",
+        "file": "day03/Day03_2_RC기출문제집_형용사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 2 How·Why 의문문",
+        "file": "day03/Day03_3_LC학습지_Part_2_How·Why_의문문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 2 How·Why 의문문",
+        "file": "day03/Day03_4_LC기출문제집_Part_2_How·Why_의문문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0063 ~ 0093",
+        "file": "day03/Day03_5_단어시험_RANK_0063_~_0093.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0063 ~ 0093",
+        "file": "day03/Day03_5_단어장_RANK_0063_~_0093.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day04": {
+    "day": 4,
+    "label": "Day 04 (부사)",
+    "rc": "부사",
+    "lc": "Part 1 사람 사진 (받아쓰기)",
+    "files": [
+      {
+        "name": "1 RC문법학습지 부사 (Adverb)",
+        "file": "day04/Day04_1_RC문법학습지_부사_(Adverb).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day04/Day04_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 부사",
+        "file": "day04/Day04_2_RC기출문제집_부사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 1 사람 사진 묘사문",
+        "file": "day04/Day04_3_LC학습지_Part_1_사람_사진_묘사문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 1 사람 사진 묘사문",
+        "file": "day04/Day04_4_LC기출문제집_Part_1_사람_사진_묘사문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0094 ~ 0123",
+        "file": "day04/Day04_5_단어시험_RANK_0094_~_0123.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0094 ~ 0123",
+        "file": "day04/Day04_5_단어장_RANK_0094_~_0123.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day05": {
+    "day": 5,
+    "label": "Day 05 (동사 자리와 수일치)",
+    "rc": "동사 자리와 수일치",
+    "lc": "Part 2 일반의문문 (Do/Is/Can)",
+    "files": [
+      {
+        "name": "1 RC문법학습지 동사 자리와 수일치 (Verb & Agreement)",
+        "file": "day05/Day05_1_RC문법학습지_동사_자리와_수일치_(Verb_&_Agreement).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day05/Day05_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 동사 자리와 수일치",
+        "file": "day05/Day05_2_RC기출문제집_동사_자리와_수일치.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 2 일반의문문 (Do·Is·Will)",
+        "file": "day05/Day05_3_LC학습지_Part_2_일반의문문_(Do·Is·Will).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 2 일반의문문 (Do·Is·Will)",
+        "file": "day05/Day05_4_LC기출문제집_Part_2_일반의문문_(Do·Is·Will).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0124 ~ 0154",
+        "file": "day05/Day05_5_단어시험_RANK_0124_~_0154.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0124 ~ 0154",
+        "file": "day05/Day05_5_단어장_RANK_0124_~_0154.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day06": {
+    "day": 6,
+    "label": "Day 06 (시제)",
+    "rc": "시제",
+    "lc": "Part 2 부정·부가·선택의문문",
+    "files": [
+      {
+        "name": "1 RC문법학습지 시제 (Tense)",
+        "file": "day06/Day06_1_RC문법학습지_시제_(Tense).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day06/Day06_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 시제",
+        "file": "day06/Day06_2_RC기출문제집_시제.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 2 부정·부가·선택의문문",
+        "file": "day06/Day06_3_LC학습지_Part_2_부정·부가·선택의문문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 2 부정·부가·선택의문문",
+        "file": "day06/Day06_4_LC기출문제집_Part_2_부정·부가·선택의문문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0155 ~ 0184",
+        "file": "day06/Day06_5_단어시험_RANK_0155_~_0184.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0155 ~ 0184",
+        "file": "day06/Day06_5_단어장_RANK_0155_~_0184.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day07": {
+    "day": 7,
+    "label": "Day 07 (능동태 vs 수동태)",
+    "rc": "능동태 vs 수동태",
+    "lc": "Part 2 제안·요청문",
+    "files": [
+      {
+        "name": "1 RC문법학습지 능동태 vs 수동태 (Voice)",
+        "file": "day07/Day07_1_RC문법학습지_능동태_vs_수동태_(Voice).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day07/Day07_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 능동태 vs 수동태",
+        "file": "day07/Day07_2_RC기출문제집_능동태_vs_수동태.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 2 제안·요청 의문문",
+        "file": "day07/Day07_3_LC학습지_Part_2_제안·요청_의문문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 2 제안·요청 의문문",
+        "file": "day07/Day07_4_LC기출문제집_Part_2_제안·요청_의문문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0185 ~ 0214",
+        "file": "day07/Day07_5_단어시험_RANK_0185_~_0214.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0185 ~ 0214",
+        "file": "day07/Day07_5_단어장_RANK_0185_~_0214.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day08": {
+    "day": 8,
+    "label": "Day 08 (to부정사)",
+    "rc": "to부정사",
+    "lc": "Part 2 평서문",
+    "files": [
+      {
+        "name": "1 RC문법학습지 to부정사 (To-infinitive)",
+        "file": "day08/Day08_1_RC문법학습지_to부정사_(To-infinitive).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day08/Day08_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 to부정사",
+        "file": "day08/Day08_2_RC기출문제집_to부정사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 2 평서문 (질문이 아닌 문장)",
+        "file": "day08/Day08_3_LC학습지_Part_2_평서문_(질문이_아닌_문장).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 2 평서문 (질문이 아닌 문장)",
+        "file": "day08/Day08_4_LC기출문제집_Part_2_평서문_(질문이_아닌_문장).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0215 ~ 0244",
+        "file": "day08/Day08_5_단어시험_RANK_0215_~_0244.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0215 ~ 0244",
+        "file": "day08/Day08_5_단어장_RANK_0215_~_0244.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day09": {
+    "day": 9,
+    "label": "Day 09 (동명사 (+ to부정사 vs 동명사 비교))",
+    "rc": "동명사 (+ to부정사 vs 동명사 비교)",
+    "lc": "Part 2 종합 — 우회 응답 집중",
+    "files": [
+      {
+        "name": "1 RC문법학습지 동명사 (Gerund) + to부정사 vs 동명사 비교",
+        "file": "day09/Day09_1_RC문법학습지_동명사_(Gerund)_+_to부정사_vs_동명사_비교.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day09/Day09_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 동명사",
+        "file": "day09/Day09_2_RC기출문제집_동명사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 2 종합 의문문 (우회 응답 집중)",
+        "file": "day09/Day09_3_LC학습지_Part_2_종합_의문문_(우회_응답_집중).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 2 종합 의문문 (우회 응답 집중)",
+        "file": "day09/Day09_4_LC기출문제집_Part_2_종합_의문문_(우회_응답_집중).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0245 ~ 0274",
+        "file": "day09/Day09_5_단어시험_RANK_0245_~_0274.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0245 ~ 0274",
+        "file": "day09/Day09_5_단어장_RANK_0245_~_0274.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day10": {
+    "day": 10,
+    "label": "Day 10 (분사 (현재분사 vs 과거분사, 감정분사))",
+    "rc": "분사 (현재분사 vs 과거분사, 감정분사)",
+    "lc": "Part 3 기초 — 주제·목적 문제",
+    "files": [
+      {
+        "name": "1 RC문법학습지 분사 (현재분사 vs 과거분사, 감정분사)",
+        "file": "day10/Day10_1_RC문법학습지_분사_(현재분사_vs_과거분사,_감정분사).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day10/Day10_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 분사",
+        "file": "day10/Day10_2_RC기출문제집_분사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 3 대화 주제·목적 문제 (첫 질문 공략)",
+        "file": "day10/Day10_3_LC학습지_Part_3_대화_주제·목적_문제_(첫_질문_공략).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 3 대화 주제·목적 문제",
+        "file": "day10/Day10_4_LC기출문제집_Part_3_대화_주제·목적_문제.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0275 ~ 0305",
+        "file": "day10/Day10_5_단어시험_RANK_0275_~_0305.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0275 ~ 0305",
+        "file": "day10/Day10_5_단어장_RANK_0275_~_0305.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day11": {
+    "day": 11,
+    "label": "Day 11 (분사구문)",
+    "rc": "분사구문",
+    "lc": "Part 3 화자·장소 추론",
+    "files": [
+      {
+        "name": "1 RC문법학습지 분사구문",
+        "file": "day11/Day11_1_RC문법학습지_분사구문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day11/Day11_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 분사구문",
+        "file": "day11/Day11_2_RC기출문제집_분사구문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 3 화자·장소 추론 문제 (누구·어디)",
+        "file": "day11/Day11_3_LC학습지_Part_3_화자·장소_추론_문제_(누구·어디).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 3 화자·장소 추론 문제",
+        "file": "day11/Day11_4_LC기출문제집_Part_3_화자·장소_추론_문제.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0306 ~ 0334",
+        "file": "day11/Day11_5_단어시험_RANK_0306_~_0334.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0306 ~ 0334",
+        "file": "day11/Day11_5_단어장_RANK_0306_~_0334.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day12": {
+    "day": 12,
+    "label": "Day 12 (전치사 1 — 시간·장소)",
+    "rc": "전치사 1 — 시간·장소",
+    "lc": "Part 3 세부정보·요청/제안",
+    "files": [
+      {
+        "name": "1 RC문법학습지 전치사 1 시간·장소",
+        "file": "day12/Day12_1_RC문법학습지_전치사_1_시간·장소.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day12/Day12_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 전치사 1 시간·장소",
+        "file": "day12/Day12_2_RC기출문제집_전치사_1_시간·장소.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 3 세부정보·요청·제안 문제 (무엇·왜·부탁)",
+        "file": "day12/Day12_3_LC학습지_Part_3_세부정보·요청·제안_문제_(무엇·왜·부탁).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 3 세부정보·요청·제안 문제",
+        "file": "day12/Day12_4_LC기출문제집_Part_3_세부정보·요청·제안_문제.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0335 ~ 0365",
+        "file": "day12/Day12_5_단어시험_RANK_0335_~_0365.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0335 ~ 0365",
+        "file": "day12/Day12_5_단어장_RANK_0335_~_0365.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day13": {
+    "day": 13,
+    "label": "Day 13 (전치사 2 — 이유·양보·기타)",
+    "rc": "전치사 2 — 이유·양보·기타",
+    "lc": "Part 3 다음 행동",
+    "files": [
+      {
+        "name": "1 RC문법학습지 전치사 2 이유·양보·기타",
+        "file": "day13/Day13_1_RC문법학습지_전치사_2_이유·양보·기타.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day13/Day13_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 전치사 2 이유·양보·기타",
+        "file": "day13/Day13_2_RC기출문제집_전치사_2_이유·양보·기타.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 3 다음 행동 문제 (do next)",
+        "file": "day13/Day13_3_LC학습지_Part_3_다음_행동_문제_(do_next).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 3 다음 행동 문제",
+        "file": "day13/Day13_4_LC기출문제집_Part_3_다음_행동_문제.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0366 ~ 0395",
+        "file": "day13/Day13_5_단어시험_RANK_0366_~_0395.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0366 ~ 0395",
+        "file": "day13/Day13_5_단어장_RANK_0366_~_0395.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day14": {
+    "day": 14,
+    "label": "Day 14 (등위·상관접속사)",
+    "rc": "등위·상관접속사",
+    "lc": "⭐ Part 3 의도파악 (함축의미)",
+    "files": [
+      {
+        "name": "1 RC문법학습지 등위·상관접속사",
+        "file": "day14/Day14_1_RC문법학습지_등위·상관접속사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day14/Day14_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 등위·상관접속사",
+        "file": "day14/Day14_2_RC기출문제집_등위·상관접속사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 3 의도파악(함축의미) 문제",
+        "file": "day14/Day14_3_LC학습지_Part_3_의도파악(함축의미)_문제.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 3 의도파악(함축의미) 문제",
+        "file": "day14/Day14_4_LC기출문제집_Part_3_의도파악(함축의미)_문제.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0396 ~ 0423",
+        "file": "day14/Day14_5_단어시험_RANK_0396_~_0423.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0396 ~ 0423",
+        "file": "day14/Day14_5_단어장_RANK_0396_~_0423.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day15": {
+    "day": 15,
+    "label": "Day 15 (부사절 접속사 vs 전치사)",
+    "rc": "부사절 접속사 vs 전치사",
+    "lc": "Part 3 3인 대화·시각자료",
+    "files": [
+      {
+        "name": "1 RC문법학습지 부사절 접속사 vs 전치사",
+        "file": "day15/Day15_1_RC문법학습지_부사절_접속사_vs_전치사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day15/Day15_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 부사절 접속사 vs 전치사",
+        "file": "day15/Day15_2_RC기출문제집_부사절_접속사_vs_전치사.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 3 3인 대화·시각자료 문제",
+        "file": "day15/Day15_3_LC학습지_Part_3_3인_대화·시각자료_문제.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 3 3인 대화·시각자료 문제",
+        "file": "day15/Day15_4_LC기출문제집_Part_3_3인_대화·시각자료_문제.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0424 ~ 0452",
+        "file": "day15/Day15_5_단어시험_RANK_0424_~_0452.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0424 ~ 0452",
+        "file": "day15/Day15_5_단어장_RANK_0424_~_0452.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day16": {
+    "day": 16,
+    "label": "Day 16 (명사절 접속사 (that/whether/what))",
+    "rc": "명사절 접속사 (that/whether/what)",
+    "lc": "Part 1 사물·풍경 사진 (받아쓰기)",
+    "files": [
+      {
+        "name": "1 RC문법학습지 명사절 접속사 that·whether·what",
+        "file": "day16/Day16_1_RC문법학습지_명사절_접속사_that·whether·what.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day16/Day16_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 명사절 접속사 that·whether·what",
+        "file": "day16/Day16_2_RC기출문제집_명사절_접속사_that·whether·what.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 1 사물·풍경 사진 묘사문",
+        "file": "day16/Day16_3_LC학습지_Part_1_사물·풍경_사진_묘사문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 1 사물·풍경 사진 묘사문",
+        "file": "day16/Day16_4_LC기출문제집_Part_1_사물·풍경_사진_묘사문.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0453 ~ 0483",
+        "file": "day16/Day16_5_단어시험_RANK_0453_~_0483.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0453 ~ 0483",
+        "file": "day16/Day16_5_단어장_RANK_0453_~_0483.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day17": {
+    "day": 17,
+    "label": "Day 17 (관계대명사)",
+    "rc": "관계대명사",
+    "lc": "Part 4 기초 — 전화 메시지",
+    "files": [
+      {
+        "name": "1 RC문법학습지 관계대명사 who·which·that·whose",
+        "file": "day17/Day17_1_RC문법학습지_관계대명사_who·which·that·whose.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day17/Day17_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 관계대명사 who·which·that·whose",
+        "file": "day17/Day17_2_RC기출문제집_관계대명사_who·which·that·whose.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 4 전화 메시지 (담화 첫걸음)",
+        "file": "day17/Day17_3_LC학습지_Part_4_전화_메시지_(담화_첫걸음).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 4 대비 전화 통화 대화 (복습 2세트)",
+        "file": "day17/Day17_4_LC기출문제집_Part_4_대비_전화_통화_대화_(복습_2세트).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0484 ~ 0513",
+        "file": "day17/Day17_5_단어시험_RANK_0484_~_0513.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0484 ~ 0513",
+        "file": "day17/Day17_5_단어장_RANK_0484_~_0513.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day18": {
+    "day": 18,
+    "label": "Day 18 (관계부사·복합관계사)",
+    "rc": "관계부사·복합관계사",
+    "lc": "Part 4 공지·안내방송",
+    "files": [
+      {
+        "name": "1 RC문법학습지 관계부사·복합관계사 where·when·whoever",
+        "file": "day18/Day18_1_RC문법학습지_관계부사·복합관계사_where·when·whoever.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day18/Day18_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 관계부사·복합관계사 where·when·whoever",
+        "file": "day18/Day18_2_RC기출문제집_관계부사·복합관계사_where·when·whoever.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 4 공지·안내방송",
+        "file": "day18/Day18_3_LC학습지_Part_4_공지·안내방송.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 4 대비 매장 공지형 대화 (복습 2세트)",
+        "file": "day18/Day18_4_LC기출문제집_Part_4_대비_매장_공지형_대화_(복습_2세트).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0514 ~ 0544",
+        "file": "day18/Day18_5_단어시험_RANK_0514_~_0544.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0514 ~ 0544",
+        "file": "day18/Day18_5_단어장_RANK_0514_~_0544.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day19": {
+    "day": 19,
+    "label": "Day 19 (비교구문 (much 비교급 강조 등))",
+    "rc": "비교구문 (much 비교급 강조 등)",
+    "lc": "Part 4 광고·방송",
+    "files": [
+      {
+        "name": "1 RC문법학습지 비교구문 much 비교급·최상급",
+        "file": "day19/Day19_1_RC문법학습지_비교구문_much_비교급·최상급.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "2 RC기출 원본발췌",
+        "file": "day19/Day19_2_RC기출_원본발췌.pdf",
+        "type": "PDF"
+      },
+      {
+        "name": "2 RC기출문제집 비교구문 much 비교급·최상급",
+        "file": "day19/Day19_2_RC기출문제집_비교구문_much_비교급·최상급.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "3 LC학습지 Part 4 광고·방송",
+        "file": "day19/Day19_3_LC학습지_Part_4_광고·방송.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "4 LC기출문제집 Part 4 대비 광고형 대화 (복습 2세트)",
+        "file": "day19/Day19_4_LC기출문제집_Part_4_대비_광고형_대화_(복습_2세트).docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어시험 RANK 0545 ~ 0575",
+        "file": "day19/Day19_5_단어시험_RANK_0545_~_0575.docx",
+        "type": "DOCX"
+      },
+      {
+        "name": "5 단어장 RANK 0545 ~ 0575",
+        "file": "day19/Day19_5_단어장_RANK_0545_~_0575.docx",
+        "type": "DOCX"
+      }
+    ]
+  },
+  "day20": {
+    "day": 20,
+    "label": "Day 20 (가정법·도치 (Not only 도치, If had p.p.))",
+    "rc": "가정법·도치 (Not only 도치, If had p.p.)",
+    "lc": "Part 4 회의·연설 + 의도파악",
+    "files": []
+  },
+  "day21": {
+    "day": 21,
+    "label": "Day 21 (동사 어휘 (빈출 짝꿍))",
+    "rc": "동사 어휘 (빈출 짝꿍)",
+    "lc": "Part 3·4 의도파악 집중",
+    "files": []
+  },
+  "day22": {
+    "day": 22,
+    "label": "Day 22 (품사 자리 종합 복습)",
+    "rc": "품사 자리 종합 복습",
+    "lc": "LC 종합 복습",
+    "files": []
+  },
+  "day23": {
+    "day": 23,
+    "label": "Day 23 (실전 1회 — 2023-06-11 Part 5 전체)",
+    "rc": "실전 1회 — 2023-06-11 Part 5 전체",
+    "lc": "실전 Part 2 1세트",
+    "files": []
+  },
+  "day24": {
+    "day": 24,
+    "label": "Day 24 (실전 2회 — 2025-01-12 Part 5·6·7)",
+    "rc": "실전 2회 — 2025-01-12 Part 5·6·7",
+    "lc": "실전 Part 2 1세트",
+    "files": []
+  },
+  "day25": {
+    "day": 25,
+    "label": "Day 25 (실전 3회 — 2025-01-26 Part 5·6·7)",
+    "rc": "실전 3회 — 2025-01-26 Part 5·6·7",
+    "lc": "실전 Part 2 1세트",
+    "files": []
+  },
+  "day26": {
+    "day": 26,
+    "label": "Day 26 (실전 4회 — 2025-02-09 Part 5·6·7)",
+    "rc": "실전 4회 — 2025-02-09 Part 5·6·7",
+    "lc": "실전 Part 3 1세트",
+    "files": []
+  },
+  "day27": {
+    "day": 27,
+    "label": "Day 27 (실전 5회 — 2025-03-09 Part 5·6·7)",
+    "rc": "실전 5회 — 2025-03-09 Part 5·6·7",
+    "lc": "실전 Part 2 1세트",
+    "files": []
+  },
+  "day28": {
+    "day": 28,
+    "label": "Day 28 (실전 6회 — 2025-03-30 Part 5·6·7)",
+    "rc": "실전 6회 — 2025-03-30 Part 5·6·7",
+    "lc": "실전 Part 2 1세트",
+    "files": []
+  },
+  "day29": {
+    "day": 29,
+    "label": "Day 29 (실전 7회 — 2025-04-27 Part 5)",
+    "rc": "실전 7회 — 2025-04-27 Part 5",
+    "lc": "실전 Part 2 1세트",
+    "files": []
+  },
+  "day30": {
+    "day": 30,
+    "label": "Day 30 (최종 진단평가 (Day 1 진단과 비교))",
+    "rc": "최종 진단평가 (Day 1 진단과 비교)",
+    "lc": "최종 진단평가",
+    "files": []
+  }
+};
+
+    function renderArchiveFiles(dayKey) {
+      const info = archiveData[dayKey] || archiveData.day01;
+      const list = info.files || [];
+      const container = document.getElementById('archive-files-list');
+      if (!container) return;
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="p-4 text-center space-y-1.5">
+            <div class="text-xs font-semibold text-[#161616]">${info.label}</div>
+            <p class="text-[11px] text-[#8c8c8c]">학습 주제: RC [${info.rc}] · LC [${info.lc}]</p>
+            <p class="text-[11px] text-[#0f62fe]">깃허브(toeic-daily) 레포지토리에서 순차 빌드 및 배포 예정입니다.</p>
+          </div>
+        `;
+        return;
+      }
+
+      let html = `<div class="p-2 bg-[#f4f4f4] text-[11px] text-[#525252] flex justify-between items-center mb-1">
+        <span><strong>${info.label}</strong> (총 ${list.length}개 파일)</span>
+        <span class="text-[10px] text-[#0f62fe]">RC: ${info.rc} | LC: ${info.lc}</span>
+      </div>`;
+
+      list.forEach(item => {
+        const badgeColor = item.type === 'PDF' ? 'bg-[#da1e28]' : (item.type === 'MP3' ? 'bg-[#24a148]' : 'bg-[#0f62fe]');
+        html += `
+          <a href="toeic_files/${item.file}" download class="py-2.5 px-2 flex justify-between items-center hover:bg-[#edf5ff] hover:text-[#0f62fe] group transition">
+            <span class="flex items-center gap-2">
+              <span class="text-[9px] font-bold text-white px-1.5 py-0.2 ${badgeColor}">${item.type}</span>
+              <span class="group-hover:underline text-xs text-[#161616]">${item.name}</span>
+            </span>
+            <span class="text-[11px] text-[#0f62fe] font-mono whitespace-nowrap">다운로드 ⬇</span>
+          </a>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function switchToeicModule(mod) {
+      ['voca', 'rc', 'archive'].forEach(m => {
+        document.getElementById('t-mod-' + m).className = (m === mod) ? "py-2.5 tab-active" : "py-2.5 tab-inactive";
+      });
+
+      const vocaBox = document.getElementById('toeic-voca-container');
+      const rcBox = document.getElementById('toeic-rc-container');
+      const arcBox = document.getElementById('toeic-archive-container');
+
+      vocaBox.classList.add('hidden');
+      rcBox.classList.add('hidden');
+      arcBox.classList.add('hidden');
+      clearInterval(part5TimerInterval);
+
+      if (mod === 'voca') {
+        vocaBox.classList.remove('hidden');
+      } else if (mod === 'rc') {
+        rcBox.classList.remove('hidden');
+        renderPart5Question();
+      } else {
+        arcBox.classList.remove('hidden');
+        renderArchiveFiles(document.getElementById('archive-day-select').value);
+      }
+    }
+
+    /* ========================================================
+       CALENDAR ENGINE (Interactive 7-Col Grid & Event Tracker)
+       ======================================================== */
+    let currentCalYear = 2026;
+    let currentCalMonth = 9; // 0-indexed: 9 = 10월
+    let selectedCalDate = "2026-10-15";
+
+    const officialEvents = [
+      { start: "2026-09-28", end: "2026-10-08", title: "가입교 중대 편성/공지", badge: "bg-[#24a148] text-white", short: "중대편성" },
+      { start: "2026-10-16", end: "2026-11-08", title: "합격자 OT 참석인원 파악 (중대별)", badge: "bg-[#0f62fe] text-white font-bold", short: "OT파악" },
+      { start: "2026-11-28", end: "2026-11-28", title: "1차 오리엔테이션 (가족초청 / 제복 치수재기)", badge: "bg-[#0f62fe] text-white font-bold", short: "1차 OT" },
+      { start: "2026-12-19", end: "2026-12-19", title: "2차 오리엔테이션 (가족초청 / 제복 치수재기)", badge: "bg-[#0f62fe] text-white font-bold", short: "2차 OT" },
+      { start: "2027-01-11", end: "2027-01-11", title: "★ 64기 충성대 가입교 (가족 초청)", badge: "bg-[#f1c21b] text-black font-bold border border-black", short: "가입교!" },
+      { start: "2027-01-12", end: "2027-02-12", title: "충성기초훈련 (5주간 군사훈련)", badge: "bg-[#da1e28] text-white", short: "기초훈련" },
+      { start: "2027-02-19", end: "2027-02-19", title: "64기 정식 입학식 (사관생도 임명)", badge: "bg-[#24a148] text-white font-bold", short: "입학식" }
+    ];
+
+    function switchCalendarView(mode) {
+      const gridBtn = document.getElementById('cal-mode-grid');
+      const listBtn = document.getElementById('cal-mode-list');
+      const gridView = document.getElementById('cal-grid-view');
+      const listView = document.getElementById('cal-list-view');
+
+      if (mode === 'grid') {
+        gridBtn.className = "py-2.5 tab-active";
+        listBtn.className = "py-2.5 tab-inactive";
+        gridView.classList.remove('hidden');
+        listView.classList.add('hidden');
+        renderCalendarGrid();
+      // Request persistent storage permission
+      if (navigator.storage && navigator.storage.persist) {
+        navigator.storage.persist().then(granted => {
+          if (granted) console.log('Storage will not be cleared by the browser');
+        });
+      }
+      restoreFromIndexedDBIfEmpty();
+
+      } else {
+        gridBtn.className = "py-2.5 tab-inactive";
+        listBtn.className = "py-2.5 tab-active";
+        gridView.classList.add('hidden');
+        listView.classList.remove('hidden');
+      }
+    }
+
+    function changeCalMonth(offset) {
+      currentCalMonth += offset;
+      if (currentCalMonth < 0) {
+        currentCalMonth = 11;
+        currentCalYear--;
+      } else if (currentCalMonth > 11) {
+        currentCalMonth = 0;
+        currentCalYear++;
+      }
+      renderCalendarGrid();
+      // Request persistent storage permission
+      if (navigator.storage && navigator.storage.persist) {
+        navigator.storage.persist().then(granted => {
+          if (granted) console.log('Storage will not be cleared by the browser');
+        });
+      }
+      restoreFromIndexedDBIfEmpty();
+
+    }
+
+    function renderCalendarGrid() {
+      const monthTitle = document.getElementById('cal-month-title');
+      if (!monthTitle) return;
+
+      const monthDisplay = currentCalMonth + 1;
+      monthTitle.innerText = `${currentCalYear}년 ${monthDisplay < 10 ? '0' + monthDisplay : monthDisplay}월`;
+
+      const container = document.getElementById('cal-cells-container');
+      container.innerHTML = "";
+
+      const firstDayIndex = new Date(currentCalYear, currentCalMonth, 1).getDay();
+      const lastDay = new Date(currentCalYear, currentCalMonth + 1, 0).getDate();
+      const prevLastDay = new Date(currentCalYear, currentCalMonth, 0).getDate();
+
+      const userRecords = getSavedRecords();
+
+      // Previous Month Trailing Days
+      for (let i = firstDayIndex - 1; i >= 0; i--) {
+        const d = prevLastDay - i;
+        const cell = document.createElement('div');
+        cell.className = "min-h-[64px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60";
+        cell.innerHTML = `<span class="text-[10px] font-mono">${d}</span>`;
+        container.appendChild(cell);
+      }
+
+      // Current Month Active Days
+      for (let day = 1; day <= lastDay; day++) {
+        const mStr = monthDisplay < 10 ? '0' + monthDisplay : '' + monthDisplay;
+        const dStr = day < 10 ? '0' + day : '' + day;
+        const dateStr = `${currentCalYear}-${mStr}-${dStr}`;
+
+        const isToday = (dateStr === new Date().toISOString().split('T')[0]);
+        const isSelected = (dateStr === selectedCalDate);
+
+        // Day of week
+        const dayOfWeek = new Date(currentCalYear, currentCalMonth, day).getDay();
+        let numColor = "text-[#161616]";
+        if (dayOfWeek === 0) numColor = "text-[#da1e28]"; // 일요일
+        if (dayOfWeek === 6) numColor = "text-[#0f62fe]"; // 토요일
+
+        // Check official events
+        const matchedEvents = officialEvents.filter(ev => {
+          return dateStr >= ev.start && dateStr <= ev.end;
+        });
+
+        // Check user fitness records
+        const myRecs = userRecords.filter(r => r.date === dateStr);
+
+        const cell = document.createElement('div');
+        let cellClass = "min-h-[64px] p-1 text-left cursor-pointer transition relative flex flex-col justify-between ";
+        if (isSelected) {
+          cellClass += "bg-[#edf5ff] ring-2 ring-[#0f62fe] z-10 ";
+        } else if (isToday) {
+          cellClass += "bg-[#f4f4f4] ";
+        } else {
+          cellClass += "bg-white hover:bg-[#f9f9f9] ";
+        }
+
+        cell.className = cellClass;
+        cell.onclick = () => selectCalendarDate(dateStr);
+
+        let inner = `
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-medium ${numColor} ${isToday ? 'bg-[#161616] text-white px-1 font-bold' : ''}">${day}</span>
+            ${myRecs.length > 0 ? '<span class="w-1.5 h-1.5 bg-[#24a148] inline-block" title="체력 기록 완료"></span>' : ''}
+          </div>
+        `;
+
+        // Event Badge on cell
+        if (matchedEvents.length > 0) {
+          const ev = matchedEvents[0];
+          inner += `
+            <div class="text-[8px] px-1 py-0.2 mt-0.5 truncate font-medium ${ev.badge}">
+              ${ev.short}
+            </div>
+          `;
+        }
+
+        if (myRecs.length > 0) {
+          inner += `
+            <div class="text-[8px] text-[#24a148] font-mono font-semibold truncate mt-auto">
+              ${myRecs[0].valDisplay}
+            </div>
+          `;
+        }
+
+        cell.innerHTML = inner;
+        container.appendChild(cell);
+      }
+
+      // Next Month Leading Days
+      const totalCells = firstDayIndex + lastDay;
+      const nextDays = (7 - (totalCells % 7)) % 7;
+      for (let i = 1; i <= nextDays; i++) {
+        const cell = document.createElement('div');
+        cell.className = "min-h-[64px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60";
+        cell.innerHTML = `<span class="text-[10px] font-mono">${i}</span>`;
+        container.appendChild(cell);
+      }
+
+      renderDateDetail(selectedCalDate);
+    }
+
+    function selectCalendarDate(dateStr) {
+      selectedCalDate = dateStr;
+      renderCalendarGrid();
+      // Request persistent storage permission
+      if (navigator.storage && navigator.storage.persist) {
+        navigator.storage.persist().then(granted => {
+          if (granted) console.log('Storage will not be cleared by the browser');
+        });
+      }
+      restoreFromIndexedDBIfEmpty();
+
+    }
+
+    function renderDateDetail(dateStr) {
+      const titleEl = document.getElementById('detail-date-title');
+      const contentEl = document.getElementById('detail-events-content');
+      if (!titleEl || !contentEl) return;
+
+      const isToday = (dateStr === new Date().toISOString().split('T')[0]);
+      titleEl.innerText = `${dateStr} ${isToday ? '(오늘)' : ''}`;
+
+      const matchedEvents = officialEvents.filter(ev => {
+        return dateStr >= ev.start && dateStr <= ev.end;
+      });
+
+      const userRecords = getSavedRecords().filter(r => r.date === dateStr);
+
+      let html = "";
+
+      // 1. Official Events
+      if (matchedEvents.length > 0) {
+        matchedEvents.forEach(ev => {
+          html += `
+            <div class="p-2.5 bg-[#edf5ff] border-l-2 border-[#0f62fe] space-y-0.5">
+              <span class="text-[10px] font-mono text-[#0f62fe] font-semibold">육군3사관학교 공식 학사일정</span>
+              <div class="font-medium text-xs text-[#161616]">${ev.title}</div>
+              <div class="text-[10px] text-[#525252]">기간: ${ev.start} ~ ${ev.end}</div>
+            </div>
+          `;
+        });
+      }
+
+      // 2. User Fitness Records
+      if (userRecords.length > 0) {
+        userRecords.forEach(r => {
+          const modeLabel = r.mode === 'run' ? '3km 달리기' : (r.mode === 'pushup' ? '팔굽혀펴기' : '윗몸일으키기');
+          html += `
+            <div class="p-2.5 bg-[#f4f4f4] border-l-2 border-[#24a148] flex justify-between items-center">
+              <div>
+                <span class="text-[10px] text-[#24a148] font-mono font-semibold">내 체력 측정 기록</span>
+                <div class="font-semibold text-xs text-[#161616]">${modeLabel}: ${r.valDisplay}</div>
+              </div>
+              <span class="px-2 py-0.5 text-xs font-semibold text-white ${r.badgeClass}">${r.grade}</span>
+            </div>
+          `;
+        });
+      }
+
+      // Empty State with Action Button
+      if (matchedEvents.length === 0 && userRecords.length === 0) {
+        html = `
+          <div class="p-4 text-center space-y-2">
+            <p class="text-xs text-[#8c8c8c]">등록된 공식 일정 또는 체력 기록이 없습니다.</p>
+            <button onclick="goToFitnessWithDate('${dateStr}')" class="carbon-blue-btn text-xs px-3 py-1.5 font-medium">
+              + 이 날짜로 체력 기록 입력하기
+            </button>
+          </div>
+        `;
+      } else if (userRecords.length === 0) {
+        html += `
+          <div class="pt-1 flex justify-end">
+            <button onclick="goToFitnessWithDate('${dateStr}')" class="text-xs text-[#0f62fe] hover:underline">
+              + 이 날짜에 내 체력 기록도 추가하기 →
+            </button>
+          </div>
+        `;
+      }
+
+      contentEl.innerHTML = html;
+    }
+
+    function goToFitnessWithDate(dateStr) {
+      switchTab('fitness');
+      const dateInput = document.getElementById('fitness-input-date');
+      if (dateInput) dateInput.value = dateStr;
+    }
+
+    
+    /* ========================================================
+       STORAGE PERSISTENCE & BACKUP/RESTORE SYSTEM
+       ======================================================== */
+    const IDB_NAME = 'KAAY_Cadet_DB';
+    const IDB_VERSION = 1;
+    const IDB_STORE = 'records';
+
+    function openIndexedDB() {
+      return new Promise((resolve, reject) => {
+        if (!window.indexedDB) {
+          resolve(null);
+          return;
+        }
+        const req = indexedDB.open(IDB_NAME, IDB_VERSION);
+        req.onupgradeneeded = (e) => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(IDB_STORE)) {
+            db.createObjectStore(IDB_STORE, { keyPath: 'id' });
+          }
+        };
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => resolve(null);
+      });
+    }
+
+    async function syncToIndexedDB(records) {
+      const db = await openIndexedDB();
+      if (!db) return;
+      try {
+        const tx = db.transaction(IDB_STORE, 'readwrite');
+        const store = tx.objectStore(IDB_STORE);
+        store.clear();
+        records.forEach(r => store.put(r));
+      } catch (err) {
+        console.warn('IDB sync error:', err);
+      }
+    }
+
+    async function restoreFromIndexedDBIfEmpty() {
+      const cur = getSavedRecords();
+      if (cur.length > 0) return;
+
+      const db = await openIndexedDB();
+      if (!db) return;
+      try {
+        const tx = db.transaction(IDB_STORE, 'readonly');
+        const store = tx.objectStore(IDB_STORE);
+        const req = store.getAll();
+        req.onsuccess = () => {
+          if (req.result && req.result.length > 0) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(req.result));
+            renderFitnessUI();
+            updateMyPageMatrix();
+          }
+        };
+      } catch (err) {
+        console.warn('IDB restore error:', err);
+      }
+    }
+
+    function exportBackupData() {
+      const records = getSavedRecords();
+      if (records.length === 0) {
+        alert('저장된 체력 기록이 없습니다. 먼저 기록을 작성해 주세요.');
+        return;
+      }
+      const dataToSave = {
+        app: 'KAAY_64',
+        timestamp: new Date().toISOString(),
+        records: records
+      };
+      const blob = new Blob([JSON.stringify(dataToSave, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `KAAY_체력기록백업_${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function importBackupData(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (parsed && Array.isArray(parsed.records)) {
+            saveRecords(parsed.records);
+            alert(`총 ${parsed.records.length}건의 백업 기록이 성공적으로 복구되었습니다!`);
+          } else {
+            alert('올바른 백업 파일 형식이 아닙니다.');
+          }
+        } catch (err) {
+          alert('파일을 읽는 중 오류가 발생했습니다.');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    window.onload = () => {
+      const todayStr = new Date().toISOString().split('T')[0];
+      document.getElementById('fitness-input-date').value = todayStr;
+      selectedCalDate = todayStr;
+
+      renderFitnessUI();
+      updateMyPageMatrix();
+      renderVocaCard();
+      renderCalendarGrid();
+      // Request persistent storage permission
+      if (navigator.storage && navigator.storage.persist) {
+        navigator.storage.persist().then(granted => {
+          if (granted) console.log('Storage will not be cleared by the browser');
+        });
+      }
+      restoreFromIndexedDBIfEmpty();
+
+
+      // PWA Service Worker Registration
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js')
+          .then(() => console.log('KAAY 64 PWA ServiceWorker Registered'))
+          .catch(err => console.log('SW Registration failed:', err));
+      }
+    };
+  </script>
+</body>
+</html>
