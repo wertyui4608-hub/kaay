@@ -1,8 +1,7 @@
-const CACHE_NAME = 'kaay-64-v1';
+const CACHE_NAME = 'kaay-64-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './kaay_carbon_app.html',
   './kaay_symbol.png',
   './kaay_emblem.png',
   './kaay_notice.jpg',
