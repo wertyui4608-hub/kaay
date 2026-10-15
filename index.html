@@ -68,7 +68,11 @@
       color: #525252;
       background-color: #f4f4f4;
     }
+    html {
+      scrollbar-gutter: stable;
+    }
     .app-viewport {
+      width: 100%;
       max-width: 440px;
       min-height: 100vh;
       margin: 0 auto;
@@ -218,7 +222,6 @@
             </div>
           </div>
         </div>
-        <div class="h-8"></div>
 
       </section>
 
@@ -362,7 +365,6 @@
             <div class="p-4 text-center text-[#8c8c8c]">등록된 실제 기록이 없습니다.</div>
           </div>
         </div>
-        <div class="h-8"></div>
       </section>
 
       <!-- ================= 3. TOEIC SCREEN ================= -->
@@ -596,7 +598,6 @@
             </p>
           </div>
         </div>
-        <div class="h-8"></div>
 
       </section>
 
@@ -613,7 +614,7 @@
         </div>
 
         <!-- 캘린더 뷰 모드 토글 (월간 달력 vs 공식 일정 목록) -->
-        <div class="grid grid-cols-2 carbon-border text-xs text-center shadow-xs">
+        <div class="grid grid-cols-2 carbon-border text-xs text-center">
           <button id="cal-mode-grid" class="py-2.5 tab-active font-semibold" onclick="switchCalendarView('grid')">월간 달력 (Calendar)</button>
           <button id="cal-mode-list" class="py-2.5 tab-inactive font-medium" onclick="switchCalendarView('list')">64기 공식 일정표</button>
         </div>
@@ -622,7 +623,7 @@
         <div id="cal-grid-view" class="space-y-3">
           
           <!-- Month Navigation Bar -->
-          <div class="bg-white p-3 sm:p-3.5 carbon-border flex items-center justify-between shadow-xs">
+          <div class="bg-white p-3 carbon-border flex items-center justify-between">
             <button onclick="changeCalMonth(-1)" class="carbon-border px-3 py-1.5 text-xs hover:bg-[#f4f4f4] font-mono transition">
               &lt; 이전 달
             </button>
@@ -635,7 +636,7 @@
           </div>
 
           <!-- 7-Column Calendar Grid Frame -->
-          <div class="bg-white carbon-border overflow-hidden shadow-xs">
+          <div class="bg-white carbon-border overflow-hidden">
             <!-- Weekday Headers (divide-x로 날짜 셀 세로선과 100% 일치) -->
             <div class="grid grid-cols-7 divide-x divide-[#e0e0e0] border-b border-[#e0e0e0] text-center text-xs font-semibold bg-[#f4f4f4]">
               <div class="py-2 text-[#da1e28]">일</div>
@@ -654,7 +655,7 @@
           </div>
 
           <!-- Selected Date Details Panel -->
-          <div id="cal-selected-detail" class="bg-white p-4 carbon-border space-y-2.5 shadow-xs">
+          <div id="cal-selected-detail" class="bg-white p-4 carbon-border space-y-2.5">
             <div class="flex justify-between items-center pb-2 border-b border-[#e0e0e0]">
               <div id="detail-date-title" class="text-xs font-semibold text-[#161616] flex items-center gap-2">
                 <span>2026. 10. 15 (오늘)</span>
@@ -751,13 +752,13 @@
       <!-- ================= 5. MYPAGE SCREEN ================= -->
       <section id="screen-mypage" class="screen-view p-4 space-y-4 hidden">
         
-        <div class="bg-[#161616] text-white p-5 sm:p-6 carbon-border text-center space-y-3 shadow-xs">
+        <div class="bg-[#161616] text-white p-5 carbon-border text-center space-y-3">
           <div class="flex justify-center">
-            <img src="kaay_emblem.png" alt="육군3사관학교 정모 엠블럼" class="w-20 h-20 sm:w-22 sm:h-22 object-contain drop-shadow-md">
+            <img src="kaay_emblem.png" alt="육군3사관학교 정모 엠블럼" class="w-20 h-20 object-contain drop-shadow-md">
           </div>
           <div>
             <div class="text-xs text-[#f1c21b] font-medium tracking-wider">KOREA ARMY ACADEMY AT YEONG-CHEON</div>
-            <h2 class="text-xl sm:text-2xl font-light mt-1">충성대 64기 사관생도</h2>
+            <h2 class="text-xl font-light mt-1">충성대 64기 사관생도</h2>
             <div class="text-xs text-[#a8a8a8] mt-1 font-mono">2027년 1월 11일 가입교 예정</div>
           </div>
           <div class="text-xs text-[#f1c21b] font-light border-t border-[#393939] pt-2.5 leading-relaxed">
@@ -767,7 +768,7 @@
         </div>
 
         <!-- Real Best Records Matrix -->
-        <div class="bg-white p-4 sm:p-4.5 carbon-border space-y-3 shadow-xs">
+        <div class="bg-white p-4 carbon-border space-y-3">
           <div class="flex justify-between items-center">
             <span class="text-xs font-semibold text-[#161616]">내 실제 최고 기록 매트릭스</span>
             <span class="text-[10px] text-[#525252] bg-[#f4f4f4] px-1.5 py-0.5 border border-[#e0e0e0] font-mono">실시간 자동 집계</span>
@@ -792,19 +793,19 @@
         </div>
 
         <!-- Settings & Data Persistence List -->
-        <div class="bg-white carbon-border divide-y divide-[#e0e0e0] text-xs shadow-xs">
-          <div class="p-3.5 sm:p-4 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer transition" onclick="toggleNoticeModal(true)">
+        <div class="bg-white carbon-border divide-y divide-[#e0e0e0] text-xs">
+          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer transition" onclick="toggleNoticeModal(true)">
             <span class="font-medium text-[#161616]">입학관리실 정정 공지문 원본 확인</span>
             <span class="text-[#0f62fe] font-medium">보기 →</span>
           </div>
-          <div class="p-3.5 sm:p-4 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer transition" onclick="exportBackupData()">
+          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer transition" onclick="exportBackupData()">
             <div>
               <span class="font-medium text-[#161616]">내 기록 백업 다운로드 (.json)</span>
               <span class="block text-[10px] text-[#525252]">체력 기록 및 학습 데이터를 파일로 안전 보관</span>
             </div>
             <span class="text-[#0f62fe] font-mono whitespace-nowrap">내보내기 ⬇</span>
           </div>
-          <div class="p-3.5 sm:p-4 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer transition" onclick="document.getElementById('backup-file-input').click()">
+          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer transition" onclick="document.getElementById('backup-file-input').click()">
             <div>
               <span class="font-medium text-[#161616]">백업 파일로 기록 복원하기</span>
               <span class="block text-[10px] text-[#525252]">이전에 저장한 JSON 파일에서 즉시 복구</span>
@@ -812,21 +813,21 @@
             <span class="text-[#24a148] font-mono whitespace-nowrap">가져오기 ⬆</span>
             <input type="file" id="backup-file-input" accept=".json" class="hidden" onchange="importBackupData(event)">
           </div>
-          <div class="p-3.5 sm:p-4 flex justify-between items-center bg-[#fafafa]">
+          <div class="p-3.5 flex justify-between items-center bg-[#fafafa]">
             <div>
               <span class="text-[#161616] font-medium">스토리지 영구 보존 엔진</span>
               <span class="block text-[10px] text-[#24a148]">IndexedDB + LocalStorage 듀얼 백업 활성</span>
             </div>
             <span class="px-2 py-0.5 text-[10px] bg-[#24a148] text-white font-semibold whitespace-nowrap">보존 중</span>
           </div>
-          <div class="p-3.5 sm:p-4 flex justify-between items-center hover:bg-[#fff1f1] cursor-pointer transition" onclick="clearMyData()">
+          <div class="p-3.5 flex justify-between items-center hover:bg-[#fff1f1] cursor-pointer transition" onclick="clearMyData()">
             <span class="text-[#da1e28] font-medium">내 체력 입력 기록 전체 초기화</span>
             <span class="text-[#da1e28] text-[11px] font-mono whitespace-nowrap">초기화 ↺</span>
           </div>
         </div>
 
         <!-- Data Isolation & Privacy Information Card -->
-        <div class="bg-white p-4 sm:p-4.5 carbon-border space-y-2.5 shadow-xs">
+        <div class="bg-white p-4 carbon-border space-y-2.5">
           <div class="flex items-center justify-between">
             <span class="text-xs font-semibold text-[#161616] flex items-center gap-1.5">
               <span class="w-2 h-2 bg-[#24a148] inline-block"></span>
@@ -8481,7 +8482,7 @@
       for (let i = firstDayIndex - 1; i >= 0; i--) {
         const d = prevLastDay - i;
         const cell = document.createElement('div');
-        cell.className = "h-[64px] sm:h-[70px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-50 overflow-hidden flex flex-col justify-between";
+        cell.className = "h-[64px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-50 overflow-hidden flex flex-col justify-between";
         cell.innerHTML = `<span class="text-[10px] font-mono leading-none">${d}</span>`;
         container.appendChild(cell);
       }
@@ -8528,7 +8529,7 @@
             cellBg = 'bg-[#fffbeb]';
           } else if (isStart) {
             middleBadgeHtml = `
-              <div class="text-[7.5px] px-1 py-0.5 truncate font-bold leading-tight text-white bg-[#0f62fe] text-center shadow-xs">
+              <div class="text-[7.5px] px-1 py-0.5 truncate font-bold leading-tight text-white bg-[#0f62fe] text-center">
                 ▶ ${ev.short}
               </div>
             `;
@@ -8559,7 +8560,7 @@
         }
 
         const cell = document.createElement('div');
-        let cellClass = "h-[64px] sm:h-[70px] p-1 text-left cursor-pointer transition relative flex flex-col justify-between overflow-hidden ";
+        let cellClass = "h-[64px] p-1 text-left cursor-pointer transition relative flex flex-col justify-between overflow-hidden ";
         if (isSelected) {
           cellClass += "bg-[#edf5ff] ring-2 ring-[#0f62fe] z-10 ";
         } else if (isToday) {
@@ -8595,7 +8596,7 @@
       const nextDays = (7 - (totalCells % 7)) % 7;
       for (let i = 1; i <= nextDays; i++) {
         const cell = document.createElement('div');
-        cell.className = "h-[64px] sm:h-[70px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-50 overflow-hidden flex flex-col justify-between";
+        cell.className = "h-[64px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-50 overflow-hidden flex flex-col justify-between";
         cell.innerHTML = `<span class="text-[10px] font-mono leading-none">${i}</span>`;
         container.appendChild(cell);
       }
