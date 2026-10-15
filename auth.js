@@ -380,6 +380,7 @@
     client.auth.signInWithPassword({ email: toAuthEmail(username), password: password })
       .then(function (res) {
         if (res.error || !res.data || !res.data.session) {
+          console.warn('[auth] signIn failed:', res.error);
           showFormError('login-error', loginErrorMessage(res.error));
           pwInput.value = '';
           pwInput.focus();
@@ -394,6 +395,7 @@
         setTimeout(function () { pwInput.value = ''; }, 1500);
       })
       .catch(function (err) {
+        console.warn('[auth] signIn exception:', err);
         showFormError('login-error', loginErrorMessage(err));
       })
       .then(function () {
@@ -405,7 +407,7 @@
   /* ---------- 회원가입 ---------- */
   function readSignupValues() {
     return {
-      username: $('signup-username').value.trim(),
+      username: $('signup-username').value.trim().toLowerCase(),
       password: $('signup-password').value,
       confirm: $('signup-password-confirm').value,
       name: $('signup-name').value.trim()
