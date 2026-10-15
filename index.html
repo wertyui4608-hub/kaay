@@ -386,57 +386,70 @@
           <div class="bg-white p-3 carbon-border flex items-center justify-between">
             <span class="text-xs font-semibold text-[#161616]">학습 Day 선택</span>
             <select id="voca-day-select" onchange="changeVocaDay(this.value)" class="carbon-input text-xs py-1 px-2.5 font-medium text-[#0f62fe]">
-              <option value="1">Day 01 (명사)</option>
-              <option value="2">Day 02 (대명사)</option>
-              <option value="3">Day 03 (형용사)</option>
-              <option value="4">Day 04 (부사)</option>
-              <option value="5">Day 05 (동사 자리와 수일치)</option>
-              <option value="6">Day 06 (시제)</option>
-              <option value="7">Day 07 (능동태 vs 수동태)</option>
-              <option value="8">Day 08 (to부정사)</option>
-              <option value="9">Day 09 (동명사 (+ to부정사 vs 동명사 비교))</option>
-              <option value="10">Day 10 (분사 (현재분사 vs 과거분사, 감정분사))</option>
-              <option value="11">Day 11 (분사구문)</option>
-              <option value="12">Day 12 (전치사 1 — 시간·장소)</option>
-              <option value="13">Day 13 (전치사 2 — 이유·양보·기타)</option>
-              <option value="14">Day 14 (등위·상관접속사)</option>
-              <option value="15">Day 15 (부사절 접속사 vs 전치사)</option>
-              <option value="16">Day 16 (명사절 접속사 (that/whether/what))</option>
-              <option value="17">Day 17 (관계대명사)</option>
-              <option value="18">Day 18 (관계부사·복합관계사)</option>
-              <option value="19">Day 19 (비교구문 (much 비교급 강조 등))</option>
-              <option value="20">Day 20 (가정법·도치 (Not only 도치, If had p.p.))</option>
-              <option value="21">Day 21 (동사 어휘 (빈출 짝꿍))</option>
+              <option value="1">Day 01 (명사) — RANK 0001~0031 (31단어)</option>
+              <option value="2">Day 02 (대명사) — RANK 0032~0062 (31단어)</option>
+              <option value="3">Day 03 (형용사) — RANK 0063~0093 (31단어)</option>
+              <option value="4">Day 04 (부사) — RANK 0094~0123 (30단어)</option>
+              <option value="5">Day 05 (동사 자리와 수일치) — RANK 0124~0154 (31단어)</option>
+              <option value="6">Day 06 (시제) — RANK 0155~0184 (30단어)</option>
+              <option value="7">Day 07 (능동태 vs 수동태) — RANK 0185~0214 (30단어)</option>
+              <option value="8">Day 08 (to부정사) — RANK 0215~0244 (30단어)</option>
+              <option value="9">Day 09 (동명사) — RANK 0245~0274 (30단어)</option>
+              <option value="10">Day 10 (분사) — RANK 0275~0305 (31단어)</option>
+              <option value="11">Day 11 (분사구문) — RANK 0306~0334 (29단어)</option>
+              <option value="12">Day 12 (전치사 1) — RANK 0335~0365 (31단어)</option>
+              <option value="13">Day 13 (전치사 2) — RANK 0366~0395 (30단어)</option>
+              <option value="14">Day 14 (등위·상관접속사) — RANK 0396~0423 (28단어)</option>
+              <option value="15">Day 15 (부사절 접속사) — RANK 0424~0452 (29단어)</option>
+              <option value="16">Day 16 (명사절 접속사) — RANK 0453~0483 (31단어)</option>
+              <option value="17">Day 17 (관계대명사) — RANK 0484~0513 (30단어)</option>
+              <option value="18">Day 18 (관계부사) — RANK 0514~0544 (31단어)</option>
+              <option value="19">Day 19 (비교구문) — RANK 0545~0575 (31단어)</option>
+              <option value="20">Day 20 (가정법·도치 실전어휘)</option>
+              <option value="21">Day 21 (동사 어휘 빈출 짝꿍)</option>
               <option value="22">Day 22 (품사 자리 종합 복습)</option>
-              <option value="23">Day 23 (실전 1회 — 2023-06-11 Part 5 전체)</option>
-              <option value="24">Day 24 (실전 2회 — 2025-01-12 Part 5·6·7)</option>
-              <option value="25">Day 25 (실전 3회 — 2025-01-26 Part 5·6·7)</option>
-              <option value="26">Day 26 (실전 4회 — 2025-02-09 Part 5·6·7)</option>
-              <option value="27">Day 27 (실전 5회 — 2025-03-09 Part 5·6·7)</option>
-              <option value="28">Day 28 (실전 6회 — 2025-03-30 Part 5·6·7)</option>
-              <option value="29">Day 29 (실전 7회 — 2025-04-27 Part 5)</option>
-              <option value="30">Day 30 (최종 진단평가 (Day 1 진단과 비교))</option>
+              <option value="23">Day 23 (실전 1회 빈출 어휘)</option>
+              <option value="24">Day 24 (실전 2회 빈출 어휘)</option>
+              <option value="25">Day 25 (실전 3회 빈출 어휘)</option>
+              <option value="26">Day 26 (실전 4회 빈출 어휘)</option>
+              <option value="27">Day 27 (실전 5회 빈출 어휘)</option>
+              <option value="28">Day 28 (실전 6회 빈출 어휘)</option>
+              <option value="29">Day 29 (실전 7회 빈출 어휘)</option>
+              <option value="30">Day 30 (최종 종합 어휘 총정리)</option>
             </select>
           </div>
 
           <div class="bg-white p-6 carbon-border text-center space-y-3 cursor-pointer select-none hover:bg-[#fafafa] transition" onclick="flipCard()">
             <div class="flex justify-between items-center text-[11px] text-[#525252] border-b border-[#f4f4f4] pb-2">
-              <span id="voca-counter">단어 1 / 8</span>
-              <span class="text-[#0f62fe] font-medium">[카드를 누르면 뜻이 열립니다]</span>
+              <span id="voca-counter">단어 1 / 31</span>
+              <div class="flex items-center gap-1.5">
+                <span id="voca-freq-badge" class="text-[10px] text-[#0f62fe] font-mono bg-[#edf5ff] px-2 py-0.5 border border-[#d0e2ff] font-semibold">기출 31회</span>
+                <span class="text-[#0f62fe] font-medium hidden sm:inline">[카드 터치 시 뜻 확인]</span>
+              </div>
             </div>
 
-            <div id="voca-word" class="text-3xl font-semibold text-[#161616] tracking-wide py-4">previous job</div>
+            <div class="py-3">
+              <div id="voca-word" class="text-3xl font-semibold text-[#161616] tracking-wide">available</div>
+              <div id="voca-pos" class="text-xs text-[#8c8c8c] font-mono mt-1">a. (형용사)</div>
+            </div>
             
-            <div id="voca-meaning-box" class="pt-3 border-t border-[#e0e0e0] hidden">
-              <div id="voca-meaning" class="text-base font-semibold text-[#0f62fe] mb-1.5">이전 직업</div>
-              <p id="voca-example" class="text-xs text-[#525252] leading-relaxed">
-                “He gained valuable experience from his previous job.”
-              </p>
+            <div id="voca-meaning-box" class="pt-3 border-t border-[#e0e0e0] space-y-2 hidden text-left">
+              <div class="text-center">
+                <div id="voca-meaning" class="text-base font-semibold text-[#0f62fe] mb-1">이용 가능한, (사람이) 시간이 되는</div>
+              </div>
+              <div class="bg-[#f4f4f4] p-3 carbon-border space-y-1">
+                <p id="voca-example" class="text-xs text-[#161616] font-medium leading-relaxed">
+                  “The conference room is available for booking on Friday afternoon.”
+                </p>
+                <p id="voca-example-ko" class="text-[11px] text-[#525252] leading-relaxed">
+                  → 회의실은 금요일 오후에 예약 가능하다.
+                </p>
+              </div>
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-2">
-            <button onclick="nextWord(false)" class="bg-[#f4f4f4] text-[#161616] py-3 text-xs font-medium carbon-border hover:bg-[#e0e0e0]">
+            <button onclick="nextWord(false)" class="bg-[#f4f4f4] text-[#161616] py-3 text-xs font-medium carbon-border hover:bg-[#e0e0e0] transition">
               ✕ 다시 보기
             </button>
             <button onclick="nextWord(true)" class="carbon-blue-btn py-3 text-xs font-medium">
@@ -1690,1044 +1703,5626 @@
     const vocaData = {
   "1": [
     {
-      "word": "previous job",
-      "mean": "이전 직업",
-      "ex": "Example for previous job."
+      "word": "available",
+      "pos": "a.",
+      "mean": "이용 가능한, (사람이) 시간이 되는",
+      "freq": "31회",
+      "ex": "The conference room is available for booking on Friday afternoon.",
+      "ex_ko": "회의실은 금요일 오후에 예약 가능하다."
     },
     {
-      "word": "secretary",
-      "mean": "비서",
-      "ex": "Example for secretary."
+      "word": "unavailable",
+      "pos": "a.",
+      "mean": "이용할 수 없는, 부재중인",
+      "freq": "1회",
+      "ex": "The online store will be unavailable during the system update.",
+      "ex_ko": "시스템 업데이트 동안 온라인 매장을 이용할 수 없다."
     },
     {
-      "word": "send in",
-      "mean": "~을 제출하다",
-      "ex": "Example for send in."
+      "word": "implement",
+      "pos": "v.",
+      "mean": "시행하다 (n. 도구)",
+      "freq": "2회",
+      "ex": "The company will implement a new security policy next month.",
+      "ex_ko": "회사는 다음 달에 새 보안 정책을 시행할 것이다."
     },
     {
-      "word": "tidy",
-      "mean": "단정한, 깔끔한",
-      "ex": "Example for tidy."
+      "word": "represent",
+      "pos": "v.",
+      "mean": "대표하다, 나타내다",
+      "freq": "1회",
+      "ex": "Ms. Ortiz will represent our firm at the trade fair.",
+      "ex_ko": "오르티즈 씨가 무역 박람회에서 우리 회사를 대표할 것이다."
     },
     {
-      "word": "trainee",
-      "mean": "훈련받는 사람",
-      "ex": "Example for trainee."
+      "word": "representative",
+      "pos": "n.",
+      "mean": "대표자, 직원, 담당자",
+      "freq": "11회",
+      "ex": "Please call a customer service representative for help.",
+      "ex_ko": "도움이 필요하면 고객 서비스 직원에게 전화하세요."
     },
     {
-      "word": "apply for",
-      "mean": "~에 지원하다",
-      "ex": "Example for apply for."
+      "word": "feature",
+      "pos": "n./v.",
+      "mean": "특징, 특집 / 특징으로 하다, 포함하다",
+      "freq": "15회",
+      "ex": "The new laptop features a longer battery life.",
+      "ex_ko": "새 노트북은 더 긴 배터리 수명이 특징이다."
     },
     {
-      "word": "aptitude",
-      "mean": "재능, 소질",
-      "ex": "Example for aptitude."
+      "word": "release",
+      "pos": "v./n.",
+      "mean": "출시하다, 공개하다 / 출시, 발표",
+      "freq": "9회",
+      "ex": "The company will release its new product line in June.",
+      "ex_ko": "회사는 6월에 신제품 라인을 출시할 것이다."
     },
     {
-      "word": "be admitted to",
-      "mean": "~에 입장이 허용되다",
-      "ex": "Example for be admitted to."
+      "word": "caution",
+      "pos": "n.",
+      "mean": "주의, 조심",
+      "freq": "-",
+      "ex": "Please use caution when the floor is wet.",
+      "ex_ko": "바닥이 젖었을 때는 주의하세요."
     },
     {
-      "word": "be advised to do",
-      "mean": "~할 것을 권유받다",
-      "ex": "Example for be advised to do."
+      "word": "cautiously",
+      "pos": "ad.",
+      "mean": "신중하게, 조심스럽게",
+      "freq": "-",
+      "ex": "Analysts are cautiously optimistic about next quarter's sales.",
+      "ex_ko": "분석가들은 다음 분기 매출을 조심스럽게 낙관한다."
     },
     {
-      "word": "criteria",
-      "mean": "기준",
-      "ex": "Example for criteria."
+      "word": "precaution",
+      "pos": "n.",
+      "mean": "예방 조치",
+      "freq": "-",
+      "ex": "Workers must take safety precautions before entering the site.",
+      "ex_ko": "작업자들은 현장에 들어가기 전 안전 조치를 해야 한다."
+    },
+    {
+      "word": "deliver",
+      "pos": "v.",
+      "mean": "배달하다, (연설을) 하다",
+      "freq": "8회",
+      "ex": "Dr. Lee will deliver the opening speech at 9 A.M.",
+      "ex_ko": "이 박사가 오전 9시에 개회 연설을 한다."
+    },
+    {
+      "word": "delivery",
+      "pos": "n.",
+      "mean": "배달, 배송",
+      "freq": "11회",
+      "ex": "We offer free delivery on orders over $50.",
+      "ex_ko": "50달러 이상 주문 시 무료 배송을 제공한다."
+    },
+    {
+      "word": "itinerary",
+      "pos": "n.",
+      "mean": "여행 일정(표)",
+      "freq": "-",
+      "ex": "I have attached your itinerary for the business trip to Tokyo.",
+      "ex_ko": "도쿄 출장 일정표를 첨부했습니다."
+    },
+    {
+      "word": "venue",
+      "pos": "n.",
+      "mean": "(행사) 장소",
+      "freq": "4회",
+      "ex": "The venue for the awards dinner has been changed.",
+      "ex_ko": "시상식 만찬 장소가 변경되었다."
+    },
+    {
+      "word": "cater (to)",
+      "pos": "v.",
+      "mean": "음식을 공급하다, (요구를) 충족시키다",
+      "freq": "1회",
+      "ex": "Green Table has catered our company events for years.",
+      "ex_ko": "그린 테이블은 수년간 우리 회사 행사에 음식을 제공해왔다."
+    },
+    {
+      "word": "catering service",
+      "pos": "n.",
+      "mean": "출장 요리 서비스",
+      "freq": "1회",
+      "ex": "The hotel provides catering services for business meetings.",
+      "ex_ko": "그 호텔은 비즈니스 회의용 케이터링을 제공한다."
+    },
+    {
+      "word": "fragile",
+      "pos": "a.",
+      "mean": "깨지기 쉬운",
+      "freq": "-",
+      "ex": "Please mark the box as fragile before shipping.",
+      "ex_ko": "발송 전에 상자에 '파손 주의'라고 표시해 주세요."
+    },
+    {
+      "word": "depend",
+      "pos": "v.",
+      "mean": "의존하다, ~에 달려 있다",
+      "freq": "3회",
+      "ex": "The delivery time depends on your location.",
+      "ex_ko": "배송 시간은 지역에 따라 다르다."
+    },
+    {
+      "word": "dependable",
+      "pos": "a.",
+      "mean": "믿을 만한",
+      "freq": "-",
+      "ex": "Customers choose us for our dependable service.",
+      "ex_ko": "고객들은 믿을 만한 서비스 때문에 우리를 선택한다."
+    },
+    {
+      "word": "dependent",
+      "pos": "a.",
+      "mean": "의존하는, ~에 달린",
+      "freq": "-",
+      "ex": "The project's success is dependent on the budget.",
+      "ex_ko": "프로젝트의 성공은 예산에 달려 있다."
+    },
+    {
+      "word": "independent",
+      "pos": "a.",
+      "mean": "독립적인",
+      "freq": "1회",
+      "ex": "An independent committee will review the results.",
+      "ex_ko": "독립 위원회가 결과를 검토할 것이다."
+    },
+    {
+      "word": "agent",
+      "pos": "n.",
+      "mean": "대리인, 직원 (사람)",
+      "freq": "2회",
+      "ex": "Our travel agent booked the flights for the whole team.",
+      "ex_ko": "여행사 직원이 팀 전체 항공편을 예약했다."
+    },
+    {
+      "word": "agency",
+      "pos": "n.",
+      "mean": "대행사, 대리점 (회사)",
+      "freq": "4회",
+      "ex": "She works for an advertising agency in Seoul.",
+      "ex_ko": "그녀는 서울의 광고 대행사에서 일한다."
+    },
+    {
+      "word": "focus",
+      "pos": "v./n.",
+      "mean": "집중하다 / 초점",
+      "freq": "6회",
+      "ex": "This workshop will focus on time management skills.",
+      "ex_ko": "이 워크숍은 시간 관리 능력에 초점을 맞춘다."
+    },
+    {
+      "word": "skilled",
+      "pos": "a.",
+      "mean": "숙련된, 능숙한",
+      "freq": "-",
+      "ex": "We are looking for skilled technicians to join our team.",
+      "ex_ko": "우리 팀에 합류할 숙련된 기술자를 찾고 있다."
+    },
+    {
+      "word": "pay",
+      "pos": "v./n.",
+      "mean": "지불하다 / 급여",
+      "freq": "6회",
+      "ex": "Employees can pay for lunch with their ID cards.",
+      "ex_ko": "직원들은 사원증으로 점심값을 낼 수 있다."
+    },
+    {
+      "word": "payment",
+      "pos": "n.",
+      "mean": "지불(금), 결제",
+      "freq": "3회",
+      "ex": "Payment must be received by the end of the month.",
+      "ex_ko": "대금은 월말까지 입금되어야 한다."
+    },
+    {
+      "word": "payable",
+      "pos": "a.",
+      "mean": "지불해야 하는",
+      "freq": "-",
+      "ex": "Please make the check payable to Brightline Inc.",
+      "ex_ko": "수표는 브라이트라인 사 앞으로 발행해 주세요."
+    },
+    {
+      "word": "length",
+      "pos": "n.",
+      "mean": "길이, 기간",
+      "freq": "1회",
+      "ex": "The length of the training program is three weeks.",
+      "ex_ko": "교육 프로그램 기간은 3주다."
+    },
+    {
+      "word": "lengthy",
+      "pos": "a.",
+      "mean": "긴, 장황한",
+      "freq": "-",
+      "ex": "Applying for the permit can be a lengthy process.",
+      "ex_ko": "허가 신청은 긴 과정이 될 수 있다."
+    },
+    {
+      "word": "lengthen",
+      "pos": "v.",
+      "mean": "길게 하다, 늘이다",
+      "freq": "-",
+      "ex": "The city plans to lengthen the bike path by two kilometers.",
+      "ex_ko": "시는 자전거 도로를 2km 늘릴 계획이다."
     }
   ],
   "2": [
     {
-      "word": "item",
-      "mean": "항목",
-      "ex": "Example for item."
+      "word": "appear",
+      "pos": "v.",
+      "mean": "나타나다, ~인 것 같다, 출연하다",
+      "freq": "P5 정답",
+      "ex": "The new manager appears to be very organized.",
+      "ex_ko": "새 매니저는 아주 체계적인 사람인 것 같다."
     },
     {
-      "word": "legal",
-      "mean": "법률의, 합법적인",
-      "ex": "Example for legal."
+      "word": "appearance",
+      "pos": "n.",
+      "mean": "출현, 등장, 외관",
+      "freq": "2회",
+      "ex": "The author will make a special appearance at the bookstore on Saturday.",
+      "ex_ko": "그 작가가 토요일에 서점에 특별히 모습을 보일 것이다."
     },
     {
-      "word": "let go",
-      "mean": "놓아주다",
-      "ex": "Example for let go."
+      "word": "market",
+      "pos": "n.",
+      "mean": "시장",
+      "freq": "9회",
+      "ex": "The company plans to enter the Japanese market next year.",
+      "ex_ko": "그 회사는 내년에 일본 시장에 진출할 계획이다."
     },
     {
-      "word": "ruler",
-      "mean": "자제하다, 삼가다",
-      "ex": "Example for ruler."
+      "word": "marketable",
+      "pos": "a.",
+      "mean": "잘 팔리는, 시장성 있는",
+      "freq": "-",
+      "ex": "Learning data analysis will make your skills more marketable.",
+      "ex_ko": "데이터 분석을 배우면 네 기술이 더 경쟁력 있어질 것이다."
     },
     {
-      "word": "stop",
-      "mean": "멈추다",
-      "ex": "Example for stop."
+      "word": "lower",
+      "pos": "v./a.",
+      "mean": "낮추다, 줄이다 / 더 낮은",
+      "freq": "-",
+      "ex": "Please review the official usage of lower.",
+      "ex_ko": ""
     },
     {
-      "word": "busy",
-      "mean": "바쁜",
-      "ex": "Example for busy."
+      "word": "conference",
+      "pos": "n.",
+      "mean": "회의, 학회, 협의회",
+      "freq": "28회",
+      "ex": "All sales managers will attend the annual conference in Busan.",
+      "ex_ko": "모든 영업 관리자가 부산 연례 회의에 참석한다."
     },
     {
-      "word": "curriculum",
-      "mean": "교과과정",
-      "ex": "Example for curriculum."
+      "word": "apply",
+      "pos": "v.",
+      "mean": "지원하다, 신청하다, 적용하다",
+      "freq": "6회",
+      "ex": "Ms. Choi applied for the marketing position last week.",
+      "ex_ko": "최 씨는 지난주 마케팅 직에 지원했다."
     },
     {
-      "word": "dress",
-      "mean": "의복, 옷을 차려입다",
-      "ex": "Example for dress."
+      "word": "application",
+      "pos": "n.",
+      "mean": "지원(서), 신청(서), 적용",
+      "freq": "10회",
+      "ex": "Please submit your application by March 31.",
+      "ex_ko": "3월 31일까지 지원서를 제출해 주세요."
     },
     {
-      "word": "enough",
-      "mean": "충분한, 필요한 만큼의 수",
-      "ex": "Example for enough."
+      "word": "applicable",
+      "pos": "a.",
+      "mean": "해당되는, 적용되는",
+      "freq": "1회",
+      "ex": "The discount is applicable to all online orders.",
+      "ex_ko": "할인은 모든 온라인 주문에 적용된다."
     },
     {
-      "word": "finish",
-      "mean": "끝내다, 완료하다",
-      "ex": "Example for finish."
+      "word": "applicant",
+      "pos": "n.",
+      "mean": "지원자 (사람)",
+      "freq": "8회",
+      "ex": "All applicants must have at least two years of experience.",
+      "ex_ko": "모든 지원자는 최소 2년의 경력이 있어야 한다."
+    },
+    {
+      "word": "appliance",
+      "pos": "n.",
+      "mean": "가전제품, 기기",
+      "freq": "4회",
+      "ex": "The apartment comes with new kitchen appliances.",
+      "ex_ko": "그 아파트에는 새 주방 가전이 갖춰져 있다."
+    },
+    {
+      "word": "promote",
+      "pos": "v.",
+      "mean": "승진시키다, 촉진하다, 홍보하다",
+      "freq": "1회",
+      "ex": "Mr. Tanaka was promoted to regional manager last month.",
+      "ex_ko": "다나카 씨는 지난달 지역 관리자로 승진했다."
+    },
+    {
+      "word": "promotion",
+      "pos": "n.",
+      "mean": "승진, 판촉, 홍보",
+      "freq": "7회",
+      "ex": "Employees with excellent reviews are eligible for promotion.",
+      "ex_ko": "평가가 우수한 직원은 승진 자격이 있다."
+    },
+    {
+      "word": "session",
+      "pos": "n.",
+      "mean": "(교육·회의) 시간, 과정, 회기",
+      "freq": "10회",
+      "ex": "The training session will begin at 10 A.M. in Room B.",
+      "ex_ko": "교육은 오전 10시에 B실에서 시작한다."
+    },
+    {
+      "word": "experience",
+      "pos": "v./n.",
+      "mean": "경험하다 / 경험, 경력",
+      "freq": "18회",
+      "ex": "If you experience any problems, please call our help desk.",
+      "ex_ko": "문제가 생기면 헬프 데스크로 전화하세요."
+    },
+    {
+      "word": "experienced",
+      "pos": "a.",
+      "mean": "경험 많은, 숙련된",
+      "freq": "2회 + P5",
+      "ex": "We need an experienced chef for the new restaurant.",
+      "ex_ko": "새 식당에 경험 많은 요리사가 필요하다."
+    },
+    {
+      "word": "inexperienced",
+      "pos": "a.",
+      "mean": "경험 없는, 미숙한",
+      "freq": "-",
+      "ex": "Inexperienced drivers should avoid mountain roads in winter.",
+      "ex_ko": "초보 운전자는 겨울에 산길을 피해야 한다."
+    },
+    {
+      "word": "research",
+      "pos": "v./n.",
+      "mean": "연구하다, 조사하다 / 연구, 조사",
+      "freq": "2회",
+      "ex": "Our team conducted research on customer preferences.",
+      "ex_ko": "우리 팀은 고객 선호도에 대한 조사를 했다."
+    },
+    {
+      "word": "develop",
+      "pos": "v.",
+      "mean": "개발하다, 발전시키다",
+      "freq": "4회",
+      "ex": "The company developed a new app for online banking.",
+      "ex_ko": "그 회사는 온라인 뱅킹용 새 앱을 개발했다."
+    },
+    {
+      "word": "developer",
+      "pos": "n.",
+      "mean": "개발자, 개발업체 (사람·회사)",
+      "freq": "-",
+      "ex": "A local developer plans to build 200 new homes.",
+      "ex_ko": "한 지역 개발업체가 새 주택 200채를 지을 계획이다."
+    },
+    {
+      "word": "development",
+      "pos": "n.",
+      "mean": "개발, 발전, (새로운) 상황",
+      "freq": "7회",
+      "ex": "The new software is still under development.",
+      "ex_ko": "새 소프트웨어는 아직 개발 중이다."
+    },
+    {
+      "word": "policy",
+      "pos": "n.",
+      "mean": "방침, 규정, 정책 / 보험 증권",
+      "freq": "1회",
+      "ex": "According to our return policy, items can be returned within 30 days.",
+      "ex_ko": "반품 규정에 따라 30일 이내에 반품할 수 있다."
+    },
+    {
+      "word": "arrange",
+      "pos": "v.",
+      "mean": "준비하다, 마련하다, 정리하다",
+      "freq": "3회",
+      "ex": "I will arrange a meeting with the client for Thursday.",
+      "ex_ko": "목요일로 고객과 회의를 잡을게요."
+    },
+    {
+      "word": "arrangement",
+      "pos": "n.",
+      "mean": "준비, 마련, 배치",
+      "freq": "3회",
+      "ex": "Please make travel arrangements before the end of the week.",
+      "ex_ko": "이번 주가 끝나기 전에 여행 준비를 해 주세요."
+    },
+    {
+      "word": "budget",
+      "pos": "n.",
+      "mean": "예산, 경비",
+      "freq": "8회",
+      "ex": "The project was completed within budget.",
+      "ex_ko": "그 프로젝트는 예산 내에서 완료되었다."
+    },
+    {
+      "word": "depart",
+      "pos": "v.",
+      "mean": "출발하다, 떠나다",
+      "freq": "P5 정답",
+      "ex": "The shuttle bus departs from the main entrance every 20 minutes.",
+      "ex_ko": "셔틀버스는 20분마다 정문에서 출발한다."
+    },
+    {
+      "word": "departure",
+      "pos": "n.",
+      "mean": "출발",
+      "freq": "-",
+      "ex": "Please arrive at the gate 30 minutes before departure.",
+      "ex_ko": "출발 30분 전에 탑승구에 도착해 주세요."
+    },
+    {
+      "word": "recommend",
+      "pos": "v.",
+      "mean": "추천하다, 권고하다",
+      "freq": "8회 + P5",
+      "ex": "The doctor recommended that he take a few days off.",
+      "ex_ko": "의사는 그에게 며칠 쉬라고 권했다."
+    },
+    {
+      "word": "recommendation",
+      "pos": "n.",
+      "mean": "추천, 권고, 추천서",
+      "freq": "5회",
+      "ex": "I hired this designer on the recommendation of a colleague.",
+      "ex_ko": "동료의 추천으로 이 디자이너를 고용했다."
+    },
+    {
+      "word": "perform",
+      "pos": "v.",
+      "mean": "수행하다, 공연하다",
+      "freq": "3회",
+      "ex": "Technicians perform safety checks every morning.",
+      "ex_ko": "기술자들은 매일 아침 안전 점검을 수행한다."
+    },
+    {
+      "word": "performance",
+      "pos": "n.",
+      "mean": "실적, 성과, 성능 / 공연",
+      "freq": "13회",
+      "ex": "Annual performance reviews will take place in December.",
+      "ex_ko": "연간 인사 평가는 12월에 있을 예정이다."
     }
   ],
   "3": [
     {
-      "word": "in order to do",
-      "mean": "~하기 위해서",
-      "ex": "Example for in order to do."
+      "word": "stand",
+      "pos": "n./v.",
+      "mean": "(신문·잡지) 가판대, 받침대 / 서다, 견디다",
+      "freq": "4회",
+      "ex": "Ms. Lee will stand in for the manager during the meeting.",
+      "ex_ko": "회의 동안 이 씨가 매니저를 대신할 것이다."
     },
     {
-      "word": "laptop",
-      "mean": "휴대용 컴퓨터",
-      "ex": "Example for laptop."
+      "word": "stance",
+      "pos": "n.",
+      "mean": "입장, 태도",
+      "freq": "-",
+      "ex": "The company took a clear stance on recycling.",
+      "ex_ko": "그 회사는 재활용에 대해 분명한 입장을 취했다."
     },
     {
-      "word": "name tag",
-      "mean": "명찰, 명패",
-      "ex": "Example for name tag."
+      "word": "supervisor",
+      "pos": "n.",
+      "mean": "감독관, 관리자, 상사",
+      "freq": "5회",
+      "ex": "Please ask your supervisor before taking a day off.",
+      "ex_ko": "휴가를 내기 전에 상사에게 물어보세요."
     },
     {
-      "word": "on vacation",
-      "mean": "휴가 중인",
-      "ex": "Example for on vacation."
+      "word": "supervision",
+      "pos": "n.",
+      "mean": "감독, 관리",
+      "freq": "-",
+      "ex": "New employees work under the supervision of a senior staff member.",
+      "ex_ko": "신입 직원은 선배 직원의 감독하에 일한다."
     },
     {
-      "word": "paper jam",
-      "mean": "종이 걸림",
-      "ex": "Example for paper jam."
+      "word": "advertisement",
+      "pos": "n.",
+      "mean": "광고",
+      "freq": "15회",
+      "ex": "We placed an advertisement in the local newspaper.",
+      "ex_ko": "우리는 지역 신문에 광고를 냈다."
     },
     {
-      "word": "paperwork",
-      "mean": "문서작업",
-      "ex": "Example for paperwork."
+      "word": "percent",
+      "pos": "n.",
+      "mean": "퍼센트",
+      "freq": "10회",
+      "ex": "All winter coats are 30 percent off this week.",
+      "ex_ko": "이번 주 모든 겨울 코트는 30% 할인이다."
     },
     {
-      "word": "partition",
-      "mean": "칸막이, 분할",
-      "ex": "Example for partition."
+      "word": "percentage",
+      "pos": "n.",
+      "mean": "비율, 백분율",
+      "freq": "1회",
+      "ex": "A large percentage of our customers shop online.",
+      "ex_ko": "우리 고객의 많은 비율이 온라인으로 쇼핑한다."
     },
     {
-      "word": "rush hour",
-      "mean": "교통 혼잡 시간",
-      "ex": "Example for rush hour."
+      "word": "manage",
+      "pos": "v.",
+      "mean": "관리하다, 경영하다 / 가까스로 ~해내다",
+      "freq": "4회",
+      "ex": "We managed to finish the report before the deadline.",
+      "ex_ko": "우리는 가까스로 마감 전에 보고서를 끝냈다."
     },
     {
-      "word": "section",
-      "mean": "부분, 구역",
-      "ex": "Example for section."
+      "word": "management",
+      "pos": "n.",
+      "mean": "경영, 관리 / 경영진",
+      "freq": "16회",
+      "ex": "The restaurant is now under new management.",
+      "ex_ko": "그 식당은 이제 새 경영진이 운영한다."
     },
     {
-      "word": "sheet",
-      "mean": "시트, 종이",
-      "ex": "Example for sheet."
+      "word": "manageable",
+      "pos": "a.",
+      "mean": "관리할 수 있는, 감당할 수 있는",
+      "freq": "-",
+      "ex": "Break the project into manageable tasks.",
+      "ex_ko": "프로젝트를 감당할 만한 작업들로 나눠라."
+    },
+    {
+      "word": "managerial",
+      "pos": "a.",
+      "mean": "관리의, 경영의",
+      "freq": "2회",
+      "ex": "She has five years of managerial experience.",
+      "ex_ko": "그녀는 5년의 관리직 경력이 있다."
+    },
+    {
+      "word": "discount",
+      "pos": "n./v.",
+      "mean": "할인 / 할인하다",
+      "freq": "7회",
+      "ex": "Members receive a 15 percent discount on all books.",
+      "ex_ko": "회원은 모든 책을 15% 할인받는다."
+    },
+    {
+      "word": "step",
+      "pos": "n.",
+      "mean": "단계, 조치 / 계단",
+      "freq": "2회",
+      "ex": "The city is taking steps to reduce traffic.",
+      "ex_ko": "시는 교통량을 줄이기 위한 조치를 취하고 있다."
+    },
+    {
+      "word": "consider",
+      "pos": "v.",
+      "mean": "고려하다, 숙고하다 / ~라고 여기다",
+      "freq": "7회",
+      "ex": "We are considering opening a new branch in Busan.",
+      "ex_ko": "우리는 부산에 새 지점을 여는 것을 고려 중이다."
+    },
+    {
+      "word": "considerate",
+      "pos": "a.",
+      "mean": "사려 깊은, 배려하는",
+      "freq": "-",
+      "ex": "It was considerate of you to call ahead.",
+      "ex_ko": "미리 전화해 주다니 배려심이 깊으시네요."
+    },
+    {
+      "word": "considerable",
+      "pos": "a.",
+      "mean": "상당한, 많은",
+      "freq": "P5 정답",
+      "ex": "The new system saved a considerable amount of time.",
+      "ex_ko": "새 시스템은 상당한 시간을 절약해 주었다."
+    },
+    {
+      "word": "considerably",
+      "pos": "ad.",
+      "mean": "상당히, 많이",
+      "freq": "P5 정답",
+      "ex": "Sales have grown considerably since last year.",
+      "ex_ko": "작년 이후 매출이 상당히 늘었다."
+    },
+    {
+      "word": "committee",
+      "pos": "n.",
+      "mean": "위원회",
+      "freq": "3회",
+      "ex": "The hiring committee will review all applications next week.",
+      "ex_ko": "채용 위원회가 다음 주에 모든 지원서를 검토할 것이다."
+    },
+    {
+      "word": "document",
+      "pos": "n./v.",
+      "mean": "서류, 문서 / 기록하다",
+      "freq": "4회",
+      "ex": "Please bring all required documents to the interview.",
+      "ex_ko": "면접에 필요한 서류를 모두 가져오세요."
+    },
+    {
+      "word": "prefer",
+      "pos": "v.",
+      "mean": "선호하다, 더 좋아하다",
+      "freq": "3회",
+      "ex": "Many customers prefer online payment to cash.",
+      "ex_ko": "많은 고객이 현금보다 온라인 결제를 선호한다."
+    },
+    {
+      "word": "preference",
+      "pos": "n.",
+      "mean": "선호, 기호",
+      "freq": "-",
+      "ex": "Please indicate your meal preference on the registration form.",
+      "ex_ko": "등록 양식에 원하는 식사를 표시해 주세요."
+    },
+    {
+      "word": "inquire",
+      "pos": "v.",
+      "mean": "문의하다, 묻다",
+      "freq": "1회",
+      "ex": "I'm calling to inquire about your room rates.",
+      "ex_ko": "객실 요금에 대해 문의하려고 전화드렸어요."
+    },
+    {
+      "word": "inquiry",
+      "pos": "n.",
+      "mean": "문의, 질문",
+      "freq": "2회",
+      "ex": "All inquiries should be directed to the front desk.",
+      "ex_ko": "모든 문의는 프런트 데스크로 해 주세요."
+    },
+    {
+      "word": "function",
+      "pos": "n./v.",
+      "mean": "기능, 행사 / 기능하다, 작동하다",
+      "freq": "P5 정답",
+      "ex": "The new printer functions much faster than the old one.",
+      "ex_ko": "새 프린터는 예전 것보다 훨씬 빠르게 작동한다."
+    },
+    {
+      "word": "malfunction",
+      "pos": "n./v.",
+      "mean": "오작동, 고장 / 오작동하다",
+      "freq": "3회",
+      "ex": "The flight was delayed because of a mechanical malfunction.",
+      "ex_ko": "기계 오작동 때문에 비행기가 지연됐다."
+    },
+    {
+      "word": "attend",
+      "pos": "v.",
+      "mean": "참석하다 / (attend to) 처리하다, 돌보다",
+      "freq": "16회",
+      "ex": "All staff are required to attend the safety training.",
+      "ex_ko": "모든 직원은 안전 교육에 참석해야 한다."
+    },
+    {
+      "word": "attention",
+      "pos": "n.",
+      "mean": "주의, 관심",
+      "freq": "P5 정답",
+      "ex": "Thank you for your attention to this matter.",
+      "ex_ko": "이 문제에 관심 가져 주셔서 감사합니다."
+    },
+    {
+      "word": "attentive",
+      "pos": "a.",
+      "mean": "주의 깊은, 세심한",
+      "freq": "-",
+      "ex": "The hotel staff were very attentive to our needs.",
+      "ex_ko": "호텔 직원들은 우리 요구에 아주 세심했다."
+    },
+    {
+      "word": "attendance",
+      "pos": "n.",
+      "mean": "참석(자 수), 출석",
+      "freq": "-",
+      "ex": "Attendance at the conference was higher than expected.",
+      "ex_ko": "학회 참석자 수가 예상보다 많았다."
+    },
+    {
+      "word": "attendant",
+      "pos": "n.",
+      "mean": "안내원, 종업원, 승무원",
+      "freq": "1회",
+      "ex": "Please ask a flight attendant if you need a blanket.",
+      "ex_ko": "담요가 필요하면 승무원에게 요청하세요."
+    },
+    {
+      "word": "attendee",
+      "pos": "n.",
+      "mean": "참석자",
+      "freq": "9회 + P5",
+      "ex": "Each attendee will receive a name tag at the entrance.",
+      "ex_ko": "참석자는 각자 입구에서 이름표를 받을 것이다."
     }
   ],
   "4": [
     {
-      "word": "be widely advertised",
-      "mean": "널리 광고되다",
-      "ex": "Example for be widely advertised."
+      "word": "submit",
+      "pos": "v.",
+      "mean": "제출하다 / 항복하다",
+      "freq": "3회",
+      "ex": "Please submit your expense report to the accounting department by Friday.",
+      "ex_ko": "금요일까지 경비 보고서를 회계부에 제출해 주세요."
     },
     {
-      "word": "widely admired",
-      "mean": "널리 존경받는",
-      "ex": "Example for widely admired."
+      "word": "delay",
+      "pos": "n./v.",
+      "mean": "지연 / 미루다, 연기하다",
+      "freq": "14회",
+      "ex": "Flight 207 has been delayed due to heavy snow.",
+      "ex_ko": "207편이 폭설로 지연되었다."
     },
     {
-      "word": "a wide range of",
-      "mean": "폭넓은, 광범위한",
-      "ex": "Example for a wide range of."
+      "word": "strict",
+      "pos": "a.",
+      "mean": "엄격한",
+      "freq": "-",
+      "ex": "The laboratory has strict safety rules for all visitors.",
+      "ex_ko": "그 실험실은 모든 방문객에게 엄격한 안전 규칙을 적용한다."
     },
     {
-      "word": "externally",
-      "mean": "외부에서, 외부적으로",
-      "ex": "Example for externally."
+      "word": "strictly",
+      "pos": "ad.",
+      "mean": "엄격히",
+      "freq": "-",
+      "ex": "Smoking is strictly prohibited inside the building.",
+      "ex_ko": "건물 안에서 흡연은 엄격히 금지된다."
     },
     {
-      "word": "external",
-      "mean": "외부의",
-      "ex": "Example for external."
+      "word": "candidate",
+      "pos": "n.",
+      "mean": "후보자, 지원자",
+      "freq": "2회",
+      "ex": "The hiring committee will interview five candidates next week.",
+      "ex_ko": "채용 위원회는 다음 주에 지원자 5명을 면접한다."
     },
     {
-      "word": "internally",
-      "mean": "내부에, 내면적으로",
-      "ex": "Example for internally."
+      "word": "accept",
+      "pos": "v.",
+      "mean": "받아들이다, 수락하다",
+      "freq": "4회",
+      "ex": "We accept all major credit cards.",
+      "ex_ko": "저희는 모든 주요 신용카드를 받습니다."
     },
     {
-      "word": "bookcase",
-      "mean": "책장, 책꽂이",
-      "ex": "Example for bookcase."
+      "word": "acceptance",
+      "pos": "n.",
+      "mean": "수락, 승인",
+      "freq": "-",
+      "ex": "Ms. Ito sent a letter of acceptance to the university.",
+      "ex_ko": "이토 씨는 대학에 수락서를 보냈다."
     },
     {
-      "word": "bookshelf",
-      "mean": "책꽂이",
-      "ex": "Example for bookshelf."
+      "word": "mention",
+      "pos": "v./n.",
+      "mean": "언급하다 / 언급",
+      "freq": "10회",
+      "ex": "Mr. Lopez mentioned that the budget meeting was moved to Thursday.",
+      "ex_ko": "로페즈 씨는 예산 회의가 목요일로 옮겨졌다고 말했다."
     },
     {
-      "word": "case",
-      "mean": "경우",
-      "ex": "Example for case."
+      "word": "concern",
+      "pos": "n./v.",
+      "mean": "우려, 걱정, 관심사 / 걱정시키다, 관련되다",
+      "freq": "3회",
+      "ex": "Please contact us if you have any questions or concerns.",
+      "ex_ko": "질문이나 우려 사항이 있으면 연락 주세요."
     },
     {
-      "word": "central office",
-      "mean": "중앙 사무실",
-      "ex": "Example for central office."
+      "word": "concerning",
+      "pos": "prep.",
+      "mean": "~에 관하여",
+      "freq": "-",
+      "ex": "We received several inquiries concerning the new parking policy.",
+      "ex_ko": "새 주차 정책에 관한 문의를 여러 건 받았다."
+    },
+    {
+      "word": "concerned",
+      "pos": "a.",
+      "mean": "걱정하는 / 관련된",
+      "freq": "-",
+      "ex": "Residents are concerned about the noise from the construction site.",
+      "ex_ko": "주민들은 공사 현장 소음을 걱정하고 있다."
+    },
+    {
+      "word": "colleague",
+      "pos": "n.",
+      "mean": "동료",
+      "freq": "4회",
+      "ex": "Ms. Han asked a colleague to review her presentation slides.",
+      "ex_ko": "한 씨는 동료에게 발표 슬라이드 검토를 부탁했다."
+    },
+    {
+      "word": "conduct",
+      "pos": "v./n.",
+      "mean": "수행하다, (행사를) 진행하다 / 행동, 처신",
+      "freq": "1회",
+      "ex": "The company conducts a customer satisfaction survey every quarter.",
+      "ex_ko": "그 회사는 분기마다 고객 만족도 조사를 실시한다."
+    },
+    {
+      "word": "conductor",
+      "pos": "n.",
+      "mean": "지휘자 / (버스·기차) 차장, 승무원",
+      "freq": "LC 1회",
+      "ex": "The conductor checked our tickets after the train left the station.",
+      "ex_ko": "기차가 역을 떠난 뒤 차장이 표를 확인했다."
+    },
+    {
+      "word": "plan",
+      "pos": "n./v.",
+      "mean": "계획 / 계획하다",
+      "freq": "22회",
+      "ex": "We plan to open two new stores in Daegu next year.",
+      "ex_ko": "우리는 내년에 대구에 매장 두 곳을 열 계획이다."
+    },
+    {
+      "word": "retire",
+      "pos": "v.",
+      "mean": "은퇴하다, 퇴직하다",
+      "freq": "P5 정답",
+      "ex": "Dr. Moss will retire from the hospital at the end of the year.",
+      "ex_ko": "모스 박사는 연말에 병원에서 은퇴할 것이다."
+    },
+    {
+      "word": "retirement",
+      "pos": "n.",
+      "mean": "은퇴, 퇴직",
+      "freq": "1회",
+      "ex": "The staff organized a surprise retirement party for Ms. Kim.",
+      "ex_ko": "직원들이 김 씨를 위해 깜짝 은퇴 파티를 준비했다."
+    },
+    {
+      "word": "schedule",
+      "pos": "n./v.",
+      "mean": "일정, 시간표 / 일정을 잡다, 예정하다",
+      "freq": "21회",
+      "ex": "The new branch is scheduled to open on May 1.",
+      "ex_ko": "새 지점은 5월 1일에 문을 열 예정이다."
+    },
+    {
+      "word": "leave",
+      "pos": "v./n.",
+      "mean": "떠나다, 두고 가다, 남기다 / 휴가",
+      "freq": "2회",
+      "ex": "Mr. Chen is on leave this week, so please contact his assistant.",
+      "ex_ko": "첸 씨가 이번 주 휴가 중이니 비서에게 연락해 주세요."
+    },
+    {
+      "word": "access",
+      "pos": "n./v.",
+      "mean": "접근, 이용(권한) / 접근하다, 접속하다",
+      "freq": "9회",
+      "ex": "Employees can access the database from home.",
+      "ex_ko": "직원들은 집에서 데이터베이스에 접속할 수 있다."
+    },
+    {
+      "word": "accessible",
+      "pos": "a.",
+      "mean": "접근(이용) 가능한",
+      "freq": "1회 + P5 정답",
+      "ex": "The museum is easily accessible by public transportation.",
+      "ex_ko": "그 박물관은 대중교통으로 쉽게 갈 수 있다."
+    },
+    {
+      "word": "resource",
+      "pos": "n.",
+      "mean": "자원, 재원, 자료",
+      "freq": "12회",
+      "ex": "Please send your completed forms to Human Resources.",
+      "ex_ko": "작성한 서류를 인사부로 보내 주세요."
+    },
+    {
+      "word": "source",
+      "pos": "n.",
+      "mean": "원천, 출처, 공급원",
+      "freq": "2회",
+      "ex": "Tourism is the main source of income for the island.",
+      "ex_ko": "관광은 그 섬의 주요 수입원이다."
+    },
+    {
+      "word": "ship",
+      "pos": "v./n.",
+      "mean": "배송하다, 운송하다 / 배",
+      "freq": "1회 + LC 5회",
+      "ex": "Your order will be shipped by express mail tomorrow.",
+      "ex_ko": "주문하신 상품은 내일 빠른우편으로 발송됩니다."
+    },
+    {
+      "word": "shipping",
+      "pos": "n.",
+      "mean": "배송, 운송, 해운",
+      "freq": "11회",
+      "ex": "Orders over $50 qualify for free shipping.",
+      "ex_ko": "50달러 이상 주문은 무료 배송 대상이다."
+    },
+    {
+      "word": "shipment",
+      "pos": "n.",
+      "mean": "배송(품), 발송물",
+      "freq": "4회 + LC 5회",
+      "ex": "The next shipment of printer paper will arrive on Monday.",
+      "ex_ko": "프린터 용지 다음 배송분이 월요일에 도착한다."
+    },
+    {
+      "word": "participation",
+      "pos": "n.",
+      "mean": "참가, 참여",
+      "freq": "1회 + P5 정답",
+      "ex": "Participation in the training program is required for all new staff.",
+      "ex_ko": "모든 신입 직원은 교육 프로그램에 참가해야 한다."
+    },
+    {
+      "word": "participant",
+      "pos": "n.",
+      "mean": "참가자",
+      "freq": "8회 + LC 3회",
+      "ex": "Each participant will receive a certificate at the end of the course.",
+      "ex_ko": "각 참가자는 과정 마지막에 수료증을 받는다."
+    },
+    {
+      "word": "statement",
+      "pos": "n.",
+      "mean": "진술, 성명(서), (은행) 명세서",
+      "freq": "1회 + P5 정답",
+      "ex": "The company issued a statement about the delayed product launch.",
+      "ex_ko": "회사는 제품 출시 지연에 관한 성명을 발표했다."
+    },
+    {
+      "word": "state-of-the-art",
+      "pos": "a.",
+      "mean": "최첨단의, 최신식의",
+      "freq": "-",
+      "ex": "The new hospital is equipped with state-of-the-art medical devices.",
+      "ex_ko": "새 병원은 최첨단 의료 기기를 갖추고 있다."
     }
   ],
   "5": [
     {
-      "word": "headache",
-      "mean": "두통",
-      "ex": "Example for headache."
+      "word": "manufacture",
+      "pos": "v./n.",
+      "mean": "제조하다 / 제조",
+      "freq": "2회",
+      "ex": "The company manufactures kitchen appliances in three countries.",
+      "ex_ko": "그 회사는 3개국에서 주방 가전을 제조한다."
     },
     {
-      "word": "intership",
-      "mean": "인턴 신분, 인턴 기간",
-      "ex": "Example for intership."
+      "word": "manufacturer",
+      "pos": "n.",
+      "mean": "제조업자, 제조업체",
+      "freq": "1회",
+      "ex": "Please return the defective item to the manufacturer.",
+      "ex_ko": "결함 있는 제품은 제조업체로 반송해 주세요."
     },
     {
-      "word": "redo",
-      "mean": "다시하다",
-      "ex": "Example for redo."
+      "word": "instruct",
+      "pos": "v.",
+      "mean": "지시하다, 가르치다",
+      "freq": "-",
+      "ex": "Staff were instructed to lock all doors before leaving.",
+      "ex_ko": "직원들은 퇴근 전 모든 문을 잠그라는 지시를 받았다."
     },
     {
-      "word": "routine",
-      "mean": "판에 박힌 일, 정기적인",
-      "ex": "Example for routine."
+      "word": "instruction",
+      "pos": "n.",
+      "mean": "(-s) 설명(서), 지시(사항)",
+      "freq": "4회",
+      "ex": "Please read all the instructions before assembling the desk.",
+      "ex_ko": "책상을 조립하기 전에 설명서를 모두 읽어 주세요."
     },
     {
-      "word": "table lamp",
-      "mean": "탁상 전기스탠드",
-      "ex": "Example for table lamp."
+      "word": "instructional",
+      "pos": "a.",
+      "mean": "교육용의",
+      "freq": "-",
+      "ex": "New employees must watch an instructional video on safety.",
+      "ex_ko": "신입 직원은 안전 교육 영상을 시청해야 한다."
     },
     {
-      "word": "thanks to",
-      "mean": "~덕택에",
-      "ex": "Example for thanks to."
+      "word": "institute",
+      "pos": "n./v.",
+      "mean": "기관, 협회, 연구소 / (제도를) 도입하다",
+      "freq": "-",
+      "ex": "The city instituted a new recycling program last year.",
+      "ex_ko": "시는 작년에 새로운 재활용 제도를 도입했다."
     },
     {
-      "word": "timetable",
-      "mean": "시간표",
-      "ex": "Example for timetable."
+      "word": "institution",
+      "pos": "n.",
+      "mean": "기관, 설립",
+      "freq": "-",
+      "ex": "Several financial institutions sponsored the conference.",
+      "ex_ko": "여러 금융 기관이 그 회의를 후원했다."
     },
     {
-      "word": "window display",
-      "mean": "쇼윈도의 상품 진열",
-      "ex": "Example for window display."
+      "word": "profit",
+      "pos": "n./v.",
+      "mean": "수익, 이익 / 이익을 얻다",
+      "freq": "1회",
+      "ex": "The bakery made a large profit during the holiday season.",
+      "ex_ko": "그 빵집은 연휴 시즌에 큰 이익을 냈다."
     },
     {
-      "word": "chief",
-      "mean": "주된, 최고위자인, 최고위자",
-      "ex": "Example for chief."
+      "word": "advance",
+      "pos": "n./v./a.",
+      "mean": "진보, 발전 / 전진하다, 승진하다 / 사전의",
+      "freq": "11회 + LC 1회",
+      "ex": "The company offers many opportunities for career advancement.",
+      "ex_ko": "그 회사는 승진 기회를 많이 제공한다."
     },
     {
-      "word": "conceal",
-      "mean": "감추다",
-      "ex": "Example for conceal."
+      "word": "advancement",
+      "pos": "n.",
+      "mean": "승진, 발전",
+      "freq": "3회",
+      "ex": "The company offers many opportunities for career advancement.",
+      "ex_ko": "그 회사는 승진 기회를 많이 제공한다."
+    },
+    {
+      "word": "reimburse",
+      "pos": "v.",
+      "mean": "(쓴 돈을) 상환하다, 변제하다",
+      "freq": "1회",
+      "ex": "Employees will be reimbursed for meals during business trips.",
+      "ex_ko": "직원들은 출장 중 식비를 환급받는다."
+    },
+    {
+      "word": "reimbursement",
+      "pos": "n.",
+      "mean": "상환, 변제, 환급",
+      "freq": "4회",
+      "ex": "Please attach all receipts to your reimbursement request.",
+      "ex_ko": "환급 요청서에 모든 영수증을 첨부해 주세요."
+    },
+    {
+      "word": "degree",
+      "pos": "n.",
+      "mean": "학위 / 정도",
+      "freq": "1회",
+      "ex": "Applicants must have a degree in accounting.",
+      "ex_ko": "지원자는 회계학 학위가 있어야 한다."
+    },
+    {
+      "word": "personnel",
+      "pos": "n./a.",
+      "mean": "직원(들), 인사과 / 직원의",
+      "freq": "3회",
+      "ex": "Please review the official usage of personnel.",
+      "ex_ko": ""
+    },
+    {
+      "word": "personal",
+      "pos": "a.",
+      "mean": "개인의, 개인적인",
+      "freq": "3회 + P5 정답",
+      "ex": "Please keep your personal belongings with you at all times.",
+      "ex_ko": "개인 소지품은 항상 몸에 지니고 계세요."
+    },
+    {
+      "word": "personality",
+      "pos": "n.",
+      "mean": "성격 / 유명인",
+      "freq": "-",
+      "ex": "The event will be hosted by a popular radio personality.",
+      "ex_ko": "행사는 인기 라디오 진행자가 진행할 예정이다."
+    },
+    {
+      "word": "consumer",
+      "pos": "n.",
+      "mean": "소비자",
+      "freq": "3회",
+      "ex": "Consumer demand for electric cars has risen sharply.",
+      "ex_ko": "전기차에 대한 소비자 수요가 급격히 늘었다."
+    },
+    {
+      "word": "consumption",
+      "pos": "n.",
+      "mean": "소비(량)",
+      "freq": "-",
+      "ex": "The new system reduced the office's electricity consumption by 20 percent.",
+      "ex_ko": "새 시스템으로 사무실 전기 소비가 20% 줄었다."
+    },
+    {
+      "word": "register",
+      "pos": "v./n.",
+      "mean": "등록하다 / 등록부, (가게) 계산대",
+      "freq": "2회 + LC 3회",
+      "ex": "More than 200 people have registered for the marketing seminar.",
+      "ex_ko": "200명 넘는 사람이 마케팅 세미나에 등록했다."
+    },
+    {
+      "word": "registration",
+      "pos": "n.",
+      "mean": "등록, 접수",
+      "freq": "-",
+      "ex": "Please complete the registration form at the front desk.",
+      "ex_ko": "프런트에서 등록 양식을 작성해 주세요."
+    },
+    {
+      "word": "registrant",
+      "pos": "n.",
+      "mean": "등록자",
+      "freq": "-",
+      "ex": "Registrants will receive a confirmation e-mail within 24 hours.",
+      "ex_ko": "등록자는 24시간 안에 확인 이메일을 받는다."
+    },
+    {
+      "word": "organize",
+      "pos": "v.",
+      "mean": "조직하다, 준비하다, 정리하다",
+      "freq": "1회 + LC 1회",
+      "ex": "Ms. Park organized a farewell party for the retiring manager.",
+      "ex_ko": "박 씨가 은퇴하는 매니저를 위해 송별회를 준비했다."
+    },
+    {
+      "word": "organization",
+      "pos": "n.",
+      "mean": "단체, 조직(체)",
+      "freq": "1회 + LC 1회",
+      "ex": "The organization provides free meals to local families.",
+      "ex_ko": "그 단체는 지역 가정에 무료 식사를 제공한다."
+    },
+    {
+      "word": "resign",
+      "pos": "v.",
+      "mean": "사임하다, 물러나다",
+      "freq": "-",
+      "ex": "The director resigned from the board after ten years of service.",
+      "ex_ko": "그 이사는 10년 근무 후 이사회에서 사임했다."
+    },
+    {
+      "word": "resignation",
+      "pos": "n.",
+      "mean": "사임, 사직(서)",
+      "freq": "-",
+      "ex": "Mr. Cho submitted his resignation on Monday.",
+      "ex_ko": "조 씨는 월요일에 사직서를 제출했다."
+    },
+    {
+      "word": "indicate",
+      "pos": "v.",
+      "mean": "나타내다, 보여주다, 가리키다",
+      "freq": "36회",
+      "ex": "The survey indicates that most customers prefer online ordering.",
+      "ex_ko": "설문 조사는 대부분의 고객이 온라인 주문을 선호한다는 것을 보여준다."
+    },
+    {
+      "word": "indicative",
+      "pos": "a.",
+      "mean": "(~을) 나타내는, 암시하는",
+      "freq": "-",
+      "ex": "Long lines at the store are indicative of the product's popularity.",
+      "ex_ko": "매장의 긴 줄은 그 제품의 인기를 보여준다."
+    },
+    {
+      "word": "indication",
+      "pos": "n.",
+      "mean": "징후, 조짐, 암시",
+      "freq": "-",
+      "ex": "There is no indication that the price will go down soon.",
+      "ex_ko": "가격이 곧 내릴 거라는 징후는 없다."
+    },
+    {
+      "word": "indicator",
+      "pos": "n.",
+      "mean": "지표, 지수, 표시기",
+      "freq": "-",
+      "ex": "Sales figures are one indicator of customer satisfaction.",
+      "ex_ko": "판매 수치는 고객 만족도의 한 지표다."
+    },
+    {
+      "word": "reservation",
+      "pos": "n.",
+      "mean": "예약 / 의구심",
+      "freq": "6회 + LC 3회",
+      "ex": "I'd like to make a reservation for four people at 7 P.M.",
+      "ex_ko": "오후 7시에 4명 예약하고 싶어요."
+    },
+    {
+      "word": "reserve",
+      "pos": "v./n.",
+      "mean": "예약하다, 따로 남겨 두다, 보유하다 / 비축(물)",
+      "freq": "3회 + LC 4회",
+      "ex": "The front rows are reserved for guest speakers.",
+      "ex_ko": "앞줄은 초청 연사를 위해 지정되어 있다."
     }
   ],
   "6": [
     {
-      "word": "film festival",
-      "mean": "영화제",
-      "ex": "Example for film festival."
+      "word": "hold",
+      "pos": "v.",
+      "mean": "개최하다, 열다 / 붙잡다",
+      "freq": "3회 + LC 1회 + P5 정답",
+      "ex": "The company holds a training workshop every spring.",
+      "ex_ko": "그 회사는 매년 봄 교육 워크숍을 연다."
     },
     {
-      "word": "fishing",
-      "mean": "낚시",
-      "ex": "Example for fishing."
+      "word": "decorate",
+      "pos": "v.",
+      "mean": "장식하다",
+      "freq": "-",
+      "ex": "Volunteers decorated the lobby with balloons for the opening.",
+      "ex_ko": "자원봉사자들이 개업식을 위해 로비를 풍선으로 장식했다."
     },
     {
-      "word": "gallery",
-      "mean": "화랑, 미술관",
-      "ex": "Example for gallery."
+      "word": "locate",
+      "pos": "v.",
+      "mean": "(위치를) 찾아내다 / ~에 위치시키다",
+      "freq": "11회 + LC 1회",
+      "ex": "The hotel is conveniently located near the airport.",
+      "ex_ko": "그 호텔은 공항 근처 편리한 곳에 있다."
     },
     {
-      "word": "invitation",
-      "mean": "초대",
-      "ex": "Example for invitation."
+      "word": "location",
+      "pos": "n.",
+      "mean": "장소, 위치, 지점 / 야외 촬영지",
+      "freq": "17회",
+      "ex": "Our new location on Main Street opens next Monday.",
+      "ex_ko": "메인 스트리트의 새 지점이 다음 주 월요일에 문을 연다."
     },
     {
-      "word": "lawn",
-      "mean": "잔디, 잔디밭",
-      "ex": "Example for lawn."
+      "word": "found",
+      "pos": "v.",
+      "mean": "설립하다 (found-founded-founded)",
+      "freq": "11회*",
+      "ex": "The museum was founded in 1987 by a group of local artists.",
+      "ex_ko": "그 박물관은 1987년 지역 예술가들에 의해 설립되었다."
     },
     {
-      "word": "paint",
-      "mean": "물감, 그림을 그리다",
-      "ex": "Example for paint."
+      "word": "foundation",
+      "pos": "n.",
+      "mean": "토대, 기초 / 설립 / 재단",
+      "freq": "1회",
+      "ex": "Good communication is the foundation of a strong team.",
+      "ex_ko": "좋은 소통은 튼튼한 팀의 기초다."
     },
     {
-      "word": "painting",
-      "mean": "그림, 회화",
-      "ex": "Example for painting."
+      "word": "founder",
+      "pos": "n.",
+      "mean": "설립자, 창업자",
+      "freq": "3회 + P5 정답",
+      "ex": "Ms. Ito, the founder of Kumo Design, will give the keynote speech.",
+      "ex_ko": "Kumo Design의 창업자 이토 씨가 기조연설을 할 것이다."
     },
     {
-      "word": "play cards",
-      "mean": "카드놀이를 하다",
-      "ex": "Example for play cards."
+      "word": "facility",
+      "pos": "n.",
+      "mean": "(-ies) 시설, 설비 / (단수) 재능",
+      "freq": "7회 + LC 3회",
+      "ex": "The new fitness facility is open to all employees.",
+      "ex_ko": "새 운동 시설은 모든 직원에게 개방된다."
     },
     {
-      "word": "public library",
-      "mean": "공공 도서관",
-      "ex": "Example for public library."
+      "word": "facilitate",
+      "pos": "v.",
+      "mean": "용이하게 하다, 촉진하다",
+      "freq": "-",
+      "ex": "The online system will facilitate the registration process.",
+      "ex_ko": "온라인 시스템이 등록 절차를 쉽게 해 줄 것이다."
     },
     {
-      "word": "race",
-      "mean": "경주, 경주하다",
-      "ex": "Example for race."
+      "word": "faculty",
+      "pos": "n.",
+      "mean": "교수진 / 능력, 재능",
+      "freq": "-",
+      "ex": "The university is hiring new faculty for its business school.",
+      "ex_ko": "그 대학은 경영대학원 교수진을 새로 채용하고 있다."
+    },
+    {
+      "word": "supply",
+      "pos": "v./n.",
+      "mean": "공급하다 / 공급(량)",
+      "freq": "5회 + LC 1회",
+      "ex": "The farm supplies fresh vegetables to five restaurants.",
+      "ex_ko": "그 농장은 식당 다섯 곳에 신선한 채소를 공급한다."
+    },
+    {
+      "word": "supplies",
+      "pos": "n.",
+      "mean": "비품, 소모품, 사무용품",
+      "freq": "4회 + LC 4회",
+      "ex": "Please let me know if we're running low on office supplies.",
+      "ex_ko": "사무용품이 떨어져 가면 알려 주세요."
+    },
+    {
+      "word": "supplier",
+      "pos": "n.",
+      "mean": "공급업체, 공급자",
+      "freq": "2회 + LC 2회",
+      "ex": "We switched to a new paper supplier to reduce costs.",
+      "ex_ko": "비용을 줄이려고 새 종이 공급업체로 바꿨다."
+    },
+    {
+      "word": "notice",
+      "pos": "n./v.",
+      "mean": "통지, 공고, 예고 / 알아차리다",
+      "freq": "12회 + LC 1회",
+      "ex": "The parking lot will be closed until further notice.",
+      "ex_ko": "주차장은 추후 공지가 있을 때까지 폐쇄된다."
+    },
+    {
+      "word": "noticeable",
+      "pos": "a.",
+      "mean": "눈에 띄는, 뚜렷한",
+      "freq": "-",
+      "ex": "There has been a noticeable increase in online orders.",
+      "ex_ko": "온라인 주문이 눈에 띄게 늘었다. (현재완료 + 형용사)"
+    },
+    {
+      "word": "noticeably",
+      "pos": "ad.",
+      "mean": "눈에 띄게, 현저히",
+      "freq": "-",
+      "ex": "Customer wait times have dropped noticeably since the new system was installed.",
+      "ex_ko": "새 시스템 설치 이후 고객 대기 시간이 눈에 띄게 줄었다."
+    },
+    {
+      "word": "execute",
+      "pos": "v.",
+      "mean": "실행하다, 집행하다",
+      "freq": "-",
+      "ex": "The team executed the marketing plan exactly on schedule.",
+      "ex_ko": "그 팀은 마케팅 계획을 일정대로 정확히 실행했다."
+    },
+    {
+      "word": "executive",
+      "pos": "n./a.",
+      "mean": "임원, 경영진 / 경영의, 임원의",
+      "freq": "5회",
+      "ex": "Please review the official usage of executive.",
+      "ex_ko": ""
+    },
+    {
+      "word": "suppose",
+      "pos": "v.",
+      "mean": "추정하다 / be supposed to ~하기로 되어 있다",
+      "freq": "LC 4회",
+      "ex": "The shipment was supposed to arrive yesterday.",
+      "ex_ko": "배송품은 어제 도착하기로 되어 있었다. (그런데 안 왔다)"
+    },
+    {
+      "word": "provide",
+      "pos": "v.",
+      "mean": "제공하다, 공급하다 / (법 조항이) 규정하다",
+      "freq": "21회 + LC 1회",
+      "ex": "The hotel provides guests with free breakfast.",
+      "ex_ko": "그 호텔은 투숙객에게 무료 아침 식사를 제공한다."
+    },
+    {
+      "word": "provided",
+      "pos": "conj.",
+      "mean": "만약 ~라면 (= provided that)",
+      "freq": "3회*",
+      "ex": "You can return the item provided that you have the receipt.",
+      "ex_ko": "영수증이 있다면 물건을 반품할 수 있다."
+    },
+    {
+      "word": "provision",
+      "pos": "n.",
+      "mean": "공급, 제공 / (계약서의) 조항",
+      "freq": "-",
+      "ex": "The contract includes a provision for early termination.",
+      "ex_ko": "그 계약서에는 조기 해지 조항이 들어 있다."
+    },
+    {
+      "word": "provisionally",
+      "pos": "ad.",
+      "mean": "임시로, 잠정적으로",
+      "freq": "-",
+      "ex": "The meeting is provisionally scheduled for Friday at 2 P.M.",
+      "ex_ko": "회의는 일단 금요일 오후 2시로 잡혀 있다."
+    },
+    {
+      "word": "due",
+      "pos": "a.",
+      "mean": "~하기로 예정된 / (지불) 기한이 된",
+      "freq": "2회",
+      "ex": "The rent is due on the first day of each month.",
+      "ex_ko": "집세는 매달 1일에 내야 한다."
+    },
+    {
+      "word": "overdue",
+      "pos": "a.",
+      "mean": "기한이 지난, 미지급된, 연체된",
+      "freq": "-",
+      "ex": "Please pay the overdue balance to avoid a late fee.",
+      "ex_ko": "연체료를 피하려면 밀린 잔액을 납부해 주세요."
+    },
+    {
+      "word": "due to",
+      "pos": "prep.",
+      "mean": "~ 때문에",
+      "freq": "1회",
+      "ex": "The flight was delayed due to heavy fog.",
+      "ex_ko": "짙은 안개 때문에 항공편이 지연되었다."
+    },
+    {
+      "word": "prepare",
+      "pos": "v.",
+      "mean": "준비하다, 대비하다",
+      "freq": "3회",
+      "ex": "The staff are preparing for the annual inspection.",
+      "ex_ko": "직원들이 연례 점검에 대비하고 있다."
+    },
+    {
+      "word": "preparation",
+      "pos": "n.",
+      "mean": "준비, 대비",
+      "freq": "1회",
+      "ex": "In preparation for the move, all files must be packed by Friday.",
+      "ex_ko": "이사에 대비해 모든 서류를 금요일까지 포장해야 한다."
+    },
+    {
+      "word": "assemble",
+      "pos": "v.",
+      "mean": "조립하다 / (사람을) 모으다, 모이다",
+      "freq": "1회",
+      "ex": "The shelves are easy to assemble with the tools provided.",
+      "ex_ko": "그 선반은 제공된 공구로 쉽게 조립할 수 있다."
+    },
+    {
+      "word": "assembly",
+      "pos": "n.",
+      "mean": "조립(품) / 회의, 집회",
+      "freq": "1회",
+      "ex": "The car's engines are installed on the assembly line.",
+      "ex_ko": "자동차 엔진은 조립 라인에서 장착된다."
     }
   ],
   "7": [
     {
-      "word": "on display",
-      "mean": "전시된, 진열된",
-      "ex": "Example for on display."
+      "word": "like",
+      "pos": "v./prep.",
+      "mean": "좋아하다 / ~처럼, ~ 같은",
+      "freq": "26회 + LC 12회",
+      "ex": "Would you like to join us for lunch on Friday?",
+      "ex_ko": "금요일에 저희랑 점심 같이 하실래요?"
     },
     {
-      "word": "shadow",
-      "mean": "그림자, 그늘",
-      "ex": "Example for shadow."
+      "word": "likely",
+      "pos": "a.",
+      "mean": "~할 것 같은, ~할 가능성이 높은",
+      "freq": "36회 + LC 12회",
+      "ex": "Ticket prices are likely to rise next year.",
+      "ex_ko": "내년에 티켓 가격이 오를 것 같다."
     },
     {
-      "word": "around the world",
-      "mean": "전 세계에",
-      "ex": "Example for around the world."
+      "word": "alike",
+      "pos": "a./ad.",
+      "mean": "비슷한 / 똑같이, 둘 다",
+      "freq": "2회",
+      "ex": "The new park is popular with residents and tourists alike.",
+      "ex_ko": "새 공원은 주민과 관광객 모두에게 인기가 많다."
     },
     {
-      "word": "array",
-      "mean": "진열, 배열",
-      "ex": "Example for array."
+      "word": "likelihood",
+      "pos": "n.",
+      "mean": "가능성",
+      "freq": "-",
+      "ex": "Regular maintenance reduces the likelihood of equipment failure.",
+      "ex_ko": "정기 점검은 장비 고장 가능성을 줄인다."
     },
     {
-      "word": "attempt",
-      "mean": "시도하다, 시도",
-      "ex": "Example for attempt."
+      "word": "account",
+      "pos": "n./v.",
+      "mean": "계좌·고객(거래처)·설명 / 설명하다, 차지하다",
+      "freq": "9회 + LC 2회*",
+      "ex": "Online sales account for 40 percent of our revenue.",
+      "ex_ko": "온라인 판매가 우리 수입의 40퍼센트를 차지한다."
     },
     {
-      "word": "audiovisual",
-      "mean": "시청각의",
-      "ex": "Example for audiovisual."
+      "word": "accountant",
+      "pos": "n.",
+      "mean": "회계사",
+      "freq": "1회 + LC 1회",
+      "ex": "Our accountant will review the expense reports next week.",
+      "ex_ko": "우리 회계사가 다음 주에 경비 보고서를 검토할 것이다."
     },
     {
-      "word": "avoid",
-      "mean": "방지하다",
-      "ex": "Example for avoid."
+      "word": "accountable",
+      "pos": "a.",
+      "mean": "책임이 있는, 설명할 의무가 있는",
+      "freq": "-",
+      "ex": "Each team leader is accountable for meeting the project deadlines.",
+      "ex_ko": "각 팀장은 프로젝트 마감일을 지키는 것에 책임이 있다."
     },
     {
-      "word": "based",
-      "mean": "~에 기반을 둔",
-      "ex": "Example for based."
+      "word": "corporation",
+      "pos": "n.",
+      "mean": "주식회사, 기업, 법인",
+      "freq": "9회",
+      "ex": "The corporation plans to open two new offices in Asia.",
+      "ex_ko": "그 기업은 아시아에 새 사무소 두 곳을 열 계획이다."
     },
     {
-      "word": "cinema",
-      "mean": "영화관, 극장",
-      "ex": "Example for cinema."
+      "word": "incorporate",
+      "pos": "v.",
+      "mean": "포함시키다, 통합하다 / 법인을 설립하다",
+      "freq": "-",
+      "ex": "We incorporated customer feedback into the new product design.",
+      "ex_ko": "우리는 고객 의견을 새 제품 디자인에 반영했다."
     },
     {
-      "word": "competitive",
-      "mean": "경쟁을 하는, 경쟁력 있는",
-      "ex": "Example for competitive."
+      "word": "charge",
+      "pos": "n./v.",
+      "mean": "요금 / 책임 / (요금을) 부과하다",
+      "freq": "6회 + LC 4회 + P5 정답",
+      "ex": "Guests will be charged $20 for late checkout.",
+      "ex_ko": "투숙객은 늦은 체크아웃에 대해 20달러를 부과받는다."
+    },
+    {
+      "word": "purchase",
+      "pos": "n./v.",
+      "mean": "구매(품) / 구매하다",
+      "freq": "15회",
+      "ex": "Items may be returned within 14 days of purchase.",
+      "ex_ko": "상품은 구매 후 14일 이내에 반품할 수 있다."
+    },
+    {
+      "word": "raise",
+      "pos": "v./n.",
+      "mean": "올리다, 모으다, 제기하다 / 임금 인상",
+      "freq": "1회",
+      "ex": "The museum raised $2 million for its new wing.",
+      "ex_ko": "그 박물관은 새 별관을 위해 200만 달러를 모금했다."
+    },
+    {
+      "word": "receive",
+      "pos": "v.",
+      "mean": "받다",
+      "freq": "33회 + LC 7회",
+      "ex": "All participants will receive a certificate after the workshop.",
+      "ex_ko": "모든 참가자는 워크숍 후 수료증을 받는다."
+    },
+    {
+      "word": "receipt",
+      "pos": "n.",
+      "mean": "영수증 / 수령, 받음",
+      "freq": "4회",
+      "ex": "Please keep your receipt in case you need to exchange the item.",
+      "ex_ko": "상품을 교환해야 할 경우를 대비해 영수증을 보관하세요."
+    },
+    {
+      "word": "recipient",
+      "pos": "n.",
+      "mean": "수령인, 받는 사람, 수상자",
+      "freq": "-",
+      "ex": "This year's award recipients will be announced next Monday.",
+      "ex_ko": "올해의 수상자들은 다음 주 월요일에 발표될 것이다. (수동태!)"
+    },
+    {
+      "word": "reception",
+      "pos": "n.",
+      "mean": "환영회, 연회 / 접수처, 프런트",
+      "freq": "8회 + LC 3회",
+      "ex": "A reception will be held for new employees on Friday evening.",
+      "ex_ko": "금요일 저녁 신입 사원 환영회가 열릴 것이다."
+    },
+    {
+      "word": "quarterly",
+      "pos": "a./ad.",
+      "mean": "분기별의 / 분기마다",
+      "freq": "1회 + P5 정답 2회",
+      "ex": "Sales figures are reviewed quarterly by the board.",
+      "ex_ko": "판매 수치는 이사회에서 분기마다 검토된다."
+    },
+    {
+      "word": "expand",
+      "pos": "v.",
+      "mean": "확장하다, 늘리다",
+      "freq": "4회",
+      "ex": "The bakery plans to expand into the Busan market next year.",
+      "ex_ko": "그 빵집은 내년에 부산 시장으로 진출할 계획이다."
+    },
+    {
+      "word": "expansion",
+      "pos": "n.",
+      "mean": "확장, 확대",
+      "freq": "3회 + P5 정답",
+      "ex": "The expansion of the factory will create 200 new jobs.",
+      "ex_ko": "공장 확장으로 200개의 새 일자리가 생길 것이다."
+    },
+    {
+      "word": "expansive",
+      "pos": "a.",
+      "mean": "폭넓은, 광범위한",
+      "freq": "-",
+      "ex": "The hotel offers an expansive view of the harbor.",
+      "ex_ko": "그 호텔은 항구의 탁 트인 전망을 제공한다."
+    },
+    {
+      "word": "open",
+      "pos": "a./v.",
+      "mean": "열린·공석인·영업 중인·솔직한 / 열다, 개업하다",
+      "freq": "20회 + LC 13회",
+      "ex": "The new branch will open next Monday and stay open until 10 P.M.",
+      "ex_ko": "새 지점은 다음 주 월요일에 문을 열고 밤 10시까지 영업한다."
+    },
+    {
+      "word": "opening",
+      "pos": "n.",
+      "mean": "공석(결원), 일자리 / 개장, 개막",
+      "freq": "7회 + LC 2회",
+      "ex": "We have two openings in the marketing department.",
+      "ex_ko": "마케팅 부서에 두 자리가 비어 있다."
+    },
+    {
+      "word": "improve",
+      "pos": "v.",
+      "mean": "개선하다, 향상시키다",
+      "freq": "3회 + P5 정답",
+      "ex": "The new software has greatly improved our efficiency.",
+      "ex_ko": "새 소프트웨어가 우리 효율을 크게 향상시켰다."
+    },
+    {
+      "word": "improvement",
+      "pos": "n.",
+      "mean": "개선, 향상",
+      "freq": "1회",
+      "ex": "There has been a significant improvement in customer satisfaction.",
+      "ex_ko": "고객 만족도가 크게 향상되었다."
+    },
+    {
+      "word": "permit",
+      "pos": "v./n.",
+      "mean": "허락하다 / 허가증",
+      "freq": "2회",
+      "ex": "Only staff members are permitted to enter the storage room.",
+      "ex_ko": "직원만 창고에 들어가는 것이 허용된다."
+    },
+    {
+      "word": "permission",
+      "pos": "n.",
+      "mean": "허락, 허가",
+      "freq": "1회",
+      "ex": "You need written permission from the manager to use this room.",
+      "ex_ko": "이 방을 쓰려면 매니저의 서면 허가가 필요하다."
+    },
+    {
+      "word": "encourage",
+      "pos": "v.",
+      "mean": "격려하다, 권장하다",
+      "freq": "5회",
+      "ex": "All staff are encouraged to attend the training session.",
+      "ex_ko": "모든 직원은 교육에 참석하도록 권장된다."
+    },
+    {
+      "word": "encouraging",
+      "pos": "a.",
+      "mean": "격려하는, 고무적인",
+      "freq": "-",
+      "ex": "The sales figures for the first quarter were very encouraging.",
+      "ex_ko": "1분기 판매 수치는 매우 고무적이었다."
+    },
+    {
+      "word": "opportunity",
+      "pos": "n.",
+      "mean": "기회",
+      "freq": "8회 + LC 1회",
+      "ex": "Interns will have the opportunity to work with senior designers.",
+      "ex_ko": "인턴들은 선임 디자이너들과 함께 일할 기회를 갖게 된다."
+    },
+    {
+      "word": "stack",
+      "pos": "v./n.",
+      "mean": "쌓다 / 더미",
+      "freq": "LC 3회",
+      "ex": "Boxes of printer paper are stacked next to the copy machine.",
+      "ex_ko": "프린터 용지 상자들이 복사기 옆에 쌓여 있다."
     }
   ],
   "8": [
     {
-      "word": "get together",
-      "mean": "한데 모이다, 조직하다",
-      "ex": "Example for get together."
+      "word": "estimate",
+      "pos": "n./v.",
+      "mean": "견적(서), 추정치 / 견적을 내다, 추정하다",
+      "freq": "3회",
+      "ex": "The contractor gave us an estimate of $5,000 for the repairs.",
+      "ex_ko": "시공업자가 수리비로 5,000달러 견적을 냈다."
     },
     {
-      "word": "hole",
-      "mean": "구멍, 틈",
-      "ex": "Example for hole."
+      "word": "regular",
+      "pos": "a.",
+      "mean": "규칙적인, 정기적인 / 단골의",
+      "freq": "8회",
+      "ex": "Regular customers receive a 10 percent discount on all items.",
+      "ex_ko": "단골손님은 모든 상품을 10% 할인받는다."
     },
     {
-      "word": "in total",
-      "mean": "모두 합해, 총",
-      "ex": "Example for in total."
+      "word": "regularly",
+      "pos": "ad.",
+      "mean": "정기적으로, 규칙적으로",
+      "freq": "4회 + P5 정답",
+      "ex": "The fire alarms are tested regularly to ensure they work properly.",
+      "ex_ko": "화재경보기가 제대로 작동하는지 확인하기 위해 정기적으로 점검된다. (to ensure — 목적의 to부정사!)"
     },
     {
-      "word": "in use",
-      "mean": "사용되는",
-      "ex": "Example for in use."
+      "word": "regulation",
+      "pos": "n.",
+      "mean": "규정, 규제",
+      "freq": "2회 + LC 1회 + P5 정답",
+      "ex": "All employees must follow the safety regulations in the factory.",
+      "ex_ko": "모든 직원은 공장에서 안전 규정을 따라야 한다."
     },
     {
-      "word": "practical",
-      "mean": "실용적인",
-      "ex": "Example for practical."
+      "word": "standard",
+      "pos": "n./a.",
+      "mean": "기준, 표준 / 표준의, 일반적인",
+      "freq": "7회",
+      "ex": "All of our products meet international safety standards.",
+      "ex_ko": "우리의 모든 제품은 국제 안전 기준을 충족한다."
     },
     {
-      "word": "shovel",
-      "mean": "치우다, 삽질하다, 삽",
-      "ex": "Example for shovel."
+      "word": "safe",
+      "pos": "a./n.",
+      "mean": "안전한 / 금고",
+      "freq": "5회",
+      "ex": "Please keep your passport in the hotel safe.",
+      "ex_ko": "여권은 호텔 금고에 보관하세요."
     },
     {
-      "word": "show",
-      "mean": "보여주다, 전시회",
-      "ex": "Example for show."
+      "word": "safety",
+      "pos": "n.",
+      "mean": "안전",
+      "freq": "8회 + LC 2회",
+      "ex": "For safety reasons, the pool will be closed during the storm.",
+      "ex_ko": "안전상의 이유로 폭풍이 부는 동안 수영장은 문을 닫는다."
     },
     {
-      "word": "space",
-      "mean": "공간, 장소, ~의 공간을 정하다",
-      "ex": "Example for space."
+      "word": "distribute",
+      "pos": "v.",
+      "mean": "배포하다, 분배하다, 유통시키다",
+      "freq": "1회",
+      "ex": "The manager distributed the new schedules to all staff members.",
+      "ex_ko": "매니저가 새 일정표를 모든 직원에게 나눠 주었다."
     },
     {
-      "word": "advertise",
-      "mean": "광고하다",
-      "ex": "Example for advertise."
+      "word": "distribution",
+      "pos": "n.",
+      "mean": "배포, 분배, 유통",
+      "freq": "LC 1회",
+      "ex": "The new distribution center will help us deliver orders faster.",
+      "ex_ko": "새 물류 센터 덕분에 주문을 더 빨리 배송할 수 있을 것이다."
     },
     {
-      "word": "belief",
-      "mean": "신념, 믿음",
-      "ex": "Example for belief."
+      "word": "distributor",
+      "pos": "n.",
+      "mean": "배급업자, 유통업체",
+      "freq": "1회 + LC 1회",
+      "ex": "We are looking for a distributor in Southeast Asia.",
+      "ex_ko": "우리는 동남아시아의 유통업체를 찾고 있다."
+    },
+    {
+      "word": "reduce",
+      "pos": "v.",
+      "mean": "줄이다, 감소시키다",
+      "freq": "3회",
+      "ex": "The company installed solar panels to reduce its energy costs.",
+      "ex_ko": "그 회사는 에너지 비용을 줄이기 위해 태양광 패널을 설치했다."
+    },
+    {
+      "word": "responsible",
+      "pos": "a.",
+      "mean": "책임지는, 담당하는",
+      "freq": "2회",
+      "ex": "Ms. Yoon is responsible for training new employees.",
+      "ex_ko": "윤 씨가 신입 직원 교육을 담당하고 있다."
+    },
+    {
+      "word": "responsibility",
+      "pos": "n.",
+      "mean": "책임, (맡은) 업무",
+      "freq": "1회",
+      "ex": "Her main responsibilities include managing the budget.",
+      "ex_ko": "그녀의 주요 업무에는 예산 관리가 포함된다."
+    },
+    {
+      "word": "cause",
+      "pos": "v./n.",
+      "mean": "~을 일으키다, 야기하다 / 원인, (사회적) 대의",
+      "freq": "3회 + LC 1회",
+      "ex": "The heavy snow caused many flights to be canceled.",
+      "ex_ko": "폭설 때문에 많은 항공편이 취소되었다. (cause + 목적어 + to be p.p.)"
+    },
+    {
+      "word": "confirm",
+      "pos": "v.",
+      "mean": "확인하다, 확정하다",
+      "freq": "8회 + LC 3회",
+      "ex": "Please call us to confirm your appointment by Friday.",
+      "ex_ko": "금요일까지 예약을 확인하기 위해 전화 주세요."
+    },
+    {
+      "word": "confirmation",
+      "pos": "n.",
+      "mean": "확인(서), 확정",
+      "freq": "5회 + LC 1회",
+      "ex": "You will receive a confirmation email within 24 hours.",
+      "ex_ko": "24시간 이내에 확인 이메일을 받으실 거예요."
+    },
+    {
+      "word": "appreciate",
+      "pos": "v.",
+      "mean": "감사하다 / 진가를 알아보다, 감상하다",
+      "freq": "2회 + LC 1회",
+      "ex": "We would appreciate it if you could reply by Monday.",
+      "ex_ko": "월요일까지 답장 주시면 감사하겠습니다."
+    },
+    {
+      "word": "appreciation",
+      "pos": "n.",
+      "mean": "감사 / 감상, 평가",
+      "freq": "-",
+      "ex": "The company held a dinner in appreciation of the volunteers' hard work.",
+      "ex_ko": "회사는 자원봉사자들의 노고에 감사하여 만찬을 열었다."
+    },
+    {
+      "word": "invoice",
+      "pos": "n.",
+      "mean": "송장, 청구서, 거래 명세서",
+      "freq": "3회",
+      "ex": "Please pay the invoice within 30 days of receipt.",
+      "ex_ko": "수령 후 30일 이내에 청구서를 결제해 주세요. (receipt 수령 — 어제 0198!)"
+    },
+    {
+      "word": "extend",
+      "pos": "v.",
+      "mean": "연장하다, 늘리다 / (초대·제안을) 하다",
+      "freq": "5회 + LC 2회 + P5 정답",
+      "ex": "The library has extended its hours until 10 P.M.",
+      "ex_ko": "도서관이 운영 시간을 밤 10시까지 연장했다."
+    },
+    {
+      "word": "extensive",
+      "pos": "a.",
+      "mean": "광범위한, 폭넓은, 대규모의",
+      "freq": "4회",
+      "ex": "Applicants should have extensive experience in sales.",
+      "ex_ko": "지원자는 영업 분야의 폭넓은 경험이 있어야 한다."
+    },
+    {
+      "word": "extension",
+      "pos": "n.",
+      "mean": "연장, 확장 / 내선 번호",
+      "freq": "-",
+      "ex": "For more information, please call Ms. Lim at extension 215.",
+      "ex_ko": "자세한 내용은 내선 215번 임 씨에게 전화 주세요."
+    },
+    {
+      "word": "search",
+      "pos": "n./v.",
+      "mean": "탐색, 검색 / 찾다",
+      "freq": "5회",
+      "ex": "We are currently in search of a new office space downtown.",
+      "ex_ko": "우리는 현재 시내에서 새 사무실 공간을 찾고 있다."
+    },
+    {
+      "word": "inventory",
+      "pos": "n.",
+      "mean": "재고(품), 재고 목록",
+      "freq": "3회 + LC 1회",
+      "ex": "The store is closed today to take inventory.",
+      "ex_ko": "그 가게는 오늘 재고 조사를 하기 위해 문을 닫는다. (to take — 목적의 to부정사)"
+    },
+    {
+      "word": "invention",
+      "pos": "n.",
+      "mean": "발명(품)",
+      "freq": "-",
+      "ex": "The invention of the smartphone changed the way people shop.",
+      "ex_ko": "스마트폰의 발명은 사람들이 쇼핑하는 방식을 바꿨다."
+    },
+    {
+      "word": "deposit",
+      "pos": "n./v.",
+      "mean": "보증금, 예치금 / 입금하다, 맡기다",
+      "freq": "-",
+      "ex": "A deposit of $100 is required to reserve the banquet hall.",
+      "ex_ko": "연회장을 예약하려면 100달러의 보증금이 필요하다. (to reserve — 목적의 to부정사)"
+    },
+    {
+      "word": "response",
+      "pos": "n.",
+      "mean": "응답, 대답, 반응",
+      "freq": "3회 + LC 11회",
+      "ex": "In response to customer feedback, we have extended our store hours.",
+      "ex_ko": "고객 의견에 따라 매장 운영 시간을 연장했습니다. (extend 0234)"
+    },
+    {
+      "word": "respondent",
+      "pos": "n.",
+      "mean": "(설문) 응답자",
+      "freq": "-",
+      "ex": "More than half of the survey respondents preferred online shopping.",
+      "ex_ko": "설문 응답자의 절반 이상이 온라인 쇼핑을 선호했다."
+    },
+    {
+      "word": "benefit",
+      "pos": "n./v.",
+      "mean": "혜택, 이익, 복리후생 / 이익을 얻다, ~에 이롭다",
+      "freq": "4회",
+      "ex": "Full-time employees receive a competitive salary and benefits.",
+      "ex_ko": "정규직 직원은 경쟁력 있는 급여와 복리후생을 받는다."
+    },
+    {
+      "word": "beneficial",
+      "pos": "a.",
+      "mean": "유익한, 이로운",
+      "freq": "1회",
+      "ex": "Regular exercise is beneficial to your health.",
+      "ex_ko": "규칙적인 운동은 건강에 이롭다. (regular 0216)"
     }
   ],
   "9": [
     {
-      "word": "formally",
-      "mean": "정식으로, 공식적으로",
-      "ex": "Example for formally."
+      "word": "limit",
+      "pos": "v./n.",
+      "mean": "제한하다 / 한계, 한도, 제한",
+      "freq": "6회 + LC 1회",
+      "ex": "Each customer is limited to two discount coupons per visit.",
+      "ex_ko": "고객 한 명당 방문 1회에 할인 쿠폰 두 장으로 제한된다."
     },
     {
-      "word": "industrial",
-      "mean": "산업의",
-      "ex": "Example for industrial."
+      "word": "limitation",
+      "pos": "n.",
+      "mean": "제한, 한계(점)",
+      "freq": "LC 1회",
+      "ex": "Due to time limitations, only three questions will be taken after the presentation.",
+      "ex_ko": "시간 제약 때문에 발표 후 질문은 세 개만 받겠습니다."
     },
     {
-      "word": "lightly",
-      "mean": "가볍게, 부드럽게",
-      "ex": "Example for lightly."
+      "word": "limited",
+      "pos": "a.",
+      "mean": "제한된, 한정된, 많지 않은",
+      "freq": "4회 + LC 1회",
+      "ex": "Seating is limited, so please register early.",
+      "ex_ko": "좌석이 한정되어 있으니 일찍 등록해 주세요."
     },
     {
-      "word": "optimistic",
-      "mean": "낙관적인",
-      "ex": "Example for optimistic."
+      "word": "unlimited",
+      "pos": "a.",
+      "mean": "무제한의, 한없는",
+      "freq": "1회 + P5 정답",
+      "ex": "Premium members enjoy unlimited access to all online courses.",
+      "ex_ko": "프리미엄 회원은 모든 온라인 강좌를 무제한으로 이용한다."
     },
     {
-      "word": "overall",
-      "mean": "전반적인, 총체적인",
-      "ex": "Example for overall."
+      "word": "process",
+      "pos": "n./v.",
+      "mean": "과정, 절차, 공정 / 처리하다, 가공하다",
+      "freq": "24회 + LC 1회",
+      "ex": "We are in the process of updating our customer database.",
+      "ex_ko": "우리는 고객 데이터베이스를 업데이트하는 중이다."
     },
     {
-      "word": "possibility",
-      "mean": "가능성",
-      "ex": "Example for possibility."
+      "word": "proceed",
+      "pos": "v.",
+      "mean": "진행하다, 계속하다, (앞으로) 나아가다",
+      "freq": "2회",
+      "ex": "All proceeds from the charity concert will go to the local library.",
+      "ex_ko": "자선 음악회의 모든 수익금은 지역 도서관에 기부된다."
     },
     {
-      "word": "private",
-      "mean": "개인적인",
-      "ex": "Example for private."
+      "word": "procedure",
+      "pos": "n.",
+      "mean": "절차, 순서, 방법",
+      "freq": "1회",
+      "ex": "All employees must follow the new safety procedures.",
+      "ex_ko": "모든 직원은 새 안전 절차를 따라야 한다."
     },
     {
-      "word": "rise",
-      "mean": "오르다, 일어서다",
-      "ex": "Example for rise."
+      "word": "procession",
+      "pos": "n.",
+      "mean": "행진, 행렬",
+      "freq": "-",
+      "ex": "A procession of floats moved slowly down Main Street.",
+      "ex_ko": "꽃수레 행렬이 메인 스트리트를 따라 천천히 움직였다."
     },
     {
-      "word": "situation",
-      "mean": "상황",
-      "ex": "Example for situation."
+      "word": "branch",
+      "pos": "n.",
+      "mean": "지점, 지사 / 나뭇가지",
+      "freq": "4회 + LC 1회 + P5 정답",
+      "ex": "The bank plans to open three new branches in Busan next year.",
+      "ex_ko": "그 은행은 내년에 부산에 지점 세 곳을 새로 열 계획이다."
     },
     {
-      "word": "strengthen",
-      "mean": "강화하다, 강력해지다",
-      "ex": "Example for strengthen."
+      "word": "revise",
+      "pos": "v.",
+      "mean": "수정하다, 개정하다, 변경하다",
+      "freq": "3회 + LC 1회 + P5 정답 2번",
+      "ex": "Please review the revised schedule before the meeting.",
+      "ex_ko": "회의 전에 수정된 일정을 검토해 주세요."
+    },
+    {
+      "word": "revision",
+      "pos": "n.",
+      "mean": "수정, 개정, 수정본",
+      "freq": "1회",
+      "ex": "The editor made several revisions to the article.",
+      "ex_ko": "편집자는 그 기사를 여러 군데 수정했다."
+    },
+    {
+      "word": "replace",
+      "pos": "v.",
+      "mean": "교체하다, 대신하다, 후임이 되다",
+      "freq": "7회 + LC 7회",
+      "ex": "We replaced the old printers with faster models.",
+      "ex_ko": "우리는 낡은 프린터를 더 빠른 모델로 교체했다."
+    },
+    {
+      "word": "replacement",
+      "pos": "n.",
+      "mean": "교체(품), 대체, 후임자",
+      "freq": "4회 + LC 3회 + P5 정답",
+      "ex": "If the item is damaged, we will send you a replacement free of charge.",
+      "ex_ko": "제품이 손상됐으면 무료로 교환품을 보내 드립니다."
+    },
+    {
+      "word": "pile",
+      "pos": "n./v.",
+      "mean": "더미, 쌓아 놓은 것 / 쌓다, 쌓이다",
+      "freq": "LC 1회",
+      "ex": "There is a pile of documents on the manager's desk.",
+      "ex_ko": "매니저 책상 위에 서류 더미가 있다."
+    },
+    {
+      "word": "compile",
+      "pos": "v.",
+      "mean": "(자료를) 모으다, 취합하다, 편집하다",
+      "freq": "-",
+      "ex": "Ms. Park is compiling a list of suppliers for the new project.",
+      "ex_ko": "박 씨는 새 프로젝트를 위해 공급업체 목록을 작성하고 있다."
+    },
+    {
+      "word": "purpose",
+      "pos": "n.",
+      "mean": "목적, 용도",
+      "freq": "22회",
+      "ex": "The purpose of this meeting is to discuss the new budget.",
+      "ex_ko": "이 회의의 목적은 새 예산을 논의하는 것이다. (be + to do — 어제 B-3!)"
+    },
+    {
+      "word": "purposely",
+      "pos": "ad.",
+      "mean": "일부러, 고의로, 의도적으로",
+      "freq": "-",
+      "ex": "The building was purposely designed to save energy.",
+      "ex_ko": "그 건물은 에너지를 절약하도록 의도적으로 설계되었다. (be designed to do — 어제 C-3)"
+    },
+    {
+      "word": "effect",
+      "pos": "n.",
+      "mean": "효과, 영향, (법의) 효력",
+      "freq": "1회 + LC 2회",
+      "ex": "The new parking rules will take effect on March 1.",
+      "ex_ko": "새 주차 규정은 3월 1일부터 시행된다."
+    },
+    {
+      "word": "effective",
+      "pos": "a.",
+      "mean": "효과적인 / (법·제도가) 시행되는, 유효한",
+      "freq": "3회",
+      "ex": "Effective next Monday, all visitors must sign in at the front desk.",
+      "ex_ko": "다음 주 월요일부터 모든 방문객은 안내 데스크에서 서명해야 한다."
+    },
+    {
+      "word": "effectively",
+      "pos": "ad.",
+      "mean": "효과적으로 / 사실상",
+      "freq": "-",
+      "ex": "Good managers communicate effectively with their team members.",
+      "ex_ko": "좋은 관리자는 팀원들과 효과적으로 소통한다."
+    },
+    {
+      "word": "approve",
+      "pos": "v.",
+      "mean": "승인하다, 찬성하다",
+      "freq": "7회 + LC 2회",
+      "ex": "The board approved the plan to open a new branch in Daejeon.",
+      "ex_ko": "이사회는 대전에 새 지점을 여는 계획을 승인했다."
+    },
+    {
+      "word": "approval",
+      "pos": "n.",
+      "mean": "승인, 인가 / 찬성",
+      "freq": "2회 + LC 1회",
+      "ex": "You need your manager's approval before ordering new equipment.",
+      "ex_ko": "새 장비를 주문하기 전에 매니저의 승인이 필요하다. (before + 동명사 ordering!)"
+    },
+    {
+      "word": "certificate",
+      "pos": "n.",
+      "mean": "증명서, 자격증, -권(券)",
+      "freq": "1회 + LC 1회",
+      "ex": "Participants will receive a certificate of completion after the workshop.",
+      "ex_ko": "참가자들은 워크숍 후 수료증을 받게 된다."
+    },
+    {
+      "word": "certification",
+      "pos": "n.",
+      "mean": "자격(증) 취득, 인증, 증명",
+      "freq": "3회 + LC 1회",
+      "ex": "All electricians must have the required safety certifications.",
+      "ex_ko": "모든 전기 기사는 필수 안전 인증을 갖추고 있어야 한다."
+    },
+    {
+      "word": "device",
+      "pos": "n.",
+      "mean": "장치, 기기",
+      "freq": "1회",
+      "ex": "Please turn off your mobile devices during the performance.",
+      "ex_ko": "공연 중에는 모바일 기기를 꺼 주세요."
+    },
+    {
+      "word": "refer",
+      "pos": "v.",
+      "mean": "언급하다, 참고하다, 문의하다 / 소개하다, 추천하다",
+      "freq": "87회 + LC 13회",
+      "ex": "Please refer to the user manual for detailed instructions.",
+      "ex_ko": "자세한 사용법은 사용 설명서를 참고하세요."
+    },
+    {
+      "word": "reference",
+      "pos": "n.",
+      "mean": "추천서, 추천인 / 참고, 언급",
+      "freq": "2회",
+      "ex": "Please keep this receipt for future reference.",
+      "ex_ko": "나중에 참고하도록 이 영수증을 보관하세요."
+    },
+    {
+      "word": "drastic",
+      "pos": "a.",
+      "mean": "과감한, 급격한, 극단적인",
+      "freq": "-",
+      "ex": "The company took drastic measures to reduce costs.",
+      "ex_ko": "회사는 비용을 줄이기 위해 과감한 조치를 취했다. (to reduce — 목적의 to부정사)"
+    },
+    {
+      "word": "drastically",
+      "pos": "ad.",
+      "mean": "대폭, 급격하게, 과감하게",
+      "freq": "-",
+      "ex": "Online sales have increased drastically over the past year.",
+      "ex_ko": "온라인 매출이 지난 1년 동안 급격히 증가했다. (have increased — Day 6 현재완료)"
+    },
+    {
+      "word": "secretary",
+      "pos": "n.",
+      "mean": "비서, (협회의) 총무, (정부의) 장관",
+      "freq": "-",
+      "ex": "Please contact my secretary to schedule an appointment.",
+      "ex_ko": "약속을 잡으려면 제 비서에게 연락해 주세요."
     }
   ],
   "10": [
     {
-      "word": "cashier",
-      "mean": "출납원",
-      "ex": "Example for cashier."
+      "word": "repair",
+      "pos": "v./n.",
+      "mean": "수리하다, 보수하다 / 수리",
+      "freq": "3회 + LC 5회",
+      "ex": "The elevator will be under repair until Friday.",
+      "ex_ko": "엘리베이터는 금요일까지 수리 중일 거예요."
     },
     {
-      "word": "clothing",
-      "mean": "의류",
-      "ex": "Example for clothing."
+      "word": "examine",
+      "pos": "v.",
+      "mean": "조사하다, 검토하다, 검사하다",
+      "freq": "-",
+      "ex": "The inspector carefully examined the safety equipment.",
+      "ex_ko": "점검관이 안전 장비를 꼼꼼히 검사했어요."
     },
     {
-      "word": "corner",
-      "mean": "모퉁이, 구석",
-      "ex": "Example for corner."
+      "word": "examination",
+      "pos": "n.",
+      "mean": "조사, 검사 / 시험",
+      "freq": "-",
+      "ex": "All new drivers must pass a vision examination.",
+      "ex_ko": "신규 운전자는 모두 시력 검사를 통과해야 해요."
     },
     {
-      "word": "costume",
-      "mean": "복장, 의상",
-      "ex": "Example for costume."
+      "word": "contract",
+      "pos": "n./v.",
+      "mean": "계약(서) / 계약하다, 하청을 주다",
+      "freq": "13회 + LC 4회",
+      "ex": "Both companies signed a three-year contract last week.",
+      "ex_ko": "두 회사는 지난주 3년 계약을 체결했어요."
     },
     {
-      "word": "free",
-      "mean": "자유로이 ~할 수 있는, 마음대로의",
-      "ex": "Example for free."
+      "word": "contact",
+      "pos": "v./n.",
+      "mean": "연락하다, 접촉하다 / 연락, 연줄",
+      "freq": "29회 + LC 5회",
+      "ex": "For more details, please contact our customer service team.",
+      "ex_ko": "자세한 내용은 고객 서비스팀에 연락해 주세요."
     },
     {
-      "word": "label",
-      "mean": "라벨, 꼬리표, ~에 라벨을 붙이다",
-      "ex": "Example for label."
+      "word": "regard",
+      "pos": "v./n.",
+      "mean": "~로 여기다, 간주하다 / 관심, 존중, 안부",
+      "freq": "8회",
+      "ex": "Dr. Han is regarded as one of the best surgeons in the city.",
+      "ex_ko": "한 박사는 이 도시 최고의 외과의 중 한 명으로 여겨져요."
     },
     {
-      "word": "necklace",
-      "mean": "목걸이",
-      "ex": "Example for necklace."
+      "word": "regardless of",
+      "pos": "prep.",
+      "mean": "~에 상관없이, ~에도 불구하고",
+      "freq": "P5 오답 보기",
+      "ex": "The workshop is open to all employees regardless of experience.",
+      "ex_ko": "워크숍은 경력과 상관없이 모든 직원에게 열려 있어요."
     },
     {
-      "word": "photography equipment",
-      "mean": "사진 장비",
-      "ex": "Example for photography equipment."
+      "word": "regarding",
+      "pos": "prep.",
+      "mean": "~에 관하여",
+      "freq": "3회",
+      "ex": "If you have any questions regarding the schedule, please let me know.",
+      "ex_ko": "일정에 관해 질문이 있으면 알려 주세요."
     },
     {
-      "word": "shelf",
-      "mean": "선반",
-      "ex": "Example for shelf."
+      "word": "disregard",
+      "pos": "v./n.",
+      "mean": "무시하다 / 무시",
+      "freq": "1회",
+      "ex": "If you have already renewed your membership, please disregard this e-mail.",
+      "ex_ko": "이미 회원권을 갱신하셨다면 이 이메일은 무시해 주세요."
     },
     {
-      "word": "shop",
-      "mean": "상점, 물건을 사다",
-      "ex": "Example for shop."
+      "word": "expect",
+      "pos": "v.",
+      "mean": "기대하다, 예상하다",
+      "freq": "16회 + LC 2회",
+      "ex": "The new branch is expected to open in early March.",
+      "ex_ko": "새 지점은 3월 초에 문을 열 예정이에요."
+    },
+    {
+      "word": "expectation",
+      "pos": "n.",
+      "mean": "예상, 기대",
+      "freq": "1회",
+      "ex": "Sales this quarter exceeded our expectations.",
+      "ex_ko": "이번 분기 매출은 우리 기대를 뛰어넘었어요."
+    },
+    {
+      "word": "unexpected",
+      "pos": "a.",
+      "mean": "예기치 않은, 뜻밖의",
+      "freq": "1회",
+      "ex": "Due to an unexpected delay, the train will arrive 20 minutes late.",
+      "ex_ko": "예상치 못한 지연으로 기차가 20분 늦게 도착해요."
+    },
+    {
+      "word": "increase",
+      "pos": "n./v.",
+      "mean": "증가, 인상 / 증가하다, 늘리다",
+      "freq": "8회 + LC 3회",
+      "ex": "There has been a sharp increase in online orders this year.",
+      "ex_ko": "올해 온라인 주문이 급격히 증가했어요."
+    },
+    {
+      "word": "increasing",
+      "pos": "a.",
+      "mean": "증가하는, 늘어나는",
+      "freq": "2회",
+      "ex": "An increasing number of employees are working from home.",
+      "ex_ko": "점점 더 많은 직원이 재택근무를 하고 있어요."
+    },
+    {
+      "word": "increasingly",
+      "pos": "ad.",
+      "mean": "점점 더, 갈수록",
+      "freq": "P5 정답",
+      "ex": "Electric cars are becoming increasingly popular in Korea.",
+      "ex_ko": "한국에서 전기차가 점점 더 인기를 얻고 있어요."
+    },
+    {
+      "word": "cancel",
+      "pos": "v.",
+      "mean": "취소하다",
+      "freq": "4회 + LC 2회",
+      "ex": "The outdoor concert was canceled because of heavy rain.",
+      "ex_ko": "폭우 때문에 야외 콘서트가 취소됐어요."
+    },
+    {
+      "word": "cancellation",
+      "pos": "n.",
+      "mean": "취소",
+      "freq": "2회",
+      "ex": "A $50 cancellation fee will be charged for changes made within 24 hours.",
+      "ex_ko": "24시간 이내 변경 시 50달러의 취소 수수료가 부과돼요."
+    },
+    {
+      "word": "attach",
+      "pos": "v.",
+      "mean": "붙이다, 첨부하다",
+      "freq": "16회",
+      "ex": "Please review the attached document before the meeting.",
+      "ex_ko": "회의 전에 첨부된 문서를 검토해 주세요."
+    },
+    {
+      "word": "attachment",
+      "pos": "n.",
+      "mean": "첨부 파일 / 부착(물)",
+      "freq": "10회",
+      "ex": "I couldn't open the attachment, so could you send it again?",
+      "ex_ko": "첨부 파일이 안 열려서 다시 보내 주시겠어요?"
+    },
+    {
+      "word": "detach",
+      "pos": "v.",
+      "mean": "떼어 내다, 분리하다",
+      "freq": "-",
+      "ex": "Detach this coupon and bring it to any of our stores.",
+      "ex_ko": "이 쿠폰을 떼어서 아무 매장에나 가져오세요."
+    },
+    {
+      "word": "claim",
+      "pos": "v./n.",
+      "mean": "주장하다, 요구하다 / 주장, (보상) 청구",
+      "freq": "LC 1회",
+      "ex": "Passengers can pick up their luggage at baggage claim area 3.",
+      "ex_ko": "승객들은 3번 수하물 찾는 곳에서 짐을 찾을 수 있어요."
+    },
+    {
+      "word": "study",
+      "pos": "n./v.",
+      "mean": "연구, 조사 / 연구하다, 살펴보다",
+      "freq": "1회",
+      "ex": "Recent studies show that short breaks improve productivity.",
+      "ex_ko": "최근 연구에 따르면 짧은 휴식이 생산성을 높여요."
+    },
+    {
+      "word": "recruit",
+      "pos": "v.",
+      "mean": "(신입을) 모집하다, 채용하다",
+      "freq": "-",
+      "ex": "The hotel is recruiting additional staff for the summer season.",
+      "ex_ko": "호텔은 여름 성수기를 위해 추가 직원을 모집하고 있어요."
+    },
+    {
+      "word": "suggest",
+      "pos": "v.",
+      "mean": "제안하다 / 암시하다",
+      "freq": "27회 + LC 1회",
+      "ex": "The manager suggested holding the meeting online.",
+      "ex_ko": "매니저가 회의를 온라인으로 하자고 제안했어요."
+    },
+    {
+      "word": "suggestion",
+      "pos": "n.",
+      "mean": "제안, 암시",
+      "freq": "LC 1회",
+      "ex": "Thank you for your helpful suggestions about the new logo.",
+      "ex_ko": "새 로고에 대한 유익한 제안 감사해요."
+    },
+    {
+      "word": "quote",
+      "pos": "n./v.",
+      "mean": "견적(가) / 견적을 내다, 인용하다",
+      "freq": "-",
+      "ex": "We received three quotes for the office renovation.",
+      "ex_ko": "사무실 보수 공사 견적을 세 군데서 받았어요."
+    },
+    {
+      "word": "excellent",
+      "pos": "a.",
+      "mean": "탁월한, 훌륭한",
+      "freq": "3회",
+      "ex": "The hotel staff provided excellent service throughout our stay.",
+      "ex_ko": "호텔 직원들은 머무는 내내 훌륭한 서비스를 제공했어요."
+    },
+    {
+      "word": "finance",
+      "pos": "n./v.",
+      "mean": "재정, 자금 / 자금을 대다",
+      "freq": "1회 + LC 2회",
+      "ex": "The city will finance the new library with a government grant.",
+      "ex_ko": "시는 정부 보조금으로 새 도서관 자금을 댈 거예요."
+    },
+    {
+      "word": "financial",
+      "pos": "a.",
+      "mean": "재정의, 금융의",
+      "freq": "8회 + LC 2회",
+      "ex": "Our financial advisor recommended reducing monthly expenses.",
+      "ex_ko": "재무 상담사가 월 지출을 줄이라고 권했어요."
+    },
+    {
+      "word": "annually",
+      "pos": "ad.",
+      "mean": "매년, 해마다",
+      "freq": "2회",
+      "ex": "The safety equipment is inspected annually.",
+      "ex_ko": "안전 장비는 매년 점검받아요."
+    },
+    {
+      "word": "annual",
+      "pos": "a.",
+      "mean": "연례의, 1년의, 연간의",
+      "freq": "19회",
+      "ex": "The company's annual sales conference will be held in Busan.",
+      "ex_ko": "회사의 연례 영업 회의는 부산에서 열려요."
     }
   ],
   "11": [
     {
-      "word": "corrode",
-      "mean": "부식하다",
-      "ex": "Example for corrode."
+      "word": "correct",
+      "pos": "a./v.",
+      "mean": "정확한, 맞는 / 바로잡다, 정정하다",
+      "freq": "1회 + LC 1회",
+      "ex": "Please correct the spelling of my name on the badge.",
+      "ex_ko": "명찰에 있는 제 이름 철자를 고쳐 주세요."
     },
     {
-      "word": "erosion",
-      "mean": "침식",
-      "ex": "Example for erosion."
+      "word": "correctly",
+      "pos": "ad.",
+      "mean": "정확하게, 올바르게",
+      "freq": "P5 오답 보기",
+      "ex": "The package was not delivered because it was not correctly addressed.",
+      "ex_ko": "주소가 정확히 적히지 않아서 소포가 배달되지 않았어요."
     },
     {
-      "word": "remotely",
-      "mean": "원격으로, 멀리서",
-      "ex": "Example for remotely."
+      "word": "incorrect",
+      "pos": "a.",
+      "mean": "부정확한, 틀린",
+      "freq": "-",
+      "ex": "I was sent an incorrect bill for last month.",
+      "ex_ko": "지난달 청구서를 잘못 받았어요."
     },
     {
-      "word": "remote",
-      "mean": "원격의, 외진, 외딴",
-      "ex": "Example for remote."
+      "word": "understanding",
+      "pos": "n./a.",
+      "mean": "이해, 양해 / 이해심 있는",
+      "freq": "2회",
+      "ex": "We apologize for the delay and thank you for your understanding.",
+      "ex_ko": "지연에 사과드리며 양해해 주셔서 감사합니다."
     },
     {
-      "word": "brand new",
-      "mean": "최신의",
-      "ex": "Example for brand new."
+      "word": "understandable",
+      "pos": "a.",
+      "mean": "이해할 수 있는, 당연한",
+      "freq": "-",
+      "ex": "The new manual is short and easily understandable.",
+      "ex_ko": "새 설명서는 짧고 쉽게 이해돼요."
     },
     {
-      "word": "break down",
-      "mean": "고장나다",
-      "ex": "Example for break down."
+      "word": "result",
+      "pos": "n./v.",
+      "mean": "결과 / (결과로) 생기다, 끝나다",
+      "freq": "12회",
+      "ex": "The power outage resulted in a two-hour delay.",
+      "ex_ko": "정전으로 두 시간 지연이 생겼어요."
     },
     {
-      "word": "developer",
-      "mean": "개발자",
-      "ex": "Example for developer."
+      "word": "record",
+      "pos": "n./v.",
+      "mean": "기록 / 기록하다, 녹음·녹화하다",
+      "freq": "6회 + LC 2회",
+      "ex": "Please keep this receipt for your records.",
+      "ex_ko": "이 영수증은 보관용으로 갖고 계세요."
     },
     {
-      "word": "handmade",
-      "mean": "수공의",
-      "ex": "Example for handmade."
+      "word": "appoint",
+      "pos": "v.",
+      "mean": "임명하다, 지명하다 / (시간·장소를) 정하다",
+      "freq": "-",
+      "ex": "Ms. Ruiz has been appointed head of the marketing department.",
+      "ex_ko": "루이스 씨가 마케팅 부장으로 임명되었어요."
     },
     {
-      "word": "in a row",
-      "mean": "한 줄로, 연이어",
-      "ex": "Example for in a row."
+      "word": "appointment",
+      "pos": "n.",
+      "mean": "(만날) 약속, 예약 / 임명",
+      "freq": "2회 + LC 2회",
+      "ex": "I need to reschedule my dental appointment for next week.",
+      "ex_ko": "다음 주 치과 예약을 변경해야 해요."
     },
     {
-      "word": "late",
-      "mean": "늦은, 늦게",
-      "ex": "Example for late."
+      "word": "meet",
+      "pos": "v.",
+      "mean": "만나다 / (요구·기준을) 충족시키다",
+      "freq": "15회",
+      "ex": "Our new packaging meets all safety standards.",
+      "ex_ko": "새 포장은 모든 안전 기준을 충족해요."
+    },
+    {
+      "word": "help",
+      "pos": "v./n.",
+      "mean": "돕다 / 도움",
+      "freq": "29회 + LC 5회",
+      "ex": "This app helps customers track their orders.",
+      "ex_ko": "이 앱은 고객이 주문을 추적하도록 도와줘요."
+    },
+    {
+      "word": "character",
+      "pos": "n.",
+      "mean": "성격, 특징 / 등장인물",
+      "freq": "4회",
+      "ex": "The main character of the film is a young chef.",
+      "ex_ko": "그 영화의 주인공은 젊은 요리사예요."
+    },
+    {
+      "word": "characteristic",
+      "pos": "n./a.",
+      "mean": "특징, 특성 / 특유의",
+      "freq": "1회",
+      "ex": "Durability is the most important characteristic of this backpack.",
+      "ex_ko": "내구성이 이 배낭의 가장 중요한 특징이에요."
+    },
+    {
+      "word": "characterize",
+      "pos": "v.",
+      "mean": "특징짓다, ~의 특징이 되다",
+      "freq": "-",
+      "ex": "The region is characterized by its mild climate.",
+      "ex_ko": "그 지역은 온화한 기후가 특징이에요."
+    },
+    {
+      "word": "warranty",
+      "pos": "n.",
+      "mean": "(제품) 품질 보증(서)",
+      "freq": "1회 + LC 1회",
+      "ex": "Repairs are free while the laptop is under warranty.",
+      "ex_ko": "노트북이 보증 기간 중이면 수리가 무료예요."
+    },
+    {
+      "word": "guarantee",
+      "pos": "n./v.",
+      "mean": "보증, 보장 / 보장하다, 보증하다",
+      "freq": "2회",
+      "ex": "We guarantee that your order will arrive within 48 hours.",
+      "ex_ko": "주문하신 물건이 48시간 안에 도착하는 것을 보장해요."
+    },
+    {
+      "word": "analyze",
+      "pos": "v.",
+      "mean": "분석하다",
+      "freq": "1회",
+      "ex": "The team will analyze the survey results next week.",
+      "ex_ko": "팀이 다음 주에 설문 결과를 분석할 거예요."
+    },
+    {
+      "word": "analysis",
+      "pos": "n.",
+      "mean": "분석",
+      "freq": "5회",
+      "ex": "According to the cost analysis, the new system will save money.",
+      "ex_ko": "비용 분석에 따르면 새 시스템은 비용을 절약해 줄 거예요."
+    },
+    {
+      "word": "complete",
+      "pos": "v./a.",
+      "mean": "완료하다, (양식을) 작성하다 / 완전한, 완료된",
+      "freq": "18회",
+      "ex": "Please complete this form and return it to the front desk.",
+      "ex_ko": "이 양식을 작성해서 안내 데스크에 제출해 주세요."
+    },
+    {
+      "word": "completely",
+      "pos": "ad.",
+      "mean": "완전히, 전적으로",
+      "freq": "-",
+      "ex": "The hotel lobby has been completely renovated.",
+      "ex_ko": "호텔 로비가 완전히 개조되었어요."
+    },
+    {
+      "word": "reflect",
+      "pos": "v.",
+      "mean": "반영하다 / 반사하다 / 숙고하다",
+      "freq": "2회",
+      "ex": "The price change will be reflected in your next bill.",
+      "ex_ko": "가격 변경은 다음 청구서에 반영될 거예요."
+    },
+    {
+      "word": "reflective",
+      "pos": "a.",
+      "mean": "반영하는 / 사려 깊은",
+      "freq": "-",
+      "ex": "Workers must wear reflective vests at the construction site.",
+      "ex_ko": "작업자는 공사 현장에서 반사 조끼를 입어야 해요."
+    },
+    {
+      "word": "custom",
+      "pos": "n./a.",
+      "mean": "관습 / (pl.) 세관 / 맞춤의",
+      "freq": "2회 + LC 1회",
+      "ex": "All packages from overseas must go through customs.",
+      "ex_ko": "해외에서 오는 모든 소포는 세관을 통과해야 해요."
+    },
+    {
+      "word": "customize",
+      "pos": "v.",
+      "mean": "(주문에 맞춰) 맞춤 제작하다",
+      "freq": "3회",
+      "ex": "We can customize the training program to meet your team's needs.",
+      "ex_ko": "팀의 요구에 맞게 교육 프로그램을 맞춤화할 수 있어요."
+    },
+    {
+      "word": "customer",
+      "pos": "n.",
+      "mean": "고객, 손님",
+      "freq": "46회 + LC 10회",
+      "ex": "Our customer service team is available 24 hours a day.",
+      "ex_ko": "고객 서비스팀은 하루 24시간 이용할 수 있어요."
+    },
+    {
+      "word": "customary",
+      "pos": "a.",
+      "mean": "관례적인, 습관적인",
+      "freq": "-",
+      "ex": "It is customary to give a small gift to new team members.",
+      "ex_ko": "새 팀원에게 작은 선물을 주는 게 관례예요."
+    },
+    {
+      "word": "enter",
+      "pos": "v.",
+      "mean": "들어가다 / 입력하다 / 참가하다",
+      "freq": "2회 + LC 4회",
+      "ex": "Please enter your employee number to log in.",
+      "ex_ko": "로그인하려면 사원 번호를 입력하세요."
+    },
+    {
+      "word": "entry",
+      "pos": "n.",
+      "mean": "출입, 입장 / 참가(작) / 기입 항목",
+      "freq": "1회 + LC 1회",
+      "ex": "All contest entries must be submitted by May 31.",
+      "ex_ko": "모든 대회 출품작은 5월 31일까지 제출해야 해요."
+    },
+    {
+      "word": "include",
+      "pos": "v.",
+      "mean": "포함하다",
+      "freq": "21회 + LC 1회",
+      "ex": "The price includes breakfast and free Wi-Fi.",
+      "ex_ko": "가격에 조식과 무료 와이파이가 포함돼 있어요."
     }
   ],
   "12": [
     {
-      "word": "chemist",
-      "mean": "화학자",
-      "ex": "Example for chemist."
+      "word": "consult",
+      "pos": "v.",
+      "mean": "1. 찾아보다, 참고하다 2. 상담하다, 상의하다",
+      "freq": "4회 + LC 1회",
+      "ex": "Please consult the user manual before calling technical support.",
+      "ex_ko": "기술 지원팀에 전화하기 전에 사용 설명서를 참고해 주세요."
     },
     {
-      "word": "chemistry",
-      "mean": "화학",
-      "ex": "Example for chemistry."
+      "word": "consultant",
+      "pos": "n.",
+      "mean": "컨설턴트, 고문, 상담가",
+      "freq": "1회",
+      "ex": "The company hired an outside consultant to review its marketing strategy.",
+      "ex_ko": "회사는 마케팅 전략을 검토하려고 외부 컨설턴트를 고용했어요."
     },
     {
-      "word": "minimize",
-      "mean": "최소화하다, 축소하다",
-      "ex": "Example for minimize."
+      "word": "consultation",
+      "pos": "n.",
+      "mean": "상담, 협의, 자문",
+      "freq": "1회 · 오늘 15번",
+      "ex": "Call us today to schedule a free consultation with one of our advisors.",
+      "ex_ko": "오늘 전화하셔서 저희 상담사와 무료 상담 일정을 잡으세요."
     },
     {
-      "word": "maximize",
-      "mean": "극대화하다",
-      "ex": "Example for maximize."
+      "word": "damage",
+      "pos": "n./v.",
+      "mean": "손상, 피해 / 손상시키다, 피해를 입히다",
+      "freq": "-",
+      "ex": "Several boxes were damaged during shipping, so we sent replacements.",
+      "ex_ko": "배송 중에 상자 몇 개가 파손돼서 교체품을 보냈어요."
     },
     {
-      "word": "clothing line",
-      "mean": "의류 상품",
-      "ex": "Example for clothing line."
+      "word": "drop",
+      "pos": "n./v.",
+      "mean": "하락 / 떨어지다, 하락하다, 내려놓다",
+      "freq": "5회 + LC 1회",
+      "ex": "You can drop off your old phone at any of our stores for recycling.",
+      "ex_ko": "재활용을 위해 쓰던 휴대폰을 저희 어느 매장에나 갖다 놓으시면 돼요."
     },
     {
-      "word": "craft",
-      "mean": "기술",
-      "ex": "Example for craft."
+      "word": "renew",
+      "pos": "v.",
+      "mean": "(계약 등을) 갱신하다, 연장하다",
+      "freq": "1회 + LC 4회",
+      "ex": "Please renew your membership by the end of the month to keep your discount.",
+      "ex_ko": "할인을 유지하려면 이달 말까지 회원권을 갱신해 주세요."
     },
     {
-      "word": "crop",
-      "mean": "농작물, 산출량",
-      "ex": "Example for crop."
+      "word": "renewal",
+      "pos": "n.",
+      "mean": "갱신, 연장 / (도시) 재개발",
+      "freq": "2회",
+      "ex": "You will receive a renewal notice two weeks before your subscription ends.",
+      "ex_ko": "구독이 끝나기 2주 전에 갱신 안내를 받게 돼요."
     },
     {
-      "word": "curved",
-      "mean": "구부러진, 곡선 모양의",
-      "ex": "Example for curved."
+      "word": "cover",
+      "pos": "v./n.",
+      "mean": "덮다, (비용을) 부담하다, 포함하다, 보도하다, 대신 근무하다 / 덮개, 표지",
+      "freq": "4회 + LC 1회",
+      "ex": "The registration fee covers lunch and all workshop materials.",
+      "ex_ko": "등록비에는 점심과 모든 워크숍 자료가 포함돼요."
     },
     {
-      "word": "cyclist",
-      "mean": "자전거 타는 사람",
-      "ex": "Example for cyclist."
+      "word": "coverage",
+      "pos": "n.",
+      "mean": "1. (보험의) 보상 범위 2. (신문·방송의) 보도, 취재",
+      "freq": "1회",
+      "ex": "The product launch received extensive media coverage.",
+      "ex_ko": "그 제품 출시는 언론에 크게 보도됐어요."
     },
     {
-      "word": "firewood",
-      "mean": "장작",
-      "ex": "Example for firewood."
+      "word": "launch",
+      "pos": "v./n.",
+      "mean": "(제품을) 출시하다, (사업·캠페인을) 시작하다 / 출시, 개시",
+      "freq": "3회",
+      "ex": "The company plans to launch its new smartphone in the second half of the year.",
+      "ex_ko": "회사는 하반기에 새 스마트폰을 출시할 계획이에요."
+    },
+    {
+      "word": "convey",
+      "pos": "v.",
+      "mean": "(생각·감정을) 전달하다, 나르다",
+      "freq": "P5 오답 보기",
+      "ex": "Please convey my thanks to everyone on your team.",
+      "ex_ko": "팀원 모두에게 제 감사 인사를 전해 주세요."
+    },
+    {
+      "word": "brochure",
+      "pos": "n.",
+      "mean": "브로슈어, (홍보용) 소책자",
+      "freq": "3회 + LC 3회",
+      "ex": "More details about our tour packages can be found in the enclosed brochure.",
+      "ex_ko": "투어 상품에 대한 자세한 내용은 동봉된 책자에 있어요."
+    },
+    {
+      "word": "competition",
+      "pos": "n.",
+      "mean": "경쟁, 대회, 시합",
+      "freq": "1회",
+      "ex": "The design competition is open to all students in the region.",
+      "ex_ko": "그 디자인 대회는 지역의 모든 학생에게 열려 있어요."
+    },
+    {
+      "word": "compete",
+      "pos": "v.",
+      "mean": "경쟁하다, (시합에) 참가하다",
+      "freq": "1회",
+      "ex": "Five local bakeries will compete for the title of best bread in town.",
+      "ex_ko": "동네 빵집 다섯 곳이 최고의 빵 타이틀을 두고 경쟁해요."
+    },
+    {
+      "word": "competitive",
+      "pos": "a.",
+      "mean": "경쟁력 있는, 경쟁하는, (가격이) 저렴한",
+      "freq": "3회",
+      "ex": "We offer high-quality printing services at competitive prices.",
+      "ex_ko": "저희는 고품질 인쇄 서비스를 합리적인 가격에 제공해요."
+    },
+    {
+      "word": "competent",
+      "pos": "a.",
+      "mean": "유능한, 능숙한",
+      "freq": "P5 오답 보기 2회",
+      "ex": "Ms. Ortiz is a highly competent accountant with ten years of experience.",
+      "ex_ko": "Ortiz 씨는 10년 경력의 아주 유능한 회계사예요."
+    },
+    {
+      "word": "report",
+      "pos": "v./n.",
+      "mean": "보고하다, 보도하다, 출근하다 / 보고서, 보도",
+      "freq": "19회 + LC 6회",
+      "ex": "All new employees should report to the front desk at 9:00 A.M. on Monday.",
+      "ex_ko": "모든 신입 직원은 월요일 오전 9시에 안내 데스크로 오세요."
+    },
+    {
+      "word": "reportedly",
+      "pos": "ad.",
+      "mean": "전하는 바에 따르면, 소문에 의하면",
+      "freq": "-",
+      "ex": "The two companies are reportedly in talks about a merger.",
+      "ex_ko": "보도에 따르면 두 회사가 합병을 논의 중이래요."
+    },
+    {
+      "word": "require",
+      "pos": "v.",
+      "mean": "요구하다, 필요로 하다",
+      "freq": "15회 + LC 1회 · 오늘 7번",
+      "ex": "All visitors are required to sign in at the front desk.",
+      "ex_ko": "모든 방문객은 안내 데스크에서 방문 기록을 해야 해요."
+    },
+    {
+      "word": "requirement",
+      "pos": "n.",
+      "mean": "필수 요건, 요구 사항, 자격 조건",
+      "freq": "8회 + LC 1회",
+      "ex": "Fluency in Spanish is a requirement for this position.",
+      "ex_ko": "스페인어 능통은 이 직무의 필수 요건이에요."
+    },
+    {
+      "word": "requisition",
+      "pos": "n.",
+      "mean": "청구(서), 요청(서)",
+      "freq": "-",
+      "ex": "Please submit a requisition form for any office supplies you need by Friday.",
+      "ex_ko": "필요한 사무용품은 금요일까지 청구서를 제출해 주세요."
+    },
+    {
+      "word": "instrument",
+      "pos": "n.",
+      "mean": "1. 도구, 기구, 계기 2. 악기",
+      "freq": "-",
+      "ex": "The store sells and repairs a wide range of musical instruments.",
+      "ex_ko": "그 가게는 다양한 악기를 팔고 수리해요."
+    },
+    {
+      "word": "instrumental",
+      "pos": "a.",
+      "mean": "(어떤 일을 하는 데) 중요한, 도움이 되는",
+      "freq": "-",
+      "ex": "Mr. Chen was instrumental in securing the contract with Delmont Foods.",
+      "ex_ko": "Chen 씨는 Delmont Foods와의 계약을 따내는 데 중요한 역할을 했어요."
+    },
+    {
+      "word": "load",
+      "pos": "v./n.",
+      "mean": "(짐을) 싣다 / 짐, 작업량",
+      "freq": "LC 4회",
+      "ex": "Workers are loading boxes onto a delivery truck.",
+      "ex_ko": "작업자들이 배송 트럭에 상자를 싣고 있어요."
+    },
+    {
+      "word": "overload",
+      "pos": "v./n.",
+      "mean": "과적하다, 과부하를 주다 / 과부하",
+      "freq": "-",
+      "ex": "The server crashed because it was overloaded with requests.",
+      "ex_ko": "요청이 너무 많이 몰려서 서버가 다운됐어요."
+    },
+    {
+      "word": "protect",
+      "pos": "v.",
+      "mean": "보호하다, 지키다",
+      "freq": "-",
+      "ex": "This case will protect your laptop from scratches and dust.",
+      "ex_ko": "이 케이스가 노트북을 긁힘과 먼지로부터 보호해 줘요."
+    },
+    {
+      "word": "protective",
+      "pos": "a.",
+      "mean": "보호하는, 보호용의",
+      "freq": "-",
+      "ex": "All visitors to the factory floor must wear protective glasses.",
+      "ex_ko": "공장 작업장 방문객은 모두 보안경을 착용해야 해요."
+    },
+    {
+      "word": "protection",
+      "pos": "n.",
+      "mean": "보호, 안전",
+      "freq": "2회",
+      "ex": "The insurance plan offers protection against loss or theft.",
+      "ex_ko": "그 보험은 분실이나 도난에 대한 보호를 제공해요."
+    },
+    {
+      "word": "container",
+      "pos": "n.",
+      "mean": "용기, 그릇, (화물용) 컨테이너",
+      "freq": "7회 · P5 정답",
+      "ex": "Please store food in sealed containers in the refrigerator.",
+      "ex_ko": "음식은 밀폐 용기에 담아 냉장고에 보관해 주세요."
+    },
+    {
+      "word": "concentrate",
+      "pos": "v.",
+      "mean": "집중하다, 집중시키다",
+      "freq": "-",
+      "ex": "The team will concentrate on improving customer service this year.",
+      "ex_ko": "팀은 올해 고객 서비스 개선에 집중할 거예요."
+    },
+    {
+      "word": "concentration",
+      "pos": "n.",
+      "mean": "집중(력), 농도, 밀집",
+      "freq": "-",
+      "ex": "The city has the highest concentration of software companies in the region.",
+      "ex_ko": "그 도시는 지역에서 소프트웨어 회사가 가장 많이 모여 있어요."
     }
   ],
   "13": [
     {
-      "word": "seriously",
-      "mean": "진지하게",
-      "ex": "Example for seriously."
+      "word": "work",
+      "pos": "v./n.",
+      "mean": "일하다, 작동하다 / 일, 작업, 작품",
+      "freq": "63회 + LC 16회",
+      "ex": "Ms. Novak has worked for the company as a designer for six years.",
+      "ex_ko": "Novak 씨는 그 회사에서 디자이너로 6년 동안 일했어요."
     },
     {
-      "word": "serious",
-      "mean": "진지한",
-      "ex": "Example for serious."
+      "word": "artwork",
+      "pos": "n.",
+      "mean": "미술품, 예술 작품, (인쇄물의) 삽화",
+      "freq": "1회",
+      "ex": "The lobby of the hotel displays artwork by local painters.",
+      "ex_ko": "그 호텔 로비에는 지역 화가들의 작품이 전시돼 있어요."
     },
     {
-      "word": "a couple of",
-      "mean": "두개의, 몇개의",
-      "ex": "Example for a couple of."
+      "word": "workplace",
+      "pos": "n.",
+      "mean": "일터, 직장, 작업장",
+      "freq": "-",
+      "ex": "All staff must complete a workplace safety course by the end of the month.",
+      "ex_ko": "모든 직원은 이달 말까지 작업장 안전 교육을 이수해야 해요."
     },
     {
-      "word": "athlete",
-      "mean": "운동선수",
-      "ex": "Example for athlete."
+      "word": "workable",
+      "pos": "a.",
+      "mean": "실행 가능한, 쓸 만한",
+      "freq": "-",
+      "ex": "The two departments finally agreed on a workable budget plan.",
+      "ex_ko": "두 부서는 마침내 실행 가능한 예산안에 합의했어요."
     },
     {
-      "word": "call for",
-      "mean": "~을 요구하다, ~을 가지러 들르다",
-      "ex": "Example for call for."
+      "word": "check",
+      "pos": "v./n.",
+      "mean": "확인하다, 점검하다 / 확인, 점검, 수표",
+      "freq": "9회 + LC 12회",
+      "ex": "Please check the room for any items you may have left before you check out.",
+      "ex_ko": "체크아웃하기 전에 두고 가는 물건이 없는지 방을 확인해 주세요."
     },
     {
-      "word": "cart",
-      "mean": "쇼핑 카트",
-      "ex": "Example for cart."
+      "word": "checkup",
+      "pos": "n.",
+      "mean": "건강 검진, 신체검사, 점검",
+      "freq": "-",
+      "ex": "I need to reschedule my annual checkup because of a business trip.",
+      "ex_ko": "출장 때문에 연례 건강 검진 일정을 바꿔야 해요."
     },
     {
-      "word": "customer service representative",
-      "mean": "고객 서비스 담당 직원",
-      "ex": "Example for customer service representative."
+      "word": "conveniently",
+      "pos": "ad.",
+      "mean": "편리하게, 편리한 곳에",
+      "freq": "P5 정답",
+      "ex": "Our new office is conveniently located near the subway station.",
+      "ex_ko": "새 사무실은 지하철역 근처, 편리한 곳에 있어요."
     },
     {
-      "word": "get a phone call",
-      "mean": "전화를 받다",
-      "ex": "Example for get a phone call."
+      "word": "inconvenience",
+      "pos": "n./v.",
+      "mean": "불편, 폐 / 불편하게 하다",
+      "freq": "5회",
+      "ex": "We apologize for any inconvenience the road construction may cause.",
+      "ex_ko": "도로 공사로 불편을 드릴 수 있는 점 사과드려요."
     },
     {
-      "word": "give a call",
-      "mean": "전화를 하다",
-      "ex": "Example for give a call."
+      "word": "outdate",
+      "pos": "v.",
+      "mean": "구식으로 만들다, 낡게 하다",
+      "freq": "-",
+      "ex": "The library plans to replace its outdated computers next year.",
+      "ex_ko": "도서관은 내년에 낡은 컴퓨터를 교체할 계획이에요."
     },
     {
-      "word": "have one's hair cut",
-      "mean": "머리카락을 자르다",
-      "ex": "Example for have one's hair cut."
+      "word": "update",
+      "pos": "v./n.",
+      "mean": "최신의 것으로 하다, 갱신하다 / 최신 정보, 업데이트",
+      "freq": "9회 + LC 7회",
+      "ex": "I'll send you an update on the project as soon as I hear from the client.",
+      "ex_ko": "고객에게서 연락이 오면 바로 프로젝트 최신 상황을 보내 드릴게요."
+    },
+    {
+      "word": "broaden",
+      "pos": "v.",
+      "mean": "넓히다, 확장하다",
+      "freq": "1회",
+      "ex": "The internship program helps students broaden their professional networks.",
+      "ex_ko": "그 인턴십 프로그램은 학생들이 직업 인맥을 넓히도록 도와줘요."
+    },
+    {
+      "word": "broad",
+      "pos": "a.",
+      "mean": "넓은, 폭넓은, 광범위한",
+      "freq": "-",
+      "ex": "The store carries a broad range of outdoor equipment.",
+      "ex_ko": "그 가게는 다양한 아웃도어 장비를 취급해요."
+    },
+    {
+      "word": "serve",
+      "pos": "v.",
+      "mean": "(음식을) 제공하다, (손님을) 응대하다, 근무하다, (역할을) 하다",
+      "freq": "4회 + LC 1회",
+      "ex": "Mr. Okafor will serve as interim director until a replacement is found.",
+      "ex_ko": "후임자가 정해질 때까지 Okafor 씨가 임시 이사로 일해요."
+    },
+    {
+      "word": "service",
+      "pos": "n./v.",
+      "mean": "서비스, 업무, 봉사, (정기) 운행 / (차량·기계를) 점검·정비하다",
+      "freq": "43회 + LC 5회",
+      "ex": "Elevator B will be out of service on Tuesday for routine maintenance.",
+      "ex_ko": "B 엘리베이터는 정기 점검 때문에 화요일에 운행하지 않아요."
+    },
+    {
+      "word": "investigate",
+      "pos": "v.",
+      "mean": "조사하다, 수사하다",
+      "freq": "-",
+      "ex": "Our technicians are investigating the cause of the network failure.",
+      "ex_ko": "기술자들이 네트워크 장애 원인을 조사하고 있어요."
+    },
+    {
+      "word": "investigation",
+      "pos": "n.",
+      "mean": "조사, 수사",
+      "freq": "-",
+      "ex": "The cause of the accident is still under investigation.",
+      "ex_ko": "사고 원인은 아직 조사 중이에요."
+    },
+    {
+      "word": "prohibit",
+      "pos": "v.",
+      "mean": "금지하다",
+      "freq": "P5 정답",
+      "ex": "Company policy prohibits employees from sharing customer data with outside parties.",
+      "ex_ko": "회사 규정상 직원들은 고객 데이터를 외부에 공유할 수 없어요."
+    },
+    {
+      "word": "offer",
+      "pos": "v./n.",
+      "mean": "제공하다, 제안하다 / 제안, 할인, 제공",
+      "freq": "36회 + LC 2회",
+      "ex": "The hotel offers guests a free shuttle to the airport.",
+      "ex_ko": "그 호텔은 투숙객에게 공항까지 무료 셔틀을 제공해요."
+    },
+    {
+      "word": "specialize",
+      "pos": "v.",
+      "mean": "전문으로 하다, 특화하다",
+      "freq": "-",
+      "ex": "Dalton Consulting specializes in helping small businesses grow.",
+      "ex_ko": "Dalton 컨설팅은 소규모 기업의 성장을 돕는 일을 전문으로 해요."
+    },
+    {
+      "word": "specially",
+      "pos": "ad.",
+      "mean": "특별히, 특별한 목적으로",
+      "freq": "-",
+      "ex": "These chairs are specially designed for people who sit at a desk all day.",
+      "ex_ko": "이 의자는 하루 종일 책상에 앉아 있는 사람들을 위해 특별히 만들어졌어요."
+    },
+    {
+      "word": "establish",
+      "pos": "v.",
+      "mean": "설립하다, 확립하다, 세우다",
+      "freq": "P5 오답 보기",
+      "ex": "The museum was established in 1965 to preserve local history.",
+      "ex_ko": "그 박물관은 지역 역사를 보존하려고 1965년에 설립됐어요."
+    },
+    {
+      "word": "establishment",
+      "pos": "n.",
+      "mean": "시설, 업체, 기관 / 설립, 확립",
+      "freq": "-",
+      "ex": "The restaurant is one of the oldest dining establishments in the city.",
+      "ex_ko": "그 식당은 시에서 가장 오래된 음식점 중 하나예요."
+    },
+    {
+      "word": "decide",
+      "pos": "v.",
+      "mean": "결정하다, 결심하다",
+      "freq": "8회 + LC 4회",
+      "ex": "After a long discussion, the team decided to postpone the product launch.",
+      "ex_ko": "긴 논의 끝에 팀은 제품 출시를 미루기로 결정했어요."
+    },
+    {
+      "word": "decision",
+      "pos": "n.",
+      "mean": "결정, 판단",
+      "freq": "7회",
+      "ex": "The committee will make a final decision on the new logo next week.",
+      "ex_ko": "위원회는 다음 주에 새 로고에 대한 최종 결정을 내릴 거예요."
+    },
+    {
+      "word": "decidedly",
+      "pos": "ad.",
+      "mean": "확실히, 명백히, 단호히",
+      "freq": "-",
+      "ex": "Customer reviews of the new model have been decidedly positive.",
+      "ex_ko": "새 모델에 대한 고객 평가는 확실히 긍정적이었어요."
+    },
+    {
+      "word": "demonstrate",
+      "pos": "v.",
+      "mean": "보여 주다, 시연하다, 증명하다",
+      "freq": "2회 + LC 6회",
+      "ex": "The instructor will demonstrate how to operate the new machine.",
+      "ex_ko": "강사가 새 기계 작동법을 시연해 줄 거예요."
+    },
+    {
+      "word": "demonstration",
+      "pos": "n.",
+      "mean": "시연, (실물) 설명, 입증",
+      "freq": "1회 + LC 1회",
+      "ex": "Visitors to our booth can watch a live demonstration of the new printer.",
+      "ex_ko": "저희 부스 방문객은 새 프린터의 실시간 시연을 볼 수 있어요."
+    },
+    {
+      "word": "except",
+      "pos": "prep.",
+      "mean": "~을 제외하고",
+      "freq": "P5 정답 2회",
+      "ex": "The store is open every day except national holidays.",
+      "ex_ko": "그 가게는 국경일을 제외하고 매일 문을 열어요."
+    },
+    {
+      "word": "exception",
+      "pos": "n.",
+      "mean": "예외, 제외",
+      "freq": "1회",
+      "ex": "All staff members, with the exception of the security team, will have Friday off.",
+      "ex_ko": "경비팀을 제외한 모든 직원은 금요일에 쉬어요."
+    },
+    {
+      "word": "exceptional",
+      "pos": "a.",
+      "mean": "뛰어난, 우수한, 예외적인",
+      "freq": "1회",
+      "ex": "The hotel is known for its exceptional customer service.",
+      "ex_ko": "그 호텔은 뛰어난 고객 서비스로 유명해요."
     }
   ],
   "14": [
     {
-      "word": "nonstop flight",
-      "mean": "직항",
-      "ex": "Example for nonstop flight."
+      "word": "remain",
+      "pos": "v.",
+      "mean": "여전히 ~이다, 남아 있다, ~한 상태로 유지되다",
+      "freq": "2회 + LC 1회",
+      "ex": "Despite the storm, the airport remained open all night.",
+      "ex_ko": "폭풍에도 불구하고 공항은 밤새 계속 열려 있었어요."
     },
     {
-      "word": "pack",
-      "mean": "짐, 짐을 꾸리다",
-      "ex": "Example for pack."
+      "word": "remainder",
+      "pos": "n.",
+      "mean": "나머지, 나머지 기간, 잔액",
+      "freq": "-",
+      "ex": "Mr. Cho will work from home for the remainder of the week.",
+      "ex_ko": "조 씨는 이번 주 남은 기간 동안 재택근무를 해요."
     },
     {
-      "word": "passport",
-      "mean": "여권",
-      "ex": "Example for passport."
+      "word": "remind",
+      "pos": "v.",
+      "mean": "생각나게 하다, 상기시키다",
+      "freq": "3회",
+      "ex": "Please remind all employees to submit their time sheets by Thursday.",
+      "ex_ko": "모든 직원에게 목요일까지 근무 시간표를 내라고 상기시켜 주세요."
     },
     {
-      "word": "pilot",
-      "mean": "비행기 조종사",
-      "ex": "Example for pilot."
+      "word": "reminder",
+      "pos": "n.",
+      "mean": "알려 주는 글(메모), 상기시키는 것, 독촉장",
+      "freq": "P5 정답",
+      "ex": "The library sends a reminder e-mail three days before a book is due.",
+      "ex_ko": "도서관은 책 반납 3일 전에 알림 이메일을 보내요."
     },
     {
-      "word": "salon",
-      "mean": "가게",
-      "ex": "Example for salon."
+      "word": "membership",
+      "pos": "n.",
+      "mean": "회원 자격, 회원권, 회원(전체)",
+      "freq": "3회 + LC 1회 · P5 정답",
+      "ex": "Members can renew their membership online at any time.",
+      "ex_ko": "회원은 언제든 온라인으로 회원권을 갱신할 수 있어요."
     },
     {
-      "word": "span",
-      "mean": "걸리다, 놓이다",
-      "ex": "Example for span."
+      "word": "change",
+      "pos": "v. / n.",
+      "mean": "바꾸다, 변경하다 / 변화, 변경, 잔돈",
+      "freq": "17회 + LC 5회",
+      "ex": "There have been some changes to the conference schedule, so please check the Web site.",
+      "ex_ko": "학회 일정에 변경이 좀 있으니 웹사이트를 확인해 주세요."
     },
     {
-      "word": "trip",
-      "mean": "여행",
-      "ex": "Example for trip."
+      "word": "evaluate",
+      "pos": "v.",
+      "mean": "평가하다",
+      "freq": "-",
+      "ex": "The committee will evaluate each proposal based on cost and quality.",
+      "ex_ko": "위원회는 비용과 품질을 바탕으로 각 제안서를 평가할 거예요."
     },
     {
-      "word": "border",
-      "mean": "국경",
-      "ex": "Example for border."
+      "word": "evaluation",
+      "pos": "n.",
+      "mean": "평가",
+      "freq": "2회",
+      "ex": "All staff will receive a performance evaluation at the end of the year.",
+      "ex_ko": "모든 직원은 연말에 업무 평가를 받아요."
     },
     {
-      "word": "central",
-      "mean": "중심이 되는, 가장 중요한",
-      "ex": "Example for central."
+      "word": "individual",
+      "pos": "a. / n.",
+      "mean": "개인적인, 각각의 / 개인",
+      "freq": "4회",
+      "ex": "The program can be adjusted to meet individual needs.",
+      "ex_ko": "그 프로그램은 개인의 요구에 맞게 조정할 수 있어요."
     },
     {
-      "word": "safe",
-      "mean": "안전한",
-      "ex": "Example for safe."
+      "word": "individually",
+      "pos": "ad.",
+      "mean": "개별적으로, 하나하나",
+      "freq": "-",
+      "ex": "All applications will be reviewed individually by the hiring team.",
+      "ex_ko": "모든 지원서는 채용팀이 하나하나 검토해요."
+    },
+    {
+      "word": "express",
+      "pos": "v. / a.",
+      "mean": "표현하다 / 급행의, 속달의",
+      "freq": "2회 · P5 정답",
+      "ex": "Many customers expressed interest in the new delivery service.",
+      "ex_ko": "많은 고객이 새 배송 서비스에 관심을 보였어요."
+    },
+    {
+      "word": "expressly",
+      "pos": "ad.",
+      "mean": "분명하게, 명백히, 특별히",
+      "freq": "-",
+      "ex": "The contract expressly states that all payments must be made in advance.",
+      "ex_ko": "계약서에는 모든 비용을 미리 내야 한다고 분명히 적혀 있어요."
+    },
+    {
+      "word": "accommodation",
+      "pos": "n.",
+      "mean": "숙박 시설, 숙소",
+      "freq": "1회 + LC 1회",
+      "ex": "The conference fee includes meals and accommodations for three nights.",
+      "ex_ko": "학회 참가비에는 3박의 식사와 숙박이 포함돼 있어요."
+    },
+    {
+      "word": "accommodate",
+      "pos": "v.",
+      "mean": "수용하다, 숙박시키다, (요구를) 들어주다",
+      "freq": "8회",
+      "ex": "The new conference hall can accommodate up to 500 people.",
+      "ex_ko": "새 회의장은 최대 500명까지 수용할 수 있어요."
+    },
+    {
+      "word": "local",
+      "pos": "a. / n.",
+      "mean": "지역의, 현지의, 고장의 / 현지인",
+      "freq": "9회 + LC 2회",
+      "ex": "The restaurant uses only vegetables from local farms.",
+      "ex_ko": "그 식당은 지역 농장의 채소만 사용해요."
+    },
+    {
+      "word": "localized",
+      "pos": "a.",
+      "mean": "국지적인, 특정 지역에 집중된, 현지화된",
+      "freq": "-",
+      "ex": "Localized flooding is expected in low-lying areas this afternoon.",
+      "ex_ko": "오늘 오후 저지대에 국지성 홍수가 예상돼요."
+    },
+    {
+      "word": "divide",
+      "pos": "v.",
+      "mean": "나누다, 분배하다",
+      "freq": "2회",
+      "ex": "The participants were divided into four groups for the workshop.",
+      "ex_ko": "참가자들은 워크숍을 위해 네 그룹으로 나뉘었어요."
+    },
+    {
+      "word": "division",
+      "pos": "n.",
+      "mean": "부서, (회사의) 사업부, 분할",
+      "freq": "1회",
+      "ex": "Ms. Ito was transferred to the marketing division last month.",
+      "ex_ko": "이토 씨는 지난달 마케팅 부서로 옮겼어요."
+    },
+    {
+      "word": "dividend",
+      "pos": "n.",
+      "mean": "배당금",
+      "freq": "-",
+      "ex": "The company announced that it will pay a higher dividend this year.",
+      "ex_ko": "그 회사는 올해 배당금을 더 많이 지급하겠다고 발표했어요."
+    },
+    {
+      "word": "renovate",
+      "pos": "v.",
+      "mean": "수리하다, 개조하다, 리모델링하다",
+      "freq": "-",
+      "ex": "The hotel is renovating all of its guest rooms this winter.",
+      "ex_ko": "그 호텔은 이번 겨울에 모든 객실을 개조하고 있어요."
+    },
+    {
+      "word": "renovation",
+      "pos": "n.",
+      "mean": "수리, 개조, 리모델링",
+      "freq": "7회 + LC 1회",
+      "ex": "The museum will be closed for renovations until March.",
+      "ex_ko": "그 박물관은 보수 공사로 3월까지 문을 닫아요."
+    },
+    {
+      "word": "name",
+      "pos": "v. / n.",
+      "mean": "이름을 붙이다, 지명하다, 임명하다 / 이름",
+      "freq": "8회",
+      "ex": "Ms. Park has been named head of the research department.",
+      "ex_ko": "박 씨가 연구 부서장으로 임명됐어요."
+    },
+    {
+      "word": "namely",
+      "pos": "ad.",
+      "mean": "즉, 다시 말해, 구체적으로 말하면",
+      "freq": "-",
+      "ex": "We need two more items, namely a projector and a microphone.",
+      "ex_ko": "물건이 두 개 더 필요해요, 즉 프로젝터와 마이크요."
+    },
+    {
+      "word": "author",
+      "pos": "n. / v.",
+      "mean": "저자, 작가 / 쓰다, 저술하다",
+      "freq": "1회 + LC 1회",
+      "ex": "The author will sign copies of her new novel at the bookstore on Saturday.",
+      "ex_ko": "그 작가는 토요일에 서점에서 새 소설 사인회를 해요."
+    },
+    {
+      "word": "authority",
+      "pos": "n.",
+      "mean": "권한, 권위자, (복수) 당국",
+      "freq": "1회",
+      "ex": "Only the manager has the authority to approve refunds.",
+      "ex_ko": "매니저만 환불을 승인할 권한이 있어요."
+    },
+    {
+      "word": "authorize",
+      "pos": "v.",
+      "mean": "허가하다, 인가하다, 권한을 주다",
+      "freq": "LC 1회",
+      "ex": "Only authorized personnel may enter the server room.",
+      "ex_ko": "허가받은 직원만 서버실에 들어갈 수 있어요."
+    },
+    {
+      "word": "authorization",
+      "pos": "n.",
+      "mean": "허가, 인가, 승인",
+      "freq": "2회 · P5 정답",
+      "ex": "Employees need written authorization to work overtime on weekends.",
+      "ex_ko": "직원들은 주말에 초과 근무를 하려면 서면 승인이 필요해요."
+    },
+    {
+      "word": "tailor",
+      "pos": "v. / n.",
+      "mean": "맞추다, 맞춤 제작하다 / 재단사",
+      "freq": "1회",
+      "ex": "Our trainers tailor each program to the needs of individual clients.",
+      "ex_ko": "저희 트레이너들은 각 프로그램을 고객 개개인의 요구에 맞춰요."
     }
   ],
   "15": [
     {
-      "word": "borrow",
-      "mean": "빌리다",
-      "ex": "Example for borrow."
+      "word": "produce",
+      "pos": "n. / v.",
+      "mean": "농산물 / 생산하다, 제작하다",
+      "freq": "4회",
+      "ex": "The farmers market sells fresh produce every Saturday morning.",
+      "ex_ko": "그 농산물 직판장은 매주 토요일 아침 신선한 농산물을 팔아요."
     },
     {
-      "word": "bother",
-      "mean": "괴롭히다",
-      "ex": "Example for bother."
+      "word": "product",
+      "pos": "n.",
+      "mean": "제품, 상품",
+      "freq": "33회 + LC 5회",
+      "ex": "The company will introduce its new product line at the trade fair.",
+      "ex_ko": "그 회사는 무역 박람회에서 새 제품군을 선보일 거예요."
     },
     {
-      "word": "empty",
-      "mean": "텅 빈",
-      "ex": "Example for empty."
+      "word": "productive",
+      "pos": "a.",
+      "mean": "생산적인, 성과 있는",
+      "freq": "1회",
+      "ex": "Although the meeting was short, it was very productive.",
+      "ex_ko": "회의는 짧았지만 아주 생산적이었어요."
     },
     {
-      "word": "exit",
-      "mean": "출구",
-      "ex": "Example for exit."
+      "word": "production",
+      "pos": "n.",
+      "mean": "생산, 생산량, (영화·공연) 제작",
+      "freq": "8회 + LC 1회 · P5 정답",
+      "ex": "The factory plans to increase production to meet holiday demand.",
+      "ex_ko": "그 공장은 연말 수요에 맞추려고 생산을 늘릴 계획이에요."
     },
     {
-      "word": "fashion photographer",
-      "mean": "패션 사진작가",
-      "ex": "Example for fashion photographer."
+      "word": "productivity",
+      "pos": "n.",
+      "mean": "생산성",
+      "freq": "LC 1회",
+      "ex": "The new software has greatly improved staff productivity.",
+      "ex_ko": "새 소프트웨어 덕분에 직원 생산성이 크게 높아졌어요."
     },
     {
-      "word": "look after",
-      "mean": "~를 보살피다",
-      "ex": "Example for look after."
+      "word": "anniversary",
+      "pos": "n.",
+      "mean": "기념일, ~주년",
+      "freq": "2회",
+      "ex": "To mark its tenth anniversary, the bakery is giving away free cookies.",
+      "ex_ko": "10주년을 기념해서 그 빵집은 쿠키를 무료로 나눠 줘요."
     },
     {
-      "word": "pair",
-      "mean": "한 쌍이 되다, 한 쌍",
-      "ex": "Example for pair."
+      "word": "ceremony",
+      "pos": "n.",
+      "mean": "기념식, 의식, 식",
+      "freq": "4회",
+      "ex": "The mayor will speak at the opening ceremony of the new library.",
+      "ex_ko": "시장님이 새 도서관 개관식에서 연설할 거예요."
     },
     {
-      "word": "per day",
-      "mean": "하루에",
-      "ex": "Example for per day."
+      "word": "qualify",
+      "pos": "v.",
+      "mean": "자격을 얻다, 자격이 있다 / 자격을 주다",
+      "freq": "-",
+      "ex": "Orders over $50 qualify for free shipping.",
+      "ex_ko": "50달러가 넘는 주문은 무료 배송 대상이에요."
     },
     {
-      "word": "professor",
-      "mean": "교수",
-      "ex": "Example for professor."
+      "word": "qualifications",
+      "pos": "n.",
+      "mean": "자격(요건), 자격증, 경력",
+      "freq": "1회",
+      "ex": "Please send a résumé that clearly describes your qualifications.",
+      "ex_ko": "자격 사항을 분명하게 적은 이력서를 보내 주세요."
     },
     {
-      "word": "proof",
-      "mean": "증거",
-      "ex": "Example for proof."
+      "word": "qualified",
+      "pos": "a.",
+      "mean": "자격을 갖춘, 적격의",
+      "freq": "3회",
+      "ex": "Only qualified electricians are allowed to work on this system.",
+      "ex_ko": "자격을 갖춘 전기 기사만 이 시스템을 작업할 수 있어요."
+    },
+    {
+      "word": "file",
+      "pos": "v. / n.",
+      "mean": "(서류를) 철하다, 정식으로 제출·제기하다 / 서류철, 파일",
+      "freq": "3회 + LC 2회",
+      "ex": "Customers who received damaged items may file a claim online.",
+      "ex_ko": "파손된 물건을 받은 고객은 온라인으로 보상을 청구할 수 있어요."
+    },
+    {
+      "word": "involve",
+      "pos": "v.",
+      "mean": "포함하다, 수반하다, 관련시키다, 참여시키다",
+      "freq": "5회",
+      "ex": "The position involves meeting with clients twice a week.",
+      "ex_ko": "이 직무에는 일주일에 두 번 고객을 만나는 일이 포함돼요."
+    },
+    {
+      "word": "involved",
+      "pos": "a.",
+      "mean": "관련된, 참여하는, 관여하는",
+      "freq": "3회",
+      "ex": "All staff involved in the project will receive a bonus.",
+      "ex_ko": "그 프로젝트에 참여한 모든 직원이 보너스를 받아요."
+    },
+    {
+      "word": "celebrate",
+      "pos": "v.",
+      "mean": "기념하다, 축하하다",
+      "freq": "5회 · P5 정답",
+      "ex": "The team went out to dinner to celebrate Ms. Park's promotion.",
+      "ex_ko": "팀은 박 씨의 승진을 축하하려고 저녁을 먹으러 갔어요."
+    },
+    {
+      "word": "celebrity",
+      "pos": "n.",
+      "mean": "유명인사, 유명 연예인",
+      "freq": "-",
+      "ex": "A celebrity chef will host a cooking class at the festival.",
+      "ex_ko": "축제에서 유명 요리사가 요리 교실을 진행할 거예요."
+    },
+    {
+      "word": "celebration",
+      "pos": "n.",
+      "mean": "기념행사, 축하(행사)",
+      "freq": "2회",
+      "ex": "In celebration of our 30th anniversary, all items are 20 percent off.",
+      "ex_ko": "30주년을 기념하여 모든 상품을 20% 할인해요."
+    },
+    {
+      "word": "finally",
+      "pos": "ad.",
+      "mean": "마침내, 드디어, 마지막으로",
+      "freq": "4회",
+      "ex": "After months of planning, the new branch finally opened last week.",
+      "ex_ko": "몇 달간의 준비 끝에 새 지점이 지난주에 마침내 문을 열었어요."
+    },
+    {
+      "word": "efficient",
+      "pos": "a.",
+      "mean": "효율적인, 유능한",
+      "freq": "5회",
+      "ex": "The new heating system is quieter and more efficient than the old one.",
+      "ex_ko": "새 난방 시스템은 예전 것보다 조용하고 더 효율적이에요."
+    },
+    {
+      "word": "efficiency",
+      "pos": "n.",
+      "mean": "효율, 능률",
+      "freq": "2회",
+      "ex": "Moving the printer closer to our desks improved office efficiency.",
+      "ex_ko": "프린터를 책상 가까이 옮겼더니 사무실 효율이 좋아졌어요."
+    },
+    {
+      "word": "efficiently",
+      "pos": "ad.",
+      "mean": "효율적으로, 능률적으로",
+      "freq": "1회 · P5 정답",
+      "ex": "The new software helps us track orders more efficiently.",
+      "ex_ko": "새 소프트웨어 덕분에 주문을 더 효율적으로 추적할 수 있어요."
+    },
+    {
+      "word": "prevent",
+      "pos": "v.",
+      "mean": "막다, 방지하다, 예방하다",
+      "freq": "1회",
+      "ex": "Please close the windows to prevent rain from getting inside.",
+      "ex_ko": "비가 들이치지 않게 창문을 닫아 주세요."
+    },
+    {
+      "word": "prevention",
+      "pos": "n.",
+      "mean": "예방, 방지",
+      "freq": "-",
+      "ex": "The workshop covers fire prevention and emergency procedures.",
+      "ex_ko": "이 워크숍에서는 화재 예방과 비상 절차를 다뤄요."
+    },
+    {
+      "word": "preventive",
+      "pos": "a.",
+      "mean": "예방의, 예방을 위한",
+      "freq": "-",
+      "ex": "Regular preventive maintenance keeps the machines running smoothly.",
+      "ex_ko": "정기 예방 정비 덕분에 기계들이 순조롭게 돌아가요."
+    },
+    {
+      "word": "immediate",
+      "pos": "a.",
+      "mean": "즉각적인, 즉시의 / 직속의, 바로 옆의",
+      "freq": "2회",
+      "ex": "Please report any safety problems to your immediate supervisor.",
+      "ex_ko": "안전 문제가 있으면 직속 상사에게 보고해 주세요."
+    },
+    {
+      "word": "immediately",
+      "pos": "ad.",
+      "mean": "즉시, 곧바로 / (시간·장소) 바로",
+      "freq": "3회 + LC 2회",
+      "ex": "The results will be posted immediately after the meeting.",
+      "ex_ko": "결과는 회의 직후에 바로 게시돼요."
+    },
+    {
+      "word": "seasonal",
+      "pos": "a.",
+      "mean": "계절적인, 계절에 따른, 한철의",
+      "freq": "3회",
+      "ex": "The store hires seasonal staff every December.",
+      "ex_ko": "그 가게는 매년 12월에 시즌 임시 직원을 뽑아요."
+    },
+    {
+      "word": "seasoned",
+      "pos": "a.",
+      "mean": "숙련된, 노련한 / 양념한",
+      "freq": "1회",
+      "ex": "The tour is led by a seasoned guide with 20 years of experience.",
+      "ex_ko": "이 투어는 20년 경력의 노련한 가이드가 이끌어요."
+    },
+    {
+      "word": "seasoning",
+      "pos": "n.",
+      "mean": "양념, 조미료",
+      "freq": "-",
+      "ex": "The chef suggests tasting the soup before adding more seasoning.",
+      "ex_ko": "셰프는 양념을 더 넣기 전에 수프 맛을 먼저 보라고 권해요."
+    },
+    {
+      "word": "cash",
+      "pos": "n. / v.",
+      "mean": "현금 / (수표를) 현금으로 바꾸다",
+      "freq": "1회 + LC 5회",
+      "ex": "Customers can pay in cash or by credit card at the front desk.",
+      "ex_ko": "고객은 프런트에서 현금이나 신용카드로 결제할 수 있어요."
     }
   ],
   "16": [
     {
-      "word": "newsstand",
-      "mean": "신문 가판대",
-      "ex": "Example for newsstand."
+      "word": "current",
+      "pos": "a.",
+      "mean": "현재의, 지금의, 통용되는",
+      "freq": "21회 + LC 4회",
+      "ex": "Please update your current address on the company Web site.",
+      "ex_ko": "회사 웹사이트에서 현재 주소를 업데이트해 주세요."
     },
     {
-      "word": "parade",
-      "mean": "퍼레이드, 행렬",
-      "ex": "Example for parade."
+      "word": "currently",
+      "pos": "ad.",
+      "mean": "현재, 지금",
+      "freq": "7회 + LC 2회 · P5 정답",
+      "ex": "The marketing team is currently looking for two interns.",
+      "ex_ko": "마케팅팀은 현재 인턴 두 명을 찾고 있어요."
     },
     {
-      "word": "publisher",
-      "mean": "출판사, 발행자",
-      "ex": "Example for publisher."
+      "word": "currency",
+      "pos": "n.",
+      "mean": "통화, 화폐",
+      "freq": "-",
+      "ex": "You can exchange currency at the airport before your flight.",
+      "ex_ko": "비행기 타기 전에 공항에서 환전할 수 있어요."
     },
     {
-      "word": "reader",
-      "mean": "독자",
-      "ex": "Example for reader."
+      "word": "seating",
+      "pos": "n.",
+      "mean": "좌석 (배치), 좌석 수",
+      "freq": "1회 + LC 1회",
+      "ex": "The restaurant changed its seating arrangement for the private event.",
+      "ex_ko": "그 식당은 개인 행사를 위해 좌석 배치를 바꿨어요."
     },
     {
-      "word": "reporter",
-      "mean": "보도기자, 리포터",
-      "ex": "Example for reporter."
+      "word": "aisle seat",
+      "pos": "n.",
+      "mean": "통로 쪽 좌석",
+      "freq": "2회 + LC 1회 (aisle)",
+      "ex": "I'd like an aisle seat on the flight to Singapore, please.",
+      "ex_ko": "싱가포르행 비행기에서 통로 쪽 좌석으로 부탁드려요."
     },
     {
-      "word": "sales trend",
-      "mean": "판매 추세",
-      "ex": "Example for sales trend."
+      "word": "attract",
+      "pos": "v.",
+      "mean": "끌다, 끌어들이다, 유치하다",
+      "freq": "2회",
+      "ex": "The new café hopes to attract students with its low prices.",
+      "ex_ko": "그 새 카페는 저렴한 가격으로 학생들을 끌어들이고 싶어 해요."
     },
     {
-      "word": "comforting",
-      "mean": "위로가 되는",
-      "ex": "Example for comforting."
+      "word": "attraction",
+      "pos": "n.",
+      "mean": "매력 / 명소, 관광지",
+      "freq": "P5 정답 (Day 1 오답!)",
+      "ex": "The old castle is the most popular tourist attraction in the region.",
+      "ex_ko": "그 오래된 성은 그 지역에서 가장 인기 있는 관광 명소예요."
     },
     {
-      "word": "excellently",
-      "mean": "뛰어나게",
-      "ex": "Example for excellently."
+      "word": "attractive",
+      "pos": "a.",
+      "mean": "매력적인, 마음을 끄는",
+      "freq": "1회",
+      "ex": "The company offers an attractive benefits package to new employees.",
+      "ex_ko": "그 회사는 신입 직원에게 매력적인 복리후생을 제공해요."
     },
     {
-      "word": "export",
-      "mean": "수출하다, 수출",
-      "ex": "Example for export."
+      "word": "reward",
+      "pos": "n. / v.",
+      "mean": "보상, 보답 / 보상하다",
+      "freq": "3회",
+      "ex": "The hotel rewards loyal guests with free room upgrades.",
+      "ex_ko": "그 호텔은 단골 손님에게 무료 객실 업그레이드로 보답해요."
     },
     {
-      "word": "former",
-      "mean": "예전의",
-      "ex": "Example for former."
+      "word": "rewarding",
+      "pos": "a.",
+      "mean": "보람 있는, 할 만한 가치가 있는",
+      "freq": "-",
+      "ex": "Many volunteers say that teaching children is very rewarding.",
+      "ex_ko": "많은 자원봉사자가 아이들을 가르치는 일이 아주 보람 있다고 말해요."
+    },
+    {
+      "word": "award",
+      "pos": "n. / v.",
+      "mean": "상 / (상을) 주다, 수여하다, (계약을) 주다",
+      "freq": "8회 + LC 1회",
+      "ex": "Our firm was awarded the contract to design the new library.",
+      "ex_ko": "우리 회사가 새 도서관 설계 계약을 따냈어요."
+    },
+    {
+      "word": "boost",
+      "pos": "v. / n.",
+      "mean": "끌어올리다, 늘리다, 촉진하다 / 증가, 부양",
+      "freq": "3회",
+      "ex": "The holiday sale helped boost online sales by 20 percent.",
+      "ex_ko": "연휴 세일 덕분에 온라인 매출이 20퍼센트 늘었어요."
+    },
+    {
+      "word": "merchandise",
+      "pos": "n.",
+      "mean": "상품, 물품",
+      "freq": "5회 · P5 문장",
+      "ex": "All sale merchandise must be returned within seven days.",
+      "ex_ko": "모든 할인 상품은 7일 이내에 반품해야 해요."
+    },
+    {
+      "word": "donation",
+      "pos": "n.",
+      "mean": "기부, 기증, 기부금",
+      "freq": "2회 + LC 1회",
+      "ex": "The library accepts donations of used books every Saturday.",
+      "ex_ko": "그 도서관은 매주 토요일 중고 책 기증을 받아요."
+    },
+    {
+      "word": "donor",
+      "pos": "n.",
+      "mean": "기부자, 기증자",
+      "freq": "1회",
+      "ex": "The museum thanked its donors at the annual dinner.",
+      "ex_ko": "그 박물관은 연례 만찬에서 기부자들에게 감사를 전했어요."
+    },
+    {
+      "word": "fit",
+      "pos": "v. / a.",
+      "mean": "(크기·조건에) 꼭 맞다, 적합하다 / 알맞은, 건강한",
+      "freq": "3회 · P5 정답",
+      "ex": "We will help you find a phone plan that fits your budget.",
+      "ex_ko": "예산에 맞는 요금제를 찾도록 도와드릴게요."
+    },
+    {
+      "word": "emphasis",
+      "pos": "n.",
+      "mean": "강조, 중점",
+      "freq": "-",
+      "ex": "The training program places an emphasis on customer service.",
+      "ex_ko": "그 교육 프로그램은 고객 서비스에 중점을 둬요."
+    },
+    {
+      "word": "emphasize",
+      "pos": "v.",
+      "mean": "강조하다",
+      "freq": "-",
+      "ex": "The CEO emphasized that every customer complaint must be answered within a day.",
+      "ex_ko": "CEO는 모든 고객 불만에 하루 안에 답해야 한다고 강조했어요."
+    },
+    {
+      "word": "emphatic",
+      "pos": "a.",
+      "mean": "강조된, 단호한",
+      "freq": "-",
+      "ex": "Ms. Ryu was emphatic that the deadline could not be changed.",
+      "ex_ko": "류 씨는 마감일을 바꿀 수 없다고 단호하게 말했어요."
+    },
+    {
+      "word": "charity",
+      "pos": "n.",
+      "mean": "자선 (단체), 자선 행위",
+      "freq": "1회",
+      "ex": "All proceeds from the concert will go to a local children's charity.",
+      "ex_ko": "콘서트 수익금은 전부 지역 아동 자선 단체에 기부돼요."
+    },
+    {
+      "word": "charitably",
+      "pos": "ad.",
+      "mean": "관대하게, 너그럽게",
+      "freq": "-",
+      "ex": "The judge acted charitably toward the first-time participants.",
+      "ex_ko": "심사위원은 처음 참가한 사람들에게 너그럽게 대했어요."
+    },
+    {
+      "word": "site",
+      "pos": "n.",
+      "mean": "장소, 부지, 현장 / (웹)사이트",
+      "freq": "31회 + LC 3회",
+      "ex": "All visitors to the construction site must wear a safety helmet.",
+      "ex_ko": "공사 현장 방문자는 모두 안전모를 써야 해요."
+    },
+    {
+      "word": "wage",
+      "pos": "n.",
+      "mean": "임금, 급료 (주로 시간·일 단위)",
+      "freq": "-",
+      "ex": "The factory announced a wage increase for all part-time workers.",
+      "ex_ko": "그 공장은 모든 시간제 근로자의 임금 인상을 발표했어요."
+    },
+    {
+      "word": "advantage",
+      "pos": "n.",
+      "mean": "이점, 장점, 유리함",
+      "freq": "4회",
+      "ex": "Take advantage of our free shipping offer before it ends on Sunday.",
+      "ex_ko": "일요일에 끝나기 전에 무료 배송 혜택을 이용하세요."
+    },
+    {
+      "word": "advantageous",
+      "pos": "a.",
+      "mean": "유리한, 이로운",
+      "freq": "-",
+      "ex": "The new location is advantageous for attracting more tourists.",
+      "ex_ko": "새 위치는 관광객을 더 끌어들이기에 유리해요."
+    },
+    {
+      "word": "capital",
+      "pos": "n. / a.",
+      "mean": "자본, 수도, 대문자 / 주요한, 자본의",
+      "freq": "-",
+      "ex": "The start-up needs more capital to expand into overseas markets.",
+      "ex_ko": "그 신생 기업은 해외 시장으로 확장하려면 자본이 더 필요해요."
+    },
+    {
+      "word": "flexible",
+      "pos": "a.",
+      "mean": "유연한, 융통성 있는, 잘 구부러지는",
+      "freq": "P5 정답 (Day 1 오답!)",
+      "ex": "Many employees prefer jobs with flexible working hours.",
+      "ex_ko": "많은 직원들이 근무 시간이 유연한 일자리를 선호해요."
+    },
+    {
+      "word": "security",
+      "pos": "n.",
+      "mean": "보안, 안전, 경비 / 담보",
+      "freq": "-",
+      "ex": "Please show your ID card to the security guard at the entrance.",
+      "ex_ko": "입구에서 경비원에게 신분증을 보여 주세요."
+    },
+    {
+      "word": "secure",
+      "pos": "a. / v.",
+      "mean": "안전한, 확실한 / 확보하다, 따내다, 고정하다",
+      "freq": "4회 · P5 문장",
+      "ex": "Our sales team secured a three-year contract with a major hotel chain.",
+      "ex_ko": "영업팀이 대형 호텔 체인과 3년 계약을 따냈어요."
+    },
+    {
+      "word": "secured",
+      "pos": "a.",
+      "mean": "보증된, 담보가 있는 / 확보된, 고정된",
+      "freq": "1회 · P5 문장",
+      "ex": "All valuables should be secured in the hotel safe.",
+      "ex_ko": "귀중품은 모두 호텔 금고에 안전하게 보관해야 해요."
+    },
+    {
+      "word": "insecure",
+      "pos": "a.",
+      "mean": "불안한, 자신 없는 / 안전하지 않은",
+      "freq": "-",
+      "ex": "Some workers feel insecure about the planned changes to the company.",
+      "ex_ko": "일부 직원은 회사의 계획된 변화에 대해 불안해해요."
     }
   ],
   "17": [
     {
-      "word": "mail",
-      "mean": "우편물, 우편으로 보내다",
-      "ex": "Example for mail."
+      "word": "investor",
+      "pos": "n.",
+      "mean": "투자자",
+      "freq": "1회 (P5 문장)",
+      "ex": "The startup is looking for investors who share its vision.",
+      "ex_ko": "그 스타트업은 비전을 함께하는 투자자를 찾고 있어요. (who = 관계대명사 — 오늘 문법!)"
     },
     {
-      "word": "museum",
-      "mean": "박물관",
-      "ex": "Example for museum."
+      "word": "investment",
+      "pos": "n.",
+      "mean": "투자 (금)",
+      "freq": "3회 + LC 1회",
+      "ex": "The company made a large investment in new equipment this year.",
+      "ex_ko": "그 회사는 올해 새 장비에 큰 투자를 했어요."
     },
     {
-      "word": "parcel",
-      "mean": "소포",
-      "ex": "Example for parcel."
+      "word": "series",
+      "pos": "n.",
+      "mean": "시리즈, 연속(물), 일련",
+      "freq": "3회 + LC 2회 · P5 정답 (Day 1 오답!)",
+      "ex": "The museum is hosting a series of workshops for local artists.",
+      "ex_ko": "박물관이 지역 예술가를 위한 일련의 워크숍을 열어요."
     },
     {
-      "word": "pick up packages",
-      "mean": "소포를 찾아가다",
-      "ex": "Example for pick up packages."
+      "word": "apology",
+      "pos": "n.",
+      "mean": "사과",
+      "freq": "-",
+      "ex": "Please accept our apology for the late delivery.",
+      "ex_ko": "배송이 늦어진 점 사과드립니다."
     },
     {
-      "word": "pottery",
-      "mean": "도자기",
-      "ex": "Example for pottery."
+      "word": "apologize",
+      "pos": "v.",
+      "mean": "사과하다",
+      "freq": "3회 + LC 1회",
+      "ex": "We apologize for any inconvenience this may cause.",
+      "ex_ko": "이로 인해 불편을 드릴 수 있는 점 사과드립니다."
     },
     {
-      "word": "public park",
-      "mean": "공원",
-      "ex": "Example for public park."
+      "word": "suit",
+      "pos": "v. / n.",
+      "mean": "~에 맞다, 어울리다 / 정장, 소송",
+      "freq": "LC 1회",
+      "ex": "We offer several plans to suit different budgets.",
+      "ex_ko": "다양한 예산에 맞는 여러 요금제를 제공해요."
     },
     {
-      "word": "stamp",
-      "mean": "~에 도장을 찍다, 우표",
-      "ex": "Example for stamp."
+      "word": "suitable",
+      "pos": "a.",
+      "mean": "적합한, 알맞은",
+      "freq": "-",
+      "ex": "This meeting room is suitable for groups of up to 20 people.",
+      "ex_ko": "이 회의실은 최대 20명 단체에 알맞아요."
     },
     {
-      "word": "van",
-      "mean": "대형 벤",
-      "ex": "Example for van."
+      "word": "vehicle",
+      "pos": "n.",
+      "mean": "차량, 탈것 / 수단",
+      "freq": "9회 + LC 1회",
+      "ex": "Visitors must park their vehicles in the lot behind the building.",
+      "ex_ko": "방문객은 건물 뒤 주차장에 차를 대야 해요."
     },
     {
-      "word": "venue",
-      "mean": "장소",
-      "ex": "Example for venue."
+      "word": "interest",
+      "pos": "n. / v.",
+      "mean": "관심 / 이익 / 이자 · (v.) 관심을 끌다",
+      "freq": "9회 + LC 3회 (변화형 포함)",
+      "ex": "Several companies have expressed interest in our new software.",
+      "ex_ko": "여러 회사가 우리 새 소프트웨어에 관심을 보였어요."
     },
     {
-      "word": "weight",
-      "mean": "무게, 중량",
-      "ex": "Example for weight."
+      "word": "interesting",
+      "pos": "a.",
+      "mean": "흥미로운, 재미있는",
+      "freq": "LC 2회",
+      "ex": "The speaker shared some interesting ideas about remote work.",
+      "ex_ko": "연사가 원격 근무에 관한 흥미로운 생각을 나눴어요."
+    },
+    {
+      "word": "interested",
+      "pos": "a.",
+      "mean": "관심 있는 / 이해관계가 있는",
+      "freq": "5회 · P5 문장",
+      "ex": "Employees who are interested in the program should contact Ms. Lee.",
+      "ex_ko": "프로그램에 관심 있는 직원은 Lee 씨에게 연락하세요."
+    },
+    {
+      "word": "resume",
+      "pos": "v. / n.",
+      "mean": "재개하다 / 이력서(résumé)",
+      "freq": "LC 1회",
+      "ex": "Train service will resume on Monday after the repairs are completed.",
+      "ex_ko": "보수가 끝나면 월요일에 열차 운행이 재개돼요."
+    },
+    {
+      "word": "arrival",
+      "pos": "n.",
+      "mean": "도착 / 도착한 사람·것",
+      "freq": "2회",
+      "ex": "Please show your ticket upon arrival at the museum.",
+      "ex_ko": "박물관에 도착하면 바로 표를 보여 주세요."
+    },
+    {
+      "word": "collection",
+      "pos": "n.",
+      "mean": "수집(품), 소장품 / 징수, 수거",
+      "freq": "2회 · P5 문장",
+      "ex": "The library has a large collection of rare maps.",
+      "ex_ko": "그 도서관에는 희귀 지도 소장품이 많아요."
+    },
+    {
+      "word": "assist (with)",
+      "pos": "v.",
+      "mean": "돕다, 보조하다",
+      "freq": "4회 · P5 문장",
+      "ex": "Our staff will assist you with the registration process.",
+      "ex_ko": "저희 직원이 등록 과정을 도와드릴 거예요."
+    },
+    {
+      "word": "assistant",
+      "pos": "n.",
+      "mean": "조수, 보조원, 비서",
+      "freq": "4회",
+      "ex": "She works as an administrative assistant at a law firm.",
+      "ex_ko": "그녀는 법률 회사에서 행정 보조원으로 일해요."
+    },
+    {
+      "word": "assistance",
+      "pos": "n.",
+      "mean": "도움, 지원, 원조",
+      "freq": "1회 · P5 정답 (Day 1 오답!)",
+      "ex": "Please contact the help desk if you need technical assistance.",
+      "ex_ko": "기술 지원이 필요하면 헬프 데스크에 연락하세요."
+    },
+    {
+      "word": "label",
+      "pos": "n. / v.",
+      "mean": "라벨, 꼬리표 / 라벨을 붙이다",
+      "freq": "7회",
+      "ex": "Please make sure all boxes are clearly labeled before shipping.",
+      "ex_ko": "발송 전에 모든 상자에 라벨이 분명히 붙어 있는지 확인하세요."
+    },
+    {
+      "word": "repute",
+      "pos": "n.",
+      "mean": "평판, 명성",
+      "freq": "-",
+      "ex": "The restaurant is a place of good repute among local residents.",
+      "ex_ko": "그 식당은 지역 주민들 사이에서 평판이 좋아요."
+    },
+    {
+      "word": "reputation",
+      "pos": "n.",
+      "mean": "평판, 명성",
+      "freq": "1회",
+      "ex": "The company has built a strong reputation for customer service.",
+      "ex_ko": "그 회사는 고객 서비스로 탄탄한 평판을 쌓았어요."
+    },
+    {
+      "word": "promising",
+      "pos": "a.",
+      "mean": "유망한, 전도유망한",
+      "freq": "LC 1회",
+      "ex": "The early sales figures for the new product look promising.",
+      "ex_ko": "신제품의 초기 판매 실적이 유망해 보여요."
+    },
+    {
+      "word": "demanding",
+      "pos": "a.",
+      "mean": "요구가 많은, 힘든, 까다로운",
+      "freq": "-",
+      "ex": "Working as a nurse can be physically demanding.",
+      "ex_ko": "간호사로 일하는 것은 체력적으로 힘들 수 있어요."
+    },
+    {
+      "word": "demand",
+      "pos": "n. / v.",
+      "mean": "수요, 요구 / 요구하다",
+      "freq": "1회",
+      "ex": "Demand for electric vehicles has increased sharply this year.",
+      "ex_ko": "올해 전기차 수요가 급격히 늘었어요."
+    },
+    {
+      "word": "private",
+      "pos": "a.",
+      "mean": "사적인, 개인의, 비공개의 / 민간의",
+      "freq": "6회 + LC 1회",
+      "ex": "The hotel offers private dining rooms for business meetings.",
+      "ex_ko": "그 호텔은 비즈니스 미팅용 개별 식사 공간을 제공해요."
+    },
+    {
+      "word": "privatization",
+      "pos": "n.",
+      "mean": "민영화",
+      "freq": "-",
+      "ex": "The government announced the privatization of the national railway.",
+      "ex_ko": "정부가 국영 철도 민영화를 발표했어요."
+    },
+    {
+      "word": "prospective",
+      "pos": "a.",
+      "mean": "장래의, 예비의, ~가 될",
+      "freq": "-",
+      "ex": "We will hold a tour for prospective students next Saturday.",
+      "ex_ko": "다음 주 토요일에 예비 학생을 위한 투어를 열어요."
+    },
+    {
+      "word": "prospect",
+      "pos": "n.",
+      "mean": "전망, 가능성, 예상 / 잠재 고객",
+      "freq": "1회",
+      "ex": "Learning a second language can improve your job prospects.",
+      "ex_ko": "제2외국어를 배우면 취업 전망이 좋아질 수 있어요."
+    },
+    {
+      "word": "rely on",
+      "pos": "v.",
+      "mean": "~에 의지하다, ~을 믿다",
+      "freq": "2회 · P5 문장",
+      "ex": "Many small businesses rely on social media to reach customers.",
+      "ex_ko": "많은 소상공인이 고객에게 다가가려고 소셜 미디어에 의존해요."
+    },
+    {
+      "word": "reliable",
+      "pos": "a.",
+      "mean": "믿을 만한, 신뢰할 수 있는",
+      "freq": "2회",
+      "ex": "Our delivery service is fast and reliable.",
+      "ex_ko": "저희 배송 서비스는 빠르고 믿을 만해요."
+    },
+    {
+      "word": "reliant",
+      "pos": "a.",
+      "mean": "의존하는, 의지하는",
+      "freq": "-",
+      "ex": "The town is heavily reliant on tourism for its income.",
+      "ex_ko": "그 마을은 수입을 관광업에 크게 의존해요."
     }
   ],
   "18": [
     {
-      "word": "spill",
-      "mean": "엎지르다",
-      "ex": "Example for spill."
+      "word": "original",
+      "pos": "a. / n.",
+      "mean": "원래의, 원본의 / 독창적인 · (n.) 원본",
+      "freq": "4회 · P5 정답",
+      "ex": "Items can be returned only in their original packaging.",
+      "ex_ko": "상품은 원래 포장 상태로만 반품할 수 있어요."
     },
     {
-      "word": "tasty",
-      "mean": "맛있는",
-      "ex": "Example for tasty."
+      "word": "originally",
+      "pos": "ad.",
+      "mean": "원래, 처음에는",
+      "freq": "1회 · P5 오답 보기",
+      "ex": "The workshop was originally scheduled for May, but it was moved to June.",
+      "ex_ko": "워크숍은 원래 5월로 예정됐지만 6월로 옮겨졌어요."
     },
     {
-      "word": "whipped cream",
-      "mean": "휘핑크림",
-      "ex": "Example for whipped cream."
+      "word": "originate",
+      "pos": "v.",
+      "mean": "시작되다, 비롯되다, 유래하다",
+      "freq": "P5 오답 보기",
+      "ex": "The tradition originated in a small fishing village.",
+      "ex_ko": "그 전통은 작은 어촌에서 시작됐어요."
     },
     {
-      "word": "blend",
-      "mean": "섞다, 혼합하다",
-      "ex": "Example for blend."
+      "word": "detail",
+      "pos": "n. / v.",
+      "mean": "세부 사항 / 상세히 설명하다",
+      "freq": "8회",
+      "ex": "Please see the attached file for more details about the event.",
+      "ex_ko": "행사에 관한 자세한 내용은 첨부 파일을 봐 주세요."
     },
     {
-      "word": "clean",
-      "mean": "깨끗한, 청소하다, 깨끗하게 하다",
-      "ex": "Example for clean."
+      "word": "detailed",
+      "pos": "a.",
+      "mean": "상세한, 자세한",
+      "freq": "-",
+      "ex": "The manager asked for a detailed report on last month's sales.",
+      "ex_ko": "매니저가 지난달 매출에 대한 상세한 보고서를 요청했어요."
     },
     {
-      "word": "fresh",
-      "mean": "신선한",
-      "ex": "Example for fresh."
+      "word": "eligible",
+      "pos": "a.",
+      "mean": "자격이 있는, ~할 수 있는",
+      "freq": "LC 1회 · P5 정답",
+      "ex": "Employees who have worked here for a year are eligible for paid vacation.",
+      "ex_ko": "여기서 1년 일한 직원은 유급 휴가를 받을 자격이 있어요."
     },
     {
-      "word": "recipe",
-      "mean": "요리법, 조리법",
-      "ex": "Example for recipe."
+      "word": "upcoming",
+      "pos": "a.",
+      "mean": "다가오는, 곧 있을",
+      "freq": "4회 + LC 3회 · P5 문장",
+      "ex": "Please register for the upcoming training session by Friday.",
+      "ex_ko": "곧 있을 교육에 금요일까지 등록해 주세요."
     },
     {
-      "word": "spice",
-      "mean": "양념, 향신료",
-      "ex": "Example for spice."
+      "word": "company",
+      "pos": "n.",
+      "mean": "회사 / 동행, 일행, 함께 있음",
+      "freq": "51회 + LC 7회 · P5 문장",
+      "ex": "The company where I work offers flexible hours.",
+      "ex_ko": "제가 일하는 회사는 유연 근무를 제공해요. (where = 관계부사 — 오늘 문법!)"
     },
     {
-      "word": "taste",
-      "mean": "~의 맛을 보다, 시식하다",
-      "ex": "Example for taste."
+      "word": "accompany",
+      "pos": "v.",
+      "mean": "동반하다, 동행하다 / 수반하다",
+      "freq": "-",
+      "ex": "Children under 12 must be accompanied by an adult.",
+      "ex_ko": "12세 미만 어린이는 반드시 어른과 함께 와야 해요."
     },
     {
-      "word": "a glass of",
-      "mean": "~ 한 잔",
-      "ex": "Example for a glass of."
+      "word": "previously",
+      "pos": "ad.",
+      "mean": "이전에, 예전에",
+      "freq": "LC 1회 · P5 오답 보기",
+      "ex": "As previously announced, the office will be closed next Monday.",
+      "ex_ko": "앞서 공지한 대로 다음 주 월요일에 사무실이 문을 닫아요."
+    },
+    {
+      "word": "return",
+      "pos": "v. / n.",
+      "mean": "돌아오다, 반납·반품하다, 회신하다 / 반품, 수익",
+      "freq": "14회 · P5 정답(returning)",
+      "ex": "Ms. Ito will return your call when she gets back from lunch.",
+      "ex_ko": "이토 씨가 점심 먹고 돌아오면 회신 전화를 드릴 거예요."
+    },
+    {
+      "word": "overlook",
+      "pos": "v.",
+      "mean": "간과하다, 못 보고 넘어가다 / 내려다보다",
+      "freq": "1회",
+      "ex": "Our hotel rooms overlook the beautiful harbor.",
+      "ex_ko": "저희 호텔 객실에서는 아름다운 항구가 내려다보여요."
+    },
+    {
+      "word": "struggle",
+      "pos": "v. / n.",
+      "mean": "애쓰다, 고군분투하다 / 노력, 투쟁",
+      "freq": "-",
+      "ex": "Many small shops struggled to stay open during the winter.",
+      "ex_ko": "많은 작은 가게들이 겨울 동안 문을 열어 두려고 애썼어요."
+    },
+    {
+      "word": "vary",
+      "pos": "v.",
+      "mean": "다양하다, (서로) 다르다, 달라지다",
+      "freq": "-",
+      "ex": "Delivery times may vary depending on your location.",
+      "ex_ko": "배송 시간은 지역에 따라 달라질 수 있어요."
+    },
+    {
+      "word": "various",
+      "pos": "a.",
+      "mean": "다양한, 여러 가지의",
+      "freq": "5회 + LC 1회 · P5 문장",
+      "ex": "The store sells various kinds of tea from around the world.",
+      "ex_ko": "그 가게는 세계 곳곳의 다양한 차를 팔아요."
+    },
+    {
+      "word": "variety",
+      "pos": "n.",
+      "mean": "다양성, 여러 가지, 종류",
+      "freq": "5회 · P5 문장",
+      "ex": "The cafe offers a wide variety of desserts.",
+      "ex_ko": "그 카페는 정말 다양한 디저트를 팔아요."
+    },
+    {
+      "word": "present",
+      "pos": "v. / n. / a.",
+      "mean": "제시하다, 주다, 발표하다 / 선물 / 현재의, 참석한",
+      "freq": "6회 + LC 4회 · P5 문장",
+      "ex": "Please present your boarding pass at the gate.",
+      "ex_ko": "탑승구에서 탑승권을 보여 주세요."
+    },
+    {
+      "word": "presentation",
+      "pos": "n.",
+      "mean": "발표, 프레젠테이션 / 제시, 제출",
+      "freq": "7회 + LC 9회 · P5 오답 (Day 1 오답!)",
+      "ex": "Mr. Cho will give a presentation on the new marketing plan.",
+      "ex_ko": "조 씨가 새 마케팅 계획에 대해 발표할 거예요."
+    },
+    {
+      "word": "presence",
+      "pos": "n.",
+      "mean": "존재(감), 입지 / 참석",
+      "freq": "1회",
+      "ex": "The bakery has built a strong online presence through social media.",
+      "ex_ko": "그 빵집은 소셜 미디어로 탄탄한 온라인 입지를 쌓았어요."
+    },
+    {
+      "word": "presently",
+      "pos": "ad.",
+      "mean": "현재, 지금",
+      "freq": "-",
+      "ex": "The museum's east wing is presently closed for repairs.",
+      "ex_ko": "박물관 동관은 현재 보수 공사로 문을 닫았어요."
+    },
+    {
+      "word": "remote",
+      "pos": "a.",
+      "mean": "외딴, 멀리 떨어진 / 원격의",
+      "freq": "10회 · P5 문장",
+      "ex": "More companies now allow employees to work remotely two days a week.",
+      "ex_ko": "이제 더 많은 회사가 직원들에게 주 2일 원격 근무를 허용해요."
+    },
+    {
+      "word": "support",
+      "pos": "n. / v.",
+      "mean": "지원, 지지 / 지원하다, 지탱하다",
+      "freq": "11회 + LC 1회 · P5 문장",
+      "ex": "Please contact our technical support team if the problem continues.",
+      "ex_ko": "문제가 계속되면 기술 지원팀에 연락해 주세요."
+    },
+    {
+      "word": "exactly",
+      "pos": "ad.",
+      "mean": "정확히, 꼭",
+      "freq": "-",
+      "ex": "Nobody knows exactly when the new branch will open.",
+      "ex_ko": "새 지점이 정확히 언제 문을 열지 아무도 몰라요."
+    },
+    {
+      "word": "occasionally",
+      "pos": "ad.",
+      "mean": "가끔, 때때로",
+      "freq": "-",
+      "ex": "Our manager occasionally works from home on Fridays.",
+      "ex_ko": "우리 매니저는 금요일에 가끔 재택근무를 해요."
+    },
+    {
+      "word": "measure",
+      "pos": "v. / n.",
+      "mean": "측정하다 / 조치, 대책, 척도",
+      "freq": "1회",
+      "ex": "The factory has taken new measures to reduce waste.",
+      "ex_ko": "그 공장은 쓰레기를 줄이려고 새로운 조치를 취했어요."
+    },
+    {
+      "word": "measurement",
+      "pos": "n.",
+      "mean": "측정, 치수",
+      "freq": "-",
+      "ex": "Please take careful measurements of the window before ordering curtains.",
+      "ex_ko": "커튼을 주문하기 전에 창문 치수를 꼼꼼히 재 주세요."
+    },
+    {
+      "word": "complain",
+      "pos": "v.",
+      "mean": "불평하다, 항의하다",
+      "freq": "1회",
+      "ex": "Several guests complained about the noise from the construction site.",
+      "ex_ko": "여러 손님이 공사장 소음에 대해 불평했어요."
+    },
+    {
+      "word": "complaint",
+      "pos": "n.",
+      "mean": "불평, 항의, 불만 사항",
+      "freq": "1회",
+      "ex": "The hotel received a complaint about the slow Internet connection.",
+      "ex_ko": "호텔은 인터넷 속도가 느리다는 불만을 접수했어요."
+    },
+    {
+      "word": "habit",
+      "pos": "n.",
+      "mean": "습관, 버릇",
+      "freq": "1회 · P5 문장",
+      "ex": "Online shopping has changed the spending habits of many people.",
+      "ex_ko": "온라인 쇼핑이 많은 사람의 소비 습관을 바꿨어요."
+    },
+    {
+      "word": "habitual",
+      "pos": "a.",
+      "mean": "습관적인, 상습적인",
+      "freq": "-",
+      "ex": "Habitual lateness can affect your performance review.",
+      "ex_ko": "습관적인 지각은 인사 평가에 영향을 줄 수 있어요."
+    },
+    {
+      "word": "habitually",
+      "pos": "ad.",
+      "mean": "습관적으로, 늘",
+      "freq": "-",
+      "ex": "Mr. Lee habitually checks his e-mail before breakfast.",
+      "ex_ko": "이 씨는 습관적으로 아침 먹기 전에 이메일을 확인해요."
     }
   ],
   "19": [
     {
+      "word": "potential",
+      "pos": "a. / n.",
+      "mean": "잠재적인, 가능성 있는 / 잠재력, 가능성",
+      "freq": "5회 · P5 보기",
+      "ex": "The trade fair is a great place to meet potential clients.",
+      "ex_ko": "무역 박람회는 잠재 고객을 만나기 좋은 곳이에요."
+    },
+    {
+      "word": "array",
+      "pos": "n.",
+      "mean": "다수, 다양한 집합(모음), 배열",
+      "freq": "1회",
+      "ex": "The store offers a wide array of kitchen appliances.",
+      "ex_ko": "그 가게는 아주 다양한 주방 가전을 판매해요."
+    },
+    {
+      "word": "approximately",
+      "pos": "ad.",
+      "mean": "대략, 약",
+      "freq": "2회 + LC 5회 · P5 문장",
+      "ex": "The tour lasts approximately two hours.",
+      "ex_ko": "투어는 약 2시간 걸려요."
+    },
+    {
+      "word": "equip",
+      "pos": "v.",
+      "mean": "(장비를) 갖추다, 설비하다",
+      "freq": "-",
+      "ex": "Every meeting room is equipped with a projector.",
+      "ex_ko": "모든 회의실에 프로젝터가 갖춰져 있어요."
+    },
+    {
+      "word": "equipment",
+      "pos": "n.",
+      "mean": "장비, 설비 (불가산)",
+      "freq": "13회 + LC 1회",
+      "ex": "Please turn off all equipment before leaving the lab.",
+      "ex_ko": "실험실을 나가기 전에 모든 장비를 꺼 주세요."
+    },
+    {
+      "word": "entitled",
+      "pos": "a.",
+      "mean": "자격이 있는, ~할 권리가 있는 / (책 등이) ~라는 제목의",
+      "freq": "3회 · P5 정답",
+      "ex": "Members are entitled to a 10 percent discount on all purchases.",
+      "ex_ko": "회원은 모든 구매에 10퍼센트 할인을 받을 자격이 있어요."
+    },
+    {
+      "word": "impress",
+      "pos": "v.",
+      "mean": "깊은 인상을 주다, 감동시키다",
+      "freq": "LC 1회",
+      "ex": "Her presentation impressed the clients.",
+      "ex_ko": "그녀의 발표가 고객들에게 깊은 인상을 줬어요."
+    },
+    {
+      "word": "impression",
+      "pos": "n.",
+      "mean": "인상, 감명",
+      "freq": "-",
+      "ex": "Arriving on time makes a good first impression.",
+      "ex_ko": "제시간에 도착하면 좋은 첫인상을 남겨요."
+    },
+    {
+      "word": "impressed",
+      "pos": "a.",
+      "mean": "감명받은, 깊은 인상을 받은",
+      "freq": "LC 1회",
+      "ex": "The judges were impressed by the design of the new car.",
+      "ex_ko": "심사위원들은 새 차의 디자인에 감명받았어요."
+    },
+    {
+      "word": "impressive",
+      "pos": "a.",
+      "mean": "인상적인, 훌륭한",
+      "freq": "LC 1회",
+      "ex": "Of all the applicants, Ms. Kim has the most impressive résumé.",
+      "ex_ko": "모든 지원자 중 김 씨의 이력서가 가장 인상적이에요."
+    },
+    {
+      "word": "professional",
+      "pos": "n. / a.",
+      "mean": "전문가, 전문직 종사자 / 전문적인, 직업의",
+      "freq": "4회 · P5 문장",
+      "ex": "All repairs are done by trained professionals.",
+      "ex_ko": "모든 수리는 훈련받은 전문가가 해요."
+    },
+    {
+      "word": "favorable",
+      "pos": "a.",
+      "mean": "호의적인, 유리한, 좋은",
+      "freq": "-",
+      "ex": "The film received favorable reviews from critics.",
+      "ex_ko": "그 영화는 평론가들에게 호평을 받았어요."
+    },
+    {
+      "word": "lead to",
+      "pos": "v.",
+      "mean": "~로 이어지다, ~을 초래하다",
+      "freq": "lead 5회 + LC 2회",
+      "ex": "Better customer service can lead to higher profits.",
+      "ex_ko": "더 나은 고객 서비스는 더 높은 수익으로 이어질 수 있어요. (higher — 오늘 비교급!)"
+    },
+    {
+      "word": "leading",
+      "pos": "a.",
+      "mean": "선두적인, 일류의, 주요한",
+      "freq": "4회 + LC 2회",
+      "ex": "Delmar is one of the leading manufacturers of solar panels.",
+      "ex_ko": "Delmar는 선두적인 태양광 패널 제조사 중 하나예요."
+    },
+    {
+      "word": "misleading",
+      "pos": "a.",
+      "mean": "오해의 소지가 있는, 혼동을 주는",
+      "freq": "1회 · P5 문장",
+      "ex": "The price on the sign was misleading because it did not include tax.",
+      "ex_ko": "표지판 가격은 세금이 빠져 있어서 오해의 소지가 있었어요."
+    },
+    {
+      "word": "material",
+      "pos": "n.",
+      "mean": "재료, 자료, 물질",
+      "freq": "8회 + LC 1회 · P5 문장",
+      "ex": "Please read the training materials before Monday's session.",
+      "ex_ko": "월요일 교육 전에 교육 자료를 읽어 주세요."
+    },
+    {
+      "word": "substance",
+      "pos": "n.",
+      "mean": "물질, 실체, 핵심 내용",
+      "freq": "-",
+      "ex": "The lab stores chemical substances in locked cabinets.",
+      "ex_ko": "그 실험실은 화학 물질을 잠긴 캐비닛에 보관해요."
+    },
+    {
+      "word": "substantial",
+      "pos": "a.",
+      "mean": "상당한, 많은",
+      "freq": "-",
+      "ex": "The company announced a substantial increase in profits.",
+      "ex_ko": "회사는 수익이 상당히 늘었다고 발표했어요."
+    },
+    {
+      "word": "substantially",
+      "pos": "ad.",
+      "mean": "상당히, 크게",
+      "freq": "P5 오답 보기",
+      "ex": "Sales were substantially higher than last year.",
+      "ex_ko": "매출이 작년보다 상당히 높았어요."
+    },
+    {
+      "word": "show",
+      "pos": "v. / n.",
+      "mean": "보여 주다, 나타내다 / 공연, 박람회",
+      "freq": "15회 + LC 5회",
+      "ex": "Show this flyer at checkout to receive a free gift.",
+      "ex_ko": "계산할 때 이 전단지를 보여 주시면 무료 선물을 받아요."
+    },
+    {
+      "word": "showing",
+      "pos": "n.",
+      "mean": "(영화) 상영, (부동산) 공개 · 둘러보기",
+      "freq": "4회",
+      "ex": "There will be an extra showing of the film on Saturday.",
+      "ex_ko": "토요일에 영화가 한 회 더 상영될 거예요."
+    },
+    {
+      "word": "maintain",
+      "pos": "v.",
+      "mean": "유지하다, 관리하다 / 주장하다",
+      "freq": "5회",
+      "ex": "It is important to maintain a clean work area.",
+      "ex_ko": "작업 공간을 깨끗하게 유지하는 것이 중요해요."
+    },
+    {
+      "word": "maintenance",
+      "pos": "n.",
+      "mean": "유지보수, 관리, 정비",
+      "freq": "12회 + LC 4회 · P5 문장",
+      "ex": "The elevator will be closed for routine maintenance on Tuesday.",
+      "ex_ko": "엘리베이터는 화요일에 정기 점검으로 운행이 중지돼요."
+    },
+    {
+      "word": "numerous",
+      "pos": "a.",
+      "mean": "수많은, 다수의",
+      "freq": "1회",
+      "ex": "The hotel has received numerous awards for its service.",
+      "ex_ko": "그 호텔은 서비스로 수많은 상을 받았어요."
+    },
+    {
+      "word": "numerical",
+      "pos": "a.",
+      "mean": "수의, 숫자로 나타낸",
+      "freq": "-",
+      "ex": "Please arrange the files in numerical order.",
+      "ex_ko": "파일을 번호순으로 정리해 주세요."
+    },
+    {
+      "word": "resident",
+      "pos": "n.",
+      "mean": "거주자, 주민",
+      "freq": "10회 · P5 정답",
+      "ex": "Local residents are invited to the opening of the new park.",
+      "ex_ko": "지역 주민들은 새 공원 개장식에 초대받았어요."
+    },
+    {
+      "word": "residence",
+      "pos": "n.",
+      "mean": "주택, 거주지, 거주",
+      "freq": "1회",
+      "ex": "The mayor's official residence is open to the public on weekends.",
+      "ex_ko": "시장 관저는 주말에 일반에 공개돼요."
+    },
+    {
       "word": "income",
-      "mean": "소득",
-      "ex": "Example for income."
+      "pos": "n.",
+      "mean": "수입, 소득",
+      "freq": "3회",
+      "ex": "Many residents rely on tourism as their main source of income.",
+      "ex_ko": "많은 주민이 관광업을 주된 수입원으로 삼아요."
     },
     {
-      "word": "liquid",
-      "mean": "액체, 액체의",
-      "ex": "Example for liquid."
+      "word": "expense",
+      "pos": "n.",
+      "mean": "비용, 경비, 지출",
+      "freq": "7회 + LC 1회 · P5 문장",
+      "ex": "Employees must submit their travel expenses by the end of the month.",
+      "ex_ko": "직원들은 월말까지 출장비를 제출해야 해요."
     },
     {
-      "word": "loss",
-      "mean": "손실",
-      "ex": "Example for loss."
+      "word": "expensive",
+      "pos": "a.",
+      "mean": "비싼, 돈이 많이 드는",
+      "freq": "4회 + LC 2회",
+      "ex": "Renting a car is less expensive than taking a taxi every day.",
+      "ex_ko": "차를 빌리는 게 매일 택시를 타는 것보다 덜 비싸요."
     },
     {
-      "word": "model",
-      "mean": "원형, 모범, ~의 모형을 만들다",
-      "ex": "Example for model."
-    },
-    {
-      "word": "pace",
-      "mean": "속도, 페이스",
-      "ex": "Example for pace."
-    },
-    {
-      "word": "range",
-      "mean": "범위, 구역, 늘어놓다, 배치하다",
-      "ex": "Example for range."
-    },
-    {
-      "word": "refrigerator",
-      "mean": "냉장고",
-      "ex": "Example for refrigerator."
-    },
-    {
-      "word": "rely on",
-      "mean": "~에 의존하다",
-      "ex": "Example for rely on."
-    },
-    {
-      "word": "send",
-      "mean": "보내다",
-      "ex": "Example for send."
-    },
-    {
-      "word": "be shaded",
-      "mean": "그늘져 있다, 가려져 있다",
-      "ex": "Example for be shaded."
+      "word": "expenditure",
+      "pos": "n.",
+      "mean": "지출, 경비",
+      "freq": "-",
+      "ex": "The company plans to reduce its expenditure on advertising.",
+      "ex_ko": "회사는 광고비 지출을 줄일 계획이에요."
     }
   ],
   "20": [
     {
       "word": "shore",
+      "pos": "",
       "mean": "물가, 강기슭",
-      "ex": "Example for shore."
+      "freq": "빈출",
+      "ex": "Focus on the usage of shore in official contexts.",
+      "ex_ko": "물가, 강기슭 뜻으로 시험에 자주 출제됩니다."
     },
     {
       "word": "tie",
+      "pos": "",
       "mean": "묶다, 매다",
-      "ex": "Example for tie."
+      "freq": "빈출",
+      "ex": "Focus on the usage of tie in official contexts.",
+      "ex_ko": "묶다, 매다 뜻으로 시험에 자주 출제됩니다."
     },
     {
       "word": "addition",
+      "pos": "",
       "mean": "추가, 추가물",
-      "ex": "Example for addition."
+      "freq": "빈출",
+      "ex": "Focus on the usage of addition in official contexts.",
+      "ex_ko": "추가, 추가물 뜻으로 시험에 자주 출제됩니다."
     },
     {
       "word": "advisor",
+      "pos": "",
       "mean": "조언자, 고문",
-      "ex": "Example for advisor."
+      "freq": "빈출",
+      "ex": "Focus on the usage of advisor in official contexts.",
+      "ex_ko": "조언자, 고문 뜻으로 시험에 자주 출제됩니다."
     },
     {
       "word": "attack",
+      "pos": "",
       "mean": "공격하다",
-      "ex": "Example for attack."
+      "freq": "빈출",
+      "ex": "Focus on the usage of attack in official contexts.",
+      "ex_ko": "공격하다 뜻으로 시험에 자주 출제됩니다."
     },
     {
       "word": "expressive",
+      "pos": "",
       "mean": "나타내는",
-      "ex": "Example for expressive."
+      "freq": "빈출",
+      "ex": "Focus on the usage of expressive in official contexts.",
+      "ex_ko": "나타내는 뜻으로 시험에 자주 출제됩니다."
     },
     {
       "word": "fund",
+      "pos": "",
       "mean": "자금",
-      "ex": "Example for fund."
+      "freq": "빈출",
+      "ex": "Focus on the usage of fund in official contexts.",
+      "ex_ko": "자금 뜻으로 시험에 자주 출제됩니다."
     },
     {
       "word": "funding",
+      "pos": "",
       "mean": "자금 제공",
-      "ex": "Example for funding."
+      "freq": "빈출",
+      "ex": "Focus on the usage of funding in official contexts.",
+      "ex_ko": "자금 제공 뜻으로 시험에 자주 출제됩니다."
     },
     {
       "word": "generate",
+      "pos": "",
       "mean": "창출하다, 야기하다",
-      "ex": "Example for generate."
+      "freq": "빈출",
+      "ex": "Focus on the usage of generate in official contexts.",
+      "ex_ko": "창출하다, 야기하다 뜻으로 시험에 자주 출제됩니다."
     },
     {
       "word": "however",
+      "pos": "",
       "mean": "하지만, 그러나",
-      "ex": "Example for however."
+      "freq": "빈출",
+      "ex": "Focus on the usage of however in official contexts.",
+      "ex_ko": "하지만, 그러나 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "in the coming year",
+      "pos": "",
+      "mean": "다가오는 해에",
+      "freq": "빈출",
+      "ex": "Focus on the usage of in the coming year in official contexts.",
+      "ex_ko": "다가오는 해에 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "in the direction of",
+      "pos": "",
+      "mean": "~ 방향으로",
+      "freq": "빈출",
+      "ex": "Focus on the usage of in the direction of in official contexts.",
+      "ex_ko": "~ 방향으로 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "model number",
+      "pos": "",
+      "mean": "모델 번호",
+      "freq": "빈출",
+      "ex": "Focus on the usage of model number in official contexts.",
+      "ex_ko": "모델 번호 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "overcome",
+      "pos": "",
+      "mean": "극복하다",
+      "freq": "빈출",
+      "ex": "Focus on the usage of overcome in official contexts.",
+      "ex_ko": "극복하다 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "proper",
+      "pos": "",
+      "mean": "적절한",
+      "freq": "빈출",
+      "ex": "Focus on the usage of proper in official contexts.",
+      "ex_ko": "적절한 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "question",
+      "pos": "",
+      "mean": "질문, 질문하다",
+      "freq": "빈출",
+      "ex": "Focus on the usage of question in official contexts.",
+      "ex_ko": "질문, 질문하다 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "rare",
+      "pos": "",
+      "mean": "드문",
+      "freq": "빈출",
+      "ex": "Focus on the usage of rare in official contexts.",
+      "ex_ko": "드문 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "score",
+      "pos": "",
+      "mean": "득점, 점수, 악보, 득점을 올리다",
+      "freq": "빈출",
+      "ex": "Focus on the usage of score in official contexts.",
+      "ex_ko": "득점, 점수, 악보, 득점을 올리다 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "senior",
+      "pos": "",
+      "mean": "상급자, 상급의",
+      "freq": "빈출",
+      "ex": "Focus on the usage of senior in official contexts.",
+      "ex_ko": "상급자, 상급의 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "shortcoming",
+      "pos": "",
+      "mean": "결점, 단점",
+      "freq": "빈출",
+      "ex": "Focus on the usage of shortcoming in official contexts.",
+      "ex_ko": "결점, 단점 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "temporary",
+      "pos": "",
+      "mean": "일시적인",
+      "freq": "빈출",
+      "ex": "Focus on the usage of temporary in official contexts.",
+      "ex_ko": "일시적인 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "theme",
+      "pos": "",
+      "mean": "주제, 테마",
+      "freq": "빈출",
+      "ex": "Focus on the usage of theme in official contexts.",
+      "ex_ko": "주제, 테마 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "tranditional",
+      "pos": "",
+      "mean": "전통의",
+      "freq": "빈출",
+      "ex": "Focus on the usage of tranditional in official contexts.",
+      "ex_ko": "전통의 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "a copy of",
+      "pos": "",
+      "mean": "한 부",
+      "freq": "빈출",
+      "ex": "Focus on the usage of a copy of in official contexts.",
+      "ex_ko": "한 부 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "at a fast pace",
+      "pos": "",
+      "mean": "빠른 속도로",
+      "freq": "빈출",
+      "ex": "Focus on the usage of at a fast pace in official contexts.",
+      "ex_ko": "빠른 속도로 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "be assigned to",
+      "pos": "",
+      "mean": "~로 배정되다",
+      "freq": "빈출",
+      "ex": "Focus on the usage of be assigned to in official contexts.",
+      "ex_ko": "~로 배정되다 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "be similar to",
+      "pos": "",
+      "mean": "~과 유사하다",
+      "freq": "빈출",
+      "ex": "Focus on the usage of be similar to in official contexts.",
+      "ex_ko": "~과 유사하다 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "bring together",
+      "pos": "",
+      "mean": "불러 모으다",
+      "freq": "빈출",
+      "ex": "Focus on the usage of bring together in official contexts.",
+      "ex_ko": "불러 모으다 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "certainly",
+      "pos": "",
+      "mean": "확실히",
+      "freq": "빈출",
+      "ex": "Focus on the usage of certainly in official contexts.",
+      "ex_ko": "확실히 뜻으로 시험에 자주 출제됩니다."
+    },
+    {
+      "word": "charge for",
+      "pos": "",
+      "mean": "~에 대한 대금",
+      "freq": "빈출",
+      "ex": "Focus on the usage of charge for in official contexts.",
+      "ex_ko": "~에 대한 대금 뜻으로 시험에 자주 출제됩니다."
     }
-  ]
+  ],
+  "21": [
+    {
+      "word": "cut down",
+      "pos": "",
+      "mean": "~을 줄이다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of cut down.",
+      "ex_ko": "~을 줄이다에 주의하여 암기하세요."
+    },
+    {
+      "word": "decide on",
+      "pos": "",
+      "mean": "~으로 결정하다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of decide on.",
+      "ex_ko": "~으로 결정하다에 주의하여 암기하세요."
+    },
+    {
+      "word": "flat",
+      "pos": "",
+      "mean": "일률적인, 바람이 빠진, 아파트",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of flat.",
+      "ex_ko": "일률적인, 바람이 빠진, 아파트에 주의하여 암기하세요."
+    },
+    {
+      "word": "flawless",
+      "pos": "",
+      "mean": "결점 없는",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of flawless.",
+      "ex_ko": "결점 없는에 주의하여 암기하세요."
+    },
+    {
+      "word": "handbook",
+      "pos": "",
+      "mean": "안내서",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of handbook.",
+      "ex_ko": "안내서에 주의하여 암기하세요."
+    },
+    {
+      "word": "handwritten",
+      "pos": "",
+      "mean": "손으로 쓴",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of handwritten.",
+      "ex_ko": "손으로 쓴에 주의하여 암기하세요."
+    },
+    {
+      "word": "phenomenon",
+      "pos": "",
+      "mean": "현상",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of phenomenon.",
+      "ex_ko": "현상에 주의하여 암기하세요."
+    },
+    {
+      "word": "record high",
+      "pos": "",
+      "mean": "최고 기록",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of record high.",
+      "ex_ko": "최고 기록에 주의하여 암기하세요."
+    },
+    {
+      "word": "reset",
+      "pos": "",
+      "mean": "다시 맞추다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of reset.",
+      "ex_ko": "다시 맞추다에 주의하여 암기하세요."
+    },
+    {
+      "word": "see if",
+      "pos": "",
+      "mean": "~인지 여부를 확인하다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of see if.",
+      "ex_ko": "~인지 여부를 확인하다에 주의하여 암기하세요."
+    },
+    {
+      "word": "sequel",
+      "pos": "",
+      "mean": "속편, 결과",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of sequel.",
+      "ex_ko": "속편, 결과에 주의하여 암기하세요."
+    },
+    {
+      "word": "set up a date",
+      "pos": "",
+      "mean": "날짜를 잡다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of set up a date.",
+      "ex_ko": "날짜를 잡다에 주의하여 암기하세요."
+    },
+    {
+      "word": "sharpen",
+      "pos": "",
+      "mean": "날카롭게 만들다, 향상시키다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of sharpen.",
+      "ex_ko": "날카롭게 만들다, 향상시키다에 주의하여 암기하세요."
+    },
+    {
+      "word": "side by side",
+      "pos": "",
+      "mean": "나란히",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of side by side.",
+      "ex_ko": "나란히에 주의하여 암기하세요."
+    },
+    {
+      "word": "accountant",
+      "pos": "",
+      "mean": "회계사",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of accountant.",
+      "ex_ko": "회계사에 주의하여 암기하세요."
+    },
+    {
+      "word": "by contrast",
+      "pos": "",
+      "mean": "그와 대조적으로",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of by contrast.",
+      "ex_ko": "그와 대조적으로에 주의하여 암기하세요."
+    },
+    {
+      "word": "chief financial officer",
+      "pos": "",
+      "mean": "최고 재무 책임자, CFO",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of chief financial officer.",
+      "ex_ko": "최고 재무 책임자, CFO에 주의하여 암기하세요."
+    },
+    {
+      "word": "corrective",
+      "pos": "",
+      "mean": "바로잡는",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of corrective.",
+      "ex_ko": "바로잡는에 주의하여 암기하세요."
+    },
+    {
+      "word": "displace",
+      "pos": "",
+      "mean": "대신하다, 옮겨 놓다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of displace.",
+      "ex_ko": "대신하다, 옮겨 놓다에 주의하여 암기하세요."
+    },
+    {
+      "word": "far form",
+      "pos": "",
+      "mean": "결코 ~이 아닌",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of far form.",
+      "ex_ko": "결코 ~이 아닌에 주의하여 암기하세요."
+    },
+    {
+      "word": "frequency",
+      "pos": "",
+      "mean": "빈도",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of frequency.",
+      "ex_ko": "빈도에 주의하여 암기하세요."
+    },
+    {
+      "word": "impressively",
+      "pos": "",
+      "mean": "인상적으로, 인상 깊게",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of impressively.",
+      "ex_ko": "인상적으로, 인상 깊게에 주의하여 암기하세요."
+    },
+    {
+      "word": "keep to oneself",
+      "pos": "",
+      "mean": "비밀로 하다, 독차지하다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of keep to oneself.",
+      "ex_ko": "비밀로 하다, 독차지하다에 주의하여 암기하세요."
+    },
+    {
+      "word": "overly",
+      "pos": "",
+      "mean": "지나치게, 몹시",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of overly.",
+      "ex_ko": "지나치게, 몹시에 주의하여 암기하세요."
+    },
+    {
+      "word": "reasonable",
+      "pos": "",
+      "mean": "적당한, 너무 비싸지 않은",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of reasonable.",
+      "ex_ko": "적당한, 너무 비싸지 않은에 주의하여 암기하세요."
+    },
+    {
+      "word": "take after",
+      "pos": "",
+      "mean": "~를 닮다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of take after.",
+      "ex_ko": "~를 닮다에 주의하여 암기하세요."
+    },
+    {
+      "word": "unfamiliar",
+      "pos": "",
+      "mean": "익숙지 않은, 낯선",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of unfamiliar.",
+      "ex_ko": "익숙지 않은, 낯선에 주의하여 암기하세요."
+    },
+    {
+      "word": "A be followed by B A",
+      "pos": "",
+      "mean": "다음에 B가 오다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of A be followed by B A.",
+      "ex_ko": "다음에 B가 오다에 주의하여 암기하세요."
+    },
+    {
+      "word": "a string of",
+      "pos": "",
+      "mean": "일련의, 한 줄의",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of a string of.",
+      "ex_ko": "일련의, 한 줄의에 주의하여 암기하세요."
+    },
+    {
+      "word": "activate",
+      "pos": "",
+      "mean": "작동시키다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of activate.",
+      "ex_ko": "작동시키다에 주의하여 암기하세요."
+    }
+  ],
+  "22": [
+    {
+      "word": "add up to",
+      "pos": "",
+      "mean": "합계가 ~이 되다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of add up to.",
+      "ex_ko": "합계가 ~이 되다에 주의하여 암기하세요."
+    },
+    {
+      "word": "annual budget",
+      "pos": "",
+      "mean": "연간 예산",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of annual budget.",
+      "ex_ko": "연간 예산에 주의하여 암기하세요."
+    },
+    {
+      "word": "annual report",
+      "pos": "",
+      "mean": "연례 보고서",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of annual report.",
+      "ex_ko": "연례 보고서에 주의하여 암기하세요."
+    },
+    {
+      "word": "badly",
+      "pos": "",
+      "mean": "심하게, 불친절하게, 몹시",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of badly.",
+      "ex_ko": "심하게, 불친절하게, 몹시에 주의하여 암기하세요."
+    },
+    {
+      "word": "barely",
+      "pos": "",
+      "mean": "가까스로, 거의 ~하지 않는",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of barely.",
+      "ex_ko": "가까스로, 거의 ~하지 않는에 주의하여 암기하세요."
+    },
+    {
+      "word": "be owned by",
+      "pos": "",
+      "mean": "~의 소유이다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of be owned by.",
+      "ex_ko": "~의 소유이다에 주의하여 암기하세요."
+    },
+    {
+      "word": "be suited for",
+      "pos": "",
+      "mean": "~에 적합하다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of be suited for.",
+      "ex_ko": "~에 적합하다에 주의하여 암기하세요."
+    },
+    {
+      "word": "bookkeeper",
+      "pos": "",
+      "mean": "경리",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of bookkeeper.",
+      "ex_ko": "경리에 주의하여 암기하세요."
+    },
+    {
+      "word": "bound for",
+      "pos": "",
+      "mean": "~행인",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of bound for.",
+      "ex_ko": "~행인에 주의하여 암기하세요."
+    },
+    {
+      "word": "calculation",
+      "pos": "",
+      "mean": "계산",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of calculation.",
+      "ex_ko": "계산에 주의하여 암기하세요."
+    },
+    {
+      "word": "cancellation",
+      "pos": "",
+      "mean": "취소",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of cancellation.",
+      "ex_ko": "취소에 주의하여 암기하세요."
+    },
+    {
+      "word": "capital",
+      "pos": "",
+      "mean": "자본",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of capital.",
+      "ex_ko": "자본에 주의하여 암기하세요."
+    },
+    {
+      "word": "category",
+      "pos": "",
+      "mean": "범주, 부분",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of category.",
+      "ex_ko": "범주, 부분에 주의하여 암기하세요."
+    },
+    {
+      "word": "claim refund",
+      "pos": "",
+      "mean": "환불을 요구하다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of claim refund.",
+      "ex_ko": "환불을 요구하다에 주의하여 암기하세요."
+    },
+    {
+      "word": "collectively",
+      "pos": "",
+      "mean": "집합적으로, 총괄하여",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of collectively.",
+      "ex_ko": "집합적으로, 총괄하여에 주의하여 암기하세요."
+    },
+    {
+      "word": "commercial use",
+      "pos": "",
+      "mean": "상업적 이용",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of commercial use.",
+      "ex_ko": "상업적 이용에 주의하여 암기하세요."
+    },
+    {
+      "word": "common interest",
+      "pos": "",
+      "mean": "공동의 이익, 공동 관심사",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of common interest.",
+      "ex_ko": "공동의 이익, 공동 관심사에 주의하여 암기하세요."
+    },
+    {
+      "word": "compose",
+      "pos": "",
+      "mean": "작성하다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of compose.",
+      "ex_ko": "작성하다에 주의하여 암기하세요."
+    },
+    {
+      "word": "consulting firm",
+      "pos": "",
+      "mean": "자문 회사",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of consulting firm.",
+      "ex_ko": "자문 회사에 주의하여 암기하세요."
+    },
+    {
+      "word": "conversion",
+      "pos": "",
+      "mean": "전환",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of conversion.",
+      "ex_ko": "전환에 주의하여 암기하세요."
+    },
+    {
+      "word": "digit",
+      "pos": "",
+      "mean": "숫자",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of digit.",
+      "ex_ko": "숫자에 주의하여 암기하세요."
+    },
+    {
+      "word": "monetary",
+      "pos": "",
+      "mean": "금전의, 재정적인",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of monetary.",
+      "ex_ko": "금전의, 재정적인에 주의하여 암기하세요."
+    },
+    {
+      "word": "outlay",
+      "pos": "",
+      "mean": "지출, 경비",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of outlay.",
+      "ex_ko": "지출, 경비에 주의하여 암기하세요."
+    },
+    {
+      "word": "place of origin",
+      "pos": "",
+      "mean": "원산지",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of place of origin.",
+      "ex_ko": "원산지에 주의하여 암기하세요."
+    },
+    {
+      "word": "purchase order",
+      "pos": "",
+      "mean": "구입 주문",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of purchase order.",
+      "ex_ko": "구입 주문에 주의하여 암기하세요."
+    },
+    {
+      "word": "rigorously",
+      "pos": "",
+      "mean": "엄격히",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of rigorously.",
+      "ex_ko": "엄격히에 주의하여 암기하세요."
+    },
+    {
+      "word": "shipping and handling fee",
+      "pos": "",
+      "mean": "배송 취급 요금",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of shipping and handling fee.",
+      "ex_ko": "배송 취급 요금에 주의하여 암기하세요."
+    },
+    {
+      "word": "unplug device",
+      "pos": "",
+      "mean": "기계의 플러그를 뽑다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of unplug device.",
+      "ex_ko": "기계의 플러그를 뽑다에 주의하여 암기하세요."
+    },
+    {
+      "word": "well in advance",
+      "pos": "",
+      "mean": "휠씬 앞서서",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of well in advance.",
+      "ex_ko": "휠씬 앞서서에 주의하여 암기하세요."
+    },
+    {
+      "word": "cut one's losses",
+      "pos": "",
+      "mean": "손을 떼다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of cut one's losses.",
+      "ex_ko": "손을 떼다에 주의하여 암기하세요."
+    }
+  ],
+  "23": [
+    {
+      "word": "in place",
+      "pos": "",
+      "mean": "제자리에",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of in place.",
+      "ex_ko": "제자리에에 주의하여 암기하세요."
+    },
+    {
+      "word": "whereabout",
+      "pos": "",
+      "mean": "소재, 행방",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of whereabout.",
+      "ex_ko": "소재, 행방에 주의하여 암기하세요."
+    },
+    {
+      "word": "implicate",
+      "pos": "",
+      "mean": "연루되었음을 시사하다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of implicate.",
+      "ex_ko": "연루되었음을 시사하다에 주의하여 암기하세요."
+    },
+    {
+      "word": "inconsistency",
+      "pos": "",
+      "mean": "불일치",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of inconsistency.",
+      "ex_ko": "불일치에 주의하여 암기하세요."
+    },
+    {
+      "word": "relevance",
+      "pos": "",
+      "mean": "적절, 타당성, 관련성",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of relevance.",
+      "ex_ko": "적절, 타당성, 관련성에 주의하여 암기하세요."
+    },
+    {
+      "word": "reliably",
+      "pos": "",
+      "mean": "신뢰할 수 있게, 확실하게",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of reliably.",
+      "ex_ko": "신뢰할 수 있게, 확실하게에 주의하여 암기하세요."
+    },
+    {
+      "word": "substantively",
+      "pos": "",
+      "mean": "사실상, 실제로",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of substantively.",
+      "ex_ko": "사실상, 실제로에 주의하여 암기하세요."
+    },
+    {
+      "word": "vary from A to B",
+      "pos": "",
+      "mean": "상황에 따라 다르다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of vary from A to B.",
+      "ex_ko": "상황에 따라 다르다에 주의하여 암기하세요."
+    },
+    {
+      "word": "adjournment",
+      "pos": "",
+      "mean": "연기, 휴회",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of adjournment.",
+      "ex_ko": "연기, 휴회에 주의하여 암기하세요."
+    },
+    {
+      "word": "amply",
+      "pos": "",
+      "mean": "풍부하게, 충분히",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of amply.",
+      "ex_ko": "풍부하게, 충분히에 주의하여 암기하세요."
+    },
+    {
+      "word": "back order",
+      "pos": "",
+      "mean": "이월 주문",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of back order.",
+      "ex_ko": "이월 주문에 주의하여 암기하세요."
+    },
+    {
+      "word": "be in the black",
+      "pos": "",
+      "mean": "흑자 상태에 있다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of be in the black.",
+      "ex_ko": "흑자 상태에 있다에 주의하여 암기하세요."
+    },
+    {
+      "word": "be in the red",
+      "pos": "",
+      "mean": "적자 상태에 있다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of be in the red.",
+      "ex_ko": "적자 상태에 있다에 주의하여 암기하세요."
+    },
+    {
+      "word": "break-even point",
+      "pos": "",
+      "mean": "손익 분기점",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of break-even point.",
+      "ex_ko": "손익 분기점에 주의하여 암기하세요."
+    },
+    {
+      "word": "by a considerable margin",
+      "pos": "",
+      "mean": "큰 차이로",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of by a considerable margin.",
+      "ex_ko": "큰 차이로에 주의하여 암기하세요."
+    },
+    {
+      "word": "cash reserves",
+      "pos": "",
+      "mean": "현금 보유고",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of cash reserves.",
+      "ex_ko": "현금 보유고에 주의하여 암기하세요."
+    },
+    {
+      "word": "classification",
+      "pos": "",
+      "mean": "분류, 등급",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of classification.",
+      "ex_ko": "분류, 등급에 주의하여 암기하세요."
+    },
+    {
+      "word": "discrepancy",
+      "pos": "",
+      "mean": "불일치, 차이",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of discrepancy.",
+      "ex_ko": "불일치, 차이에 주의하여 암기하세요."
+    },
+    {
+      "word": "incrementally",
+      "pos": "",
+      "mean": "증가하여",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of incrementally.",
+      "ex_ko": "증가하여에 주의하여 암기하세요."
+    },
+    {
+      "word": "ledger",
+      "pos": "",
+      "mean": "회계 장부",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of ledger.",
+      "ex_ko": "회계 장부에 주의하여 암기하세요."
+    },
+    {
+      "word": "levy",
+      "pos": "",
+      "mean": "부과금",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of levy.",
+      "ex_ko": "부과금에 주의하여 암기하세요."
+    },
+    {
+      "word": "liability",
+      "pos": "",
+      "mean": "책임, 부채, 채무",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of liability.",
+      "ex_ko": "책임, 부채, 채무에 주의하여 암기하세요."
+    },
+    {
+      "word": "operation budget",
+      "pos": "",
+      "mean": "운영 예산",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of operation budget.",
+      "ex_ko": "운영 예산에 주의하여 암기하세요."
+    },
+    {
+      "word": "plus tax",
+      "pos": "",
+      "mean": "세금 별도",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of plus tax.",
+      "ex_ko": "세금 별도에 주의하여 암기하세요."
+    },
+    {
+      "word": "precedent",
+      "pos": "",
+      "mean": "전례",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of precedent.",
+      "ex_ko": "전례에 주의하여 암기하세요."
+    },
+    {
+      "word": "preclude",
+      "pos": "",
+      "mean": "막다",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of preclude.",
+      "ex_ko": "막다에 주의하여 암기하세요."
+    },
+    {
+      "word": "pretax",
+      "pos": "",
+      "mean": "세금 공제 전의",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of pretax.",
+      "ex_ko": "세금 공제 전의에 주의하여 암기하세요."
+    },
+    {
+      "word": "pros and cons",
+      "pos": "",
+      "mean": "찬반양론, 이해득실",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of pros and cons.",
+      "ex_ko": "찬반양론, 이해득실에 주의하여 암기하세요."
+    },
+    {
+      "word": "statistics",
+      "pos": "",
+      "mean": "통계학",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of statistics.",
+      "ex_ko": "통계학에 주의하여 암기하세요."
+    },
+    {
+      "word": "stringently",
+      "pos": "",
+      "mean": "엄격히, 엄중하게",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of stringently.",
+      "ex_ko": "엄격히, 엄중하게에 주의하여 암기하세요."
+    }
+  ],
+  "24": [
+    {
+      "word": "year-end",
+      "pos": "",
+      "mean": "연말의",
+      "freq": "실전 빈출",
+      "ex": "Remember the core meaning of year-end.",
+      "ex_ko": "연말의에 주의하여 암기하세요."
+    }
+  ],
+  "25": [],
+  "26": [],
+  "27": [],
+  "28": [],
+  "29": [],
+  "30": []
 };
 
     let selectedDay = 1;
@@ -2744,13 +7339,45 @@
 
     function renderVocaCard() {
       const list = vocaData[selectedDay] || vocaData[1];
-      const item = list[currentVocaIdx];
-      document.getElementById('voca-word').innerText = item.word;
-      document.getElementById('voca-meaning').innerText = item.mean;
-      document.getElementById('voca-example').innerText = `“${item.ex}”`;
-      document.getElementById('voca-counter').innerText = `단어 ${currentVocaIdx + 1} / ${list.length}`;
+      const item = list[currentVocaIdx] || list[0];
+      if (!item) return;
+      
+      const wordEl = document.getElementById('voca-word');
+      const posEl = document.getElementById('voca-pos');
+      const meanEl = document.getElementById('voca-meaning');
+      const exEl = document.getElementById('voca-example');
+      const exKoEl = document.getElementById('voca-example-ko');
+      const badgeEl = document.getElementById('voca-freq-badge');
+      const counterEl = document.getElementById('voca-counter');
+
+      if (wordEl) wordEl.innerText = item.word || '';
+      if (posEl) posEl.innerText = item.pos ? `${item.pos}` : '';
+      if (meanEl) meanEl.innerText = item.mean || '';
+      
+      if (badgeEl) {
+        if (item.freq && item.freq !== '-') {
+          badgeEl.innerText = (item.freq.includes('회') || item.freq.includes('정답')) ? `기출 ${item.freq}` : item.freq;
+          badgeEl.classList.remove('hidden');
+        } else {
+          badgeEl.innerText = '기출 빈출';
+          badgeEl.classList.remove('hidden');
+        }
+      }
+
+      if (exEl) exEl.innerText = item.ex ? `“${item.ex}”` : '';
+      if (exKoEl) {
+        if (item.ex_ko) {
+          exKoEl.innerText = `→ ${item.ex_ko}`;
+          exKoEl.classList.remove('hidden');
+        } else {
+          exKoEl.classList.add('hidden');
+        }
+      }
+
+      if (counterEl) counterEl.innerText = `단어 ${currentVocaIdx + 1} / ${list.length}`;
       isFlipped = false;
-      document.getElementById('voca-meaning-box').classList.add('hidden');
+      const box = document.getElementById('voca-meaning-box');
+      if (box) box.classList.add('hidden');
     }
 
     function flipCard() {
