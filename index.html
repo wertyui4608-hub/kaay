@@ -104,7 +104,7 @@
     </nav>
 
     <!-- Main Content Area -->
-    <main class="flex-1 pb-20 overflow-y-auto">
+    <main class="flex-1 pb-28 overflow-y-auto">
       
       <!-- ================= 1. HOME SCREEN ================= -->
       <section id="screen-home" class="screen-view p-4 space-y-4">
@@ -636,15 +636,15 @@
 
           <!-- 7-Column Calendar Grid Frame -->
           <div class="bg-white carbon-border overflow-hidden shadow-xs">
-            <!-- Weekday Headers -->
-            <div class="grid grid-cols-7 border-b border-[#e0e0e0] text-center text-xs font-semibold bg-[#f4f4f4]">
-              <div class="py-2.5 text-[#da1e28]">일</div>
-              <div class="py-2.5 text-[#525252]">월</div>
-              <div class="py-2.5 text-[#525252]">화</div>
-              <div class="py-2.5 text-[#525252]">수</div>
-              <div class="py-2.5 text-[#525252]">목</div>
-              <div class="py-2.5 text-[#525252]">금</div>
-              <div class="py-2.5 text-[#0f62fe]">토</div>
+            <!-- Weekday Headers (divide-x로 날짜 셀 세로선과 100% 일치) -->
+            <div class="grid grid-cols-7 divide-x divide-[#e0e0e0] border-b border-[#e0e0e0] text-center text-xs font-semibold bg-[#f4f4f4]">
+              <div class="py-2 text-[#da1e28]">일</div>
+              <div class="py-2 text-[#525252]">월</div>
+              <div class="py-2 text-[#525252]">화</div>
+              <div class="py-2 text-[#525252]">수</div>
+              <div class="py-2 text-[#525252]">목</div>
+              <div class="py-2 text-[#525252]">금</div>
+              <div class="py-2 text-[#0f62fe]">토</div>
             </div>
 
             <!-- Dynamic Date Cells Injection Container -->
@@ -8477,12 +8477,12 @@
 
       const userRecords = getSavedRecords();
 
-      // Previous Month Trailing Days
+      // Previous Month Trailing Days (64px 고정 높이)
       for (let i = firstDayIndex - 1; i >= 0; i--) {
         const d = prevLastDay - i;
         const cell = document.createElement('div');
-        cell.className = "h-[78px] sm:h-[84px] min-h-[78px] sm:min-h-[84px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60 overflow-hidden";
-        cell.innerHTML = `<span class="text-[10px] font-mono">${d}</span>`;
+        cell.className = "h-[64px] sm:h-[70px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-50 overflow-hidden flex flex-col justify-between";
+        cell.innerHTML = `<span class="text-[10px] font-mono leading-none">${d}</span>`;
         container.appendChild(cell);
       }
 
@@ -8509,7 +8509,8 @@
         // Check user fitness records
         const myRecs = userRecords.filter(r => r.date === dateStr);
 
-        let eventHtml = '';
+        let middleBadgeHtml = '';
+        let bottomSlotHtml = '';
         let cellBg = '';
 
         if (matchedEvents.length > 0) {
@@ -8519,39 +8520,46 @@
           const isEnd = (dateStr === ev.end);
 
           if (isSingle) {
-            eventHtml = `
+            middleBadgeHtml = `
               <div class="text-[8px] px-1 py-0.5 truncate font-bold text-center leading-tight ${ev.badge}">
                 ${ev.short}
               </div>
             `;
             cellBg = 'bg-[#fffbeb]';
           } else if (isStart) {
-            eventHtml = `
-              <div class="text-[7.5px] px-0.5 py-0.5 truncate font-bold leading-tight text-white bg-[#0f62fe]">
+            middleBadgeHtml = `
+              <div class="text-[7.5px] px-1 py-0.5 truncate font-bold leading-tight text-white bg-[#0f62fe] text-center shadow-xs">
                 ▶ ${ev.short}
               </div>
             `;
+            bottomSlotHtml = `<div class="h-1.5 w-full ${ev.barColor} opacity-80"></div>`;
             cellBg = 'bg-[#edf5ff]';
           } else if (isEnd) {
-            eventHtml = `
-              <div class="text-[7.5px] px-0.5 py-0.5 truncate font-semibold leading-tight text-white bg-[#525252]">
+            middleBadgeHtml = `
+              <div class="text-[7.5px] px-1 py-0.5 truncate font-semibold leading-tight text-white bg-[#525252] text-center">
                 ◀ 마감
               </div>
             `;
+            bottomSlotHtml = `<div class="h-1.5 w-full ${ev.barColor} opacity-80"></div>`;
             cellBg = 'bg-[#f4f4f4]';
           } else {
-            // 기간 진행 중: 지저분한 중복 텍스트 대신 깔끔하고 명확한 연결 바 표시
-            eventHtml = `
-              <div class="w-full flex items-center justify-center my-0.5" title="${ev.title}">
-                <div class="h-1.5 w-full ${ev.barColor} opacity-70"></div>
-              </div>
-            `;
+            // 기간 진행 중: 하단 바 슬롯에 정확한 높이로 연결
+            bottomSlotHtml = `<div class="h-1.5 w-full ${ev.barColor} opacity-70"></div>`;
             cellBg = 'bg-[#f8faff]';
           }
         }
 
+        // 체력 기록이 있고 기간 바가 없으면 하단 슬롯에 체력 기록 노출
+        if (myRecs.length > 0 && !bottomSlotHtml) {
+          bottomSlotHtml = `
+            <div class="text-[7.5px] text-[#24a148] font-mono font-semibold truncate leading-none text-center w-full">
+              ${myRecs[0].valDisplay}
+            </div>
+          `;
+        }
+
         const cell = document.createElement('div');
-        let cellClass = "h-[78px] sm:h-[84px] min-h-[78px] sm:min-h-[84px] p-1 text-left cursor-pointer transition relative flex flex-col justify-between overflow-hidden ";
+        let cellClass = "h-[64px] sm:h-[70px] p-1 text-left cursor-pointer transition relative flex flex-col justify-between overflow-hidden ";
         if (isSelected) {
           cellClass += "bg-[#edf5ff] ring-2 ring-[#0f62fe] z-10 ";
         } else if (isToday) {
@@ -8566,20 +8574,17 @@
         cell.onclick = () => selectCalendarDate(dateStr);
 
         let inner = `
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-mono font-medium ${numColor} ${isToday ? 'bg-[#161616] text-white px-1 font-bold' : ''}">${day}</span>
-            ${myRecs.length > 0 ? '<span class="w-1.5 h-1.5 bg-[#24a148] inline-block" title="체력 기록 완료"></span>' : ''}
+          <div class="flex items-center justify-between leading-none">
+            <span class="text-xs font-mono font-medium ${numColor} ${isToday ? 'bg-[#161616] text-white px-1 py-0.2 font-bold' : ''}">${day}</span>
+            ${myRecs.length > 0 ? '<span class="w-1.5 h-1.5 bg-[#24a148] inline-block rounded-full" title="체력 기록 완료"></span>' : ''}
           </div>
-          ${eventHtml}
+          <div class="my-auto flex flex-col justify-center overflow-hidden w-full">
+            ${middleBadgeHtml}
+          </div>
+          <div class="h-2 flex items-center justify-center overflow-hidden w-full">
+            ${bottomSlotHtml}
+          </div>
         `;
-
-        if (myRecs.length > 0) {
-          inner += `
-            <div class="text-[8px] text-[#24a148] font-mono font-semibold truncate mt-auto">
-              ${myRecs[0].valDisplay}
-            </div>
-          `;
-        }
 
         cell.innerHTML = inner;
         container.appendChild(cell);
@@ -8590,8 +8595,8 @@
       const nextDays = (7 - (totalCells % 7)) % 7;
       for (let i = 1; i <= nextDays; i++) {
         const cell = document.createElement('div');
-        cell.className = "h-[78px] sm:h-[84px] min-h-[78px] sm:min-h-[84px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60 overflow-hidden";
-        cell.innerHTML = `<span class="text-[10px] font-mono">${i}</span>`;
+        cell.className = "h-[64px] sm:h-[70px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-50 overflow-hidden flex flex-col justify-between";
+        cell.innerHTML = `<span class="text-[10px] font-mono leading-none">${i}</span>`;
         container.appendChild(cell);
       }
 
