@@ -104,7 +104,7 @@
     </nav>
 
     <!-- Main Content Area -->
-    <main class="flex-1 pb-36 overflow-y-auto">
+    <main class="flex-1 pb-20 overflow-y-auto">
       
       <!-- ================= 1. HOME SCREEN ================= -->
       <section id="screen-home" class="screen-view p-4 space-y-4">
@@ -536,25 +536,25 @@
               <span class="text-xs font-semibold text-[#161616]">데일리 맞춤 학습지 & 기출</span>
               <!-- Day 선택 드롭다운 -->
               <select id="archive-day-select" onchange="renderArchiveFiles(this.value)" class="carbon-input text-xs py-1 px-2 font-medium text-[#0f62fe]">
-                <option value="day01">Day 01 (명사) (12개 자료)</option>
-                <option value="day02">Day 02 (대명사) (7개 자료)</option>
-                <option value="day03">Day 03 (형용사) (7개 자료)</option>
-                <option value="day04">Day 04 (부사) (7개 자료)</option>
-                <option value="day05">Day 05 (동사 자리와 수일치) (7개 자료)</option>
-                <option value="day06">Day 06 (시제) (7개 자료)</option>
-                <option value="day07">Day 07 (능동태 vs 수동태) (7개 자료)</option>
-                <option value="day08">Day 08 (to부정사) (7개 자료)</option>
-                <option value="day09">Day 09 (동명사 (+ to부정사 vs 동명사 비교)) (7개 자료)</option>
-                <option value="day10">Day 10 (분사 (현재분사 vs 과거분사, 감정분사)) (7개 자료)</option>
-                <option value="day11">Day 11 (분사구문) (7개 자료)</option>
-                <option value="day12">Day 12 (전치사 1 — 시간·장소) (7개 자료)</option>
-                <option value="day13">Day 13 (전치사 2 — 이유·양보·기타) (7개 자료)</option>
-                <option value="day14">Day 14 (등위·상관접속사) (7개 자료)</option>
-                <option value="day15">Day 15 (부사절 접속사 vs 전치사) (7개 자료)</option>
-                <option value="day16">Day 16 (명사절 접속사 (that/whether/what)) (7개 자료)</option>
-                <option value="day17">Day 17 (관계대명사) (7개 자료)</option>
-                <option value="day18">Day 18 (관계부사·복합관계사) (7개 자료)</option>
-                <option value="day19">Day 19 (비교구문 (much 비교급 강조 등)) (7개 자료)</option>
+                <option value="day01">Day 01 (명사) (6개 핵심 자료)</option>
+                <option value="day02">Day 02 (대명사) (6개 핵심 자료)</option>
+                <option value="day03">Day 03 (형용사) (6개 핵심 자료)</option>
+                <option value="day04">Day 04 (부사) (6개 핵심 자료)</option>
+                <option value="day05">Day 05 (동사 자리와 수일치) (6개 핵심 자료)</option>
+                <option value="day06">Day 06 (시제) (6개 핵심 자료)</option>
+                <option value="day07">Day 07 (능동태 vs 수동태) (6개 핵심 자료)</option>
+                <option value="day08">Day 08 (to부정사) (6개 핵심 자료)</option>
+                <option value="day09">Day 09 (동명사 (+ to부정사 vs 동명사 비교)) (6개 핵심 자료)</option>
+                <option value="day10">Day 10 (분사 (현재분사 vs 과거분사, 감정분사)) (6개 핵심 자료)</option>
+                <option value="day11">Day 11 (분사구문) (6개 핵심 자료)</option>
+                <option value="day12">Day 12 (전치사 1 — 시간·장소) (6개 핵심 자료)</option>
+                <option value="day13">Day 13 (전치사 2 — 이유·양보·기타) (6개 핵심 자료)</option>
+                <option value="day14">Day 14 (등위·상관접속사) (6개 핵심 자료)</option>
+                <option value="day15">Day 15 (부사절 접속사 vs 전치사) (6개 핵심 자료)</option>
+                <option value="day16">Day 16 (명사절 접속사 (that/whether/what)) (6개 핵심 자료)</option>
+                <option value="day17">Day 17 (관계대명사) (6개 핵심 자료)</option>
+                <option value="day18">Day 18 (관계부사·복합관계사) (6개 핵심 자료)</option>
+                <option value="day19">Day 19 (비교구문 (much 비교급 강조 등)) (6개 핵심 자료)</option>
                 <option value="day20">Day 20 (가정법·도치 (Not only 도치, If had p.p.)) (예정)</option>
                 <option value="day21">Day 21 (동사 어휘 (빈출 짝꿍)) (예정)</option>
                 <option value="day22">Day 22 (품사 자리 종합 복습) (예정)</option>
@@ -569,7 +569,7 @@
               </select>
             </div>
 
-            <!-- 동적으로 주입되는 해당 Day의 7개 파일 리스트 -->
+            <!-- 동적으로 주입되는 해당 Day의 핵심 학습 파일 리스트 -->
             <div id="archive-files-list" class="divide-y divide-[#e0e0e0] text-xs">
               <!-- JS will render file rows here -->
             </div>
@@ -588,11 +588,11 @@
       </section>
 
       <!-- ================= 4. CALENDAR SCREEN ================= -->
-      <section id="screen-calendar" class="screen-view p-4 space-y-4 hidden">
-        <div>
+      <section id="screen-calendar" class="screen-view px-2.5 sm:px-4 py-3 sm:py-4 space-y-3.5 hidden">
+        <div class="px-1 sm:px-0">
           <div class="flex justify-between items-baseline">
             <h2 class="text-xl font-light text-[#161616]">일정 & 캘린더</h2>
-            <button onclick="toggleNoticeModal(true)" class="text-xs text-[#0f62fe] font-medium underline">
+            <button onclick="toggleNoticeModal(true)" class="text-xs text-[#0f62fe] font-medium underline hover:text-[#0043ce]">
               공식 공지문 원본 보기
             </button>
           </div>
@@ -600,38 +600,38 @@
         </div>
 
         <!-- 캘린더 뷰 모드 토글 (월간 달력 vs 공식 일정 목록) -->
-        <div class="grid grid-cols-2 carbon-border text-xs text-center">
-          <button id="cal-mode-grid" class="py-2.5 tab-active" onclick="switchCalendarView('grid')">월간 달력 (Calendar)</button>
-          <button id="cal-mode-list" class="py-2.5 tab-inactive" onclick="switchCalendarView('list')">64기 공식 일정표</button>
+        <div class="grid grid-cols-2 carbon-border text-xs text-center shadow-xs">
+          <button id="cal-mode-grid" class="py-2.5 tab-active font-semibold" onclick="switchCalendarView('grid')">월간 달력 (Calendar)</button>
+          <button id="cal-mode-list" class="py-2.5 tab-inactive font-medium" onclick="switchCalendarView('list')">64기 공식 일정표</button>
         </div>
 
         <!-- 1) Dynamic Interactive Calendar Grid View -->
         <div id="cal-grid-view" class="space-y-3">
           
           <!-- Month Navigation Bar -->
-          <div class="bg-white p-3 carbon-border flex items-center justify-between">
-            <button onclick="changeCalMonth(-1)" class="carbon-border px-3 py-1 text-xs hover:bg-[#f4f4f4] font-mono">
+          <div class="bg-white p-3 sm:p-3.5 carbon-border flex items-center justify-between shadow-xs">
+            <button onclick="changeCalMonth(-1)" class="carbon-border px-3 py-1.5 text-xs hover:bg-[#f4f4f4] font-mono transition">
               &lt; 이전 달
             </button>
-            <div id="cal-month-title" class="text-sm font-semibold text-[#161616] font-mono">
+            <div id="cal-month-title" class="text-sm font-semibold text-[#161616] font-mono tracking-wide">
               2026년 10월
             </div>
-            <button onclick="changeCalMonth(1)" class="carbon-border px-3 py-1 text-xs hover:bg-[#f4f4f4] font-mono">
+            <button onclick="changeCalMonth(1)" class="carbon-border px-3 py-1.5 text-xs hover:bg-[#f4f4f4] font-mono transition">
               다음 달 &gt;
             </button>
           </div>
 
           <!-- 7-Column Calendar Grid Frame -->
-          <div class="bg-white carbon-border overflow-hidden">
+          <div class="bg-white carbon-border overflow-hidden shadow-xs">
             <!-- Weekday Headers -->
-            <div class="grid grid-cols-7 border-b border-[#e0e0e0] text-center text-[11px] font-medium bg-[#f4f4f4]">
-              <div class="py-2 text-[#da1e28]">일</div>
-              <div class="py-2 text-[#525252]">월</div>
-              <div class="py-2 text-[#525252]">화</div>
-              <div class="py-2 text-[#525252]">수</div>
-              <div class="py-2 text-[#525252]">목</div>
-              <div class="py-2 text-[#525252]">금</div>
-              <div class="py-2 text-[#0f62fe]">토</div>
+            <div class="grid grid-cols-7 border-b border-[#e0e0e0] text-center text-xs font-semibold bg-[#f4f4f4]">
+              <div class="py-2.5 text-[#da1e28]">일</div>
+              <div class="py-2.5 text-[#525252]">월</div>
+              <div class="py-2.5 text-[#525252]">화</div>
+              <div class="py-2.5 text-[#525252]">수</div>
+              <div class="py-2.5 text-[#525252]">목</div>
+              <div class="py-2.5 text-[#525252]">금</div>
+              <div class="py-2.5 text-[#0f62fe]">토</div>
             </div>
 
             <!-- Dynamic Date Cells Injection Container -->
@@ -641,17 +641,18 @@
           </div>
 
           <!-- Selected Date Details Panel -->
-          <div id="cal-selected-detail" class="bg-white p-4 carbon-border space-y-2 mb-6">
+          <div id="cal-selected-detail" class="bg-white p-4 carbon-border space-y-2.5 shadow-xs">
             <div class="flex justify-between items-center pb-2 border-b border-[#e0e0e0]">
-              <span id="detail-date-title" class="text-xs font-semibold text-[#161616]">2026. 10. 15 (오늘)</span>
-              <span id="detail-date-badge" class="text-[10px] bg-[#f4f4f4] text-[#525252] px-1.5 py-0.5 border border-[#e0e0e0]">선택됨</span>
+              <div id="detail-date-title" class="text-xs font-semibold text-[#161616] flex items-center gap-2">
+                <span>2026. 10. 15 (오늘)</span>
+              </div>
+              <span id="detail-date-badge" class="text-[10px] bg-[#f4f4f4] text-[#525252] px-1.5 py-0.5 border border-[#e0e0e0] font-mono">선택됨</span>
             </div>
             
             <div id="detail-events-content" class="text-xs text-[#525252] space-y-2">
               <!-- Rendered by JS -->
             </div>
           </div>
-          <div class="h-10"></div>
 
         </div>
 
@@ -720,7 +721,7 @@
                 <span class="font-mono text-[11px] font-semibold text-[#161616] whitespace-nowrap">'27. 1. 12 ~ 2. 12</span>
               </div>
 
-              <div class="p-3 flex items-start justify-between bg-[#ffffff]">
+              <div class="p-3.5 flex items-start justify-between bg-[#ffffff]">
                 <div class="space-y-0.5">
                   <span class="text-[10px] bg-[#24a148] text-white px-1.5 py-0.2 font-mono">정식 생도 임명</span>
                   <div class="font-bold text-[#161616]">입학식 (가족 초청)</div>
@@ -731,95 +732,94 @@
             </div>
           </div>
         </div>
-        <div class="h-10"></div>
 
       </section>
 
       <!-- ================= 5. MYPAGE SCREEN ================= -->
-      <section id="screen-mypage" class="screen-view p-4 space-y-4 hidden">
+      <section id="screen-mypage" class="screen-view px-2.5 sm:px-4 py-3 sm:py-4 space-y-3.5 hidden">
         
-        <div class="bg-[#161616] text-white p-5 carbon-border text-center space-y-3">
+        <div class="bg-[#161616] text-white p-5 sm:p-6 carbon-border text-center space-y-3 shadow-xs">
           <div class="flex justify-center">
-            <img src="kaay_emblem.png" alt="육군3사관학교 정모 엠블럼" class="w-20 h-20 object-contain drop-shadow">
+            <img src="kaay_emblem.png" alt="육군3사관학교 정모 엠블럼" class="w-20 h-20 sm:w-22 sm:h-22 object-contain drop-shadow-md">
           </div>
           <div>
-            <div class="text-xs text-[#f1c21b] font-medium tracking-wide">KOREA ARMY ACADEMY AT YEONG-CHEON</div>
-            <h2 class="text-xl font-light mt-0.5">충성대 64기 사관생도</h2>
-            <div class="text-xs text-[#8c8c8c] mt-0.5">2027년 1월 11일 가입교 예정</div>
+            <div class="text-xs text-[#f1c21b] font-medium tracking-wider">KOREA ARMY ACADEMY AT YEONG-CHEON</div>
+            <h2 class="text-xl sm:text-2xl font-light mt-1">충성대 64기 사관생도</h2>
+            <div class="text-xs text-[#a8a8a8] mt-1 font-mono">2027년 1월 11일 가입교 예정</div>
           </div>
-          <div class="text-xs text-[#f1c21b] font-light border-t border-[#393939] pt-2 leading-relaxed">
+          <div class="text-xs text-[#f1c21b] font-light border-t border-[#393939] pt-2.5 leading-relaxed">
             “국가에 충성을, 국민에 헌신을, 가슴에 큰 꿈을”<br>
-            <span class="text-white text-[10px]">교훈: 조국(祖國) · 명예(名譽) · 충용(忠勇)</span>
+            <span class="text-white text-[10px] tracking-wide">교훈: 조국(祖國) · 명예(名譽) · 충용(忠勇)</span>
           </div>
         </div>
 
         <!-- Real Best Records Matrix -->
-        <div class="bg-white p-4 carbon-border space-y-3">
+        <div class="bg-white p-4 sm:p-4.5 carbon-border space-y-3 shadow-xs">
           <div class="flex justify-between items-center">
             <span class="text-xs font-semibold text-[#161616]">내 실제 최고 기록 매트릭스</span>
-            <span class="text-[10px] text-[#525252]">자동 계산</span>
+            <span class="text-[10px] text-[#525252] bg-[#f4f4f4] px-1.5 py-0.5 border border-[#e0e0e0] font-mono">실시간 자동 집계</span>
           </div>
-          <div class="grid grid-cols-3 gap-2 text-center">
-            <div class="bg-[#f4f4f4] p-2.5 carbon-border">
-              <span class="block text-[10px] text-[#525252]">3km 달리기</span>
-              <span id="my-best-run" class="text-sm font-mono font-bold text-[#161616]">-</span>
-              <span id="my-best-run-badge" class="block text-[10px] text-[#8c8c8c] mt-0.5">미등록</span>
+          <div class="grid grid-cols-3 gap-2 sm:gap-2.5 text-center">
+            <div class="bg-[#f4f4f4] p-3 carbon-border flex flex-col justify-center">
+              <span class="block text-[10px] text-[#525252] font-medium">3km 달리기</span>
+              <span id="my-best-run" class="text-base font-mono font-bold text-[#161616] my-0.5">-</span>
+              <span id="my-best-run-badge" class="block text-[10px] text-[#8c8c8c]">미등록</span>
             </div>
-            <div class="bg-[#f4f4f4] p-2.5 carbon-border">
-              <span class="block text-[10px] text-[#525252]">팔굽혀펴기</span>
-              <span id="my-best-pushup" class="text-sm font-mono font-bold text-[#161616]">-</span>
-              <span id="my-best-pushup-badge" class="block text-[10px] text-[#8c8c8c] mt-0.5">미등록</span>
+            <div class="bg-[#f4f4f4] p-3 carbon-border flex flex-col justify-center">
+              <span class="block text-[10px] text-[#525252] font-medium">팔굽혀펴기</span>
+              <span id="my-best-pushup" class="text-base font-mono font-bold text-[#161616] my-0.5">-</span>
+              <span id="my-best-pushup-badge" class="block text-[10px] text-[#8c8c8c]">미등록</span>
             </div>
-            <div class="bg-[#f4f4f4] p-2.5 carbon-border">
-              <span class="block text-[10px] text-[#525252]">윗몸일으키기</span>
-              <span id="my-best-situp" class="text-sm font-mono font-bold text-[#161616]">-</span>
-              <span id="my-best-situp-badge" class="block text-[10px] text-[#8c8c8c] mt-0.5">미등록</span>
+            <div class="bg-[#f4f4f4] p-3 carbon-border flex flex-col justify-center">
+              <span class="block text-[10px] text-[#525252] font-medium">윗몸일으키기</span>
+              <span id="my-best-situp" class="text-base font-mono font-bold text-[#161616] my-0.5">-</span>
+              <span id="my-best-situp-badge" class="block text-[10px] text-[#8c8c8c]">미등록</span>
             </div>
           </div>
         </div>
 
-                <!-- Settings & Data Persistence List -->
-        <div class="bg-white carbon-border divide-y divide-[#e0e0e0] text-xs">
-          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer" onclick="toggleNoticeModal(true)">
-            <span>입학관리실 정정 공지문 원본 확인</span>
+        <!-- Settings & Data Persistence List -->
+        <div class="bg-white carbon-border divide-y divide-[#e0e0e0] text-xs shadow-xs">
+          <div class="p-3.5 sm:p-4 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer transition" onclick="toggleNoticeModal(true)">
+            <span class="font-medium text-[#161616]">입학관리실 정정 공지문 원본 확인</span>
             <span class="text-[#0f62fe] font-medium">보기 →</span>
           </div>
-          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer" onclick="exportBackupData()">
+          <div class="p-3.5 sm:p-4 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer transition" onclick="exportBackupData()">
             <div>
               <span class="font-medium text-[#161616]">내 기록 백업 다운로드 (.json)</span>
               <span class="block text-[10px] text-[#525252]">체력 기록 및 학습 데이터를 파일로 안전 보관</span>
             </div>
-            <span class="text-[#0f62fe] font-mono">내보내기 ⬇</span>
+            <span class="text-[#0f62fe] font-mono whitespace-nowrap">내보내기 ⬇</span>
           </div>
-          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer" onclick="document.getElementById('backup-file-input').click()">
+          <div class="p-3.5 sm:p-4 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer transition" onclick="document.getElementById('backup-file-input').click()">
             <div>
               <span class="font-medium text-[#161616]">백업 파일로 기록 복원하기</span>
               <span class="block text-[10px] text-[#525252]">이전에 저장한 JSON 파일에서 즉시 복구</span>
             </div>
-            <span class="text-[#24a148] font-mono">가져오기 ⬆</span>
+            <span class="text-[#24a148] font-mono whitespace-nowrap">가져오기 ⬆</span>
             <input type="file" id="backup-file-input" accept=".json" class="hidden" onchange="importBackupData(event)">
           </div>
-          <div class="p-3.5 flex justify-between items-center bg-[#fafafa]">
+          <div class="p-3.5 sm:p-4 flex justify-between items-center bg-[#fafafa]">
             <div>
               <span class="text-[#161616] font-medium">스토리지 영구 보존 엔진</span>
               <span class="block text-[10px] text-[#24a148]">IndexedDB + LocalStorage 듀얼 백업 활성</span>
             </div>
-            <span class="px-2 py-0.5 text-[10px] bg-[#24a148] text-white font-semibold">보존 중</span>
+            <span class="px-2 py-0.5 text-[10px] bg-[#24a148] text-white font-semibold whitespace-nowrap">보존 중</span>
           </div>
-          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer" onclick="clearMyData()">
-            <span class="text-[#da1e28]">내 체력 입력 기록 전체 초기화</span>
-            <span class="text-[#da1e28]">초기화</span>
+          <div class="p-3.5 sm:p-4 flex justify-between items-center hover:bg-[#fff1f1] cursor-pointer transition" onclick="clearMyData()">
+            <span class="text-[#da1e28] font-medium">내 체력 입력 기록 전체 초기화</span>
+            <span class="text-[#da1e28] text-[11px] font-mono whitespace-nowrap">초기화 ↺</span>
           </div>
         </div>
 
         <!-- Data Isolation & Privacy Information Card -->
-        <div class="bg-white p-4 carbon-border space-y-2">
+        <div class="bg-white p-4 sm:p-4.5 carbon-border space-y-2.5 shadow-xs">
           <div class="flex items-center justify-between">
             <span class="text-xs font-semibold text-[#161616] flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 bg-[#24a148] inline-block"></span>
+              <span class="w-2 h-2 bg-[#24a148] inline-block"></span>
               개인별 데이터 격리 및 자동 저장 안내
             </span>
-            <span class="text-[10px] bg-[#edf5ff] text-[#0f62fe] px-1.5 py-0.2 font-mono">100% 독립 격리</span>
+            <span class="text-[10px] bg-[#edf5ff] text-[#0f62fe] px-1.5 py-0.5 font-mono border border-[#d0e2ff]">100% 독립 격리</span>
           </div>
           <p class="text-xs text-[#525252] leading-relaxed">
             본 앱은 중앙 서버에 기록을 모으지 않고, <strong>각 동기들의 개별 스마트폰 내부 저장소(IndexedDB)</strong>에 안전하게 자동 저장됩니다.<br>
@@ -830,8 +830,6 @@
             <span id="mypage-record-count-badge" class="font-mono text-[#0f62fe] font-semibold">내 기록 0건 보관 중</span>
           </div>
         </div>
-
-        <div class="h-8"></div>
       </section>
 
     </main>
@@ -2915,19 +2913,9 @@
     "lc": "LC 구조 + Part 2 Who/Where",
     "files": [
       {
-        "name": "1 RC문법학습지 명사",
-        "file": "day01/Day01_1_RC문법학습지_명사.docx",
-        "type": "DOCX"
-      },
-      {
         "name": "1 RC문법학습지 명사 (Noun)",
         "file": "day01/Day01_1_RC문법학습지_명사_(Noun).docx",
         "type": "DOCX"
-      },
-      {
-        "name": "2 RC기출 원본발췌",
-        "file": "day01/Day01_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
       },
       {
         "name": "2 RC기출문제집 명사",
@@ -2935,38 +2923,18 @@
         "type": "DOCX"
       },
       {
-        "name": "3 LC학습지 LC 구조 + Part 2 Who   Where 의문문",
+        "name": "3 LC학습지 LC 구조 + Part 2 Who / Where 의문문",
         "file": "day01/Day01_3_LC학습지_LC_구조_+_Part_2_Who___Where_의문문.docx",
         "type": "DOCX"
       },
       {
-        "name": "3 LC학습지 Who Where",
-        "file": "day01/Day01_3_LC학습지_Who_Where.docx",
-        "type": "DOCX"
-      },
-      {
-        "name": "4 LC기출문제집 Part 2 Who   Where",
+        "name": "4 LC기출문제집 Part 2 Who / Where",
         "file": "day01/Day01_4_LC기출문제집_Part_2_Who___Where.docx",
-        "type": "DOCX"
-      },
-      {
-        "name": "4 LC기출문제집 Who Where",
-        "file": "day01/Day01_4_LC기출문제집_Who_Where.docx",
-        "type": "DOCX"
-      },
-      {
-        "name": "5 단어시험 RANK0001-0031",
-        "file": "day01/Day01_5_단어시험_RANK0001-0031.docx",
         "type": "DOCX"
       },
       {
         "name": "5 단어시험 RANK 0001 ~ 0031",
         "file": "day01/Day01_5_단어시험_RANK_0001_~_0031.docx",
-        "type": "DOCX"
-      },
-      {
-        "name": "5 단어장 RANK0001-0031",
-        "file": "day01/Day01_5_단어장_RANK0001-0031.docx",
         "type": "DOCX"
       },
       {
@@ -2986,11 +2954,6 @@
         "name": "1 RC문법학습지 대명사 (Pronoun)",
         "file": "day02/Day02_1_RC문법학습지_대명사_(Pronoun).docx",
         "type": "DOCX"
-      },
-      {
-        "name": "2 RC기출 원본발췌",
-        "file": "day02/Day02_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
       },
       {
         "name": "2 RC기출문제집 대명사",
@@ -3031,11 +2994,6 @@
         "type": "DOCX"
       },
       {
-        "name": "2 RC기출 원본발췌",
-        "file": "day03/Day03_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
-      },
-      {
         "name": "2 RC기출문제집 형용사",
         "file": "day03/Day03_2_RC기출문제집_형용사.docx",
         "type": "DOCX"
@@ -3072,11 +3030,6 @@
         "name": "1 RC문법학습지 부사 (Adverb)",
         "file": "day04/Day04_1_RC문법학습지_부사_(Adverb).docx",
         "type": "DOCX"
-      },
-      {
-        "name": "2 RC기출 원본발췌",
-        "file": "day04/Day04_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
       },
       {
         "name": "2 RC기출문제집 부사",
@@ -3117,11 +3070,6 @@
         "type": "DOCX"
       },
       {
-        "name": "2 RC기출 원본발췌",
-        "file": "day05/Day05_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
-      },
-      {
         "name": "2 RC기출문제집 동사 자리와 수일치",
         "file": "day05/Day05_2_RC기출문제집_동사_자리와_수일치.docx",
         "type": "DOCX"
@@ -3158,11 +3106,6 @@
         "name": "1 RC문법학습지 시제 (Tense)",
         "file": "day06/Day06_1_RC문법학습지_시제_(Tense).docx",
         "type": "DOCX"
-      },
-      {
-        "name": "2 RC기출 원본발췌",
-        "file": "day06/Day06_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
       },
       {
         "name": "2 RC기출문제집 시제",
@@ -3203,11 +3146,6 @@
         "type": "DOCX"
       },
       {
-        "name": "2 RC기출 원본발췌",
-        "file": "day07/Day07_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
-      },
-      {
         "name": "2 RC기출문제집 능동태 vs 수동태",
         "file": "day07/Day07_2_RC기출문제집_능동태_vs_수동태.docx",
         "type": "DOCX"
@@ -3244,11 +3182,6 @@
         "name": "1 RC문법학습지 to부정사 (To-infinitive)",
         "file": "day08/Day08_1_RC문법학습지_to부정사_(To-infinitive).docx",
         "type": "DOCX"
-      },
-      {
-        "name": "2 RC기출 원본발췌",
-        "file": "day08/Day08_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
       },
       {
         "name": "2 RC기출문제집 to부정사",
@@ -3289,11 +3222,6 @@
         "type": "DOCX"
       },
       {
-        "name": "2 RC기출 원본발췌",
-        "file": "day09/Day09_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
-      },
-      {
         "name": "2 RC기출문제집 동명사",
         "file": "day09/Day09_2_RC기출문제집_동명사.docx",
         "type": "DOCX"
@@ -3330,11 +3258,6 @@
         "name": "1 RC문법학습지 분사 (현재분사 vs 과거분사, 감정분사)",
         "file": "day10/Day10_1_RC문법학습지_분사_(현재분사_vs_과거분사,_감정분사).docx",
         "type": "DOCX"
-      },
-      {
-        "name": "2 RC기출 원본발췌",
-        "file": "day10/Day10_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
       },
       {
         "name": "2 RC기출문제집 분사",
@@ -3375,11 +3298,6 @@
         "type": "DOCX"
       },
       {
-        "name": "2 RC기출 원본발췌",
-        "file": "day11/Day11_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
-      },
-      {
         "name": "2 RC기출문제집 분사구문",
         "file": "day11/Day11_2_RC기출문제집_분사구문.docx",
         "type": "DOCX"
@@ -3416,11 +3334,6 @@
         "name": "1 RC문법학습지 전치사 1 시간·장소",
         "file": "day12/Day12_1_RC문법학습지_전치사_1_시간·장소.docx",
         "type": "DOCX"
-      },
-      {
-        "name": "2 RC기출 원본발췌",
-        "file": "day12/Day12_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
       },
       {
         "name": "2 RC기출문제집 전치사 1 시간·장소",
@@ -3461,11 +3374,6 @@
         "type": "DOCX"
       },
       {
-        "name": "2 RC기출 원본발췌",
-        "file": "day13/Day13_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
-      },
-      {
         "name": "2 RC기출문제집 전치사 2 이유·양보·기타",
         "file": "day13/Day13_2_RC기출문제집_전치사_2_이유·양보·기타.docx",
         "type": "DOCX"
@@ -3502,11 +3410,6 @@
         "name": "1 RC문법학습지 등위·상관접속사",
         "file": "day14/Day14_1_RC문법학습지_등위·상관접속사.docx",
         "type": "DOCX"
-      },
-      {
-        "name": "2 RC기출 원본발췌",
-        "file": "day14/Day14_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
       },
       {
         "name": "2 RC기출문제집 등위·상관접속사",
@@ -3547,11 +3450,6 @@
         "type": "DOCX"
       },
       {
-        "name": "2 RC기출 원본발췌",
-        "file": "day15/Day15_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
-      },
-      {
         "name": "2 RC기출문제집 부사절 접속사 vs 전치사",
         "file": "day15/Day15_2_RC기출문제집_부사절_접속사_vs_전치사.docx",
         "type": "DOCX"
@@ -3588,11 +3486,6 @@
         "name": "1 RC문법학습지 명사절 접속사 that·whether·what",
         "file": "day16/Day16_1_RC문법학습지_명사절_접속사_that·whether·what.docx",
         "type": "DOCX"
-      },
-      {
-        "name": "2 RC기출 원본발췌",
-        "file": "day16/Day16_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
       },
       {
         "name": "2 RC기출문제집 명사절 접속사 that·whether·what",
@@ -3633,11 +3526,6 @@
         "type": "DOCX"
       },
       {
-        "name": "2 RC기출 원본발췌",
-        "file": "day17/Day17_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
-      },
-      {
         "name": "2 RC기출문제집 관계대명사 who·which·that·whose",
         "file": "day17/Day17_2_RC기출문제집_관계대명사_who·which·that·whose.docx",
         "type": "DOCX"
@@ -3676,11 +3564,6 @@
         "type": "DOCX"
       },
       {
-        "name": "2 RC기출 원본발췌",
-        "file": "day18/Day18_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
-      },
-      {
         "name": "2 RC기출문제집 관계부사·복합관계사 where·when·whoever",
         "file": "day18/Day18_2_RC기출문제집_관계부사·복합관계사_where·when·whoever.docx",
         "type": "DOCX"
@@ -3717,11 +3600,6 @@
         "name": "1 RC문법학습지 비교구문 much 비교급·최상급",
         "file": "day19/Day19_1_RC문법학습지_비교구문_much_비교급·최상급.docx",
         "type": "DOCX"
-      },
-      {
-        "name": "2 RC기출 원본발췌",
-        "file": "day19/Day19_2_RC기출_원본발췌.pdf",
-        "type": "PDF"
       },
       {
         "name": "2 RC기출문제집 비교구문 much 비교급·최상급",
@@ -3831,9 +3709,25 @@
 
     function renderArchiveFiles(dayKey) {
       const info = archiveData[dayKey] || archiveData.day01;
-      const list = info.files || [];
+      let rawList = info.files || [];
       const container = document.getElementById('archive-files-list');
       if (!container) return;
+
+      // 1. 원본발췌 완전 제외 & 중복 제거 필터링
+      const seenNames = new Set();
+      const list = [];
+      rawList.forEach(item => {
+        if (!item || !item.name) return;
+        // RC 기출 원본 발췌 파일 배제
+        if (item.name.includes('원본발췌') || item.file.includes('원본발췌')) return;
+        
+        // 정규화된 키로 중복 방지
+        const normKey = item.name.replace(/\s+/g, '').toLowerCase();
+        if (!seenNames.has(normKey)) {
+          seenNames.add(normKey);
+          list.push(item);
+        }
+      });
 
       if (list.length === 0) {
         container.innerHTML = `
@@ -3847,7 +3741,7 @@
       }
 
       let html = `<div class="p-2 bg-[#f4f4f4] text-[11px] text-[#525252] flex justify-between items-center mb-1">
-        <span><strong>${info.label}</strong> (총 ${list.length}개 파일)</span>
+        <span><strong>${info.label}</strong> (핵심 ${list.length}종 학습자료)</span>
         <span class="text-[10px] text-[#0f62fe]">RC: ${info.rc} | LC: ${info.lc}</span>
       </div>`;
 
@@ -3960,7 +3854,7 @@
       for (let i = firstDayIndex - 1; i >= 0; i--) {
         const d = prevLastDay - i;
         const cell = document.createElement('div');
-        cell.className = "h-[70px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60 overflow-hidden";
+        cell.className = "h-[78px] sm:h-[84px] min-h-[78px] sm:min-h-[84px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60 overflow-hidden";
         cell.innerHTML = `<span class="text-[10px] font-mono">${d}</span>`;
         container.appendChild(cell);
       }
@@ -4030,7 +3924,7 @@
         }
 
         const cell = document.createElement('div');
-        let cellClass = "h-[70px] p-1 text-left cursor-pointer transition relative flex flex-col justify-between overflow-hidden ";
+        let cellClass = "h-[78px] sm:h-[84px] min-h-[78px] sm:min-h-[84px] p-1 text-left cursor-pointer transition relative flex flex-col justify-between overflow-hidden ";
         if (isSelected) {
           cellClass += "bg-[#edf5ff] ring-2 ring-[#0f62fe] z-10 ";
         } else if (isToday) {
@@ -4069,7 +3963,7 @@
       const nextDays = (7 - (totalCells % 7)) % 7;
       for (let i = 1; i <= nextDays; i++) {
         const cell = document.createElement('div');
-        cell.className = "h-[70px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60 overflow-hidden";
+        cell.className = "h-[78px] sm:h-[84px] min-h-[78px] sm:min-h-[84px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60 overflow-hidden";
         cell.innerHTML = `<span class="text-[10px] font-mono">${i}</span>`;
         container.appendChild(cell);
       }
@@ -4088,7 +3982,19 @@
       if (!titleEl || !contentEl) return;
 
       const isToday = (dateStr === new Date().toISOString().split('T')[0]);
-      titleEl.innerText = `${dateStr} ${isToday ? '(오늘)' : ''}`;
+      
+      // Calculate D-Day to Matriculation (2027-01-11)
+      const matricDate = new Date('2027-01-11T00:00:00');
+      const currDate = new Date(dateStr + 'T00:00:00');
+      const diffTime = matricDate - currDate;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const ddayText = diffDays > 0 ? `가입교 D-${diffDays}` : (diffDays === 0 ? '가입교 당일 (D-Day)' : `가입교 +${-diffDays}`);
+
+      titleEl.innerHTML = `
+        <span class="font-bold text-xs text-[#161616] font-mono">${dateStr}</span>
+        ${isToday ? '<span class="text-[10px] bg-[#161616] text-white px-1.5 py-0.2 font-mono font-medium">오늘</span>' : ''}
+        <span class="text-[10px] bg-[#edf5ff] text-[#0f62fe] px-1.5 py-0.2 font-mono border border-[#d0e2ff] font-medium">${ddayText}</span>
+      `;
 
       const matchedEvents = officialEvents.filter(ev => {
         return dateStr >= ev.start && dateStr <= ev.end;
