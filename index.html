@@ -104,7 +104,7 @@
     </nav>
 
     <!-- Main Content Area -->
-    <main class="flex-1 pb-20 overflow-y-auto">
+    <main class="flex-1 pb-36 overflow-y-auto">
       
       <!-- ================= 1. HOME SCREEN ================= -->
       <section id="screen-home" class="screen-view p-4 space-y-4">
@@ -218,6 +218,7 @@
             </div>
           </div>
         </div>
+        <div class="h-8"></div>
 
       </section>
 
@@ -326,6 +327,7 @@
             <div class="p-4 text-center text-[#8c8c8c]">등록된 실제 기록이 없습니다.</div>
           </div>
         </div>
+        <div class="h-8"></div>
       </section>
 
       <!-- ================= 3. TOEIC SCREEN ================= -->
@@ -545,8 +547,8 @@
               본 자료실은 귀하의 <code>toeic-daily</code> 레포지토리(Day 01 ~ Day 04 및 LC 실전 모의고사)와 1:1로 직접 연동되어 언제든 다운로드 및 학습이 가능합니다.
             </p>
           </div>
-
         </div>
+        <div class="h-8"></div>
 
       </section>
 
@@ -604,7 +606,7 @@
           </div>
 
           <!-- Selected Date Details Panel -->
-          <div id="cal-selected-detail" class="bg-white p-4 carbon-border space-y-2">
+          <div id="cal-selected-detail" class="bg-white p-4 carbon-border space-y-2 mb-6">
             <div class="flex justify-between items-center pb-2 border-b border-[#e0e0e0]">
               <span id="detail-date-title" class="text-xs font-semibold text-[#161616]">2026. 10. 15 (오늘)</span>
               <span id="detail-date-badge" class="text-[10px] bg-[#f4f4f4] text-[#525252] px-1.5 py-0.5 border border-[#e0e0e0]">선택됨</span>
@@ -614,6 +616,7 @@
               <!-- Rendered by JS -->
             </div>
           </div>
+          <div class="h-10"></div>
 
         </div>
 
@@ -693,6 +696,7 @@
             </div>
           </div>
         </div>
+        <div class="h-10"></div>
 
       </section>
 
@@ -772,36 +776,32 @@
             <span class="text-[#da1e28]">초기화</span>
           </div>
         </div>
-          <div class="p-3.5 flex justify-between items-center hover:bg-[#f4f4f4] cursor-pointer" onclick="clearMyData()">
-            <span class="text-[#da1e28]">내 체력 입력 기록 초기화</span>
-            <span class="text-[#da1e28]">초기화</span>
-          </div>
-        </div>
+        <div class="h-8"></div>
       </section>
 
     </main>
 
     <!-- Bottom Navigation Bar -->
-    <nav class="h-14 bg-white carbon-border-t fixed bottom-0 left-0 right-0 max-w-[440px] mx-auto grid grid-cols-5 z-40 text-[10px] text-[#525252]">
-      <button onclick="switchTab('home')" id="nav-home" class="flex flex-col items-center justify-center gap-1 text-[#0f62fe] font-medium border-t-2 border-[#0f62fe] bg-white">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M3 12l9-9 9 9M4 10v10h16V10"/></svg>
-        <span>홈</span>
+    <nav class="h-14 bg-white/95 backdrop-blur carbon-border-t fixed bottom-0 left-0 right-0 max-w-[440px] mx-auto grid grid-cols-5 z-40 text-[10px] text-[#525252] shadow-sm">
+      <button onclick="switchTab('home')" id="nav-home" class="flex flex-col items-center justify-center gap-0.5 text-[#0f62fe] font-semibold border-t-2 border-[#0f62fe] bg-white transition-colors">
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M3 12l9-9 9 9M4 10v10h16V10"/></svg>
+        <span class="whitespace-nowrap">홈</span>
       </button>
-      <button onclick="switchTab('fitness')" id="nav-fitness" class="flex flex-col items-center justify-center gap-1 border-t-2 border-transparent hover:text-[#161616]">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <span>체력</span>
+      <button onclick="switchTab('fitness')" id="nav-fitness" class="flex flex-col items-center justify-center gap-0.5 border-t-2 border-transparent hover:text-[#161616] transition-colors">
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <span class="whitespace-nowrap">체력</span>
       </button>
-      <button onclick="switchTab('toeic')" id="nav-toeic" class="flex flex-col items-center justify-center gap-1 border-t-2 border-transparent hover:text-[#161616]">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-        <span>토익</span>
+      <button onclick="switchTab('toeic')" id="nav-toeic" class="flex flex-col items-center justify-center gap-0.5 border-t-2 border-transparent hover:text-[#161616] transition-colors">
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="whitespace-nowrap">토익</span>
       </button>
-      <button onclick="switchTab('calendar')" id="nav-calendar" class="flex flex-col items-center justify-center gap-1 border-t-2 border-transparent hover:text-[#161616]">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        <span>일정/캘린더</span>
+      <button onclick="switchTab('calendar')" id="nav-calendar" class="flex flex-col items-center justify-center gap-0.5 border-t-2 border-transparent hover:text-[#161616] transition-colors">
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span class="whitespace-nowrap text-[9px] tracking-tighter">일정/캘린더</span>
       </button>
-      <button onclick="switchTab('mypage')" id="nav-mypage" class="flex flex-col items-center justify-center gap-1 border-t-2 border-transparent hover:text-[#161616]">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-        <span>마이</span>
+      <button onclick="switchTab('mypage')" id="nav-mypage" class="flex flex-col items-center justify-center gap-0.5 border-t-2 border-transparent hover:text-[#161616] transition-colors">
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        <span class="whitespace-nowrap">마이</span>
       </button>
     </nav>
 
@@ -828,25 +828,44 @@
   <script>
     function toggleNoticeModal(show) {
       const modal = document.getElementById('notice-modal');
-      if (show) modal.classList.remove('hidden');
-      else modal.classList.add('hidden');
+      if (modal) {
+        if (show) modal.classList.remove('hidden');
+        else modal.classList.add('hidden');
+      }
     }
 
     // Tab switching
     function switchTab(tabId) {
       document.querySelectorAll('.screen-view').forEach(el => el.classList.add('hidden'));
-      document.getElementById('screen-' + tabId).classList.remove('hidden');
+      const target = document.getElementById('screen-' + tabId);
+      if (target) target.classList.remove('hidden');
 
       const tabs = ['home', 'fitness', 'toeic', 'calendar', 'mypage'];
       tabs.forEach(t => {
         const btn = document.getElementById('nav-' + t);
-        if (t === tabId) {
-          btn.className = "flex flex-col items-center justify-center gap-1 text-[#0f62fe] font-medium border-t-2 border-[#0f62fe] bg-white";
-        } else {
-          btn.className = "flex flex-col items-center justify-center gap-1 border-t-2 border-transparent text-[#525252] hover:text-[#161616]";
+        if (btn) {
+          if (t === tabId) {
+            btn.className = "flex flex-col items-center justify-center gap-0.5 text-[#0f62fe] font-semibold border-t-2 border-[#0f62fe] bg-white transition-colors";
+          } else {
+            btn.className = "flex flex-col items-center justify-center gap-0.5 border-t-2 border-transparent text-[#525252] hover:text-[#161616] transition-colors";
+          }
         }
       });
+
+      // Tab-specific live renders
       if (tabId === 'fitness') renderFitnessUI();
+      if (tabId === 'calendar') renderCalendarGrid();
+      if (tabId === 'toeic') {
+        renderVocaCard();
+        const curDay = document.getElementById('archive-day-select')?.value || 'day01';
+        renderArchiveFiles(curDay);
+      }
+      if (tabId === 'mypage') updateMyPageMatrix();
+
+      // Reset scroll so newly viewed tab starts at the top
+      window.scrollTo(0, 0);
+      const mainEl = document.querySelector('main');
+      if (mainEl) mainEl.scrollTop = 0;
     }
 
     /* ========================================================
@@ -875,7 +894,7 @@
       currentFitnessMode = mode;
       ['run', 'pushup', 'situp'].forEach(m => {
         const btn = document.getElementById('f-tab-' + m);
-        btn.className = (m === mode) ? "py-2.5 tab-active" : "py-2.5 tab-inactive";
+        btn.className = (m === mode) ? "py-2.5 tab-active text-[11px] sm:text-xs font-semibold" : "py-2.5 tab-inactive text-[11px] sm:text-xs";
       });
 
       const runGroup = document.getElementById('run-input-group');
@@ -3352,7 +3371,7 @@
 
     function switchToeicModule(mod) {
       ['voca', 'rc', 'archive'].forEach(m => {
-        document.getElementById('t-mod-' + m).className = (m === mod) ? "py-2.5 tab-active" : "py-2.5 tab-inactive";
+        document.getElementById('t-mod-' + m).className = (m === mod) ? "py-2.5 tab-active text-[11px] sm:text-xs font-semibold" : "py-2.5 tab-inactive text-[11px] sm:text-xs";
       });
 
       const vocaBox = document.getElementById('toeic-voca-container');
@@ -3383,13 +3402,13 @@
     let selectedCalDate = "2026-10-15";
 
     const officialEvents = [
-      { start: "2026-09-28", end: "2026-10-08", title: "가입교 중대 편성/공지", badge: "bg-[#24a148] text-white", short: "중대편성" },
-      { start: "2026-10-16", end: "2026-11-08", title: "합격자 OT 참석인원 파악 (중대별)", badge: "bg-[#0f62fe] text-white font-bold", short: "OT파악" },
-      { start: "2026-11-28", end: "2026-11-28", title: "1차 오리엔테이션 (가족초청 / 제복 치수재기)", badge: "bg-[#0f62fe] text-white font-bold", short: "1차 OT" },
-      { start: "2026-12-19", end: "2026-12-19", title: "2차 오리엔테이션 (가족초청 / 제복 치수재기)", badge: "bg-[#0f62fe] text-white font-bold", short: "2차 OT" },
-      { start: "2027-01-11", end: "2027-01-11", title: "★ 64기 충성대 가입교 (가족 초청)", badge: "bg-[#f1c21b] text-black font-bold border border-black", short: "가입교!" },
-      { start: "2027-01-12", end: "2027-02-12", title: "충성기초훈련 (5주간 군사훈련)", badge: "bg-[#da1e28] text-white", short: "기초훈련" },
-      { start: "2027-02-19", end: "2027-02-19", title: "64기 정식 입학식 (사관생도 임명)", badge: "bg-[#24a148] text-white font-bold", short: "입학식" }
+      { start: "2026-09-28", end: "2026-10-08", title: "가입교 중대 편성 / 공지", badge: "bg-[#24a148] text-white", barColor: "bg-[#24a148]", short: "중대편성" },
+      { start: "2026-10-16", end: "2026-11-08", title: "합격자 OT 참석인원 파악 (중대별)", badge: "bg-[#0f62fe] text-white", barColor: "bg-[#0f62fe]", short: "OT파악" },
+      { start: "2026-11-28", end: "2026-11-28", title: "1차 오리엔테이션 (가족초청 / 제복 치수재기)", badge: "bg-[#0f62fe] text-white font-bold", barColor: "bg-[#0f62fe]", short: "1차 OT" },
+      { start: "2026-12-19", end: "2026-12-19", title: "2차 오리엔테이션 (가족초청 / 제복 치수재기)", badge: "bg-[#0f62fe] text-white font-bold", barColor: "bg-[#0f62fe]", short: "2차 OT" },
+      { start: "2027-01-11", end: "2027-01-11", title: "★ 64기 충성대 가입교 (가족 초청)", badge: "bg-[#f1c21b] text-black font-bold border border-black", barColor: "bg-[#f1c21b]", short: "★가입교" },
+      { start: "2027-01-12", end: "2027-02-12", title: "충성기초훈련 (5주간 군사훈련)", badge: "bg-[#da1e28] text-white", barColor: "bg-[#da1e28]", short: "기초훈련" },
+      { start: "2027-02-19", end: "2027-02-19", title: "64기 정식 입학식 (사관생도 임명)", badge: "bg-[#24a148] text-white font-bold", barColor: "bg-[#24a148]", short: "★입학식" }
     ];
 
     function switchCalendarView(mode) {
@@ -3399,22 +3418,14 @@
       const listView = document.getElementById('cal-list-view');
 
       if (mode === 'grid') {
-        gridBtn.className = "py-2.5 tab-active";
-        listBtn.className = "py-2.5 tab-inactive";
+        gridBtn.className = "py-2.5 tab-active text-xs font-semibold";
+        listBtn.className = "py-2.5 tab-inactive text-xs";
         gridView.classList.remove('hidden');
         listView.classList.add('hidden');
         renderCalendarGrid();
-      // Request persistent storage permission
-      if (navigator.storage && navigator.storage.persist) {
-        navigator.storage.persist().then(granted => {
-          if (granted) console.log('Storage will not be cleared by the browser');
-        });
-      }
-      restoreFromIndexedDBIfEmpty();
-
       } else {
-        gridBtn.className = "py-2.5 tab-inactive";
-        listBtn.className = "py-2.5 tab-active";
+        gridBtn.className = "py-2.5 tab-inactive text-xs";
+        listBtn.className = "py-2.5 tab-active text-xs font-semibold";
         gridView.classList.add('hidden');
         listView.classList.remove('hidden');
       }
@@ -3430,14 +3441,6 @@
         currentCalYear++;
       }
       renderCalendarGrid();
-      // Request persistent storage permission
-      if (navigator.storage && navigator.storage.persist) {
-        navigator.storage.persist().then(granted => {
-          if (granted) console.log('Storage will not be cleared by the browser');
-        });
-      }
-      restoreFromIndexedDBIfEmpty();
-
     }
 
     function renderCalendarGrid() {
@@ -3460,7 +3463,7 @@
       for (let i = firstDayIndex - 1; i >= 0; i--) {
         const d = prevLastDay - i;
         const cell = document.createElement('div');
-        cell.className = "min-h-[64px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60";
+        cell.className = "h-[70px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60 overflow-hidden";
         cell.innerHTML = `<span class="text-[10px] font-mono">${d}</span>`;
         container.appendChild(cell);
       }
@@ -3488,12 +3491,55 @@
         // Check user fitness records
         const myRecs = userRecords.filter(r => r.date === dateStr);
 
+        let eventHtml = '';
+        let cellBg = '';
+
+        if (matchedEvents.length > 0) {
+          const ev = matchedEvents[0];
+          const isSingle = (ev.start === ev.end);
+          const isStart = (dateStr === ev.start);
+          const isEnd = (dateStr === ev.end);
+
+          if (isSingle) {
+            eventHtml = `
+              <div class="text-[8px] px-1 py-0.5 truncate font-bold text-center leading-tight ${ev.badge}">
+                ${ev.short}
+              </div>
+            `;
+            cellBg = 'bg-[#fffbeb]';
+          } else if (isStart) {
+            eventHtml = `
+              <div class="text-[7.5px] px-0.5 py-0.5 truncate font-bold leading-tight text-white bg-[#0f62fe]">
+                ▶ ${ev.short}
+              </div>
+            `;
+            cellBg = 'bg-[#edf5ff]';
+          } else if (isEnd) {
+            eventHtml = `
+              <div class="text-[7.5px] px-0.5 py-0.5 truncate font-semibold leading-tight text-white bg-[#525252]">
+                ◀ 마감
+              </div>
+            `;
+            cellBg = 'bg-[#f4f4f4]';
+          } else {
+            // 기간 진행 중: 지저분한 중복 텍스트 대신 깔끔하고 명확한 연결 바 표시
+            eventHtml = `
+              <div class="w-full flex items-center justify-center my-0.5" title="${ev.title}">
+                <div class="h-1.5 w-full ${ev.barColor} opacity-70"></div>
+              </div>
+            `;
+            cellBg = 'bg-[#f8faff]';
+          }
+        }
+
         const cell = document.createElement('div');
-        let cellClass = "min-h-[64px] p-1 text-left cursor-pointer transition relative flex flex-col justify-between ";
+        let cellClass = "h-[70px] p-1 text-left cursor-pointer transition relative flex flex-col justify-between overflow-hidden ";
         if (isSelected) {
           cellClass += "bg-[#edf5ff] ring-2 ring-[#0f62fe] z-10 ";
         } else if (isToday) {
-          cellClass += "bg-[#f4f4f4] ";
+          cellClass += "bg-[#e8f0fe] font-semibold ";
+        } else if (cellBg) {
+          cellClass += cellBg + " hover:bg-[#edf5ff] ";
         } else {
           cellClass += "bg-white hover:bg-[#f9f9f9] ";
         }
@@ -3506,17 +3552,8 @@
             <span class="text-xs font-mono font-medium ${numColor} ${isToday ? 'bg-[#161616] text-white px-1 font-bold' : ''}">${day}</span>
             ${myRecs.length > 0 ? '<span class="w-1.5 h-1.5 bg-[#24a148] inline-block" title="체력 기록 완료"></span>' : ''}
           </div>
+          ${eventHtml}
         `;
-
-        // Event Badge on cell
-        if (matchedEvents.length > 0) {
-          const ev = matchedEvents[0];
-          inner += `
-            <div class="text-[8px] px-1 py-0.2 mt-0.5 truncate font-medium ${ev.badge}">
-              ${ev.short}
-            </div>
-          `;
-        }
 
         if (myRecs.length > 0) {
           inner += `
@@ -3535,7 +3572,7 @@
       const nextDays = (7 - (totalCells % 7)) % 7;
       for (let i = 1; i <= nextDays; i++) {
         const cell = document.createElement('div');
-        cell.className = "min-h-[64px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60";
+        cell.className = "h-[70px] p-1 text-left bg-[#fafafa] text-[#c6c6c6] opacity-60 overflow-hidden";
         cell.innerHTML = `<span class="text-[10px] font-mono">${i}</span>`;
         container.appendChild(cell);
       }
@@ -3546,14 +3583,6 @@
     function selectCalendarDate(dateStr) {
       selectedCalDate = dateStr;
       renderCalendarGrid();
-      // Request persistent storage permission
-      if (navigator.storage && navigator.storage.persist) {
-        navigator.storage.persist().then(granted => {
-          if (granted) console.log('Storage will not be cleared by the browser');
-        });
-      }
-      restoreFromIndexedDBIfEmpty();
-
     }
 
     function renderDateDetail(dateStr) {
@@ -3575,11 +3604,17 @@
       // 1. Official Events
       if (matchedEvents.length > 0) {
         matchedEvents.forEach(ev => {
+          const isOngoing = (ev.start !== ev.end);
           html += `
-            <div class="p-2.5 bg-[#edf5ff] border-l-2 border-[#0f62fe] space-y-0.5">
-              <span class="text-[10px] font-mono text-[#0f62fe] font-semibold">육군3사관학교 공식 학사일정</span>
-              <div class="font-medium text-xs text-[#161616]">${ev.title}</div>
-              <div class="text-[10px] text-[#525252]">기간: ${ev.start} ~ ${ev.end}</div>
+            <div class="p-3 bg-[#edf5ff] border-l-4 border-[#0f62fe] space-y-1">
+              <div class="flex justify-between items-center">
+                <span class="text-[10px] font-mono text-[#0f62fe] font-bold">육군3사관학교 공식 학사일정</span>
+                <span class="text-[10px] ${isOngoing ? 'bg-[#0f62fe] text-white' : 'bg-[#161616] text-white'} px-1.5 py-0.2 font-mono">
+                  ${isOngoing ? '진행 기간' : '핵심 D-Day'}
+                </span>
+              </div>
+              <div class="font-semibold text-xs text-[#161616]">${ev.title}</div>
+              <div class="text-[11px] text-[#525252]">기간: ${ev.start} ~ ${ev.end}</div>
             </div>
           `;
         });
@@ -3590,9 +3625,9 @@
         userRecords.forEach(r => {
           const modeLabel = r.mode === 'run' ? '3km 달리기' : (r.mode === 'pushup' ? '팔굽혀펴기' : '윗몸일으키기');
           html += `
-            <div class="p-2.5 bg-[#f4f4f4] border-l-2 border-[#24a148] flex justify-between items-center">
+            <div class="p-3 bg-[#f4f4f4] border-l-4 border-[#24a148] flex justify-between items-center">
               <div>
-                <span class="text-[10px] text-[#24a148] font-mono font-semibold">내 체력 측정 기록</span>
+                <span class="text-[10px] text-[#24a148] font-mono font-bold">내 실제 체력 측정 기록</span>
                 <div class="font-semibold text-xs text-[#161616]">${modeLabel}: ${r.valDisplay}</div>
               </div>
               <span class="px-2 py-0.5 text-xs font-semibold text-white ${r.badgeClass}">${r.grade}</span>
@@ -3601,21 +3636,21 @@
         });
       }
 
-      // Empty State with Action Button
+      // Empty State or Action Button
       if (matchedEvents.length === 0 && userRecords.length === 0) {
         html = `
-          <div class="p-4 text-center space-y-2">
+          <div class="p-4 text-center space-y-2.5 bg-[#fafafa] border border-[#e0e0e0]">
             <p class="text-xs text-[#8c8c8c]">등록된 공식 일정 또는 체력 기록이 없습니다.</p>
-            <button onclick="goToFitnessWithDate('${dateStr}')" class="carbon-blue-btn text-xs px-3 py-1.5 font-medium">
+            <button onclick="goToFitnessWithDate('${dateStr}')" class="carbon-blue-btn text-xs px-4 py-2 font-medium">
               + 이 날짜로 체력 기록 입력하기
             </button>
           </div>
         `;
-      } else if (userRecords.length === 0) {
+      } else {
         html += `
-          <div class="pt-1 flex justify-end">
-            <button onclick="goToFitnessWithDate('${dateStr}')" class="text-xs text-[#0f62fe] hover:underline">
-              + 이 날짜에 내 체력 기록도 추가하기 →
+          <div class="pt-2 flex justify-end">
+            <button onclick="goToFitnessWithDate('${dateStr}')" class="carbon-blue-btn text-xs px-3 py-1.5 font-medium flex items-center gap-1">
+              + 이 날짜에 체력 기록 추가 <span>→</span>
             </button>
           </div>
         `;
