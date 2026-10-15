@@ -225,22 +225,57 @@
       <!-- ================= 2. FITNESS SCREEN ================= -->
       <section id="screen-fitness" class="screen-view p-4 space-y-4 hidden">
         <div>
-          <h2 class="text-xl font-light text-[#161616]">체력 관리실</h2>
+          <div class="flex justify-between items-baseline">
+            <h2 class="text-xl font-light text-[#161616]">체력 관리실</h2>
+            <button onclick="toggleFitnessCriteriaModal(true)" class="text-xs text-[#0f62fe] font-medium underline flex items-center gap-1 hover:text-[#0043ce]">
+              <span>[별표 31] 기준표 보기</span>
+            </button>
+          </div>
           <p class="text-xs text-[#525252]">육군 3종목 실제 기록 입력 (과거 측정 기록 기입 가능)</p>
+        </div>
+
+        <!-- Cadet Profile Setting Card (성별 및 연령대 설정) -->
+        <div class="bg-white p-3.5 carbon-border space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-semibold text-[#161616] flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 bg-[#0f62fe] inline-block"></span>
+              내 평가 기준 설정 (기기별 자동 독립 저장)
+            </span>
+            <span class="text-[10px] bg-[#e5f6ff] text-[#0043ce] px-1.5 py-0.2 font-mono">100% 개인 격리</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div>
+              <label class="block text-[10px] text-[#525252] mb-1">성별 구분</label>
+              <select id="user-gender-select" onchange="changeCadetProfile()" class="carbon-input w-full p-2 text-xs font-medium">
+                <option value="male" selected>남군 (표준)</option>
+                <option value="female">여군</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[10px] text-[#525252] mb-1">연령대 구분</label>
+              <select id="user-age-select" onchange="changeCadetProfile()" class="carbon-input w-full p-2 text-xs font-medium">
+                <option value="25under" selected>25세 이하 (생도 표준)</option>
+                <option value="26to30">26 ~ 30세</option>
+                <option value="31to35">31 ~ 35세</option>
+                <option value="36to40">36 ~ 40세</option>
+                <option value="41over">41세 이상</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         <!-- 3-Tab Component -->
         <div class="grid grid-cols-3 carbon-border-b text-center text-xs">
-          <button id="f-tab-run" class="py-2.5 tab-active" onclick="selectFitnessTab('run')">3km 달리기</button>
-          <button id="f-tab-pushup" class="py-2.5 tab-inactive" onclick="selectFitnessTab('pushup')">팔굽혀펴기 (2분)</button>
-          <button id="f-tab-situp" class="py-2.5 tab-inactive" onclick="selectFitnessTab('situp')">윗몸일으키기 (2분)</button>
+          <button id="f-tab-run" class="py-2.5 tab-active text-[11px] sm:text-xs font-semibold" onclick="selectFitnessTab('run')">3km 달리기</button>
+          <button id="f-tab-pushup" class="py-2.5 tab-inactive text-[11px] sm:text-xs" onclick="selectFitnessTab('pushup')">팔굽혀펴기 (2분)</button>
+          <button id="f-tab-situp" class="py-2.5 tab-inactive text-[11px] sm:text-xs" onclick="selectFitnessTab('situp')">윗몸일으키기 (2분)</button>
         </div>
 
         <!-- Actual Record Entry Form -->
         <div class="bg-white p-4 carbon-border space-y-3">
           <div class="flex justify-between items-center pb-2 border-b border-[#e0e0e0]">
             <span class="text-xs font-semibold text-[#161616]">측정 기록 입력 (과거 날짜 선택 가능)</span>
-            <span id="criteria-hint" class="text-[11px] text-[#0f62fe] font-medium">특급: 12분 30초 이하</span>
+            <span id="criteria-hint" class="text-[11px] text-[#0f62fe] font-medium font-mono">[남군] 특급: 12분 30초 이하</span>
           </div>
 
           <!-- 측정 날짜 선택 -->
@@ -776,6 +811,26 @@
             <span class="text-[#da1e28]">초기화</span>
           </div>
         </div>
+
+        <!-- Data Isolation & Privacy Information Card -->
+        <div class="bg-white p-4 carbon-border space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-[#161616] flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 bg-[#24a148] inline-block"></span>
+              개인별 데이터 격리 및 자동 저장 안내
+            </span>
+            <span class="text-[10px] bg-[#edf5ff] text-[#0f62fe] px-1.5 py-0.2 font-mono">100% 독립 격리</span>
+          </div>
+          <p class="text-xs text-[#525252] leading-relaxed">
+            본 앱은 중앙 서버에 기록을 모으지 않고, <strong>각 동기들의 개별 스마트폰 내부 저장소(IndexedDB)</strong>에 안전하게 자동 저장됩니다.<br>
+            따라서 다른 동기들이 링크로 접속해 기록을 입력해도, <strong>서로의 기록이 절대 간섭되거나 섞이지 않고 각자의 폰에만 독립 보관</strong>됩니다.
+          </p>
+          <div class="pt-2 border-t border-[#e0e0e0] flex items-center justify-between text-[11px]">
+            <span class="text-[#525252]">현재 기기 보관 상태:</span>
+            <span id="mypage-record-count-badge" class="font-mono text-[#0f62fe] font-semibold">내 기록 0건 보관 중</span>
+          </div>
+        </div>
+
         <div class="h-8"></div>
       </section>
 
@@ -823,11 +878,91 @@
       </div>
     </div>
 
+    <!-- Modal for Fitness Criteria [별표 31] Image & Reference -->
+    <div id="fitness-criteria-modal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden" onclick="toggleFitnessCriteriaModal(false)">
+      <div class="bg-white max-w-sm w-full max-h-[90vh] overflow-y-auto carbon-border flex flex-col" onclick="event.stopPropagation()">
+        <div class="h-10 px-4 bg-[#161616] text-white flex items-center justify-between sticky top-0 z-10">
+          <span class="text-xs font-semibold">[별표 31] 체력검정 기준표 (제389조 관련)</span>
+          <button onclick="toggleFitnessCriteriaModal(false)" class="text-sm font-bold text-[#c6c6c6] hover:text-white">✕</button>
+        </div>
+        <div class="p-3 space-y-3 text-xs">
+          <!-- Guide -->
+          <div class="bg-[#edf5ff] p-2.5 border-l-2 border-[#0f62fe] text-[11px] text-[#161616] space-y-0.5">
+            <span class="font-bold text-[#0f62fe] block">육군 사관생도 체력 판정 공식 기준</span>
+            <p class="text-[#525252]">체력 관리실에서 선택하신 성별(남군/여군) 및 연령대(25세 이하 등)에 맞춰 자동으로 판정됩니다.</p>
+          </div>
+
+          <!-- Official Image View -->
+          <div class="carbon-border overflow-hidden bg-neutral-900">
+            <img src="fitness_criteria.jpg" alt="체력검정 기준표 제389조 관련 별표 31" class="w-full h-auto object-contain">
+          </div>
+
+          <!-- Quick Text Reference Table for 25세 이하 표준 -->
+          <div class="space-y-2">
+            <div class="font-bold text-[#161616] flex items-center justify-between">
+              <span>25세 이하 (생도 표준) 빠른 기준</span>
+              <span class="text-[10px] text-[#8c8c8c] font-mono">특급 기준</span>
+            </div>
+            
+            <div class="divide-y divide-[#e0e0e0] border border-[#e0e0e0] text-[11px]">
+              <div class="p-2 bg-[#f4f4f4] font-semibold text-[#161616] flex justify-between">
+                <span>남군 25세 이하</span>
+                <span class="text-[#24a148]">특급</span>
+              </div>
+              <div class="p-2 flex justify-between">
+                <span>3km 달리기</span>
+                <span class="font-mono font-bold text-[#0f62fe]">12분 30초 이하</span>
+              </div>
+              <div class="p-2 flex justify-between">
+                <span>팔굽혀펴기 (2분)</span>
+                <span class="font-mono font-bold text-[#0f62fe]">72회 이상</span>
+              </div>
+              <div class="p-2 flex justify-between">
+                <span>윗몸일으키기 (2분)</span>
+                <span class="font-mono font-bold text-[#0f62fe]">86회 이상</span>
+              </div>
+
+              <div class="p-2 bg-[#f4f4f4] font-semibold text-[#161616] flex justify-between">
+                <span>여군 25세 이하</span>
+                <span class="text-[#24a148]">특급</span>
+              </div>
+              <div class="p-2 flex justify-between">
+                <span>3km 달리기</span>
+                <span class="font-mono font-bold text-[#0f62fe]">15분 00초 이하</span>
+              </div>
+              <div class="p-2 flex justify-between">
+                <span>팔굽혀펴기 (2분)</span>
+                <span class="font-mono font-bold text-[#0f62fe]">35회 이상</span>
+              </div>
+              <div class="p-2 flex justify-between">
+                <span>윗몸일으키기 (2분)</span>
+                <span class="font-mono font-bold text-[#0f62fe]">71회 이상</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-3 bg-white border-t border-[#e0e0e0] flex justify-end sticky bottom-0">
+          <button onclick="toggleFitnessCriteriaModal(false)" class="carbon-blue-btn text-xs px-4 py-2 font-medium">
+            닫기
+          </button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script>
     function toggleNoticeModal(show) {
       const modal = document.getElementById('notice-modal');
+      if (modal) {
+        if (show) modal.classList.remove('hidden');
+        else modal.classList.add('hidden');
+      }
+    }
+
+    function toggleFitnessCriteriaModal(show) {
+      const modal = document.getElementById('fitness-criteria-modal');
       if (modal) {
         if (show) modal.classList.remove('hidden');
         else modal.classList.add('hidden');
@@ -869,6 +1004,376 @@
     }
 
     /* ========================================================
+       CADET PROFILE & [별표 31] FITNESS STANDARDS ENGINE
+       ======================================================== */
+    const CADET_PROFILE_KEY = 'KAAY_CADET_PROFILE';
+
+    function getCadetProfile() {
+      try {
+        const raw = localStorage.getItem(CADET_PROFILE_KEY);
+        if (raw) return JSON.parse(raw);
+      } catch (e) {}
+      return { gender: 'male', age: '25under' };
+    }
+
+    function saveCadetProfile(prof) {
+      try {
+        localStorage.setItem(CADET_PROFILE_KEY, JSON.stringify(prof));
+      } catch (e) {}
+    }
+
+    function changeCadetProfile() {
+      const g = document.getElementById('user-gender-select')?.value || 'male';
+      const a = document.getElementById('user-age-select')?.value || '25under';
+      const cur = getCadetProfile();
+      cur.gender = g;
+      cur.age = a;
+      saveCadetProfile(cur);
+      updateFitnessHint();
+      renderFitnessUI();
+      updateMyPageMatrix();
+    }
+
+    // 육군 체력검정 기준표(제389조 관련) [별표 31] 정밀 데이터셋
+    const FITNESS_CRITERIA = {
+      male: {
+        "25under": {
+          run: {
+            hint: "특급: 12분 30초 이하 | 1급: 13분 32초 이하",
+            calc: (sec) => {
+              if (sec <= 12 * 60 + 30) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (sec <= 13 * 60 + 32) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (sec <= 14 * 60 + 34) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (sec <= 15 * 60 + 36) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          pushup: {
+            hint: "특급: 72회 이상 | 1급: 64~71회",
+            calc: (reps) => {
+              if (reps >= 72) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 64) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 56) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 48) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          situp: {
+            hint: "특급: 86회 이상 | 1급: 78~85회",
+            calc: (reps) => {
+              if (reps >= 86) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 78) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 70) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 62) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          }
+        },
+        "26to30": {
+          run: {
+            hint: "특급: 12분 45초 이하 | 1급: 13분 52초 이하",
+            calc: (sec) => {
+              if (sec <= 12 * 60 + 45) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (sec <= 13 * 60 + 52) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (sec <= 14 * 60 + 59) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (sec <= 16 * 60 + 6) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          pushup: {
+            hint: "특급: 70회 이상 | 1급: 62~69회",
+            calc: (reps) => {
+              if (reps >= 70) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 62) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 54) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 46) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          situp: {
+            hint: "특급: 84회 이상 | 1급: 76~83회",
+            calc: (reps) => {
+              if (reps >= 84) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 76) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 68) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 60) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          }
+        },
+        "31to35": {
+          run: {
+            hint: "특급: 13분 00초 이하 | 1급: 14분 12초 이하",
+            calc: (sec) => {
+              if (sec <= 13 * 60) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (sec <= 14 * 60 + 12) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (sec <= 15 * 60 + 24) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (sec <= 16 * 60 + 36) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          pushup: {
+            hint: "특급: 68회 이상 | 1급: 60~67회",
+            calc: (reps) => {
+              if (reps >= 68) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 60) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 52) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 44) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          situp: {
+            hint: "특급: 80회 이상 | 1급: 72~79회",
+            calc: (reps) => {
+              if (reps >= 80) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 72) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 65) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 57) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          }
+        },
+        "36to40": {
+          run: {
+            hint: "특급: 13분 15초 이하 | 1급: 14분 32초 이하",
+            calc: (sec) => {
+              if (sec <= 13 * 60 + 15) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (sec <= 14 * 60 + 32) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (sec <= 15 * 60 + 49) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (sec <= 17 * 60 + 6) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          pushup: {
+            hint: "특급: 65회 이상 | 1급: 57~64회",
+            calc: (reps) => {
+              if (reps >= 65) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 57) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 49) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 41) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          situp: {
+            hint: "특급: 76회 이상 | 1급: 68~75회",
+            calc: (reps) => {
+              if (reps >= 76) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 68) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 60) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 52) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          }
+        },
+        "41over": {
+          run: {
+            hint: "특급: 13분 30초 이하 | 1급: 14분 49초 이하",
+            calc: (sec) => {
+              if (sec <= 13 * 60 + 30) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (sec <= 14 * 60 + 49) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (sec <= 16 * 60 + 7) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (sec <= 17 * 60 + 26) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          pushup: {
+            hint: "특급: 61회 이상 | 1급: 53~60회",
+            calc: (reps) => {
+              if (reps >= 61) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 53) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 45) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 37) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          situp: {
+            hint: "특급: 72회 이상 | 1급: 64~71회",
+            calc: (reps) => {
+              if (reps >= 72) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 64) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 56) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 48) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          }
+        }
+      },
+      female: {
+        "25under": {
+          run: {
+            hint: "특급: 15분 00초 이하 | 1급: 16분 14초 이하",
+            calc: (sec) => {
+              if (sec <= 15 * 60) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (sec <= 16 * 60 + 14) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (sec <= 17 * 60 + 29) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (sec <= 18 * 60 + 43) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          pushup: {
+            hint: "특급: 35회 이상 | 1급: 31~34회",
+            calc: (reps) => {
+              if (reps >= 35) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 31) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 27) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 23) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          situp: {
+            hint: "특급: 71회 이상 | 1급: 63~70회",
+            calc: (reps) => {
+              if (reps >= 71) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 63) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 55) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 47) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          }
+        },
+        "26to30": {
+          run: {
+            hint: "특급: 15분 18초 이하 | 1급: 16분 38초 이하",
+            calc: (sec) => {
+              if (sec <= 15 * 60 + 18) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (sec <= 16 * 60 + 38) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (sec <= 17 * 60 + 59) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (sec <= 19 * 60 + 19) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          pushup: {
+            hint: "특급: 33회 이상 | 1급: 29~32회",
+            calc: (reps) => {
+              if (reps >= 33) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 29) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 26) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 22) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          situp: {
+            hint: "특급: 68회 이상 | 1급: 60~67회",
+            calc: (reps) => {
+              if (reps >= 68) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 60) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 52) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 45) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          }
+        },
+        "31to35": {
+          run: {
+            hint: "특급: 15분 36초 이하 | 1급: 17분 02초 이하",
+            calc: (sec) => {
+              if (sec <= 15 * 60 + 36) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (sec <= 17 * 60 + 2) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (sec <= 18 * 60 + 29) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (sec <= 19 * 60 + 55) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          pushup: {
+            hint: "특급: 31회 이상 | 1급: 27~30회",
+            calc: (reps) => {
+              if (reps >= 31) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 27) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 23) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 20) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          situp: {
+            hint: "특급: 66회 이상 | 1급: 58~65회",
+            calc: (reps) => {
+              if (reps >= 66) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 58) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 50) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 42) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          }
+        },
+        "36to40": {
+          run: {
+            hint: "특급: 15분 54초 이하 | 1급: 17분 26초 이하",
+            calc: (sec) => {
+              if (sec <= 15 * 60 + 54) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (sec <= 17 * 60 + 26) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (sec <= 18 * 60 + 59) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (sec <= 20 * 60 + 31) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          pushup: {
+            hint: "특급: 29회 이상 | 1급: 25~28회",
+            calc: (reps) => {
+              if (reps >= 29) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 25) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 22) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 18) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          situp: {
+            hint: "특급: 63회 이상 | 1급: 55~62회",
+            calc: (reps) => {
+              if (reps >= 63) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 55) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 47) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 39) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          }
+        },
+        "41over": {
+          run: {
+            hint: "특급: 16분 12초 이하 | 1급: 17분 46초 이하",
+            calc: (sec) => {
+              if (sec <= 16 * 60 + 12) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (sec <= 17 * 60 + 46) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (sec <= 19 * 60 + 21) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (sec <= 20 * 60 + 55) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          pushup: {
+            hint: "특급: 26회 이상 | 1급: 23~25회",
+            calc: (reps) => {
+              if (reps >= 26) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 23) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 19) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 16) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          },
+          situp: {
+            hint: "특급: 60회 이상 | 1급: 52~59회",
+            calc: (reps) => {
+              if (reps >= 60) return { grade: "특급", badgeClass: "bg-[#24a148]" };
+              if (reps >= 52) return { grade: "1급", badgeClass: "bg-[#0f62fe]" };
+              if (reps >= 44) return { grade: "2급", badgeClass: "bg-[#f1c21b] text-black" };
+              if (reps >= 36) return { grade: "3급", badgeClass: "bg-[#8c8c8c]" };
+              return { grade: "불합격", badgeClass: "bg-[#da1e28]" };
+            }
+          }
+        }
+      }
+    };
+
+    function updateFitnessHint() {
+      const prof = getCadetProfile();
+      const criteriaObj = FITNESS_CRITERIA[prof.gender]?.[prof.age]?.[currentFitnessMode] 
+                       || FITNESS_CRITERIA.male['25under'][currentFitnessMode];
+      const hintEl = document.getElementById('criteria-hint');
+      if (hintEl) {
+        const genderLabel = prof.gender === 'female' ? '여군' : '남군';
+        hintEl.innerText = `[${genderLabel}] ${criteriaObj.hint}`;
+      }
+    }
+
+    /* ========================================================
        FITNESS ACTUAL RECORD MANAGEMENT (localStorage CRUD)
        ======================================================== */
     let currentFitnessMode = 'run';
@@ -900,31 +1405,32 @@
       const runGroup = document.getElementById('run-input-group');
       const countGroup = document.getElementById('count-input-group');
       const label = document.getElementById('count-input-label');
-      const hint = document.getElementById('criteria-hint');
 
       if (mode === 'run') {
         runGroup.classList.remove('hidden');
         countGroup.classList.add('hidden');
-        hint.innerText = "특급: 12분 30초 이하";
       } else if (mode === 'pushup') {
         runGroup.classList.add('hidden');
         countGroup.classList.remove('hidden');
         label.innerText = "2분 팔굽혀펴기 횟수 (회)";
-        hint.innerText = "특급: 72회 이상";
       } else {
         runGroup.classList.add('hidden');
         countGroup.classList.remove('hidden');
         label.innerText = "2분 윗몸일으키기 횟수 (회)";
-        hint.innerText = "특급: 86회 이상";
       }
+      updateFitnessHint();
       renderFitnessUI();
     }
 
     function saveActualFitnessRecord() {
       const dateVal = document.getElementById('fitness-input-date').value || new Date().toISOString().split('T')[0];
+      const prof = getCadetProfile();
+      const criteriaObj = FITNESS_CRITERIA[prof.gender]?.[prof.age]?.[currentFitnessMode] 
+                       || FITNESS_CRITERIA.male['25under'][currentFitnessMode];
+
       let valDisplay = "";
       let numericVal = 0;
-      let grade = "3급 이하";
+      let grade = "불합격";
       let badgeClass = "bg-[#da1e28]";
 
       if (currentFitnessMode === 'run') {
@@ -936,16 +1442,9 @@
         }
         numericVal = min * 60 + sec;
         valDisplay = `${min}분 ${sec < 10 ? '0' + sec : sec}초`;
-
-        if (numericVal <= 12 * 60 + 30) {
-          grade = "특급"; badgeClass = "bg-[#24a148]";
-        } else if (numericVal <= 13 * 60 + 30) {
-          grade = "1급"; badgeClass = "bg-[#0f62fe]";
-        } else if (numericVal <= 14 * 60 + 30) {
-          grade = "2급"; badgeClass = "bg-[#f1c21b] text-black";
-        } else {
-          grade = "3급 이하"; badgeClass = "bg-[#da1e28]";
-        }
+        const res = criteriaObj.calc(numericVal);
+        grade = res.grade;
+        badgeClass = res.badgeClass;
       } else {
         const reps = parseInt(document.getElementById('reps-val').value, 10);
         if (isNaN(reps) || reps < 0) {
@@ -954,18 +1453,9 @@
         }
         numericVal = reps;
         valDisplay = `${reps}회`;
-
-        if (currentFitnessMode === 'pushup') {
-          if (reps >= 72) { grade = "특급"; badgeClass = "bg-[#24a148]"; }
-          else if (reps >= 64) { grade = "1급"; badgeClass = "bg-[#0f62fe]"; }
-          else if (reps >= 56) { grade = "2급"; badgeClass = "bg-[#f1c21b] text-black"; }
-          else { grade = "3급 이하"; badgeClass = "bg-[#da1e28]"; }
-        } else {
-          if (reps >= 86) { grade = "특급"; badgeClass = "bg-[#24a148]"; }
-          else if (reps >= 78) { grade = "1급"; badgeClass = "bg-[#0f62fe]"; }
-          else if (reps >= 70) { grade = "2급"; badgeClass = "bg-[#f1c21b] text-black"; }
-          else { grade = "3급 이하"; badgeClass = "bg-[#da1e28]"; }
-        }
+        const res = criteriaObj.calc(numericVal);
+        grade = res.grade;
+        badgeClass = res.badgeClass;
       }
 
       const records = getSavedRecords();
@@ -976,7 +1466,9 @@
         valDisplay: valDisplay,
         numericVal: numericVal,
         grade: grade,
-        badgeClass: badgeClass
+        badgeClass: badgeClass,
+        gender: prof.gender,
+        age: prof.age
       };
       records.push(newEntry);
       saveRecords(records);
@@ -1186,6 +1678,11 @@
           homeStatus.innerText = "기록 입력 대기";
           homeStatus.className = "text-[#8c8c8c] font-semibold text-sm";
         }
+      }
+
+      const countBadge = document.getElementById('mypage-record-count-badge');
+      if (countBadge) {
+        countBadge.innerText = `내 기록 ${records.length}건 보관 중`;
       }
     }
 
@@ -3770,6 +4267,14 @@
       const todayStr = new Date().toISOString().split('T')[0];
       document.getElementById('fitness-input-date').value = todayStr;
       selectedCalDate = todayStr;
+
+      // Initialize Cadet Profile (Gender & Age)
+      const prof = getCadetProfile();
+      const gSel = document.getElementById('user-gender-select');
+      const aSel = document.getElementById('user-age-select');
+      if (gSel) gSel.value = prof.gender;
+      if (aSel) aSel.value = prof.age;
+      updateFitnessHint();
 
       renderFitnessUI();
       updateMyPageMatrix();
