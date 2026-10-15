@@ -337,6 +337,7 @@
       window.scrollTo(0, 0);
     }
     loadProfile(user);
+    syncFitnessCloud(user);
   }
 
   function returnToLogin(prefillUsername) {
@@ -496,6 +497,135 @@
       });
   }
 
+  /* ---------- 체력 기록 클라우드 실시간 동기화 (폰 ⇄ PC 멀티 디바이스 연동) ---------- */
+  function syncFitnessCloud(user) {
+    if (!client || !user || navigator.onLine === false) return;
+    var badgeEl = $('cloud-sync-status');
+    if (badgeEl) badgeEl.innerText = "동기화 중…";
+
+    client.from('fitness_records').select('*').eq('user_id', user.id).order('date', { ascending: true })
+      .then(function (res) {
+        if (res.error) {
+          console.warn('[CloudSync] fetch error:', res.error);
+          if (badgeEl) badgeEl.innerText = "동기화 대기";
+          return;
+        }
+
+        var cloudRecords = res.data || [];
+        var localRecords = [];
+        try {
+          var raw = localStorage.getItem('KAAY_64_FITNESS_RECORDS');
+          localRecords = raw ? JSON.parse(raw) : [];
+        } catch (_) {}
+
+        var cloudIdMap = {};
+        cloudRecords.forEach(function (r) { cloudIdMap[String(r.id)] = true; });
+
+        // 1. 로컬에만 있는 기록이 있다면 클라우드로 즉시 업로드 (최초 가입 또는 오프라인 기록 보존)
+        var unSynced = localRecords.filter(function (lr) {
+          return !cloudIdMap[String(lr.id)];
+        });
+
+        if (unSynced.length > 0) {
+          var toInsert = unSynced.map(function (item) {
+            return {
+              id: String(item.id),
+              user_id: user.id,
+              mode: item.mode,
+              date: item.date,
+              val_display: item.valDisplay,
+              numeric_val: item.numericVal,
+              grade: item.grade,
+              badge_class: item.badgeClass,
+              gender: item.gender || null,
+              age: item.age || null
+            };
+          });
+
+          client.from('fitness_records').upsert(toInsert).then(function (upRes) {
+            if (upRes.error) console.warn('[CloudSync] local-to-cloud upload error:', upRes.error);
+            else console.log('[CloudSync] local records uploaded to cloud:', unSynced.length);
+          });
+        }
+
+        // 2. 클라우드 레코드를 로컬 포맷으로 변환 및 병합
+        var mergedMap = {};
+        localRecords.forEach(function (r) { mergedMap[String(r.id)] = r; });
+        cloudRecords.forEach(function (r) {
+          mergedMap[String(r.id)] = {
+            id: r.id,
+            mode: r.mode,
+            date: r.date,
+            valDisplay: r.val_display,
+            numericVal: Number(r.numeric_val),
+            grade: r.grade,
+            badgeClass: r.badge_class,
+            gender: r.gender,
+            age: r.age
+          };
+        });
+
+        var finalRecords = Object.values(mergedMap);
+        finalRecords.sort(function (a, b) {
+          return a.date.localeCompare(b.date);
+        });
+
+        // 3. 로컬 캐시 & IndexedDB & UI 일괄 최신화
+        try {
+          localStorage.setItem('KAAY_64_FITNESS_RECORDS', JSON.stringify(finalRecords));
+          if (typeof window.syncToIndexedDB === 'function') window.syncToIndexedDB(finalRecords);
+          if (typeof window.updateMyPageMatrix === 'function') window.updateMyPageMatrix();
+          if (typeof window.renderFitnessUI === 'function') window.renderFitnessUI();
+          if (typeof window.renderCalendarGrid === 'function') window.renderCalendarGrid();
+        } catch (_) {}
+
+        if (badgeEl) {
+          badgeEl.innerText = "클라우드 동기화 완료";
+          badgeEl.className = "px-2 py-0.5 text-[10px] bg-[#0f62fe] text-white font-semibold whitespace-nowrap";
+        }
+      })
+      .catch(function (err) {
+        console.warn('[CloudSync] exception:', err);
+      });
+  }
+
+  function uploadFitnessRecordToCloud(record) {
+    if (!client || !currentUser || navigator.onLine === false) return;
+    client.from('fitness_records').upsert({
+      id: String(record.id),
+      user_id: currentUser.id,
+      mode: record.mode,
+      date: record.date,
+      val_display: record.valDisplay,
+      numeric_val: record.numericVal,
+      grade: record.grade,
+      badge_class: record.badgeClass,
+      gender: record.gender || null,
+      age: record.age || null
+    }).then(function (res) {
+      if (res.error) console.warn('[CloudSync] upsert error:', res.error);
+      else console.log('[CloudSync] record uploaded:', record.id);
+    });
+  }
+
+  function deleteFitnessRecordFromCloud(recordId) {
+    if (!client || !currentUser || navigator.onLine === false) return;
+    client.from('fitness_records').delete().eq('id', String(recordId)).eq('user_id', currentUser.id)
+      .then(function (res) {
+        if (res.error) console.warn('[CloudSync] delete error:', res.error);
+        else console.log('[CloudSync] record deleted:', recordId);
+      });
+  }
+
+  function clearFitnessRecordsFromCloud() {
+    if (!client || !currentUser || navigator.onLine === false) return;
+    client.from('fitness_records').delete().eq('user_id', currentUser.id)
+      .then(function (res) {
+        if (res.error) console.warn('[CloudSync] clear error:', res.error);
+        else console.log('[CloudSync] all records cleared for user');
+      });
+  }
+
   /* ---------- 로그아웃 ---------- */
   function handleLogout() {
     if (busy) return;
@@ -506,6 +636,15 @@
 
     var done = function () {
       clearAuthStorage();
+      // 체력 기록 로컬 캐시 초기화 (계정 간 프라이버시 보호)
+      try {
+        localStorage.removeItem('KAAY_64_FITNESS_RECORDS');
+        if (typeof window.syncToIndexedDB === 'function') window.syncToIndexedDB([]);
+        if (typeof window.updateMyPageMatrix === 'function') window.updateMyPageMatrix();
+        if (typeof window.renderFitnessUI === 'function') window.renderFitnessUI();
+        if (typeof window.renderCalendarGrid === 'function') window.renderCalendarGrid();
+      } catch (_) {}
+
       busy = false;
       suppressSignOutEvent = false;
       setButtonLoading(btn, false);
@@ -604,8 +743,13 @@
   }
 
   window.KAAYAuth = {
+    getClient: function () { return client; },
     getCurrentUser: function () { return currentUser; },
-    logout: handleLogout
+    logout: handleLogout,
+    syncFitnessCloud: syncFitnessCloud,
+    uploadRecord: uploadFitnessRecordToCloud,
+    deleteRecord: deleteFitnessRecordFromCloud,
+    clearRecords: clearFitnessRecordsFromCloud
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

@@ -997,10 +997,10 @@
           </div>
           <div class="p-3.5 flex justify-between items-center bg-[#fafafa]">
             <div>
-              <span class="text-[#161616] font-medium">스토리지 영구 보존 엔진</span>
-              <span class="block text-[10px] text-[#24a148]">IndexedDB + LocalStorage 듀얼 백업 활성</span>
+              <span class="text-[#161616] font-medium">계정 클라우드 실시간 동기화</span>
+              <span class="block text-[10px] text-[#0f62fe]">스마트폰 ⇄ 컴퓨터 다중 기기 실시간 연동</span>
             </div>
-            <span class="px-2 py-0.5 text-[10px] bg-[#24a148] text-white font-semibold whitespace-nowrap">보존 중</span>
+            <span id="cloud-sync-status" class="px-2 py-0.5 text-[10px] bg-[#24a148] text-white font-semibold whitespace-nowrap">동기화 활성</span>
           </div>
           <div class="p-3.5 flex justify-between items-center hover:bg-[#fff1f1] cursor-pointer transition" onclick="clearMyData()">
             <span class="text-[#da1e28] font-medium">내 체력 입력 기록 전체 초기화</span>
@@ -1013,16 +1013,16 @@
           <div class="flex items-center justify-between">
             <span class="text-xs font-semibold text-[#161616] flex items-center gap-1.5">
               <span class="w-2 h-2 bg-[#24a148] inline-block"></span>
-              개인별 데이터 격리 및 자동 저장 안내
+              개인별 데이터 격리 및 클라우드 동기화 안내
             </span>
-            <span class="text-[10px] bg-[#edf5ff] text-[#0f62fe] px-1.5 py-0.5 font-mono border border-[#d0e2ff]">100% 독립 격리</span>
+            <span class="text-[10px] bg-[#edf5ff] text-[#0f62fe] px-1.5 py-0.5 font-mono border border-[#d0e2ff]">계정별 100% 격리</span>
           </div>
           <p class="text-xs text-[#525252] leading-relaxed">
-            체력 기록은 <strong>각자 기기에 저장</strong>되며, 계정 정보(아이디·이름)만 서버에 저장됩니다.<br>
-            따라서 다른 동기들이 링크로 접속해 기록을 입력해도, <strong>서로의 기록이 절대 간섭되거나 섞이지 않고 각자의 폰에만 독립 보관</strong>됩니다.
+            체력 기록은 <strong>본인 Supabase 클라우드 계정에 안전하게 격리 보관</strong>되며 기기 로컬(IndexedDB)에도 캐싱됩니다.<br>
+            스마트폰에서 기록을 입력해도 컴퓨터나 다른 기기에서 로그인하면 <strong>즉시 연동</strong>되며, 동기 간 기록이 절대 섞이지 않습니다.
           </p>
           <div class="pt-2 border-t border-[#e0e0e0] flex items-center justify-between text-[11px]">
-            <span class="text-[#525252]">현재 기기 보관 상태:</span>
+            <span class="text-[#525252]">현재 계정 보관 기록:</span>
             <span id="mypage-record-count-badge" class="font-mono text-[#0f62fe] font-semibold">내 기록 0건 보관 중</span>
           </div>
         </div>
@@ -1686,6 +1686,9 @@
       };
       records.push(newEntry);
       saveRecords(records);
+      if (window.KAAYAuth && typeof window.KAAYAuth.uploadRecord === 'function') {
+        window.KAAYAuth.uploadRecord(newEntry);
+      }
       alert(`[${dateVal}] ${valDisplay} (${grade}) 기록이 정상 저장되었습니다!`);
     }
 
@@ -1693,11 +1696,18 @@
       if (!confirm("이 기록을 삭제하시겠습니까?")) return;
       const records = getSavedRecords().filter(r => r.id !== id);
       saveRecords(records);
+      if (window.KAAYAuth && typeof window.KAAYAuth.deleteRecord === 'function') {
+        window.KAAYAuth.deleteRecord(id);
+      }
     }
 
     function clearMyData() {
-      if (confirm("정말로 모든 체력 기록을 초기화하시겠습니까?")) {
+      if (confirm("정말로 모든 체력 기록을 초기화하시겠습니까? (클라우드 보관 기록도 함께 초기화됩니다)")) {
         localStorage.removeItem(STORAGE_KEY);
+        syncToIndexedDB([]);
+        if (window.KAAYAuth && typeof window.KAAYAuth.clearRecords === 'function') {
+          window.KAAYAuth.clearRecords();
+        }
         updateMyPageMatrix();
         renderFitnessUI();
       }
