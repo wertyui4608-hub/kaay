@@ -104,7 +104,7 @@
       </div>
       <div class="bg-[#161616] text-white text-[11px] font-mono px-2 py-1 flex items-center gap-1.5">
         <span class="inline-block w-1.5 h-1.5 bg-[#f1c21b] animate-pulse"></span>
-        <span>가입교 D-88</span>
+        <span id="nav-dday-badge">가입교 D-87</span>
       </div>
     </nav>
 
@@ -120,24 +120,15 @@
             <span class="text-[11px] text-[#f1c21b] font-medium tracking-wider">★ 64기 입교 준비</span>
             <span class="text-[10px] text-[#8c8c8c] font-mono">2027. 01. 11 가입교</span>
           </div>
-          <h1 class="text-2xl font-light tracking-tight mb-1 text-white">가입교 D-88 카운트다운</h1>
+          <h1 id="home-dday-title" class="text-2xl font-light tracking-tight mb-1 text-white">가입교 D-87 카운트다운</h1>
           <p class="text-xs text-[#c6c6c6] font-light leading-relaxed mb-4">
             “국가에 충성을, 국민에 헌신을, 가슴에 큰 꿈을”<br>
             64기 사관생도 합격을 축하합니다. 체력 특급과 토익으로 완벽히 대비하십시오.
           </p>
 
           <!-- Urgent Official Milestone Banner -->
-          <div class="bg-[#262626] border-l-2 border-[#0f62fe] p-2.5 text-xs text-[#f4f4f4] space-y-1">
-            <div class="flex justify-between items-center">
-              <span class="font-semibold text-[#6ea8fe] flex items-center gap-1">
-                <span class="w-1.5 h-1.5 bg-[#0f62fe] inline-block"></span>
-                다음 공식 일정 (D-1 내일 시작!)
-              </span>
-              <span class="text-[10px] font-mono text-[#f1c21b]">10.16 ~ 11.08</span>
-            </div>
-            <p class="text-[11px] text-[#c6c6c6]">
-              합격자 오리엔테이션 참석 인원 가입교 중대별 파악 진행
-            </p>
+          <div id="home-milestone-banner" class="bg-[#262626] border-l-2 border-[#0f62fe] p-2.5 text-xs text-[#f4f4f4] space-y-1">
+            <!-- Dynamically populated by updateHomeMilestoneBanner() -->
           </div>
 
           <div class="grid grid-cols-2 gap-2 pt-3 mt-3 border-t border-[#393939] text-xs">
@@ -285,7 +276,7 @@
           <!-- 측정 날짜 선택 -->
           <div>
             <label class="block text-[11px] font-medium text-[#525252] mb-1">측정 일자</label>
-            <input type="date" id="fitness-input-date" class="carbon-input w-full p-2 text-xs font-mono">
+            <input type="date" id="fitness-input-date" onchange="this.dataset.userModified='true'" class="carbon-input w-full p-2 text-xs font-mono">
           </div>
 
           <!-- 기록 입력 -->
@@ -685,7 +676,7 @@
               <span class="text-[10px] text-[#f1c21b] font-mono">공식 공정표</span>
             </div>
 
-            <div class="divide-y divide-[#e0e0e0] text-xs">
+            <div id="official-schedule-list" class="divide-y divide-[#e0e0e0] text-xs">
               <div class="p-3 flex items-start justify-between bg-[#fafafa]">
                 <div class="space-y-0.5">
                   <span class="text-[10px] text-[#24a148] font-mono font-semibold">[완료]</span>
@@ -969,6 +960,26 @@
   </div>
 
   <script>
+    /* ========================================================
+       CORE UTILITIES: KST DATE ENGINE & D-DAY CALCULATOR
+       ======================================================== */
+    function getTodayKSTString() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    function getDaysDiff(targetDateStr, baseDateStr = getTodayKSTString()) {
+      const [tY, tM, tD] = targetDateStr.split('-').map(Number);
+      const [bY, bM, bD] = baseDateStr.split('-').map(Number);
+      const target = new Date(tY, tM - 1, tD);
+      const base = new Date(bY, bM - 1, bD);
+      const diffTime = target.getTime() - base.getTime();
+      return Math.round(diffTime / (1000 * 60 * 60 * 24));
+    }
+
     function toggleNoticeModal(show) {
       const modal = document.getElementById('notice-modal');
       if (modal) {
@@ -1439,7 +1450,7 @@
     }
 
     function saveActualFitnessRecord() {
-      const dateVal = document.getElementById('fitness-input-date').value || new Date().toISOString().split('T')[0];
+      const dateVal = document.getElementById('fitness-input-date').value || getTodayKSTString();
       const prof = getCadetProfile();
       const criteriaObj = FITNESS_CRITERIA[prof.gender]?.[prof.age]?.[currentFitnessMode] 
                        || FITNESS_CRITERIA.male['25under'][currentFitnessMode];
@@ -8420,9 +8431,10 @@
     /* ========================================================
        CALENDAR ENGINE (Interactive 7-Col Grid & Event Tracker)
        ======================================================== */
-    let currentCalYear = 2026;
-    let currentCalMonth = 9; // 0-indexed: 9 = 10월
-    let selectedCalDate = "2026-10-15";
+    const _nowKST = new Date();
+    let currentCalYear = _nowKST.getFullYear();
+    let currentCalMonth = _nowKST.getMonth(); // 0-indexed
+    let selectedCalDate = getTodayKSTString();
 
     const officialEvents = [
       { start: "2026-09-28", end: "2026-10-08", title: "가입교 중대 편성 / 공지", badge: "bg-[#24a148] text-white", barColor: "bg-[#24a148]", short: "중대편성" },
@@ -8433,6 +8445,215 @@
       { start: "2027-01-12", end: "2027-02-12", title: "충성기초훈련 (5주간 군사훈련)", badge: "bg-[#da1e28] text-white", barColor: "bg-[#da1e28]", short: "기초훈련" },
       { start: "2027-02-19", end: "2027-02-19", title: "64기 정식 입학식 (사관생도 임명)", badge: "bg-[#24a148] text-white font-bold", barColor: "bg-[#24a148]", short: "★입학식" }
     ];
+
+    function updateHomeMilestoneBanner(todayStr = getTodayKSTString()) {
+      const bannerEl = document.getElementById('home-milestone-banner');
+      if (!bannerEl) return;
+
+      const activeEvent = officialEvents.find(ev => todayStr >= ev.start && todayStr <= ev.end);
+      const upcomingEvent = !activeEvent ? officialEvents.find(ev => todayStr < ev.start) : null;
+      const targetEv = activeEvent || upcomingEvent;
+
+      if (!targetEv) {
+        bannerEl.innerHTML = `
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-[#6ea8fe] flex items-center gap-1">
+              <span class="w-1.5 h-1.5 bg-[#0f62fe] inline-block"></span>
+              공식 일정
+            </span>
+            <span class="text-[10px] font-mono text-[#f1c21b]">입교 준비 완료</span>
+          </div>
+          <p class="text-[11px] text-[#c6c6c6]">모든 공식 일정이 완료되었습니다. 가입교를 축하합니다!</p>
+        `;
+        return;
+      }
+
+      if (activeEvent) {
+        const isStartToday = (todayStr === activeEvent.start);
+        const daysToFinish = getDaysDiff(activeEvent.end, todayStr);
+        let statusBadge = isStartToday ? "오늘 시작! (D-Day)" : (daysToFinish === 0 ? "오늘 마감!" : `진행 중 (마감 D-${daysToFinish})`);
+
+        bannerEl.innerHTML = `
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-[#6ea8fe] flex items-center gap-1">
+              <span class="w-1.5 h-1.5 bg-[#0f62fe] inline-block"></span>
+              현재 공식 일정 (${statusBadge})
+            </span>
+            <span class="text-[10px] font-mono text-[#f1c21b]">${activeEvent.start.slice(5).replace('-', '.')} ~ ${activeEvent.end.slice(5).replace('-', '.')}</span>
+          </div>
+          <p class="text-[11px] text-[#c6c6c6]">
+            ${activeEvent.title}
+          </p>
+        `;
+      } else {
+        const daysUntilStart = getDaysDiff(upcomingEvent.start, todayStr);
+        const startBadge = daysUntilStart === 1 ? "D-1 내일 시작!" : `D-${daysUntilStart}`;
+
+        bannerEl.innerHTML = `
+          <div class="flex justify-between items-center">
+            <span class="font-semibold text-[#6ea8fe] flex items-center gap-1">
+              <span class="w-1.5 h-1.5 bg-[#0f62fe] inline-block"></span>
+              다음 공식 일정 (${startBadge})
+            </span>
+            <span class="text-[10px] font-mono text-[#f1c21b]">${upcomingEvent.start.slice(5).replace('-', '.')}${upcomingEvent.start !== upcomingEvent.end ? ' ~ ' + upcomingEvent.end.slice(5).replace('-', '.') : ''}</span>
+          </div>
+          <p class="text-[11px] text-[#c6c6c6]">
+            ${upcomingEvent.title}
+          </p>
+        `;
+      }
+    }
+
+    function renderOfficialScheduleList(todayStr = getTodayKSTString()) {
+      const container = document.getElementById('official-schedule-list');
+      if (!container) return;
+
+      let html = "";
+      officialEvents.forEach(ev => {
+        const isPast = todayStr > ev.end;
+        const isOngoing = (todayStr >= ev.start && todayStr <= ev.end);
+
+        let badgeHtml = "";
+        let rowClass = "p-3 flex items-start justify-between ";
+        let titleColor = "text-[#161616]";
+        let dateColor = "text-[#8c8c8c]";
+
+        const formatShortDate = (d) => {
+          const parts = d.split('-');
+          return `'${parts[0].slice(2)}. ${Number(parts[1])}. ${Number(parts[2])}`;
+        };
+        const formatShortRange = (s, e) => {
+          if (s === e) return formatShortDate(s);
+          const sParts = s.split('-');
+          const eParts = e.split('-');
+          if (sParts[0] === eParts[0]) {
+            return `'${sParts[0].slice(2)}. ${Number(sParts[1])}. ${Number(sParts[2])} ~ ${Number(eParts[1])}. ${Number(eParts[2])}`;
+          }
+          return `${formatShortDate(s)} ~ ${formatShortDate(e)}`;
+        };
+
+        const rangeStr = formatShortRange(ev.start, ev.end);
+
+        if (ev.title.includes("가입교")) {
+          const diffDays = getDaysDiff(ev.start, todayStr);
+          const ddayLabel = diffDays > 0 ? `KEY D-${diffDays}` : (diffDays === 0 ? 'KEY D-DAY' : '입교 완료');
+          rowClass += "bg-[#161616] text-white p-3.5 ";
+          badgeHtml = `<span class="text-[10px] bg-[#f1c21b] text-black font-semibold px-1.5 py-0.5 font-mono">${ddayLabel}</span>`;
+          html += `
+            <div class="${rowClass}">
+              <div class="space-y-0.5">
+                ${badgeHtml}
+                <div class="font-bold text-sm text-[#f1c21b]">${ev.title}</div>
+                <div class="text-[11px] text-[#c6c6c6]">경북 영천 충성대 입교 집결</div>
+              </div>
+              <span class="font-mono text-sm font-bold text-[#f1c21b] whitespace-nowrap">${rangeStr}</span>
+            </div>
+          `;
+          return;
+        }
+
+        if (isPast) {
+          rowClass += "bg-[#fafafa] ";
+          badgeHtml = `<span class="text-[10px] text-[#24a148] font-mono font-semibold">[완료]</span>`;
+          titleColor = "text-[#525252]";
+        } else if (isOngoing) {
+          rowClass += "bg-[#edf5ff] border-l-4 border-[#0f62fe] ";
+          const isStartToday = (todayStr === ev.start);
+          const daysToFinish = getDaysDiff(ev.end, todayStr);
+          const statusText = isStartToday ? "진행 중 (오늘 시작!)" : (daysToFinish === 0 ? "진행 중 (오늘 마감!)" : `진행 중 (마감 D-${daysToFinish})`);
+          badgeHtml = `<span class="text-[10px] bg-[#0f62fe] text-white px-1.5 py-0.5 font-mono font-semibold">${statusText}</span>`;
+          titleColor = "font-semibold text-[#161616]";
+          dateColor = "font-bold text-[#0f62fe]";
+        } else {
+          const daysUntilStart = getDaysDiff(ev.start, todayStr);
+          const statusText = daysUntilStart === 1 ? "진행 예정 (D-1 내일)" : `진행 예정 (D-${daysUntilStart})`;
+          rowClass += "hover:bg-[#f4f4f4] ";
+          badgeHtml = `<span class="text-[10px] bg-[#161616] text-white px-1.5 py-0.2 font-mono">${statusText}</span>`;
+        }
+
+        html += `
+          <div class="${rowClass}">
+            <div class="space-y-0.5">
+              ${badgeHtml}
+              <div class="${titleColor}">${ev.title}</div>
+              <div class="text-[11px] text-[#525252]">${ev.short ? ev.short : ''}</div>
+            </div>
+            <span class="font-mono text-[11px] ${dateColor} whitespace-nowrap">${rangeStr}</span>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function updateAllDatesAndDDay() {
+      const todayStr = getTodayKSTString();
+
+      // 1. 가입교 D-Day
+      const daysToMatric = getDaysDiff('2027-01-11', todayStr);
+      const navDDayText = daysToMatric > 0 ? `가입교 D-${daysToMatric}` : (daysToMatric === 0 ? '가입교 당일' : `가입교 +${-daysToMatric}`);
+      const homeDDayTitleText = daysToMatric > 0 ? `가입교 D-${daysToMatric} 카운트다운` : (daysToMatric === 0 ? '가입교 당일 (D-Day)' : `가입교 +${-daysToMatric}`);
+
+      const navEl = document.getElementById('nav-dday-badge');
+      if (navEl) navEl.innerText = navDDayText;
+
+      const homeTitleEl = document.getElementById('home-dday-title');
+      if (homeTitleEl) homeTitleEl.innerText = homeDDayTitleText;
+
+      // 2. 홈 탭 마일스톤 배너 동적 계산
+      updateHomeMilestoneBanner(todayStr);
+
+      // 3. 일정 탭 공식 공정표 동적 계산
+      renderOfficialScheduleList(todayStr);
+
+      // 4. 체력 측정 입력 폼 날짜 필드 (과거 입력 모드가 아니거나 어제 날짜였다면 오늘로 동기화)
+      const dateInput = document.getElementById('fitness-input-date');
+      if (dateInput) {
+        if (!dateInput.dataset.userModified || dateInput.value < todayStr) {
+          dateInput.value = todayStr;
+        }
+      }
+
+      // 5. 캘린더 엔진: 현재 월 동기화 및 렌더링
+      const now = new Date();
+      currentCalYear = now.getFullYear();
+      currentCalMonth = now.getMonth();
+      selectedCalDate = todayStr;
+      renderCalendarGrid();
+    }
+
+    function scheduleMidnightRefresh() {
+      const now = new Date();
+      const tomorrowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1);
+      const msUntilMidnight = Math.max(1000, tomorrowMidnight.getTime() - now.getTime());
+
+      setTimeout(() => {
+        console.log('[System] 자정(00시) 도달: 날짜 및 D-Day를 자동으로 갱신합니다.');
+        updateAllDatesAndDDay();
+        scheduleMidnightRefresh();
+      }, msUntilMidnight);
+    }
+
+    let lastCheckedDate = getTodayKSTString();
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        const currentToday = getTodayKSTString();
+        if (currentToday !== lastCheckedDate) {
+          console.log('[System] 날짜 변경 감지 (앱 재진입):', currentToday);
+          lastCheckedDate = currentToday;
+          updateAllDatesAndDDay();
+        }
+      }
+    });
+
+    setInterval(() => {
+      const currentToday = getTodayKSTString();
+      if (currentToday !== lastCheckedDate) {
+        console.log('[System] 날짜 변경 감지 (주기적 폴링):', currentToday);
+        lastCheckedDate = currentToday;
+        updateAllDatesAndDDay();
+      }
+    }, 30000);
 
     function switchCalendarView(mode) {
       const gridBtn = document.getElementById('cal-mode-grid');
@@ -8497,7 +8718,7 @@
         const dStr = day < 10 ? '0' + day : '' + day;
         const dateStr = `${currentCalYear}-${mStr}-${dStr}`;
 
-        const isToday = (dateStr === new Date().toISOString().split('T')[0]);
+        const isToday = (dateStr === getTodayKSTString());
         const isSelected = (dateStr === selectedCalDate);
 
         // Day of week
@@ -8618,13 +8839,10 @@
       const contentEl = document.getElementById('detail-events-content');
       if (!titleEl || !contentEl) return;
 
-      const isToday = (dateStr === new Date().toISOString().split('T')[0]);
+      const isToday = (dateStr === getTodayKSTString());
       
       // Calculate D-Day to Matriculation (2027-01-11)
-      const matricDate = new Date('2027-01-11T00:00:00');
-      const currDate = new Date(dateStr + 'T00:00:00');
-      const diffTime = matricDate - currDate;
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const diffDays = getDaysDiff('2027-01-11', dateStr);
       const ddayText = diffDays > 0 ? `가입교 D-${diffDays}` : (diffDays === 0 ? '가입교 당일 (D-Day)' : `가입교 +${-diffDays}`);
 
       titleEl.innerHTML = `
@@ -8781,7 +8999,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `KAAY_체력기록백업_${new Date().toISOString().split('T')[0]}.json`;
+      a.download = `KAAY_체력기록백업_${getTodayKSTString()}.json`;
       a.click();
       URL.revokeObjectURL(url);
     }
@@ -8807,9 +9025,9 @@
     }
 
     window.onload = () => {
-      const todayStr = new Date().toISOString().split('T')[0];
-      document.getElementById('fitness-input-date').value = todayStr;
-      selectedCalDate = todayStr;
+      // 1. 전체 날짜, D-Day, 공식 학사일정, 캘린더 엔진 동기화 & 자정 자동 리프레시 스케줄러 가동
+      updateAllDatesAndDDay();
+      scheduleMidnightRefresh();
 
       // Initialize Cadet Profile (Gender & Age)
       const prof = getCadetProfile();
@@ -8822,7 +9040,6 @@
       renderFitnessUI();
       updateMyPageMatrix();
       renderVocaCard();
-      renderCalendarGrid();
       // Request persistent storage permission
       if (navigator.storage && navigator.storage.persist) {
         navigator.storage.persist().then(granted => {
