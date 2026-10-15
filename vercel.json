@@ -1,4 +1,14 @@
 {
   "version": 2,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "node scripts/build.mjs",
+  "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/(config.js|sw.js)",
+      "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+    }
+  ]
 }

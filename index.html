@@ -15,6 +15,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 계정(로그인/회원가입): supabase-js 고정 버전 + 배포 시 생성되는 config.js + auth.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous" defer></script>
+  <script src="./config.js" defer></script>
+  <script src="./auth.js" defer></script>
   <style>
     * {
       border-radius: 0px !important;
@@ -84,9 +88,182 @@
       flex-direction: column;
       position: relative;
     }
+
+    /* ===== 계정 게이트 (로그인/회원가입) — Tailwind 로드 전에도 앱을 덮도록 핵심 스타일은 직접 정의 ===== */
+    #auth-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background-color: #f4f4f4;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #auth-gate.auth-hidden { display: none !important; }
+    #auth-gate [hidden], #kaay-toast[hidden] { display: none !important; }
+    .auth-shell {
+      width: 100%;
+      max-width: 440px;
+      min-height: 100%;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-left: 1px solid #e0e0e0;
+      border-right: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+    }
+    .auth-header {
+      background-color: #161616;
+      color: #ffffff;
+      padding-top: calc(28px + env(safe-area-inset-top));
+    }
+    #auth-gate .carbon-input.is-invalid { border-bottom-color: #da1e28; }
+    #auth-gate .carbon-blue-btn:disabled {
+      background-color: #c6c6c6;
+      color: #8d8d8d;
+      cursor: not-allowed;
+    }
+    .kaay-spinner {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-top-color: #ffffff;
+      animation: kaay-spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+    .kaay-spinner.dark { border-color: rgba(22, 22, 22, 0.15); border-top-color: #161616; }
+    @keyframes kaay-spin { to { transform: rotate(360deg); } }
+    #kaay-toast {
+      position: fixed;
+      top: calc(16px + env(safe-area-inset-top));
+      left: 50%;
+      transform: translate(-50%, -8px);
+      z-index: 70;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      background-color: #161616;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-left: 3px solid #24a148;
+      max-width: calc(100% - 32px);
+      white-space: nowrap;
+    }
+    #kaay-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
   </style>
 </head>
 <body class="bg-neutral-100 flex justify-center">
+
+  <!-- ================= 계정 게이트: 로그인 / 회원가입 (auth.js 가 제어) ================= -->
+  <div id="auth-gate" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="auth-shell">
+      <header class="auth-header px-5 pb-6 text-center">
+        <img src="kaay_emblem.png" alt="" class="w-16 h-16 object-contain mx-auto drop-shadow-md">
+        <div class="text-[10px] text-[#f1c21b] font-medium tracking-wider mt-3">KOREA ARMY ACADEMY AT YEONG-CHEON</div>
+        <h1 id="auth-title" class="text-xl font-light mt-1 text-white">KAAY 64기 정예 훈련 시스템</h1>
+        <p class="text-[11px] text-[#a8a8a8] font-light mt-1">“국가에 충성을, 국민에 헌신을, 가슴에 큰 꿈을”</p>
+      </header>
+
+      <div class="flex-1 p-4 space-y-4">
+        <!-- 세션 확인 중 -->
+        <div id="auth-splash" class="flex items-center justify-center gap-2 py-16 text-xs text-[#525252]">
+          <span class="kaay-spinner dark" aria-hidden="true"></span>
+          <span>접속 정보를 확인하는 중…</span>
+        </div>
+
+        <!-- 로그인 -->
+        <div id="auth-login-view" class="space-y-4" hidden>
+          <form id="login-form" method="post" action="#" novalidate class="bg-white p-4 carbon-border space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-[#e0e0e0]">
+              <span class="text-xs font-semibold text-[#161616] whitespace-nowrap">로그인</span>
+              <span class="text-[10px] text-[#0f62fe] font-mono bg-[#edf5ff] px-1.5 py-0.5 border border-[#d0e2ff] font-medium whitespace-nowrap">64기 전용</span>
+            </div>
+            <div>
+              <label for="login-username" class="block text-[11px] font-medium text-[#525252] mb-1">아이디</label>
+              <input id="login-username" name="username" type="text" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="20" class="carbon-input w-full p-2.5 text-sm font-mono" placeholder="아이디">
+            </div>
+            <div>
+              <label for="login-password" class="block text-[11px] font-medium text-[#525252] mb-1">비밀번호</label>
+              <div class="relative">
+                <input id="login-password" name="password" type="password" autocomplete="current-password" class="carbon-input w-full p-2.5 pr-16 text-sm" placeholder="비밀번호">
+                <button type="button" data-pw-target="login-password" aria-label="비밀번호 보기" aria-pressed="false" class="absolute right-1 top-1/2 -translate-y-1/2 px-2 py-1 text-[11px] font-medium text-[#0f62fe] hover:bg-[#edf5ff]">보기</button>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 text-xs text-[#161616]">
+              <label for="login-save-id" class="flex items-center gap-1.5 cursor-pointer select-none">
+                <input id="login-save-id" type="checkbox" class="w-4 h-4 accent-[#0f62fe]">
+                <span class="whitespace-nowrap">아이디 저장</span>
+              </label>
+              <label for="login-auto" class="flex items-center gap-1.5 cursor-pointer select-none">
+                <input id="login-auto" type="checkbox" class="w-4 h-4 accent-[#0f62fe]">
+                <span class="whitespace-nowrap">자동 로그인</span>
+              </label>
+            </div>
+            <p id="login-error" role="alert" class="text-[11px] text-[#da1e28] bg-[#fff1f1] border-l-2 border-[#da1e28] px-2.5 py-2" hidden></p>
+            <button id="login-submit" type="submit" class="carbon-blue-btn w-full py-3 text-sm font-medium flex items-center justify-center gap-2">로그인</button>
+          </form>
+          <div class="text-center text-xs text-[#525252]">
+            아직 계정이 없나요?
+            <button type="button" data-auth-view="signup" class="text-[#0f62fe] font-semibold hover:underline ml-1">회원가입</button>
+          </div>
+        </div>
+
+        <!-- 회원가입 -->
+        <div id="auth-signup-view" class="space-y-4" hidden>
+          <form id="signup-form" method="post" action="#" novalidate class="bg-white p-4 carbon-border space-y-3">
+            <div class="flex items-center justify-between pb-2 border-b border-[#e0e0e0]">
+              <span class="text-xs font-semibold text-[#161616] whitespace-nowrap">회원가입</span>
+              <span class="text-[10px] text-[#525252] font-mono bg-[#f4f4f4] px-1.5 py-0.5 border border-[#e0e0e0] whitespace-nowrap">모든 항목 필수</span>
+            </div>
+            <div>
+              <label for="signup-username" class="block text-[11px] font-medium text-[#525252] mb-1">아이디</label>
+              <input id="signup-username" name="username" type="text" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="20" aria-describedby="signup-username-hint signup-username-error" class="carbon-input w-full p-2.5 text-sm font-mono" placeholder="예: kaay_64">
+              <p id="signup-username-hint" class="text-[10px] text-[#8c8c8c] mt-1">영문 소문자·숫자·밑줄(_) 4~20자</p>
+              <p id="signup-username-error" role="alert" class="text-[11px] text-[#da1e28] mt-1" hidden></p>
+            </div>
+            <div>
+              <label for="signup-password" class="block text-[11px] font-medium text-[#525252] mb-1">비밀번호</label>
+              <div class="relative">
+                <input id="signup-password" name="new-password" type="password" autocomplete="new-password" aria-describedby="signup-password-hint signup-password-error" class="carbon-input w-full p-2.5 pr-16 text-sm" placeholder="8자 이상">
+                <button type="button" data-pw-target="signup-password" aria-label="비밀번호 보기" aria-pressed="false" class="absolute right-1 top-1/2 -translate-y-1/2 px-2 py-1 text-[11px] font-medium text-[#0f62fe] hover:bg-[#edf5ff]">보기</button>
+              </div>
+              <p id="signup-password-hint" class="text-[10px] text-[#8c8c8c] mt-1">8자 이상</p>
+              <p id="signup-password-error" role="alert" class="text-[11px] text-[#da1e28] mt-1" hidden></p>
+            </div>
+            <div>
+              <label for="signup-password-confirm" class="block text-[11px] font-medium text-[#525252] mb-1">비밀번호 확인</label>
+              <div class="relative">
+                <input id="signup-password-confirm" name="confirm-password" type="password" autocomplete="new-password" aria-describedby="signup-password-confirm-error" class="carbon-input w-full p-2.5 pr-16 text-sm" placeholder="비밀번호 재입력">
+                <button type="button" data-pw-target="signup-password-confirm" aria-label="비밀번호 보기" aria-pressed="false" class="absolute right-1 top-1/2 -translate-y-1/2 px-2 py-1 text-[11px] font-medium text-[#0f62fe] hover:bg-[#edf5ff]">보기</button>
+              </div>
+              <p id="signup-password-confirm-error" role="alert" class="text-[11px] text-[#da1e28] mt-1" hidden></p>
+            </div>
+            <div>
+              <label for="signup-name" class="block text-[11px] font-medium text-[#525252] mb-1">이름</label>
+              <input id="signup-name" name="name" type="text" autocomplete="name" maxlength="20" aria-describedby="signup-name-error" class="carbon-input w-full p-2.5 text-sm" placeholder="실명 또는 동기들이 알아볼 이름">
+              <p id="signup-name-error" role="alert" class="text-[11px] text-[#da1e28] mt-1" hidden></p>
+            </div>
+            <label for="signup-consent" class="flex items-start gap-2 bg-[#f4f4f4] p-3 border border-[#e0e0e0] cursor-pointer select-none">
+              <input id="signup-consent" type="checkbox" class="mt-0.5 w-4 h-4 flex-shrink-0 accent-[#0f62fe]">
+              <span class="text-[11px] leading-relaxed text-[#525252]">
+                <strong class="text-[#161616] font-semibold">[필수] 개인정보 수집·이용 동의</strong><br>
+                이름과 아이디를 수집하며, 기록 관리 및 서비스 운영 목적으로만 사용합니다.
+              </span>
+            </label>
+            <p id="signup-error" role="alert" class="text-[11px] text-[#da1e28] bg-[#fff1f1] border-l-2 border-[#da1e28] px-2.5 py-2" hidden></p>
+            <button id="signup-submit" type="submit" disabled class="carbon-blue-btn w-full py-3 text-sm font-medium flex items-center justify-center gap-2">가입하기</button>
+          </form>
+          <div class="text-center text-xs">
+            <button type="button" data-auth-view="login" class="text-[#0f62fe] font-semibold hover:underline">← 로그인으로 돌아가기</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="px-4 pb-6 text-center text-[10px] text-[#8c8c8c] tracking-wide">조국 · 명예 · 충용</footer>
+    </div>
+  </div>
+  <div id="kaay-toast" role="status" aria-live="polite" hidden></div>
 
   <div class="app-viewport flex flex-col justify-between">
     
@@ -762,6 +939,16 @@
           </div>
         </div>
 
+        <!-- 로그인 계정 정보 & 로그아웃 (auth.js 가 채움) -->
+        <div id="account-card" class="bg-white p-4 carbon-border flex items-center justify-between gap-3">
+          <div class="min-w-0">
+            <span class="block text-[10px] text-[#525252] font-medium">로그인 계정</span>
+            <span id="account-name" class="block text-sm font-semibold text-[#161616] truncate">-</span>
+            <span id="account-username" class="block text-[11px] font-mono text-[#0f62fe] truncate">@-</span>
+          </div>
+          <button id="logout-btn" type="button" class="flex items-center gap-1.5 text-xs px-3 py-2 border border-[#da1e28] text-[#da1e28] font-medium whitespace-nowrap hover:bg-[#fff1f1] transition flex-shrink-0">로그아웃</button>
+        </div>
+
         <!-- Real Best Records Matrix -->
         <div class="bg-white p-4 carbon-border space-y-3">
           <div class="flex justify-between items-center">
@@ -831,7 +1018,7 @@
             <span class="text-[10px] bg-[#edf5ff] text-[#0f62fe] px-1.5 py-0.5 font-mono border border-[#d0e2ff]">100% 독립 격리</span>
           </div>
           <p class="text-xs text-[#525252] leading-relaxed">
-            본 앱은 중앙 서버에 기록을 모으지 않고, <strong>각 동기들의 개별 스마트폰 내부 저장소(IndexedDB)</strong>에 안전하게 자동 저장됩니다.<br>
+            체력 기록은 <strong>각자 기기에 저장</strong>되며, 계정 정보(아이디·이름)만 서버에 저장됩니다.<br>
             따라서 다른 동기들이 링크로 접속해 기록을 입력해도, <strong>서로의 기록이 절대 간섭되거나 섞이지 않고 각자의 폰에만 독립 보관</strong>됩니다.
           </p>
           <div class="pt-2 border-t border-[#e0e0e0] flex items-center justify-between text-[11px]">

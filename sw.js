@@ -1,17 +1,30 @@
-const CACHE_NAME = 'kaay-64-v3';
-const ASSETS_TO_CACHE = [
+const CACHE_NAME = 'kaay-64-v4';
+const LOCAL_ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './auth.js',
   './kaay_symbol.png',
   './kaay_emblem.png',
   './kaay_notice.jpg',
   './manifest.json'
 ];
+const CDN_ASSETS_TO_CACHE = [
+  'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js'
+];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
+    caches.open(CACHE_NAME).then(async (cache) => {
+      // 1. 핵심 로컬 에셋 우선 캐시
+      await cache.addAll(LOCAL_ASSETS_TO_CACHE);
+      // 2. 고정 버전 CDN 라이브러리 캐시 시도 (오프라인 지원)
+      for (const cdnUrl of CDN_ASSETS_TO_CACHE) {
+        try {
+          await cache.add(cdnUrl);
+        } catch (err) {
+          console.warn('[SW] CDN 에셋 캐시 건너뜀:', cdnUrl, err);
+        }
+      }
     }).then(() => self.skipWaiting())
   );
 });
@@ -33,7 +46,22 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
-  // Navigation requests (PWA startup / page load)
+  const url = new URL(event.request.url);
+
+  // 1. Supabase API 요청(*.supabase.co)은 절대 캐시하지 않고 항상 네트워크로 직행
+  if (url.hostname.endsWith('supabase.co')) {
+    return;
+  }
+
+  // 2. config.js 는 환경변수 갱신 즉시 반영을 위해 항상 네트워크 우선
+  if (url.pathname.endsWith('config.js')) {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // 3. Navigation 요청 (PWA 부팅 / 페이지 이동)
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request)
@@ -55,7 +83,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Other assets: Cache first, stale-while-revalidate
+  // 4. 일반 정적 에셋: Cache first, stale-while-revalidate
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
