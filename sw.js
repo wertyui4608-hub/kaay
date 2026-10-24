@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kaay-64-v8';
+const CACHE_NAME = 'kaay-64-v9';
 const LOCAL_ASSETS_TO_CACHE = [
   './',
   './index.html',

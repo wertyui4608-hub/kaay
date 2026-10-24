@@ -461,89 +461,101 @@
           <button id="f-tab-situp" class="py-2.5 tab-inactive text-[11px] sm:text-xs" onclick="selectFitnessTab('situp')">윗몸일으키기 (2분)</button>
         </div>
 
-        <!-- Actual Record Entry Form -->
-        <div class="bg-white p-4 carbon-border space-y-3">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-[#e0e0e0]">
-            <span class="text-xs font-semibold text-[#161616] whitespace-nowrap">측정 기록 입력 (과거 날짜 선택 가능)</span>
-            <span id="criteria-hint" class="text-[11px] text-[#0f62fe] font-medium font-mono whitespace-nowrap">[남군] 특급: 12분 30초 이하</span>
+        <!-- ① 기록하기: 측정(등급) / 훈련을 한 카드에서 (fitness-plus.js 가 종목·종류에 맞게 전환) -->
+        <div id="fit-entry-card" class="bg-white carbon-border">
+          <div class="p-3.5 flex items-center justify-between gap-2 border-b border-[#e0e0e0]">
+            <span id="fit-entry-title" class="text-xs font-semibold text-[#161616]">기록하기</span>
+            <input type="date" id="fitness-input-date" onchange="this.dataset.userModified='true'" aria-label="날짜" class="carbon-input p-1.5 text-[11px] font-mono w-[128px] flex-shrink-0">
           </div>
-
-          <!-- 측정 날짜 선택 -->
-          <div>
-            <label class="block text-[11px] font-medium text-[#525252] mb-1">측정 일자</label>
-            <input type="date" id="fitness-input-date" onchange="this.dataset.userModified='true'" class="carbon-input w-full p-2 text-xs font-mono">
-          </div>
-
-          <!-- 기록 입력 -->
-          <div id="run-input-group">
-            <!-- 측정 거리: 3km(등급 판정) 또는 직접 입력 km/m (fitness-plus.js) -->
-            <div class="grid grid-cols-2 carbon-border text-[11px] text-center mb-2" role="group" aria-label="측정 거리">
-              <button type="button" id="fit-dist-3k" class="py-1.5">3km (등급 판정)</button>
-              <button type="button" id="fit-dist-custom" class="py-1.5">거리 직접 입력</button>
+          <div class="p-3.5 space-y-3">
+            <div class="grid grid-cols-2 carbon-border text-xs text-center" role="group" aria-label="기록 종류">
+              <button type="button" id="fit-kind-test" class="py-2 tab-active">측정</button>
+              <button type="button" id="fit-kind-train" class="py-2 tab-inactive">훈련</button>
             </div>
-            <div id="fit-dist-custom-box" class="hidden flex items-center gap-1.5 mb-2">
-              <input type="number" id="fit-dist-value" inputmode="decimal" min="0" step="any" placeholder="5" aria-label="거리" class="carbon-input w-20 p-2 text-sm text-center font-mono">
-              <select id="fit-dist-unit" aria-label="거리 단위" class="carbon-input p-2 text-xs">
-                <option value="km">km</option>
-                <option value="m">m</option>
-              </select>
-              <span class="text-[10px] text-[#525252] leading-tight">예: 5 km, 800 m<br>등급 판정 없음</span>
-            </div>
-            <label id="run-input-label" class="block text-[11px] font-medium text-[#525252] mb-1">3km 달리기 시간</label>
-            <div class="grid grid-cols-2 gap-2">
-              <div class="flex items-center gap-1">
-                <input type="number" id="run-min" min="8" max="30" placeholder="12" class="carbon-input w-full p-2 text-sm text-center font-mono">
-                <span class="text-xs text-[#525252]">분</span>
+            <p id="criteria-hint" class="text-[11px] text-[#0f62fe] font-medium font-mono">[남군] 특급: 12분 30초 이하</p>
+
+            <!-- 달리기: 거리 + 시간 (+ 훈련 반복 수) -->
+            <div id="run-input-group" class="space-y-2">
+              <div class="grid grid-cols-2 carbon-border text-[11px] text-center" role="group" aria-label="거리">
+                <button type="button" id="fit-dist-3k" class="py-1.5">3km</button>
+                <button type="button" id="fit-dist-custom" class="py-1.5">거리 직접 입력</button>
               </div>
-              <div class="flex items-center gap-1">
-                <input type="number" id="run-sec" min="0" max="59" placeholder="45" class="carbon-input w-full p-2 text-sm text-center font-mono">
-                <span class="text-xs text-[#525252]">초</span>
+              <div id="fit-dist-custom-box" class="hidden flex items-center gap-1.5">
+                <input type="number" id="fit-dist-value" inputmode="decimal" min="0" step="any" placeholder="5" aria-label="거리" class="carbon-input w-20 p-2 text-sm text-center font-mono">
+                <select id="fit-dist-unit" aria-label="거리 단위" class="carbon-input p-2 text-xs">
+                  <option value="km">km</option>
+                  <option value="m">m</option>
+                </select>
+                <span class="text-[10px] text-[#525252]">예: 5 km, 800 m</span>
+              </div>
+              <label id="run-input-label" class="block text-[11px] font-medium text-[#525252]">3km 달리기 시간</label>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="flex items-center gap-1">
+                  <input type="number" id="run-min" min="0" max="30" placeholder="12" aria-label="분" class="carbon-input w-full p-2 text-sm text-center font-mono">
+                  <span class="text-xs text-[#525252]">분</span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <input type="number" id="run-sec" min="0" max="59" placeholder="45" aria-label="초" class="carbon-input w-full p-2 text-sm text-center font-mono">
+                  <span class="text-xs text-[#525252]">초</span>
+                </div>
+              </div>
+              <div id="fit-run-reps-box" class="hidden flex items-center gap-2 text-xs text-[#525252]">
+                <span>반복</span>
+                <input type="number" id="fit-run-reps" min="1" max="30" value="1" inputmode="numeric" aria-label="반복 수" class="carbon-input w-14 p-1.5 text-sm text-center font-mono">
+                <span>회</span>
               </div>
             </div>
-          </div>
 
-          <div id="count-input-group" class="hidden">
-            <label id="count-input-label" class="block text-[11px] font-medium text-[#525252] mb-1">2분 측정 횟수 (회)</label>
-            <div class="flex items-center gap-2">
-              <input type="number" id="reps-val" min="0" max="150" placeholder="70" class="carbon-input w-full p-2 text-sm font-mono">
-              <span class="text-xs text-[#525252]">회</span>
+            <!-- 팔굽혀펴기·윗몸: 2분 측정 횟수 -->
+            <div id="count-input-group" class="hidden">
+              <label id="count-input-label" class="block text-[11px] font-medium text-[#525252] mb-1">2분 측정 횟수 (회)</label>
+              <div class="flex items-center gap-2">
+                <input type="number" id="reps-val" min="0" max="150" placeholder="70" inputmode="numeric" class="carbon-input w-full p-2 text-sm font-mono">
+                <span class="text-xs text-[#525252]">회</span>
+              </div>
             </div>
-          </div>
 
-          <!-- 메모 (선택) -->
-          <div>
-            <label for="fitness-input-memo" class="block text-[11px] font-medium text-[#525252] mb-1">메모 (선택)</label>
-            <input type="text" id="fitness-input-memo" maxlength="60" placeholder="예: 컨디션 좋음, 바람 강함" class="carbon-input w-full p-2 text-xs">
-          </div>
+            <!-- 팔굽혀펴기·윗몸: 훈련 세트 (세트 추가/빼기) -->
+            <div id="fit-set-editor" class="hidden"></div>
 
-          <button onclick="saveActualFitnessRecord()" class="carbon-blue-btn w-full py-2.5 text-xs font-medium">
-            + 내 실제 기록 저장하기
-          </button>
+            <input type="text" id="fitness-input-memo" maxlength="60" placeholder="메모 (선택) 예: 컨디션 좋음, 바람 강함" aria-label="메모" class="carbon-input w-full p-2 text-xs">
+            <button type="button" id="fit-entry-save" class="carbon-blue-btn w-full py-2.5 text-xs font-medium">측정 기록 저장</button>
+            <p id="fit-entry-note" class="text-[10px] text-[#8c8c8c] leading-relaxed"></p>
+          </div>
         </div>
 
-        <!-- Real-time Assessment Result Box -->
-        <div id="fitness-result-card" class="bg-[#f4f4f4] p-4 carbon-border space-y-2">
-          <div class="flex justify-between items-center">
-            <span class="text-xs text-[#525252] font-mono">LATEST ASSESSMENT</span>
-            <span id="grade-badge" class="px-2.5 py-0.5 text-xs font-semibold bg-[#8c8c8c] text-white">기록 없음</span>
+        <!-- ② 내 기록: 요약(등급·격차) · 그래프 · 기록 목록 · 최근 훈련 (달리기는 거리 칩으로 전환) -->
+        <div id="fit-myrecords-card" class="bg-white carbon-border">
+          <div class="p-3.5 flex items-center justify-between gap-2 border-b border-[#e0e0e0]">
+            <span id="fit-my-title" class="text-xs font-semibold text-[#161616]">내 기록</span>
+            <span id="history-count" class="text-[10px] font-mono text-[#525252]">0건</span>
           </div>
-          <div class="text-lg font-light text-[#161616]">
-            최근 기록: <span id="display-record" class="font-mono font-medium">-</span>
+          <div id="fit-dist-chips" class="hidden px-3.5 pt-3 flex flex-wrap gap-1.5" role="group" aria-label="거리 선택"></div>
+          <div id="fit-my-summary" class="p-3.5 space-y-2"></div>
+          <div class="px-3.5 pb-3.5 space-y-2">
+            <div class="flex justify-between items-center gap-2">
+              <span class="text-[11px] font-semibold text-[#525252]">변화 추이</span>
+              <div id="fit-chart-range" class="flex text-[10px] font-mono carbon-border" role="group" aria-label="그래프 기간">
+                <button type="button" data-range="7" class="px-2 py-1">1주</button>
+                <button type="button" data-range="30" class="px-2 py-1">1개월</button>
+                <button type="button" data-range="90" class="px-2 py-1">3개월</button>
+                <button type="button" data-range="all" class="px-2 py-1">전체</button>
+              </div>
+            </div>
+            <div class="bg-white carbon-border">
+              <canvas id="fitnessChart" class="w-full block cursor-pointer" style="height:190px" aria-label="기록 변화 그래프"></canvas>
+            </div>
+            <div id="fit-chart-tip" class="text-[11px] text-[#161616] bg-[#f4f4f4] px-2.5 py-1.5">그래프의 점을 누르면 상세 기록이 보입니다.</div>
+            <div id="chart-hint-text" class="text-[10px] text-[#8c8c8c]">점선 = 등급 기준선 · 위로 갈수록 좋은 기록</div>
           </div>
-          <p id="grade-feedback" class="text-xs text-[#525252]">
-            위 입력창에 실제 측정하신 기록을 입력해 보세요.
-          </p>
-          <!-- 다음 등급까지 진행 막대 (fitness-plus.js) -->
-          <div id="fit-gap-box"></div>
+          <div class="border-t border-[#e0e0e0]">
+            <div class="px-3.5 pt-2.5 pb-1 text-[11px] font-semibold text-[#525252]">기록 목록</div>
+            <div id="history-list" class="divide-y divide-[#e0e0e0] text-xs max-h-72 overflow-y-auto"></div>
+          </div>
+          <div id="fit-recent-train" class="border-t border-[#e0e0e0]"></div>
         </div>
 
-        <!-- 다른 거리 달리기 기록: 3km 탭에서만 표시 (fitness-plus.js) -->
-        <div id="fit-otherrun-card" class="bg-white carbon-border hidden"></div>
-
-        <!-- 훈련 세트 일지: 세트 추가/빼기 · 최대 세트 등급 반영 (fitness-plus.js) -->
-        <div id="fit-workout-card" class="bg-white carbon-border"></div>
-
-        <!-- Customized Training Plan -->
+        <!-- ③ 이번 주 코치 처방 (coach.js) -->
         <div class="bg-white p-4 carbon-border space-y-2">
           <div class="text-xs font-semibold text-[#161616] flex items-center justify-between">
             <span>이번 주 코치 처방</span>
@@ -554,43 +566,15 @@
           </div>
         </div>
 
-        <!-- 기록 변화 그래프: 등급 기준선 · 기간 필터 · 점 누르면 상세 (fitness-plus.js) -->
-        <div class="bg-white p-4 carbon-border space-y-2">
-          <div class="flex justify-between items-center gap-2">
-            <span class="text-xs font-semibold text-[#161616]">내 기록 변화 추이</span>
-            <div id="fit-chart-range" class="flex text-[10px] font-mono carbon-border" role="group" aria-label="그래프 기간">
-              <button type="button" data-range="7" class="px-2 py-1">1주</button>
-              <button type="button" data-range="30" class="px-2 py-1">1개월</button>
-              <button type="button" data-range="90" class="px-2 py-1">3개월</button>
-              <button type="button" data-range="all" class="px-2 py-1">전체</button>
-            </div>
-          </div>
-          <div class="bg-white carbon-border">
-            <canvas id="fitnessChart" class="w-full block cursor-pointer" style="height:190px" aria-label="기록 변화 그래프"></canvas>
-          </div>
-          <div id="fit-chart-tip" class="text-[11px] text-[#161616] bg-[#f4f4f4] px-2.5 py-1.5">그래프의 점을 누르면 상세 기록이 보입니다.</div>
-          <div id="chart-hint-text" class="text-[10px] text-[#8c8c8c]">점선 = 등급 기준선 · 위로 갈수록 좋은 기록</div>
-
-          <div class="pt-2 border-t border-[#e0e0e0] space-y-1">
+        <!-- ④ 주간 통계 (이번 주 vs 지난주) + 최근 14일 훈련량 -->
+        <div class="bg-white carbon-border">
+          <div id="fit-weekly-stats"></div>
+          <div class="p-3.5 border-t border-[#e0e0e0] space-y-1">
             <div class="flex justify-between items-center">
               <span class="text-xs font-semibold text-[#161616]">최근 14일 훈련량</span>
               <span id="fit-volume-unit" class="text-[10px] font-mono text-[#525252]">일별 총 개수 (회)</span>
             </div>
             <canvas id="fitnessVolumeChart" class="w-full block" style="height:90px" aria-label="최근 14일 훈련량"></canvas>
-          </div>
-        </div>
-
-        <!-- 주간 훈련 통계: 이번 주 vs 지난주 (fitness-plus.js) -->
-        <div id="fit-weekly-stats" class="bg-white carbon-border"></div>
-
-        <!-- Recorded History Table -->
-        <div class="bg-white carbon-border overflow-hidden">
-          <div class="bg-[#161616] text-white p-3 flex justify-between items-center text-xs">
-            <span class="font-medium">기록 히스토리 목록</span>
-            <span id="history-count" class="text-[10px] text-[#f1c21b] font-mono">0건</span>
-          </div>
-          <div id="history-list" class="divide-y divide-[#e0e0e0] text-xs max-h-80 overflow-y-auto">
-            <div class="p-4 text-center text-[#8c8c8c]">등록된 실제 기록이 없습니다.</div>
           </div>
         </div>
 
