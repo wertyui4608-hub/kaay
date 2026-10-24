@@ -2,3 +2,6 @@ config.js
 dist/
 .DS_Store
 node_modules/
+
+# 개인 건강·기록 정보 (공개 저장소에 올리지 않음)
+docs/personal/

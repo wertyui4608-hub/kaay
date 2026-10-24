@@ -22,6 +22,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous" defer></script>
   <script src="./config.js" defer></script>
   <script src="./auth.js" defer></script>
+  <!-- 체력 탭 강화: 등급·격차·세트 일지·그래프 (fitness-plus.js) → 11주 코치 플랜 (coach.js) -->
+  <script src="./fitness-plus.js" defer></script>
+  <script src="./coach.js" defer></script>
   <style>
     * {
       border-radius: 0px !important;
@@ -439,6 +442,18 @@
           </div>
         </div>
 
+        <!-- 기록·분석 / 코치 플랜 전환 (fitness-plus.js) -->
+        <div class="grid grid-cols-2 carbon-border text-xs text-center">
+          <button type="button" id="fit-seg-records" class="py-2.5 tab-active" aria-pressed="true">기록 · 분석</button>
+          <button type="button" id="fit-seg-coach" class="py-2.5 tab-inactive" aria-pressed="false">코치 플랜</button>
+        </div>
+
+        <!-- ===== 기록·분석 화면 ===== -->
+        <div id="fit-pane-records" class="space-y-4">
+
+        <!-- 3종목 종합 현황: 종합 등급(가장 낮은 종목) · 다음 등급까지 격차 -->
+        <div id="fit-overview" class="bg-white carbon-border"></div>
+
         <!-- 3-Tab Component -->
         <div class="grid grid-cols-3 carbon-border-b text-center text-xs">
           <button id="f-tab-run" class="py-2.5 tab-active text-[11px] sm:text-xs font-semibold" onclick="selectFitnessTab('run')">3km 달리기</button>
@@ -482,6 +497,12 @@
             </div>
           </div>
 
+          <!-- 메모 (선택) -->
+          <div>
+            <label for="fitness-input-memo" class="block text-[11px] font-medium text-[#525252] mb-1">메모 (선택)</label>
+            <input type="text" id="fitness-input-memo" maxlength="60" placeholder="예: 컨디션 좋음, 바람 강함" class="carbon-input w-full p-2 text-xs">
+          </div>
+
           <button onclick="saveActualFitnessRecord()" class="carbon-blue-btn w-full py-2.5 text-xs font-medium">
             + 내 실제 기록 저장하기
           </button>
@@ -499,33 +520,52 @@
           <p id="grade-feedback" class="text-xs text-[#525252]">
             위 입력창에 실제 측정하신 기록을 입력해 보세요.
           </p>
+          <!-- 다음 등급까지 진행 막대 (fitness-plus.js) -->
+          <div id="fit-gap-box"></div>
         </div>
+
+        <!-- 훈련 세트 일지: 세트 추가/빼기 · 최대 세트 등급 반영 (fitness-plus.js) -->
+        <div id="fit-workout-card" class="bg-white carbon-border"></div>
 
         <!-- Customized Training Plan -->
         <div class="bg-white p-4 carbon-border space-y-2">
           <div class="text-xs font-semibold text-[#161616] flex items-center justify-between">
-            <span>추천 맞춤 훈련 루틴</span>
-            <span class="text-[10px] text-[#0f62fe] font-mono">TRAINING GUIDE</span>
+            <span>이번 주 코치 처방</span>
+            <span class="text-[10px] text-[#0f62fe] font-mono">COACH</span>
           </div>
-          <div id="routine-box" class="text-xs text-[#525252] space-y-1.5 leading-relaxed bg-[#f4f4f4] p-3 carbon-border">
-            <div class="font-medium text-[#161616]">기초 인터벌 트레이닝</div>
-            <p>• 400m 트랙 90초 질주 $\rightarrow$ 60초 조깅 회복 (총 5세트 반복)</p>
+          <div id="routine-box" class="text-xs text-[#525252] leading-relaxed bg-[#f4f4f4] p-3 carbon-border">
+            <p>코치 플랜을 불러오는 중입니다.</p>
           </div>
         </div>
 
-        <!-- Hairline Chart (Actual User Data Canvas) -->
+        <!-- 기록 변화 그래프: 등급 기준선 · 기간 필터 · 점 누르면 상세 (fitness-plus.js) -->
         <div class="bg-white p-4 carbon-border space-y-2">
-          <div class="flex justify-between items-center">
-            <span class="text-xs font-semibold text-[#161616]">내 기록 변화 추이 그래프</span>
-            <span class="text-[10px] font-mono text-[#24a148]">— 특급 기준선</span>
+          <div class="flex justify-between items-center gap-2">
+            <span class="text-xs font-semibold text-[#161616]">내 기록 변화 추이</span>
+            <div id="fit-chart-range" class="flex text-[10px] font-mono carbon-border" role="group" aria-label="그래프 기간">
+              <button type="button" data-range="7" class="px-2 py-1">1주</button>
+              <button type="button" data-range="30" class="px-2 py-1">1개월</button>
+              <button type="button" data-range="90" class="px-2 py-1">3개월</button>
+              <button type="button" data-range="all" class="px-2 py-1">전체</button>
+            </div>
           </div>
-          <div class="relative h-44 bg-[#ffffff] carbon-border flex items-center justify-center">
-            <canvas id="fitnessChart" width="360" height="170" class="w-full h-full"></canvas>
+          <div class="bg-white carbon-border">
+            <canvas id="fitnessChart" class="w-full block cursor-pointer" style="height:190px" aria-label="기록 변화 그래프"></canvas>
           </div>
-          <div id="chart-hint-text" class="text-[11px] text-[#8c8c8c] text-center">
-            실제 입력된 기록을 바탕으로 날짜순 꺾은선 그래프가 자동 렌더링됩니다.
+          <div id="fit-chart-tip" class="text-[11px] text-[#161616] bg-[#f4f4f4] px-2.5 py-1.5">그래프의 점을 누르면 상세 기록이 보입니다.</div>
+          <div id="chart-hint-text" class="text-[10px] text-[#8c8c8c]">점선 = 등급 기준선 · 위로 갈수록 좋은 기록</div>
+
+          <div class="pt-2 border-t border-[#e0e0e0] space-y-1">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-semibold text-[#161616]">최근 14일 훈련량</span>
+              <span id="fit-volume-unit" class="text-[10px] font-mono text-[#525252]">일별 총 개수 (회)</span>
+            </div>
+            <canvas id="fitnessVolumeChart" class="w-full block" style="height:90px" aria-label="최근 14일 훈련량"></canvas>
           </div>
         </div>
+
+        <!-- 주간 훈련 통계: 이번 주 vs 지난주 (fitness-plus.js) -->
+        <div id="fit-weekly-stats" class="bg-white carbon-border"></div>
 
         <!-- Recorded History Table -->
         <div class="bg-white carbon-border overflow-hidden">
@@ -533,10 +573,16 @@
             <span class="font-medium">기록 히스토리 목록</span>
             <span id="history-count" class="text-[10px] text-[#f1c21b] font-mono">0건</span>
           </div>
-          <div id="history-list" class="divide-y divide-[#e0e0e0] text-xs max-h-48 overflow-y-auto">
+          <div id="history-list" class="divide-y divide-[#e0e0e0] text-xs max-h-80 overflow-y-auto">
             <div class="p-4 text-center text-[#8c8c8c]">등록된 실제 기록이 없습니다.</div>
           </div>
         </div>
+
+        </div>
+        <!-- ===== /기록·분석 화면 ===== -->
+
+        <!-- ===== 코치 플랜 화면 (coach.js 가 렌더링) ===== -->
+        <div id="fit-pane-coach" class="space-y-4 hidden"></div>
       </section>
 
       <!-- ================= 3. TOEIC SCREEN ================= -->

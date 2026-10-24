@@ -70,3 +70,70 @@ create policy "own fitness update" on public.fitness_records
 drop policy if exists "own fitness delete" on public.fitness_records;
 create policy "own fitness delete" on public.fitness_records
   for delete using (auth.uid() = user_id);
+
+
+-- ========================================================
+-- 3. fitness_records 확장 (메모 · 기록 출처)
+--    source: 'test' = 2분/3km 측정 입력, 'set' = 훈련 세트 최대값 자동 반영
+-- ========================================================
+alter table public.fitness_records add column if not exists memo text;
+alter table public.fitness_records add column if not exists source text default 'test';
+
+
+-- ========================================================
+-- 4. workout_logs (하루 훈련 세트 일지 - 종목별 1건)
+--    sets: 팔굽혀펴기/윗몸 = [30, 25, 20] (세트당 횟수)
+--          달리기         = [{"km": 5, "sec": 1800, "max": false}]
+-- ========================================================
+create table if not exists public.workout_logs (
+  id text not null,
+  user_id uuid not null references auth.users(id) on delete cascade,
+  date text not null,
+  mode text not null,
+  sets jsonb not null default '[]'::jsonb,
+  note text,
+  updated_at timestamptz default now(),
+  primary key (user_id, id)
+);
+
+alter table public.workout_logs enable row level security;
+
+drop policy if exists "own workout select" on public.workout_logs;
+create policy "own workout select" on public.workout_logs
+  for select using (auth.uid() = user_id);
+
+drop policy if exists "own workout insert" on public.workout_logs;
+create policy "own workout insert" on public.workout_logs
+  for insert with check (auth.uid() = user_id);
+
+drop policy if exists "own workout update" on public.workout_logs;
+create policy "own workout update" on public.workout_logs
+  for update using (auth.uid() = user_id) with check (auth.uid() = user_id);
+
+drop policy if exists "own workout delete" on public.workout_logs;
+create policy "own workout delete" on public.workout_logs
+  for delete using (auth.uid() = user_id);
+
+
+-- ========================================================
+-- 5. user_settings (코치 플랜 설정: 목표 등급 · 임시 기준값 · 일정)
+-- ========================================================
+create table if not exists public.user_settings (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  data jsonb not null default '{}'::jsonb,
+  updated_at timestamptz default now()
+);
+
+alter table public.user_settings enable row level security;
+
+drop policy if exists "own settings select" on public.user_settings;
+create policy "own settings select" on public.user_settings
+  for select using (auth.uid() = user_id);
+
+drop policy if exists "own settings insert" on public.user_settings;
+create policy "own settings insert" on public.user_settings
+  for insert with check (auth.uid() = user_id);
+
+drop policy if exists "own settings update" on public.user_settings;
+create policy "own settings update" on public.user_settings
+  for update using (auth.uid() = user_id) with check (auth.uid() = user_id);

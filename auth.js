@@ -338,6 +338,8 @@
     }
     loadProfile(user);
     syncFitnessCloud(user);
+    syncWorkoutsCloud(user);
+    syncSettingsCloud(user);
   }
 
   function returnToLogin(prefillUsername) {
@@ -498,6 +500,90 @@
   }
 
   /* ---------- 체력 기록 클라우드 실시간 동기화 (폰 ⇄ PC 멀티 디바이스 연동) ---------- */
+  var RECORDS_KEY = 'KAAY_64_FITNESS_RECORDS';
+  var WORKOUT_KEY = 'KAAY_64_WORKOUT_LOGS';
+  var COACH_SETTINGS_KEY = 'KAAY_COACH_SETTINGS';
+
+  // schema.sql 3번(memo·source 컬럼)을 실행하기 전에도 동기화가 깨지지 않도록, 컬럼이 없으면 빼고 다시 보낸다
+  var recordExtrasSupported = true;
+
+  function readLocalJSON(key, fallback) {
+    try {
+      var raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    } catch (_) { return fallback; }
+  }
+
+  function timeOf(iso) {
+    var t = Date.parse(iso || '');
+    return isNaN(t) ? 0 : t;
+  }
+
+  function refreshFitnessViews() {
+    try {
+      if (typeof window.updateMyPageMatrix === 'function') window.updateMyPageMatrix();
+      if (typeof window.renderFitnessUI === 'function') window.renderFitnessUI();
+      if (typeof window.renderCalendarGrid === 'function') window.renderCalendarGrid();
+    } catch (_) {}
+  }
+
+  function toCloudRecord(item, userId) {
+    var row = {
+      id: String(item.id),
+      user_id: userId,
+      mode: item.mode,
+      date: item.date,
+      val_display: item.valDisplay,
+      numeric_val: item.numericVal,
+      grade: item.grade,
+      badge_class: item.badgeClass,
+      gender: item.gender || null,
+      age: item.age || null
+    };
+    if (recordExtrasSupported) {
+      row.memo = item.memo || null;
+      row.source = item.source || 'test';
+    }
+    return row;
+  }
+
+  function fromCloudRecord(r) {
+    return {
+      id: r.id,
+      mode: r.mode,
+      date: r.date,
+      valDisplay: r.val_display,
+      numericVal: Number(r.numeric_val),
+      grade: r.grade,
+      badgeClass: r.badge_class,
+      gender: r.gender,
+      age: r.age,
+      memo: r.memo || '',
+      source: r.source || 'test'
+    };
+  }
+
+  function isMissingColumnError(err) {
+    return !!err && (err.code === 'PGRST204' || /column/i.test(err.message || ''));
+  }
+
+  function upsertRecordRows(rows) {
+    return client.from('fitness_records').upsert(rows).then(function (res) {
+      if (res.error && recordExtrasSupported && isMissingColumnError(res.error)) {
+        recordExtrasSupported = false;
+        console.warn('[CloudSync] memo/source 컬럼이 없어 기본 컬럼만 업로드합니다. supabase/schema.sql 3번을 실행하세요.');
+        var stripped = rows.map(function (row) {
+          var copy = Object.assign({}, row);
+          delete copy.memo;
+          delete copy.source;
+          return copy;
+        });
+        return client.from('fitness_records').upsert(stripped);
+      }
+      return res;
+    });
+  }
+
   function syncFitnessCloud(user) {
     if (!client || !user || navigator.onLine === false) return;
     var badgeEl = $('cloud-sync-status');
@@ -512,11 +598,7 @@
         }
 
         var cloudRecords = res.data || [];
-        var localRecords = [];
-        try {
-          var raw = localStorage.getItem('KAAY_64_FITNESS_RECORDS');
-          localRecords = raw ? JSON.parse(raw) : [];
-        } catch (_) {}
+        var localRecords = readLocalJSON(RECORDS_KEY, []);
 
         var cloudIdMap = {};
         cloudRecords.forEach(function (r) { cloudIdMap[String(r.id)] = true; });
@@ -527,42 +609,26 @@
         });
 
         if (unSynced.length > 0) {
-          var toInsert = unSynced.map(function (item) {
-            return {
-              id: String(item.id),
-              user_id: user.id,
-              mode: item.mode,
-              date: item.date,
-              val_display: item.valDisplay,
-              numeric_val: item.numericVal,
-              grade: item.grade,
-              badge_class: item.badgeClass,
-              gender: item.gender || null,
-              age: item.age || null
-            };
-          });
-
-          client.from('fitness_records').upsert(toInsert).then(function (upRes) {
-            if (upRes.error) console.warn('[CloudSync] local-to-cloud upload error:', upRes.error);
-            else console.log('[CloudSync] local records uploaded to cloud:', unSynced.length);
-          });
+          upsertRecordRows(unSynced.map(function (item) { return toCloudRecord(item, user.id); }))
+            .then(function (upRes) {
+              if (upRes.error) console.warn('[CloudSync] local-to-cloud upload error:', upRes.error);
+              else console.log('[CloudSync] local records uploaded to cloud:', unSynced.length);
+            });
         }
 
         // 2. 클라우드 레코드를 로컬 포맷으로 변환 및 병합
         var mergedMap = {};
         localRecords.forEach(function (r) { mergedMap[String(r.id)] = r; });
         cloudRecords.forEach(function (r) {
-          mergedMap[String(r.id)] = {
-            id: r.id,
-            mode: r.mode,
-            date: r.date,
-            valDisplay: r.val_display,
-            numericVal: Number(r.numeric_val),
-            grade: r.grade,
-            badgeClass: r.badge_class,
-            gender: r.gender,
-            age: r.age
-          };
+          var local = mergedMap[String(r.id)];
+          var merged = fromCloudRecord(r);
+          // memo/source 컬럼이 아직 없는 DB라면 로컬에 있던 값을 지킨다
+          if (local && r.memo === undefined) {
+            merged.memo = local.memo || '';
+            merged.source = local.source || 'test';
+          }
+          if (local && local.updatedAt) merged.updatedAt = local.updatedAt;
+          mergedMap[String(r.id)] = merged;
         });
 
         var finalRecords = Object.values(mergedMap);
@@ -572,12 +638,10 @@
 
         // 3. 로컬 캐시 & IndexedDB & UI 일괄 최신화
         try {
-          localStorage.setItem('KAAY_64_FITNESS_RECORDS', JSON.stringify(finalRecords));
+          localStorage.setItem(RECORDS_KEY, JSON.stringify(finalRecords));
           if (typeof window.syncToIndexedDB === 'function') window.syncToIndexedDB(finalRecords);
-          if (typeof window.updateMyPageMatrix === 'function') window.updateMyPageMatrix();
-          if (typeof window.renderFitnessUI === 'function') window.renderFitnessUI();
-          if (typeof window.renderCalendarGrid === 'function') window.renderCalendarGrid();
         } catch (_) {}
+        refreshFitnessViews();
 
         if (badgeEl) {
           badgeEl.innerText = "클라우드 동기화 완료";
@@ -591,18 +655,7 @@
 
   function uploadFitnessRecordToCloud(record) {
     if (!client || !currentUser || navigator.onLine === false) return;
-    client.from('fitness_records').upsert({
-      id: String(record.id),
-      user_id: currentUser.id,
-      mode: record.mode,
-      date: record.date,
-      val_display: record.valDisplay,
-      numeric_val: record.numericVal,
-      grade: record.grade,
-      badge_class: record.badgeClass,
-      gender: record.gender || null,
-      age: record.age || null
-    }).then(function (res) {
+    upsertRecordRows([toCloudRecord(record, currentUser.id)]).then(function (res) {
       if (res.error) console.warn('[CloudSync] upsert error:', res.error);
       else console.log('[CloudSync] record uploaded:', record.id);
     });
@@ -626,6 +679,127 @@
       });
   }
 
+  /* ---------- 훈련 세트 일지 동기화 (workout_logs) ---------- */
+  function toCloudWorkout(log, userId) {
+    return {
+      id: log.id,
+      user_id: userId,
+      date: log.date,
+      mode: log.mode,
+      sets: log.sets || [],
+      note: log.note || null,
+      updated_at: log.updatedAt || new Date().toISOString()
+    };
+  }
+
+  function fromCloudWorkout(r) {
+    return { id: r.id, date: r.date, mode: r.mode, sets: r.sets || [], note: r.note || '', updatedAt: r.updated_at };
+  }
+
+  function syncWorkoutsCloud(user) {
+    if (!client || !user || navigator.onLine === false) return;
+    client.from('workout_logs').select('*').eq('user_id', user.id)
+      .then(function (res) {
+        if (res.error) {
+          console.warn('[CloudSync] workout_logs 조회 실패 (supabase/schema.sql 4번 실행 여부 확인):', res.error);
+          return;
+        }
+        var local = readLocalJSON(WORKOUT_KEY, []);
+        var byId = {};
+        local.forEach(function (l) { byId[l.id] = l; });
+
+        // 1. 같은 일지는 더 최근에 수정된 쪽을 남기고, 로컬이 더 새로우면 다시 올린다
+        var toUpload = [];
+        var cloudIds = {};
+        (res.data || []).forEach(function (row) {
+          cloudIds[row.id] = true;
+          var cloudLog = fromCloudWorkout(row);
+          var localLog = byId[row.id];
+          if (localLog && timeOf(localLog.updatedAt) > timeOf(cloudLog.updatedAt)) toUpload.push(localLog);
+          else byId[row.id] = cloudLog;
+        });
+        local.forEach(function (l) { if (!cloudIds[l.id]) toUpload.push(l); });
+
+        // 2. 두 기기에서 같은 날·같은 종목 일지를 따로 만든 경우 최신 것 하나만 남긴다
+        var byDay = {};
+        var duplicates = [];
+        Object.keys(byId).forEach(function (id) {
+          var log = byId[id];
+          var key = log.mode + '|' + log.date;
+          var kept = byDay[key];
+          if (!kept) { byDay[key] = log; return; }
+          var newer = timeOf(log.updatedAt) > timeOf(kept.updatedAt) ? log : kept;
+          duplicates.push(newer === log ? kept : log);
+          byDay[key] = newer;
+        });
+        duplicates.forEach(function (d) {
+          toUpload = toUpload.filter(function (l) { return l.id !== d.id; });
+          if (cloudIds[d.id]) client.from('workout_logs').delete().eq('user_id', user.id).eq('id', d.id).then(function () {});
+        });
+
+        if (toUpload.length) {
+          client.from('workout_logs').upsert(toUpload.map(function (l) { return toCloudWorkout(l, user.id); }))
+            .then(function (up) { if (up.error) console.warn('[CloudSync] workout upload error:', up.error); });
+        }
+        try { localStorage.setItem(WORKOUT_KEY, JSON.stringify(Object.values(byDay))); } catch (_) {}
+        refreshFitnessViews();
+      })
+      .catch(function (err) { console.warn('[CloudSync] workout exception:', err); });
+  }
+
+  function uploadWorkoutToCloud(log) {
+    if (!client || !currentUser || navigator.onLine === false) return;
+    client.from('workout_logs').upsert(toCloudWorkout(log, currentUser.id))
+      .then(function (res) { if (res.error) console.warn('[CloudSync] workout upsert error:', res.error); });
+  }
+
+  function deleteWorkoutFromCloud(id) {
+    if (!client || !currentUser || navigator.onLine === false) return;
+    client.from('workout_logs').delete().eq('user_id', currentUser.id).eq('id', id)
+      .then(function (res) { if (res.error) console.warn('[CloudSync] workout delete error:', res.error); });
+  }
+
+  function clearWorkoutsFromCloud() {
+    if (!client || !currentUser || navigator.onLine === false) return;
+    client.from('workout_logs').delete().eq('user_id', currentUser.id)
+      .then(function (res) { if (res.error) console.warn('[CloudSync] workout clear error:', res.error); });
+  }
+
+  /* ---------- 코치 플랜 설정 동기화 (user_settings) ---------- */
+  function uploadSettingsToCloud(settings) {
+    if (!client || !currentUser || navigator.onLine === false || !settings) return;
+    client.from('user_settings').upsert({
+      user_id: currentUser.id,
+      data: settings,
+      updated_at: settings.updatedAt || new Date().toISOString()
+    }).then(function (res) { if (res.error) console.warn('[CloudSync] settings upload error:', res.error); });
+  }
+
+  function syncSettingsCloud(user) {
+    if (!client || !user || navigator.onLine === false) return;
+    client.from('user_settings').select('data, updated_at').eq('user_id', user.id).maybeSingle()
+      .then(function (res) {
+        if (res.error) {
+          console.warn('[CloudSync] user_settings 조회 실패 (supabase/schema.sql 5번 실행 여부 확인):', res.error);
+          return;
+        }
+        var local = readLocalJSON(COACH_SETTINGS_KEY, null);
+        var row = res.data;
+        // 더 최근에 바꾼 쪽을 따른다
+        if (row && row.data && (!local || timeOf(row.updated_at) > timeOf(local.updatedAt))) {
+          var data = Object.assign({}, row.data, { updatedAt: row.updated_at });
+          if (window.KAAYCoach && typeof window.KAAYCoach.importSettings === 'function') {
+            window.KAAYCoach.importSettings(data, { upload: false });
+          } else {
+            try { localStorage.setItem(COACH_SETTINGS_KEY, JSON.stringify(data)); } catch (_) {}
+          }
+        } else if (local && local.updatedAt) {
+          uploadSettingsToCloud(local);
+        }
+      })
+      .catch(function (err) { console.warn('[CloudSync] settings exception:', err); });
+  }
+
   /* ---------- 로그아웃 ---------- */
   function handleLogout() {
     if (busy) return;
@@ -636,14 +810,14 @@
 
     var done = function () {
       clearAuthStorage();
-      // 체력 기록 로컬 캐시 초기화 (계정 간 프라이버시 보호)
+      // 체력 기록·훈련 일지·코치 설정 로컬 캐시 초기화 (계정 간 프라이버시 보호)
       try {
-        localStorage.removeItem('KAAY_64_FITNESS_RECORDS');
+        localStorage.removeItem(RECORDS_KEY);
+        localStorage.removeItem(WORKOUT_KEY);
+        localStorage.removeItem(COACH_SETTINGS_KEY);
         if (typeof window.syncToIndexedDB === 'function') window.syncToIndexedDB([]);
-        if (typeof window.updateMyPageMatrix === 'function') window.updateMyPageMatrix();
-        if (typeof window.renderFitnessUI === 'function') window.renderFitnessUI();
-        if (typeof window.renderCalendarGrid === 'function') window.renderCalendarGrid();
       } catch (_) {}
+      refreshFitnessViews();
 
       busy = false;
       suppressSignOutEvent = false;
@@ -749,7 +923,12 @@
     syncFitnessCloud: syncFitnessCloud,
     uploadRecord: uploadFitnessRecordToCloud,
     deleteRecord: deleteFitnessRecordFromCloud,
-    clearRecords: clearFitnessRecordsFromCloud
+    clearRecords: clearFitnessRecordsFromCloud,
+    syncWorkouts: function () { if (currentUser) syncWorkoutsCloud(currentUser); },
+    uploadWorkout: uploadWorkoutToCloud,
+    deleteWorkout: deleteWorkoutFromCloud,
+    clearWorkouts: clearWorkoutsFromCloud,
+    uploadSettings: uploadSettingsToCloud
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
