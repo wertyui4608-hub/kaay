@@ -9143,9 +9143,12 @@
       // 2. User Fitness Records
       if (userRecords.length > 0) {
         userRecords.forEach(r => {
-          const modeLabel = window.KAAYFit
+          const modeLabel = window.KAAYFit && typeof KAAYFit.labelOf === 'function'
             ? KAAYFit.labelOf(r.mode)   // 직접 입력 거리(run_5000 등)도 '5km 달리기'처럼 표시
-            : (r.mode === 'run' ? '3km 달리기' : (r.mode === 'pushup' ? '팔굽혀펴기' : '윗몸일으키기'));
+            : (r.mode === 'run' ? '3km 달리기'
+              : r.mode === 'pushup' ? '팔굽혀펴기'
+              : r.mode === 'situp' ? '윗몸일으키기'
+              : /^run_\d+$/.test(r.mode) ? `${r.mode.slice(4)}m 달리기` : r.mode);
           html += `
             <div class="p-3 bg-[#f4f4f4] border-l-4 border-[#24a148] flex justify-between items-center">
               <div>
@@ -9315,10 +9318,21 @@
 
       // PWA Service Worker Registration
       if ('serviceWorker' in navigator) {
+        // 앱 업데이트로 새 서비스워커가 페이지를 넘겨받으면 한 번만 새로고침해서
+        // '새 화면 + 옛 스크립트'가 섞인 상태를 바로 정리한다.
+        // 처음 설치할 때와, 열고 15초가 지나 이미 사용 중일 때는 건너뛴다 (다음에 열 때 적용).
+        const hadController = !!navigator.serviceWorker.controller;
+        let reloadedForUpdate = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!hadController || reloadedForUpdate || performance.now() > 15000) return;
+          reloadedForUpdate = true;
+          window.location.reload();
+        });
+
         navigator.serviceWorker.register('./sw.js', { scope: './' })
           .then((reg) => {
             console.log('KAAY 64 PWA ServiceWorker Registered:', reg.scope);
-            reg.update();
+            if (reg.active) reg.update().catch(() => { /* 설치 중이면 다음 기회에 */ });
           })
           .catch(err => console.log('SW Registration failed:', err));
       }

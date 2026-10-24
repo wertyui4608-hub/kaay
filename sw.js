@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kaay-64-v7';
+const CACHE_NAME = 'kaay-64-v8';
 const LOCAL_ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -59,10 +59,19 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. config.js 는 환경변수 갱신 즉시 반영을 위해 항상 네트워크 우선
-  if (url.pathname.endsWith('config.js')) {
+  // 2. 같은 출처의 앱 스크립트(.js · config.js 포함)와 manifest 는 네트워크 우선
+  //    (업데이트 직후 새 화면 + 옛 스크립트가 섞이지 않도록). 받아오면 캐시를 갱신하고, 오프라인일 때만 캐시 사용
+  if (url.origin === self.location.origin && /\.(js|json)$/.test(url.pathname)) {
     event.respondWith(
-      fetch(event.request).catch(() => caches.match(event.request))
+      fetch(event.request)
+        .then((response) => {
+          if (response && response.status === 200) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(event.request, { ignoreSearch: true }))
     );
     return;
   }
