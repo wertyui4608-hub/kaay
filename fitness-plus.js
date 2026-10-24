@@ -18,8 +18,12 @@
   'use strict';
 
   /* ---------- 1. 상수 ---------- */
-  const MODES = ['run', 'pushup', 'situp'];
+  const MODES = ['run', 'pushup', 'situp'];          // 등급을 판정하는 3종목
   const MODE_LABEL = { run: '3km 달리기', pushup: '팔굽혀펴기', situp: '윗몸일으키기' };
+  // 3km 탭에서 함께 기록하는 다른 거리 달리기: 종목 키 'run_<미터>' (예: run_5000, run_800) · 등급 판정 없음
+  const CUSTOM_RUN_BADGE = 'bg-[#525252]';
+  const RIEGEL_EXP = 1.06;                            // 거리 환산: T2 = T1 × (D2/D1)^1.06
+  const RIEGEL_RANGE = [1500, 42195];                 // 3km 환산을 보여 줄 거리 범위 (m)
   const GRADES = ['특급', '1급', '2급', '3급', '불합격'];
   const GRADE_BADGE = {
     '특급': 'bg-[#24a148] text-white',
@@ -54,8 +58,19 @@
     const s = Math.round(Math.abs(sec));
     return s >= 60 ? `${Math.floor(s / 60)}분 ${pad2(s % 60)}초` : `${s}초`;
   }
-  function fmtValue(mode, v) { return mode === 'run' ? fmtTimeKo(v) : `${v}회`; }
-  function fmtShortValue(mode, v) { return mode === 'run' ? fmtTime(v) : `${v}회`; }
+  const isCustomRun = (mode) => /^run_\d+$/.test(mode);
+  const isRunMode = (mode) => mode === 'run' || isCustomRun(mode);
+  const metersOf = (mode) => (mode === 'run' ? 3000 : parseInt(mode.slice(4), 10));
+  const kmOf = (mode) => metersOf(mode) / 1000;
+  const runModeFor = (meters) => (meters === 3000 ? 'run' : `run_${meters}`);   // 3km는 등급 판정 종목으로
+  function fmtDistance(meters) { return meters >= 1000 ? `${Number((meters / 1000).toFixed(2))}km` : `${meters}m`; }
+  function labelOf(mode) { return MODE_LABEL[mode] || (isCustomRun(mode) ? `${fmtDistance(metersOf(mode))} 달리기` : mode); }
+  // 다른 거리 기록으로 3km 기록을 추정 (Riegel 공식, 참고용 · 너무 짧거나 긴 거리는 제외)
+  const canConvertTo3km = (mode) => metersOf(mode) >= RIEGEL_RANGE[0] && metersOf(mode) <= RIEGEL_RANGE[1];
+  const to3km = (mode, sec) => sec * Math.pow(3000 / metersOf(mode), RIEGEL_EXP);
+
+  function fmtValue(mode, v) { return isRunMode(mode) ? fmtTimeKo(v) : `${v}회`; }
+  function fmtShortValue(mode, v) { return isRunMode(mode) ? fmtTime(v) : `${v}회`; }
   function fmtPace(secPerKm) { return `${fmtTime(secPerKm)}/km`; }
   function fmtGap(mode, diff) { return mode === 'run' ? `−${fmtGapSec(diff)}` : `+${diff}회`; }
 
@@ -68,7 +83,7 @@
   function weekdayKo(str) { return WEEKDAY_KO[parseDate(str).getDay()]; }
 
   // 달리기는 시간이 짧을수록, 나머지는 횟수가 많을수록 좋은 기록
-  function isBetter(mode, a, b) { return mode === 'run' ? a < b : a > b; }
+  function isBetter(mode, a, b) { return isRunMode(mode) ? a < b : a > b; }
   function bestValue(mode, values) {
     return values.reduce((best, v) => (best == null || isBetter(mode, v, best) ? v : best), null);
   }
@@ -87,6 +102,14 @@
     return (byGender && byGender[prof.age] && byGender[prof.age][mode]) || FITNESS_CRITERIA.male['25under'][mode];
   }
   function judge(mode, value, prof = profile()) { return criteriaFor(mode, prof).calc(value); }   // { grade, badgeClass }
+  // 저장용 판정: 장거리는 등급 대신 '기록'
+  function resultFor(mode, value, prof = profile()) {
+    return isCustomRun(mode) ? { grade: '기록', badgeClass: CUSTOM_RUN_BADGE } : judge(mode, value, prof);
+  }
+  // 알림에 붙일 꼬리말: 3종목은 등급, 장거리는 페이스
+  function resultText(mode, value) {
+    return isCustomRun(mode) ? fmtPace(value / kmOf(mode)) : gradeOf(mode, value);
+  }
   function gradeOf(mode, value, prof) { return judge(mode, value, prof).grade; }
   function rankOf(grade) { const i = GRADES.indexOf(grade); return i < 0 ? GRADES.length : i; }
 
@@ -215,7 +238,7 @@
   /* ---------- 6. 측정 기록 저장 · 수정 · 삭제 ---------- */
   function buildRecord(mode, date, value, extra = {}) {
     const prof = profile();
-    const res = judge(mode, value, prof);
+    const res = resultFor(mode, value, prof);
     return {
       id: Date.now(),
       mode,
@@ -234,7 +257,7 @@
 
   function addRecord(record) {
     const prevBest = personalBest(record.mode);
-    const prevStanding = standing(record.mode);
+    const prevStanding = isCustomRun(record.mode) ? null : standing(record.mode);
     const records = getSavedRecords();
     records.push(record);
     saveRecords(records);
@@ -246,31 +269,31 @@
   function announceRecord(record, prevBest, prevStanding) {
     const { mode } = record;
     const value = fmtValue(mode, record.numericVal);
-    const grade = gradeOf(mode, record.numericVal);
-    const kind = record.source === 'set' ? '세트 최대' : '기록';
+    const grade = resultText(mode, record.numericVal);
+    const kind = record.source === 'set' ? (isRunMode(mode) ? '전력 기록' : '세트 최대') : '기록';
 
     if (!prevBest) {
-      toast(`${MODE_LABEL[mode]} 첫 ${kind} 저장: ${value} (${grade})`, 'success');
+      toast(`${labelOf(mode)} 첫 ${kind} 저장: ${value} (${grade})`, 'success');
       return;
     }
     const lines = [];
     if (isBetter(mode, record.numericVal, prevBest.numericVal)) {
-      lines.push(`개인 최고 기록 경신! ${fmtValue(mode, prevBest.numericVal)} → ${value}`);
+      lines.push(`${labelOf(mode)} 개인 최고 기록 경신! ${fmtValue(mode, prevBest.numericVal)} → ${value}`);
     }
-    const now = standing(mode);
+    const now = isCustomRun(mode) ? null : standing(mode);
     if (prevStanding && now && rankOf(now.grade) < rankOf(prevStanding.grade)) {
-      lines.push(`${MODE_LABEL[mode]} 등급 상승: ${prevStanding.grade} → ${now.grade}`);
+      lines.push(`${labelOf(mode)} 등급 상승: ${prevStanding.grade} → ${now.grade}`);
     }
     if (lines.length) toast(lines.join('\n'), 'pb');
-    else toast(`[${shortDate(record.date)}] ${MODE_LABEL[mode]} ${value} (${grade}) ${kind} 저장 완료`, 'success');
+    else toast(`[${shortDate(record.date)}] ${labelOf(mode)} ${value} (${grade}) ${kind} 저장 완료`, 'success');
   }
 
   function readFormValue(mode) {
-    if (mode === 'run') {
-      const min = parseInt($('run-min').value, 10);
+    if (isRunMode(mode)) {
+      const min = parseInt($('run-min').value, 10) || 0;
       const sec = parseInt($('run-sec').value, 10) || 0;
-      if (isNaN(min) || min <= 0) { alert("3km 달리기 '분'을 입력해 주세요. (예: 12분 40초)"); return null; }
       if (sec < 0 || sec > 59) { alert("'초'는 0~59 사이로 입력해 주세요."); return null; }
+      if (min * 60 + sec <= 0) { alert(`${fmtDistance(metersOf(mode))} 기록(분·초)을 입력해 주세요. (예: 12분 40초)`); return null; }
       return min * 60 + sec;
     }
     const reps = parseInt($('reps-val').value, 10);
@@ -278,8 +301,77 @@
     return reps;
   }
 
+  /* 3km 탭 측정 거리: '3km (등급 판정)' 또는 '거리 직접 입력' (km / m) */
+  let distanceChoice = '3k';
+
+  // 직접 입력한 거리 → 종목 키 (잘못된 값이면 null)
+  function customDistanceMode() {
+    const value = parseFloat(($('fit-dist-value') || {}).value);
+    const unit = ($('fit-dist-unit') || {}).value || 'km';
+    const meters = Math.round(unit === 'km' ? value * 1000 : value);
+    if (!value || meters < 100 || meters > 100000) return null;
+    return runModeFor(meters);
+  }
+
+  function selectedRunMode() {
+    if (distanceChoice === '3k') return 'run';
+    const mode = customDistanceMode();
+    if (!mode) alert('거리를 100m ~ 100km 사이로 입력해 주세요. (예: 5 km, 800 m)');
+    return mode;
+  }
+
+  function paintDistanceChoice() {
+    const custom = distanceChoice === 'custom';
+    [['fit-dist-3k', !custom], ['fit-dist-custom', custom]].forEach(([id, active]) => {
+      const b = $(id);
+      if (!b) return;
+      b.className = `py-1.5 ${active ? 'bg-[#161616] text-white font-semibold' : 'bg-white text-[#525252]'}`;
+      b.setAttribute('aria-pressed', String(active));
+    });
+    const box = $('fit-dist-custom-box');
+    if (box) box.classList.toggle('hidden', !custom);
+    // 장거리는 30분을 넘을 수 있으니 '분' 입력 상한을 푼다
+    const minInput = $('run-min');
+    if (minInput) { if (custom) minInput.removeAttribute('max'); else minInput.setAttribute('max', '30'); }
+
+    const mode = custom ? customDistanceMode() : 'run';
+    const label = $('run-input-label');
+    if (label) label.textContent = custom ? `${mode ? fmtDistance(metersOf(mode)) : '입력한 거리'} 달리기 시간` : '3km 달리기 시간';
+    const hint = $('criteria-hint');
+    if (hint && custom && currentFitnessMode === 'run') {
+      hint.textContent = mode === 'run' ? '[3km] 3km는 등급 판정 기록으로 저장됩니다' : '[직접 입력] 등급 판정 없음 · 페이스와 3km 환산(참고)';
+    }
+  }
+
+  // 프로필·탭 변경 때 기준 안내가 3km 문구로 덮이지 않도록
+  const originalUpdateHint = window.updateFitnessHint;
+  window.updateFitnessHint = function () {
+    originalUpdateHint();
+    if (distanceChoice === 'custom') paintDistanceChoice();
+  };
+
+  function bindDistanceChoice() {
+    const b3 = $('fit-dist-3k');
+    const bc = $('fit-dist-custom');
+    if (b3) b3.addEventListener('click', () => { distanceChoice = '3k'; paintDistanceChoice(); originalUpdateHint(); });
+    if (bc) {
+      bc.addEventListener('click', () => {
+        distanceChoice = 'custom';
+        paintDistanceChoice();
+        const v = $('fit-dist-value');
+        if (v) v.focus();
+      });
+    }
+    ['fit-dist-value', 'fit-dist-unit'].forEach((id) => {
+      const el = $(id);
+      if (el) el.addEventListener('input', paintDistanceChoice);
+    });
+  }
+
   window.saveActualFitnessRecord = function () {
-    const mode = currentFitnessMode;
+    // 3km 탭에서는 거리 선택(3km 등급 / 직접 입력)에 따라 저장할 종목이 달라진다
+    const mode = currentFitnessMode === 'run' ? selectedRunMode() : currentFitnessMode;
+    if (!mode) return;
     const value = readFormValue(mode);
     if (value == null) return;
     const date = $('fitness-input-date').value || today();
@@ -352,21 +444,23 @@
     ensureEditModal();
     editingId = String(rec.id);
 
-    $('fit-edit-title').textContent = `${MODE_LABEL[rec.mode]} 기록 수정`;
+    $('fit-edit-title').textContent = `${labelOf(rec.mode)} 기록 수정`;
     $('fit-edit-date').value = rec.date;
     $('fit-edit-memo').value = rec.memo || '';
-    $('fit-edit-value').innerHTML = rec.mode === 'run'
-      ? `<span class="block text-[11px] font-medium text-[#525252] mb-1">3km 기록</span>
+    $('fit-edit-value').innerHTML = isRunMode(rec.mode)
+      ? `<span class="block text-[11px] font-medium text-[#525252] mb-1">${fmtDistance(metersOf(rec.mode))} 기록</span>
          <div class="grid grid-cols-2 gap-2">
-           <label class="flex items-center gap-1"><input type="number" id="fit-edit-min" min="1" value="${Math.floor(rec.numericVal / 60)}" class="carbon-input w-full p-2 text-sm text-center font-mono"><span class="text-xs text-[#525252]">분</span></label>
+           <label class="flex items-center gap-1"><input type="number" id="fit-edit-min" min="0" value="${Math.floor(rec.numericVal / 60)}" class="carbon-input w-full p-2 text-sm text-center font-mono"><span class="text-xs text-[#525252]">분</span></label>
            <label class="flex items-center gap-1"><input type="number" id="fit-edit-sec" min="0" max="59" value="${rec.numericVal % 60}" class="carbon-input w-full p-2 text-sm text-center font-mono"><span class="text-xs text-[#525252]">초</span></label>
          </div>`
       : `<label class="block text-[11px] font-medium text-[#525252]">횟수
            <span class="flex items-center gap-2 mt-1"><input type="number" id="fit-edit-reps" min="0" max="300" value="${rec.numericVal}" class="carbon-input w-full p-2 text-sm font-mono"><span class="text-xs text-[#525252]">회</span></span>
          </label>`;
-    $('fit-edit-source').textContent = sourceOf(rec) === 'set'
-      ? '훈련 세트 최대값에서 자동 반영된 기록입니다. 세트 일지를 고치면 다시 계산됩니다.'
-      : '직접 입력한 측정 기록입니다.';
+    $('fit-edit-source').textContent = sourceOf(rec) !== 'set'
+      ? '직접 입력한 측정 기록입니다.'
+      : (isRunMode(rec.mode)
+        ? '달리기 훈련 일지의 전력 측정에서 자동 반영된 기록입니다. 일지를 고치면 다시 계산됩니다.'
+        : '훈련 세트 최대값에서 자동 반영된 기록입니다. 세트 일지를 고치면 다시 계산됩니다.');
 
     const modal = $('fit-edit-modal');
     modal.classList.remove('hidden');
@@ -385,10 +479,10 @@
     if (!rec) { closeEditModal(); return; }
 
     let value;
-    if (rec.mode === 'run') {
-      const min = parseInt($('fit-edit-min').value, 10);
+    if (isRunMode(rec.mode)) {
+      const min = parseInt($('fit-edit-min').value, 10) || 0;
       const sec = parseInt($('fit-edit-sec').value, 10) || 0;
-      if (isNaN(min) || min <= 0 || sec < 0 || sec > 59) { alert('기록을 올바르게 입력해 주세요. (분 1 이상, 초 0~59)'); return; }
+      if (sec < 0 || sec > 59 || min * 60 + sec <= 0) { alert('기록을 올바르게 입력해 주세요. (초는 0~59)'); return; }
       value = min * 60 + sec;
     } else {
       value = parseInt($('fit-edit-reps').value, 10);
@@ -396,7 +490,7 @@
     }
 
     const prof = profile();
-    const res = judge(rec.mode, value, prof);
+    const res = resultFor(rec.mode, value, prof);
     const prevBest = personalBest(rec.mode, rec.id);
     const currentBest = personalBest(rec.mode);
     const wasPB = currentBest && String(currentBest.id) === String(rec.id);
@@ -418,7 +512,7 @@
     const becamePB = !wasPB && prevBest && isBetter(rec.mode, value, prevBest.numericVal);
     toast(becamePB
       ? `수정 완료 · 개인 최고 기록이 되었습니다 (${rec.valDisplay})`
-      : `수정 완료: ${rec.date} ${rec.valDisplay} (${res.grade})`, becamePB ? 'pb' : 'success');
+      : `수정 완료: ${rec.date} ${rec.valDisplay} (${resultText(rec.mode, value)})`, becamePB ? 'pb' : 'success');
   }
 
   /* ---------- 7. 훈련 세트 일지 ---------- */
@@ -472,7 +566,7 @@
       saved: !!log,
       note: log ? log.note || '' : '',
       sets: mode === 'run' ? [] : sets.slice(),
-      runs: mode === 'run' ? sets.map((r) => ({ km: r.km, sec: r.sec, max: !!r.max })) : []
+      runs: mode === 'run' ? sets.map((r) => ({ km: r.km, sec: r.sec, max: !!r.max, unit: r.unit === 'm' ? 'm' : 'km' })) : []
     };
   }
 
@@ -501,14 +595,18 @@
       <div class="py-2 space-y-1.5 ${i ? 'border-t border-[#e0e0e0]' : ''}">
         <div class="flex items-center gap-1 text-[11px] text-[#525252]">
           <span class="w-4 font-mono">${i + 1}</span>
-          <input type="number" data-run="${i}" data-f="km" inputmode="decimal" step="0.1" min="0" value="${r.km || ''}" placeholder="3" aria-label="${i + 1}번 거리(km)" class="carbon-input w-12 h-9 text-center font-mono text-sm text-[#161616]"><span>km</span>
+          <input type="number" data-run="${i}" data-f="km" inputmode="decimal" step="any" min="0" value="${r.km ? (r.unit === 'm' ? Math.round(r.km * 1000) : r.km) : ''}" placeholder="${r.unit === 'm' ? '800' : '3'}" aria-label="${i + 1}번 거리" class="carbon-input w-14 h-9 text-center font-mono text-sm text-[#161616]">
+          <select data-run="${i}" data-f="unit" aria-label="${i + 1}번 거리 단위" class="carbon-input h-9 px-0.5 text-[11px] text-[#161616]">
+            <option value="km" ${r.unit !== 'm' ? 'selected' : ''}>km</option>
+            <option value="m" ${r.unit === 'm' ? 'selected' : ''}>m</option>
+          </select>
           <input type="number" data-run="${i}" data-f="min" inputmode="numeric" min="0" value="${r.sec ? Math.floor(r.sec / 60) : ''}" placeholder="15" aria-label="${i + 1}번 분" class="carbon-input w-11 h-9 text-center font-mono text-sm text-[#161616] ml-1"><span>분</span>
           <input type="number" data-run="${i}" data-f="sec" inputmode="numeric" min="0" max="59" value="${r.sec ? r.sec % 60 : ''}" placeholder="00" aria-label="${i + 1}번 초" class="carbon-input w-11 h-9 text-center font-mono text-sm text-[#161616]"><span>초</span>
           <button type="button" data-act="del-run" data-i="${i}" class="ml-auto text-[#8c8c8c] hover:text-[#da1e28] px-1 py-1">삭제</button>
         </div>
         <div class="flex items-center justify-between pl-5 text-[11px]">
           <span data-pace="${i}" class="font-mono text-[#0f62fe]">${paceText(r)}</span>
-          <label class="flex items-center gap-1 text-[#525252]"><input type="checkbox" data-run="${i}" data-f="max" ${r.max ? 'checked' : ''}> 3km 전력 측정</label>
+          <label class="flex items-center gap-1 text-[#525252]"><input type="checkbox" data-run="${i}" data-f="max" ${r.max ? 'checked' : ''}> 전력 측정</label>
         </div>
       </div>`).join('');
   }
@@ -572,7 +670,7 @@
         <input type="text" id="fit-wo-note" maxlength="60" value="${esc(draft.note)}" aria-label="훈련 메모" placeholder="메모 (선택) 예: 마지막 세트에서 자세 무너짐" class="carbon-input w-full p-2 text-xs">
         <button type="button" data-act="save" class="carbon-blue-btn w-full py-2.5 text-xs font-medium">${draft.saved ? '훈련 기록 수정 저장' : '훈련 기록 저장'}</button>
         <p class="text-[10px] text-[#8c8c8c] leading-relaxed">${isRun
-          ? '3km를 전력으로 뛰었다면 ‘3km 전력 측정’에 체크하세요. 그날 측정 기록보다 빠르면 등급 기록에 반영됩니다.'
+          ? '3km나 다른 거리를 전력으로 뛰었다면 ‘전력 측정’에 체크하세요. 그날 기록보다 빠르면 해당 거리 기록에 반영됩니다 (등급은 3km만).'
           : '그날 세트 중 최대 개수가 측정 기록보다 많으면 등급 기록(세트)으로 자동 반영됩니다. 2분 제한 측정이 아니어서 실제 시험보다 후하게 나올 수 있어요.'}</p>
       </div>
       ${recentLogsHtml(mode)}`;
@@ -614,7 +712,7 @@
     if (shouldReflect && setRec) {
       if (setRec.numericVal === value) return 'same';
       const prof = profile();
-      const res = judge(mode, value, prof);
+      const res = resultFor(mode, value, prof);
       Object.assign(setRec, {
         numericVal: value, valDisplay: fmtValue(mode, value), grade: res.grade, badgeClass: res.badgeClass,
         gender: prof.gender, age: prof.age, updatedAt: new Date().toISOString()
@@ -624,19 +722,28 @@
       return 'updated';
     }
     if (shouldReflect) {
-      addRecord(buildRecord(mode, date, value, { source: 'set', memo: mode === 'run' ? '훈련 일지 · 3km 전력' : '훈련 세트 최대' }));
+      const memo = isRunMode(mode) ? `훈련 일지 · ${fmtDistance(metersOf(mode))} 전력` : '훈련 세트 최대';
+      addRecord(buildRecord(mode, date, value, { source: 'set', memo }));
       return 'added';
     }
     if (setRec) { removeRecordById(setRec.id); return 'removed'; }
     return 'none';
   }
 
-  function reflectValue(mode, sets) {
-    if (mode === 'run') {
-      const full = sets.filter((r) => r.max && Math.abs(r.km - 3) < 0.001);
-      return full.length ? Math.min(...full.map((r) => r.sec)) : null;
-    }
-    return Math.max(...sets);
+  /* 일지 한 건이 반영될 수 있는 [종목, 값] 목록
+     달리기: 거리별로 '전력 측정'에 체크한 가장 빠른 기록 / 세트: 최대 개수 */
+  function reflectTargets(mode, sets, date) {
+    if (mode !== 'run') return [[mode, sets.length ? Math.max(...sets) : null]];
+    const modeOfRun = (r) => runModeFor(Math.round(r.km * 1000));
+    // 이번 일지의 거리들 + 그날 이미 반영돼 있던 거리들 (체크를 풀었으면 지우기 위해)
+    const modes = new Set(sets.map(modeOfRun));
+    getSavedRecords()
+      .filter((r) => r.date === date && sourceOf(r) === 'set' && isRunMode(r.mode))
+      .forEach((r) => modes.add(r.mode));
+    return [...modes].map((m) => {
+      const full = sets.filter((r) => r.max && modeOfRun(r) === m);
+      return [m, full.length ? Math.min(...full.map((r) => r.sec)) : null];
+    });
   }
 
   function saveWorkout() {
@@ -644,7 +751,7 @@
     if (!date) { alert('훈련 날짜를 선택해 주세요.'); return; }
     const isRun = mode === 'run';
     const sets = isRun
-      ? draft.runs.filter((r) => r.km > 0 && r.sec > 0).map((r) => ({ km: Math.round(r.km * 100) / 100, sec: r.sec, max: !!r.max }))
+      ? draft.runs.filter((r) => r.km > 0 && r.sec > 0).map((r) => ({ km: Math.round(r.km * 1000) / 1000, sec: r.sec, max: !!r.max, unit: r.unit === 'm' ? 'm' : 'km' }))
       : draft.sets.map((n) => parseInt(n, 10)).filter((n) => n > 0);
 
     const logs = getWorkoutLogs();
@@ -656,10 +763,10 @@
       const [removed] = logs.splice(idx, 1);
       setWorkoutLogs(logs);
       cloud('deleteWorkout', removed.id);
-      reflectToRecord(mode, date, null);
+      reflectTargets(mode, [], date).forEach(([m]) => reflectToRecord(m, date, null));
       loadDraft(mode, date);
       window.renderFitnessUI();
-      toast(`${shortDate(date)} ${MODE_LABEL[mode]} 훈련 기록을 삭제했습니다.`, 'info');
+      toast(`${shortDate(date)} ${labelOf(mode)} 훈련 기록을 삭제했습니다.`, 'info');
       return;
     }
 
@@ -676,8 +783,10 @@
     cloud('uploadWorkout', log);
 
     toast(`${shortDate(date)} 훈련 기록 저장: ${logSummaryText(mode, log)}`, 'success');
-    const reflected = reflectToRecord(mode, date, reflectValue(mode, sets));
-    if (reflected === 'updated') toast('세트 최대값으로 그날 등급 기록을 갱신했습니다.', 'info');
+    const results = reflectTargets(mode, sets, date).map(([m, v]) => reflectToRecord(m, date, v));
+    if (results.includes('updated')) {
+      toast(isRun ? '전력 측정 기록으로 그날 기록을 갱신했습니다.' : '세트 최대값으로 그날 등급 기록을 갱신했습니다.', 'info');
+    }
     loadDraft(mode, date);
     window.renderFitnessUI();
   }
@@ -693,7 +802,7 @@
       if (!btn || !draft) return;
       const i = Number(btn.dataset.i);
       const lastSet = draft.sets.length ? Number(draft.sets[draft.sets.length - 1]) || 0 : 20;
-      const lastKm = draft.runs.length ? draft.runs[draft.runs.length - 1].km : 3;
+      const lastRun = draft.runs.length ? draft.runs[draft.runs.length - 1] : { km: 3, unit: 'km' };
 
       switch (btn.dataset.act) {
         case 'add-set': draft.sets.push(lastSet); break;
@@ -701,7 +810,7 @@
         case 'dec': draft.sets[i] = Math.max(0, (Number(draft.sets[i]) || 0) - 1); break;
         case 'inc': draft.sets[i] = (Number(draft.sets[i]) || 0) + 1; break;
         case 'del-set': draft.sets.splice(i, 1); break;
-        case 'add-run': draft.runs.push({ km: lastKm, sec: 0, max: false }); break;
+        case 'add-run': draft.runs.push({ km: lastRun.km, sec: 0, max: false, unit: lastRun.unit || 'km' }); break;
         case 'pop-run': draft.runs.pop(); break;
         case 'del-run': draft.runs.splice(i, 1); break;
         case 'save': saveWorkout(); return;
@@ -719,8 +828,15 @@
       } else if (t.dataset.run != null) {
         const i = t.dataset.run;
         const run = draft.runs[Number(i)];
-        if (t.dataset.f === 'km') run.km = parseFloat(t.value) || 0;
-        else if (t.dataset.f === 'max') run.max = t.checked;
+        if (t.dataset.f === 'km') {
+          const v = parseFloat(t.value) || 0;
+          run.km = run.unit === 'm' ? v / 1000 : v;
+        } else if (t.dataset.f === 'unit') {
+          run.unit = t.value;       // 거리는 그대로 두고 표시 단위만 바꾼다
+          draft.dirty = true;
+          refreshWorkoutRows();
+          return;
+        } else if (t.dataset.f === 'max') run.max = t.checked;
         else {
           const min = parseInt(box.querySelector(`[data-run="${i}"][data-f="min"]`).value, 10) || 0;
           const sec = Math.min(59, parseInt(box.querySelector(`[data-run="${i}"][data-f="sec"]`).value, 10) || 0);
@@ -748,7 +864,7 @@
     if (!s) {
       return `
         <button type="button" data-goto="${mode}" class="w-full text-left p-3 flex items-center justify-between hover:bg-[#f4f4f4]">
-          <span class="text-xs font-medium text-[#161616]">${MODE_LABEL[mode]}</span>
+          <span class="text-xs font-medium text-[#161616]">${labelOf(mode)}</span>
           <span class="text-[11px] text-[#8c8c8c]">기록 없음 · 측정 후 입력 →</span>
         </button>`;
     }
@@ -762,7 +878,7 @@
       <button type="button" data-goto="${mode}" class="w-full text-left p-3 space-y-1.5 hover:bg-[#f4f4f4] ${isWeak ? 'bg-[#fff8e1]' : ''}">
         <div class="flex items-center justify-between gap-2">
           <span class="text-xs font-medium text-[#161616] flex items-center gap-1.5">
-            ${MODE_LABEL[mode]}
+            ${labelOf(mode)}
             ${isWeak ? '<span class="text-[9px] px-1 py-px bg-[#da1e28] text-white font-semibold">약점</span>' : ''}
           </span>
           <span class="flex items-center gap-2">
@@ -876,6 +992,63 @@
     }
     const pb = personalBest(mode);
     list.innerHTML = recs.slice().reverse().map((r) => historyRowHtml(r, pb)).join('');
+  }
+
+  /* 3km 탭: 다른 거리 달리기 기록 (거리별 개인 최고 · 페이스 · 3km 환산) */
+  function customRunModes() {
+    const modes = new Set(getSavedRecords().filter((r) => isCustomRun(r.mode)).map((r) => r.mode));
+    return [...modes].sort((a, b) => metersOf(a) - metersOf(b));
+  }
+
+  function otherRunBlockHtml(mode) {
+    const recs = recordsOf(mode);
+    const pb = personalBest(mode);
+    const est = canConvertTo3km(mode) ? Math.round(to3km(mode, pb.numericVal)) : null;
+    const estGrade = est ? gradeOf('run', est) : null;
+    const cell = (label, value) => `
+      <div><div class="text-[9px] text-[#525252]">${label}</div><div class="text-xs font-mono font-semibold text-[#161616]">${value}</div></div>`;
+    const rows = recs.slice(-3).reverse().map((r) => `
+      <div class="py-1.5 flex items-center justify-between gap-2">
+        <span class="font-mono text-[#525252] flex-shrink-0">${shortDate(r.date)}</span>
+        <span class="flex-1 min-w-0 truncate text-[#161616]">${fmtTime(r.numericVal)} · ${fmtPace(r.numericVal / kmOf(mode))}${sourceOf(r) === 'set' ? ' · 일지' : ''}${r.memo ? ` · <span class="text-[#8c8c8c]">${esc(r.memo)}</span>` : ''}</span>
+        <button type="button" data-edit="${esc(r.id)}" class="text-[#0f62fe] underline flex-shrink-0">수정</button>
+      </div>`).join('');
+    return `
+      <div class="p-3.5 space-y-2">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-semibold text-[#161616]">${fmtDistance(metersOf(mode))}</span>
+          <span class="text-[10px] text-[#525252]">${recs.length}회 기록${recs.length > 3 ? ' · 최근 3회 표시' : ''}</span>
+        </div>
+        <div class="grid grid-cols-3 gap-1 text-center bg-[#f4f4f4] p-2">
+          ${cell('개인 최고', fmtTime(pb.numericVal))}
+          ${cell('평균 페이스', fmtPace(pb.numericVal / kmOf(mode)))}
+          ${cell('3km 환산', est ? `${fmtTime(est)} <span class="text-[9px] px-1 ${GRADE_BADGE[estGrade]}">${estGrade}</span>` : '-')}
+        </div>
+        <div class="divide-y divide-[#e0e0e0] text-[11px]">${rows}</div>
+      </div>`;
+  }
+
+  function renderOtherRunsCard(mode) {
+    const box = $('fit-otherrun-card');
+    if (!box) return;
+    box.classList.toggle('hidden', mode !== 'run');
+    if (mode !== 'run') return;
+    const modes = customRunModes();
+    const head = `
+      <div class="p-3.5 flex items-center justify-between gap-2 border-b border-[#e0e0e0]">
+        <div class="min-w-0">
+          <div class="text-xs font-semibold text-[#161616]">다른 거리 달리기 기록</div>
+          <div class="text-[10px] text-[#525252]">등급 판정 없음 · 거리별 개인 최고와 3km 환산(참고)</div>
+        </div>
+        <span class="text-[10px] font-mono text-[#525252] whitespace-nowrap">${modes.length}개 거리</span>
+      </div>`;
+    if (!modes.length) {
+      box.innerHTML = `${head}<p class="p-3.5 text-[11px] text-[#8c8c8c] leading-relaxed">위 측정 입력에서 ‘거리 직접 입력’을 고르고 5 km, 800 m처럼 넣어 저장하면 여기에 거리별로 모입니다.</p>`;
+      return;
+    }
+    box.innerHTML = `${head}
+      <div class="divide-y divide-[#e0e0e0]">${modes.map(otherRunBlockHtml).join('')}</div>
+      <p class="px-3.5 py-2 text-[10px] text-[#8c8c8c] border-t border-[#e0e0e0] leading-relaxed">3km 환산은 Riegel 공식(T₂ = T₁ × (3000/D)^1.06)으로 계산한 참고값이며 1.5km 이상 거리에만 보여요. 등급은 실제 3km 기록으로만 판정합니다.</p>`;
   }
 
   function renderRoutineBox(mode) {
@@ -1171,6 +1344,7 @@
     const mode = currentFitnessMode;
     renderOverview();
     renderResultCard(mode);
+    renderOtherRunsCard(mode);
     renderWorkoutCard(mode);
     renderRoutineBox(mode);
     drawRecordChart(mode);
@@ -1311,13 +1485,14 @@
         if (result) result.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
     }
-    const list = $('history-list');
-    if (list) {
+    ['history-list', 'fit-otherrun-card'].forEach((id) => {
+      const list = $(id);
+      if (!list) return;
       list.addEventListener('click', (e) => {
         const btn = e.target.closest('[data-edit]');
         if (btn) openEditModal(btn.dataset.edit);
       });
-    }
+    });
   }
 
   function bindPaneButtons() {
@@ -1341,6 +1516,8 @@
 
   function init() {
     bindWorkoutCard();
+    bindDistanceChoice();
+    paintDistanceChoice();
     bindOverviewAndHistory();
     bindChart();
     bindPaneButtons();
@@ -1354,7 +1531,7 @@
   /* ---------- 13. 다른 모듈(coach.js · auth.js)용 공개 API ---------- */
   window.showFitnessPane = showPane;
   window.KAAYFit = {
-    MODES, MODE_LABEL, GRADES, GRADE_BADGE, GRADE_COLOR, WORKOUT_KEY,
+    MODES, MODE_LABEL, GRADES, GRADE_BADGE, GRADE_COLOR, WORKOUT_KEY, labelOf,
     $, esc, toast,
     fmtTime, fmtTimeKo, fmtGapSec, fmtValue, fmtShortValue, fmtPace, fmtGap,
     today, parseDate, addDays, mondayOf, shortDate, weekdayKo,
